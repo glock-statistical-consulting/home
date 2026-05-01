@@ -23,16 +23,18 @@
 <!-- Hero -->
 <header class="hero">
   <div class="hero-inner">
-    
-    <div class="hero-image">
+    <div class="hero-brand">
       <img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
+      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact">
     </div>
-
-    <div class="hero-text">
-      <p>Statistik Nachhilfe & Consulting | Abitur bis Doktorat</p>
-      <a href="index.html#contact" class="btn">Jetzt Kontakt aufnehmen</a>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p>Sie suchen Unterstützung | Projekt, Thesis, Unterricht oder Schulung</p>
+      </div>
+      <div class="hero-action">
+        <a href="#contact" class="btn open-modal">Jetzt Kontakt aufnehmen</a>
+      </div>
     </div>
-
   </div>
 </header>
 
@@ -66,26 +68,30 @@
     <li>60–75 € / h (Master / Thesis)</li>
     <li>75–90 € / h (Doktorat)</li>
   </ul>
-  <p><a href="pricing.html">Detaillierte Preisübersicht →</a></p>
-</section>
-
-<section id="contact">
-  <h2>Kontakt</h2>
-  <p><a href="mailto:glock.gsc@web.de">glock.gsc@web.de</a></p>
-
-  <form action="mailto:glock.gsc@web.de" method="post" enctype="text/plain">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Nachricht" required></textarea>
-    <button type="submit">Senden</button>
-  </form>
 </section>
 
 </main>
 
 <footer>
-  <p>&copy; 2026 Glock Statistical Consulting</p>
+  <p> | &copy; 2026 Glock Statistical Consulting |</p>
+  <p><a href="impressum.html" style="color: white; text-decoration: none;">Impressum</a></p>
 </footer>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h2>Kontakt</h2>
+    <form action="https://formsubmit.co/glock.gsc@web.de" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Nachricht" rows="5" required></textarea>
+      <button type="submit" class="btn">Senden</button>
+    </form>
+  </div>
+</div>
 
 <script>
 /* Smooth scroll */
@@ -99,6 +105,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 </script>
+
+<script src="hero-scroll.js"></script>
 
 </body>
 </html>

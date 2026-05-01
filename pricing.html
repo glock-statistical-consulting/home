@@ -18,17 +18,22 @@
   <a href="pricing.html">Pricing</a>
 </nav>
 
-<section class="hero">
+<header class="hero">
   <div class="hero-inner">
-    <div class="hero-image">
+    <div class="hero-brand">
       <img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
+      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact">
     </div>
-    <div class="hero-text">
-      <p>Transparente Preise – fair & flexibel</p>
-      <a href="index.html#contact" class="btn">Jetzt Kontakt aufnehmen</a>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p>Faire Preismodelle | Transparent & flexibel gestaltbar</p>
+      </div>
+      <div class="hero-action">
+        <a href="#contact" class="btn open-modal">Jetzt Kontakt aufnehmen</a>
+      </div>
     </div>
   </div>
-</section>
+</header>
 
 <section>
   <h2>Preismodelle</h2>
@@ -39,51 +44,173 @@
   <div class="pricing-grid">
 
     <div class="card">
-      <h2>Basics</h2>
-      <p class="price">45–60 € / h</p>
-      <ul>
-        <li>Abitur & Bachelor Grundlagen</li>
-        <li>Deskriptive Statistik</li>
-        <li>Einführung SPSS / R / Python</li>
-      </ul>
-    </div>
-
-    <div class="card highlight">
-      <h2>Advanced</h2>
-      <p class="price">60–75 € / h</p>
-      <ul>
-        <li>Master-Level Statistik</li>
-        <li>Regression, ANOVA, multivariat</li>
-        <li>Thesis Support</li>
-      </ul>
+      <div class="card-summary">
+        <h2>Basics</h2>
+        <p class="price">45–60 € / h</p>
+        <ul>
+          <li>Abitur & Bachelor Grundlagen</li>
+          <li>Deskriptive Statistik</li>
+          <li>Einführung SPSS / R / Python</li>
+        </ul>
+      </div>
+      <div class="card-details" onclick="event.stopPropagation()">
+        <div class="booking-type">
+          <div class="booking-option active" onclick="selectBooking(this, event)">
+            <span class="booking-circle"></span>
+            <span>Einzelbuchung</span>
+          </div>
+          <div class="booking-option" onclick="selectBooking(this, event)">
+            <span class="booking-circle"></span>
+            <span>Paketbuchung</span>
+          </div>
+        </div>
+        <div class="detail-content">
+          <h3>Leistungen</h3>
+          <ul>
+            <li>Grundlagen der deskriptiven Statistik</li>
+            <li>Einführung in SPSS / R / Python</li>
+            <li>Hilfe bei Abitur- & Bachelor-Aufgaben</li>
+            <li>Datenaufbereitung & Visualisierung</li>
+          </ul>
+          <h3>Rabattoptionen</h3>
+          <ul>
+            <li>5 Stunden Paket → 5% Rabatt</li>
+            <li>10 Stunden Paket → 10% Rabatt</li>
+          </ul>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()">Jetzt buchen</a>
+        </div>
+      </div>
     </div>
 
     <div class="card">
-      <h2>Expert</h2>
-      <p class="price">75–90 € / h</p>
-      <ul>
-        <li>Dissertation / PhD-Level</li>
-        <li>Bayesian Statistics</li>
-        <li>Komplexe Modellierung & Beratung</li>
-      </ul>
+      <div class="card-summary">
+        <h2>Advanced</h2>
+        <p class="price">60–75 € / h</p>
+        <ul>
+          <li>Master-Level Statistik</li>
+          <li>Regression, ANOVA, multivariat</li>
+          <li>Thesis Support</li>
+        </ul>
+      </div>
+      <div class="card-details" onclick="event.stopPropagation()">
+        <div class="booking-type">
+          <div class="booking-option active" onclick="selectBooking(this, event)">
+            <span class="booking-circle"></span>
+            <span>Einzelbuchung</span>
+          </div>
+          <div class="booking-option" onclick="selectBooking(this, event)">
+            <span class="booking-circle"></span>
+            <span>Paketbuchung</span>
+          </div>
+        </div>
+        <div class="detail-content">
+          <h3>Leistungen</h3>
+          <ul>
+            <li>Regression, ANOVA & multivariate Verfahren</li>
+            <li>Unterstützung bei Masterarbeiten</li>
+            <li>Fortgeschrittene Datenanalyse</li>
+            <li>Modellierung & Interpretation</li>
+          </ul>
+          <h3>Rabattoptionen</h3>
+          <ul>
+            <li>5 Stunden Paket → 10% Rabatt</li>
+            <li>10 Stunden Paket → 15% Rabatt</li>
+          </ul>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()">Jetzt buchen</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-summary">
+        <h2>Expert</h2>
+        <p class="price">75–90 € / h</p>
+        <ul>
+          <li>Dissertation / PhD-Level</li>
+          <li>Bayesian Statistics</li>
+          <li>Komplexe Modellierung & Beratung</li>
+        </ul>
+      </div>
+      <div class="card-details" onclick="event.stopPropagation()">
+        <div class="booking-type">
+          <div class="booking-option active" onclick="selectBooking(this, event)">
+            <span class="booking-circle"></span>
+            <span>Einzelbuchung</span>
+          </div>
+          <div class="booking-option" onclick="selectBooking(this, event)">
+            <span class="booking-circle"></span>
+            <span>Paketbuchung</span>
+          </div>
+        </div>
+        <div class="detail-content">
+          <h3>Leistungen</h3>
+          <ul>
+            <li>Dissertation & PhD-Level Statistik</li>
+            <li>Bayesianische Statistik & MCMC</li>
+            <li>Komplexe Modellierung & Methodik</li>
+            <li>Individuelle Beratung & Betreuung</li>
+          </ul>
+          <h3>Rabattoptionen</h3>
+          <ul>
+            <li>5 Stunden Paket → 10% Rabatt</li>
+            <li>10 Stunden Paket → 15% Rabatt</li>
+          </ul>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()">Jetzt buchen</a>
+        </div>
+      </div>
     </div>
 
   </div>
-
-  <h2>Paketangebote</h2>
-  <ul>
-    <li>5 Stunden → 5% Rabatt</li>
-    <li>10 Stunden → 10–15% Rabatt</li>
-  </ul>
-
-  <p>
-    <a href="index.html">← Zurück zur Startseite</a>
-  </p>
 </section>
 
 <footer>
-  <p>&copy; 2026 Glock Statistical Consulting</p>
+  <p> | &copy; 2026 Glock Statistical Consulting |</p>
+  <p><a href="impressum.html" style="color: white; text-decoration: none;">Impressum</a></p>
 </footer>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h2>Kontakt</h2>
+    <form action="https://formsubmit.co/glock.gsc@web.de" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Nachricht" rows="5" required></textarea>
+      <button type="submit" class="btn">Senden</button>
+    </form>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  const summary = card.querySelector('.card-summary');
+
+  summary.style.cursor = 'pointer';
+  summary.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    document.querySelectorAll('.card').forEach(c => {
+      if (c !== card) c.classList.remove('expanded');
+    });
+
+    card.classList.toggle('expanded');
+  });
+});
+
+function selectBooking(option, event) {
+  event.stopPropagation();
+  event.preventDefault();
+  const parent = option.closest('.booking-type');
+  parent.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
+  option.classList.add('active');
+}
+</script>
+
+<script src="hero-scroll.js"></script>
 
 </body>
 </html>
