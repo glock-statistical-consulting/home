@@ -61,27 +61,6 @@ body {
   color: var(--orange);
 }
 
-/* HERO */
-.hero {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: linear-gradient(135deg, #001d3d 0%, #003566 50%, #00509e 100%);
-  color: white;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.hero-inner {
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
 .hero-text h1 {
   margin: 0 0 15px 0;
   background: linear-gradient(90deg, #cbd5e1, #ffffff);
