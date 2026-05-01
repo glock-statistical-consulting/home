@@ -12,10 +12,18 @@
 <body>
 
 <nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
+  <div class="nav-spacer"></div>
+  <div class="nav-links">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">About</a>
+    <a href="services.html" data-i18n="navbar_services">Services</a>
+    <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
+  </div>
+  <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
 </nav>
 
 <header class="hero">
@@ -26,60 +34,57 @@
     </div>
     <div class="hero-content">
       <div class="hero-text">
-        <p>Impressum – Anbieterkennzeichnung</p>
+        <p data-i18n="hero_impressum">Impressum – Anbieterkennzeichnung</p>
       </div>
       <div class="hero-action">
-        <a href="#contact" class="btn open-modal">Jetzt Kontakt aufnehmen</a>
+        <a href="#contact" class="btn open-modal" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
 </header>
 
 <section>
-  <h2>Angaben gemäß § 5 DDG (ehemals TMG)</h2>
+  <h2 data-i18n="imp_ddg">Angaben gemäß § 5 DDG (ehemals TMG)</h2>
 
   <p><strong>Glock Statistical Consulting</strong></p>
   <p>
-    <!-- Name des Inhabers eintragen -->
     [Vorname Nachname]<br>
-    <!-- Straße und Hausnummer -->
     [Straße Hausnummer]<br>
-    <!-- PLZ und Ort -->
     [PLZ Ort]
   </p>
 
-  <h2>Kontakt</h2>
+  <h2 data-i18n="imp_contact">Kontakt</h2>
   <p>
     Telefon: [Telefonnummer]<br>
     E-Mail: glock.gsc@web.de
   </p>
 
-  <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+  <h2 data-i18n="imp_resp">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
   <p>
     [Vorname Nachname]<br>
     [Straße Hausnummer]<br>
     [PLZ Ort]
   </p>
 
-  <h2>Streitschlichtung</h2>
-  <p>
+  <h2 data-i18n="imp_dispute_title">Streitschlichtung</h2>
+  <p data-i18n="imp_dispute_text">
     Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
     <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>.
   </p>
-  <p>
+  <p data-i18n="imp_dispute_text2">
     Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
     Verbraucherschlichtungsstelle teilzunehmen.
   </p>
 
-  <h2>Haftung für Inhalte</h2>
-  <p>
+  <h2 data-i18n="imp_liability_title">Haftung für Inhalte</h2>
+  <p data-i18n="imp_liability_text1">
     Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen
     Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir
     als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
     Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
     Tätigkeit hinweisen.
   </p>
-  <p>
+  <p data-i18n="imp_liability_text2">
     Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den
     allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch
     erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei
@@ -87,8 +92,8 @@
     entfernen.
   </p>
 
-  <h2>Haftung für Links</h2>
-  <p>
+  <h2 data-i18n="imp_links_title">Haftung für Links</h2>
+  <p data-i18n="imp_links_text1">
     Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
     Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
     Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
@@ -96,21 +101,21 @@
     mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der
     Verlinkung nicht erkennbar.
   </p>
-  <p>
+  <p data-i18n="imp_links_text2">
     Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
     Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
     Rechtsverletzungen werden wir derartige Links umgehend entfernen.
   </p>
 
-  <h2>Urheberrecht</h2>
-  <p>
+  <h2 data-i18n="imp_copyright_title">Urheberrecht</h2>
+  <p data-i18n="imp_copyright_text1">
     Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
     dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
     der Verwertung außerhalb der Grenzen des Urheberrechtes benötigen die schriftliche
     Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind
     nur für den privaten, nicht kommerziellen Gebrauch gestattet.
   </p>
-  <p>
+  <p data-i18n="imp_copyright_text2">
     Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die
     Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche
     gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden,
@@ -121,9 +126,10 @@
 
 <footer>
   <p> | &copy; 2026 Glock Statistical Consulting |</p>
-  <p><a href="impressum.html" style="color: white; text-decoration: none;">Impressum</a></p>
+  <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
 </footer>
 
+<script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
 
 </body>

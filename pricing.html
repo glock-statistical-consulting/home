@@ -12,10 +12,18 @@
 <body>
 
 <nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
+  <div class="nav-spacer"></div>
+  <div class="nav-links">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">About</a>
+    <a href="services.html" data-i18n="navbar_services">Services</a>
+    <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
+  </div>
+  <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
 </nav>
 
 <header class="hero">
@@ -26,10 +34,10 @@
     </div>
     <div class="hero-content">
       <div class="hero-text">
-        <p>Faire Preismodelle | Transparent & flexibel gestaltbar</p>
+        <p data-i18n="hero_pricing">Faire Preismodelle | Transparent & flexibel gestaltbar</p>
       </div>
       <div class="hero-action">
-        <a href="#contact" class="btn open-modal">Jetzt Kontakt aufnehmen</a>
+        <a href="#contact" class="btn open-modal" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
@@ -37,16 +45,14 @@
 
 <main>
 <section>
-  <h2>Preismodelle</h2>
-  <p class="subtitle">
-    Transparente Preise für Statistik-Nachhilfe & Data Science Consulting – angepasst an Komplexität und Niveau.
-  </p>
+  <h2 data-i18n="pricing_title">Preismodelle</h2>
+  <p class="subtitle" data-i18n="pricing_subtitle">Transparente Preise für Statistik-Nachhilfe & Data Science Consulting – angepasst an Komplexität und Niveau.</p>
 
   <div class="pricing-grid">
 
     <div class="card">
       <div class="card-summary">
-        <h2>Basics</h2>
+        <h2 data-i18n="price_basics">Basics</h2>
         <p class="price">45–60 € / h</p>
         <ul>
           <li>Abitur & Bachelor Grundlagen</li>
@@ -58,34 +64,34 @@
         <div class="booking-type">
           <div class="booking-option active" onclick="selectBooking(this, event)">
             <span class="booking-circle"></span>
-            <span>Einzelbuchung</span>
+            <span data-i18n="booking_single">Einzelbuchung</span>
           </div>
           <div class="booking-option" onclick="selectBooking(this, event)">
             <span class="booking-circle"></span>
-            <span>Paketbuchung</span>
+            <span data-i18n="booking_package">Paketbuchung</span>
           </div>
         </div>
         <div class="detail-content">
-          <h3>Leistungen</h3>
+          <h3 data-i18n="b_details_title">Leistungen</h3>
           <ul>
-            <li>Grundlagen der deskriptiven Statistik</li>
-            <li>Einführung in SPSS / R / Python</li>
-            <li>Hilfe bei Abitur- & Bachelor-Aufgaben</li>
-            <li>Datenaufbereitung & Visualisierung</li>
+            <li data-i18n="b_li1">Grundlagen der deskriptiven Statistik</li>
+            <li data-i18n="b_li2">Einführung in SPSS / R / Python</li>
+            <li data-i18n="b_li3">Hilfe bei Abitur- & Bachelor-Aufgaben</li>
+            <li data-i18n="b_li4">Datenaufbereitung & Visualisierung</li>
           </ul>
-          <h3>Rabattoptionen</h3>
+          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
           <ul>
-            <li>5 Stunden Paket → 5% Rabatt</li>
-            <li>10 Stunden Paket → 10% Rabatt</li>
+            <li data-i18n="b_r1">5 Stunden Paket → 5% Rabatt</li>
+            <li data-i18n="b_r2">10 Stunden Paket → 10% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-summary">
-        <h2>Advanced</h2>
+        <h2 data-i18n="price_advanced">Advanced</h2>
         <p class="price">60–75 € / h</p>
         <ul>
           <li>Master-Level Statistik</li>
@@ -97,34 +103,34 @@
         <div class="booking-type">
           <div class="booking-option active" onclick="selectBooking(this, event)">
             <span class="booking-circle"></span>
-            <span>Einzelbuchung</span>
+            <span data-i18n="booking_single">Einzelbuchung</span>
           </div>
           <div class="booking-option" onclick="selectBooking(this, event)">
             <span class="booking-circle"></span>
-            <span>Paketbuchung</span>
+            <span data-i18n="booking_package">Paketbuchung</span>
           </div>
         </div>
         <div class="detail-content">
-          <h3>Leistungen</h3>
+          <h3 data-i18n="b_details_title">Leistungen</h3>
           <ul>
-            <li>Regression, ANOVA & multivariate Verfahren</li>
-            <li>Unterstützung bei Masterarbeiten</li>
-            <li>Fortgeschrittene Datenanalyse</li>
-            <li>Modellierung & Interpretation</li>
+            <li data-i18n="a_li1">Regression, ANOVA & multivariate Verfahren</li>
+            <li data-i18n="a_li2">Unterstützung bei Masterarbeiten</li>
+            <li data-i18n="a_li3">Fortgeschrittene Datenanalyse</li>
+            <li data-i18n="a_li4">Modellierung & Interpretation</li>
           </ul>
-          <h3>Rabattoptionen</h3>
+          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
           <ul>
-            <li>5 Stunden Paket → 10% Rabatt</li>
-            <li>10 Stunden Paket → 15% Rabatt</li>
+            <li data-i18n="a_r1">5 Stunden Paket → 10% Rabatt</li>
+            <li data-i18n="a_r2">10 Stunden Paket → 15% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-summary">
-        <h2>Expert</h2>
+        <h2 data-i18n="price_expert">Expert</h2>
         <p class="price">75–90 € / h</p>
         <ul>
           <li>Dissertation / PhD-Level</li>
@@ -136,27 +142,27 @@
         <div class="booking-type">
           <div class="booking-option active" onclick="selectBooking(this, event)">
             <span class="booking-circle"></span>
-            <span>Einzelbuchung</span>
+            <span data-i18n="booking_single">Einzelbuchung</span>
           </div>
           <div class="booking-option" onclick="selectBooking(this, event)">
             <span class="booking-circle"></span>
-            <span>Paketbuchung</span>
+            <span data-i18n="booking_package">Paketbuchung</span>
           </div>
         </div>
         <div class="detail-content">
-          <h3>Leistungen</h3>
+          <h3 data-i18n="b_details_title">Leistungen</h3>
           <ul>
-            <li>Dissertation & PhD-Level Statistik</li>
-            <li>Bayesianische Statistik & MCMC</li>
-            <li>Komplexe Modellierung & Methodik</li>
-            <li>Individuelle Beratung & Betreuung</li>
+            <li data-i18n="e_li1">Dissertation & PhD-Level Statistik</li>
+            <li data-i18n="e_li2">Bayesianische Statistik & MCMC</li>
+            <li data-i18n="e_li3">Komplexe Modellierung & Methodik</li>
+            <li data-i18n="e_li4">Individuelle Beratung & Betreuung</li>
           </ul>
-          <h3>Rabattoptionen</h3>
+          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
           <ul>
-            <li>5 Stunden Paket → 10% Rabatt</li>
-            <li>10 Stunden Paket → 15% Rabatt</li>
+            <li data-i18n="e_r1">5 Stunden Paket → 10% Rabatt</li>
+            <li data-i18n="e_r2">10 Stunden Paket → 15% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
@@ -167,21 +173,21 @@
 
 <footer>
   <p> | &copy; 2026 Glock Statistical Consulting |</p>
-  <p><a href="impressum.html" style="color: white; text-decoration: none;">Impressum</a></p>
+  <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
 </footer>
 
 <!-- Contact Modal -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2>Kontakt</h2>
+    <h2 data-i18n="contact_title">Kontakt</h2>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Nachricht" rows="5" required></textarea>
-      <button type="submit" class="btn">Senden</button>
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="contact_send">Senden</button>
     </form>
   </div>
 </div>
@@ -189,29 +195,28 @@
 <script>
 document.querySelectorAll('.card').forEach(card => {
   const summary = card.querySelector('.card-summary');
-
   summary.style.cursor = 'pointer';
   summary.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    document.querySelectorAll('.card').forEach(c => {
-      if (c !== card) c.classList.remove('expanded');
-    });
-
+    e.preventDefault(); e.stopPropagation();
+    document.querySelectorAll('.card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
     card.classList.toggle('expanded');
   });
 });
-
 function selectBooking(option, event) {
-  event.stopPropagation();
-  event.preventDefault();
+  event.stopPropagation(); event.preventDefault();
   const parent = option.closest('.booking-type');
   parent.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
   option.classList.add('active');
 }
+function closeModal() {
+  const modal = document.getElementById('contactModal');
+  if (modal) { modal.classList.remove('active'); setTimeout(() => modal.style.display = 'none', 300); }
+}
+document.addEventListener('click', function(e) { if (e.target.classList.contains('modal-overlay')) closeModal(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 </script>
 
+<script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
 
 </body>

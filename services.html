@@ -11,15 +11,21 @@
 </head>
 <body>
 
-<!-- Navigation -->
 <nav class="navbar">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="pricing.html">Pricing</a>
+  <div class="nav-spacer"></div>
+  <div class="nav-links">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">About</a>
+    <a href="services.html" data-i18n="navbar_services">Services</a>
+    <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
+  </div>
+  <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
 </nav>
 
-<!-- Hero -->
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-brand">
@@ -28,83 +34,130 @@
     </div>
     <div class="hero-content">
       <div class="hero-text">
-        <p>Statistik Nachhilfe oder Consulting | Abitur bis Doktorat & Schulungen</p>
+        <p data-i18n="hero_services">Statistik Nachhilfe oder Consulting | Abitur bis Doktorat & Schulungen</p>
       </div>
       <div class="hero-action">
-        <a href="#contact" class="btn open-modal">Jetzt Kontakt aufnehmen</a>
+        <a href="#contact" class="btn open-modal" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Services Section -->
-<section>
-  <h2>Services</h2>
-  <p>
-    Glock Statistical Consulting bietet datengetriebene Unterstützung für Schüler, Studierende und Forschende –
-    von Grundlagen bis zu hochkomplexer Statistik.
-  </p>
+<main>
+<section class="services-section">
+  <h2 data-i18n="services_title">Meine Leistungen</h2>
+  <p class="subtitle" data-i18n="services_subtitle">Hier finden Sie eine Übersicht über die statistischen und methodischen Unterstützungsdienste, die ich für Studierende und Wissenschaftler anbiete.</p>
 
-  <h2>📊 Statistik & Data Science</h2>
-  <ul>
-    <li>Deskriptive Statistik & Datenaufbereitung</li>
-    <li>Inferenzstatistik (Hypothesentests, Konfidenzintervalle)</li>
-    <li>Stochastik & Wahrscheinlichkeitsrechnung</li>
-    <li>Uni- & multivariate Verfahren (Regression, ANOVA, Faktorenanalyse)</li>
-    <li>Bayesianische Statistik</li>
-  </ul>
+  <div class="services-grid">
 
-  <h2>💻 Tools & Programming</h2>
-  <ul>
-    <li>SPSS Analyse & Interpretation</li>
-    <li>R / RStudio (inkl. Visualisierung)</li>
-    <li>Python (Pandas, NumPy, SciPy, Statsmodels)</li>
-  </ul>
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="svc_1_title">Statistische Beratung</h3>
+      </div>
+      <div class="service-details">
+        <p data-i18n="svc_1_desc">Konsultationen zu statistischen Fragestellungen, Methodenauswahl und -anwendung in der Forschung.</p>
+        <ul>
+          <li data-i18n="svc_1_li1">Definition geeigneter statistischer Methoden</li>
+          <li data-i18n="svc_1_li2">Erklärung statistischer Konzepte</li>
+          <li data-i18n="svc_1_li3">Anleitung zur korrekten Datenanalyse</li>
+        </ul>
+      </div>
+    </div>
 
-  <h2>🎓 Akademische Unterstützung</h2>
-  <ul>
-    <li>Hausarbeiten & Seminararbeiten</li>
-    <li>Bachelor- & Masterarbeiten (Methodik & Auswertung)</li>
-    <li>Dissertation / Doktoratsprojekte</li>
-    <li>Methodenauswahl & Studiendesign</li>
-  </ul>
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="svc_2_title">Methodentraining</h3>
+      </div>
+      <div class="service-details">
+        <p data-i18n="svc_2_desc">Individuelle Trainingseinheiten für statistische Software wie SPSS, R oder Python.</p>
+        <ul>
+          <li data-i18n="svc_2_li1">Grundlagen der statistischen Software</li>
+          <li data-i18n="svc_2_li2">Erfahrung mit Datenmanipulation und -analyse</li>
+          <li data-i18n="svc_2_li3">Fokus auf die Anwendung in der Wissenschaft</li>
+        </ul>
+      </div>
+    </div>
 
-  <h2>🧠 Beratung</h2>
-  <ul>
-    <li>Statistische Modellwahl</li>
-    <li>Interpretation von Ergebnissen</li>
-    <li>Feedback zu Analysen & Schreibprozessen</li>
-    <li>Strukturierung wissenschaftlicher Projekte</li>
-  </ul>
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="svc_3_title">Projektbegleitung</h3>
+      </div>
+      <div class="service-details">
+        <p data-i18n="svc_3_desc">Unterstützung bei der Planung und Umsetzung statistischer Analysen für wissenschaftliche Projekte.</p>
+        <ul>
+          <li data-i18n="svc_3_li1">Entwicklung eines Analyseplans</li>
+          <li data-i18n="svc_3_li2">Durchführung statistischer Analysen</li>
+          <li data-i18n="svc_3_li3">Interpretation der Ergebnisse</li>
+        </ul>
+      </div>
+    </div>
 
-  <h2>📌 Arbeitsweise</h2>
-  <p>
-    Fokus auf verständliche Erklärung, praktische Anwendung und saubere Umsetzung wissenschaftlicher Standards.
-    Ziel ist nicht nur Lösung, sondern Verständnis.
-  </p>
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="svc_4_title">Qualitative Forschung</h3>
+      </div>
+      <div class="service-details">
+        <p data-i18n="svc_4_desc">Unterstützung bei qualitativen Forschungsmethoden und deren statistischer Auswertung.</p>
+        <ul>
+          <li data-i18n="svc_4_li1">Methodenauswahl für qualitative Studien</li>
+          <li data-i18n="svc_4_li2">Auswertung von Interviews und Fokusgruppen</li>
+          <li data-i18n="svc_4_li3">Kategorisierung und Codierung von Daten</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+<section class="cta">
+  <h2 data-i18n="cta_title">Fertig mit den Statistik-Problemen?</h2>
+  <p data-i18n="cta_text">Buchen Sie jetzt einen Termin und verbessern Sie Ihre wissenschaftlichen Arbeiten.</p>
+  <a href="#contact" class="btn open-modal" data-i18n="cta_btn">Jetzt Kontakt aufnehmen</a>
+</section>
+</main>
 
 <footer>
   <p> | &copy; 2026 Glock Statistical Consulting |</p>
-  <p><a href="impressum.html" style="color: white; text-decoration: none;">Impressum</a></p>
+  <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
 </footer>
 
 <!-- Contact Modal -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2>Kontakt</h2>
+    <h2 data-i18n="contact_title">Kontakt</h2>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Nachricht" rows="5" required></textarea>
-      <button type="submit" class="btn">Senden</button>
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="contact_send">Senden</button>
     </form>
   </div>
 </div>
 
+<script>
+document.querySelectorAll('.service-card').forEach(card => {
+  const header = card.querySelector('.service-header');
+  header.style.cursor = 'pointer';
+  header.addEventListener('click', function(e) {
+    e.preventDefault(); e.stopPropagation();
+    document.querySelectorAll('.service-card.expanded').forEach(c => {
+      if (c !== card) c.classList.remove('expanded');
+    });
+    card.classList.toggle('expanded');
+  });
+});
+function closeModal() {
+  const modal = document.getElementById('contactModal');
+  if (modal) { modal.classList.remove('active'); setTimeout(() => modal.style.display = 'none', 300); }
+}
+document.addEventListener('click', function(e) { if (e.target.classList.contains('modal-overlay')) closeModal(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+</script>
+
+<script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
 
 </body>
