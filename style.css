@@ -1,0 +1,90 @@
+:root {
+  --azure: #007FFF;
+  --deep-sea: #003366;
+  --orange: #FF6600;
+  --grey-light: #f5f5f5;
+  --grey-dark: #333333;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin:0;
+  padding:0;
+  background-color: var(--grey-light);
+  color: var(--grey-dark);
+  line-height:1.6;
+}
+
+/* Hero */
+.hero {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+  background: linear-gradient(to right, var(--azure), var(--deep-sea));
+  color:white;
+  padding:50px 20px;
+}
+.hero-text { flex:1 1 400px; }
+.hero-text h1 { margin:0 0 20px 0; }
+.hero-text p { font-size:1.2rem; }
+.hero-text .btn {
+  display:inline-block;
+  padding:12px 25px;
+  background-color: var(--orange);
+  color:white;
+  text-decoration:none;
+  border-radius:5px;
+  margin-top:15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-text .btn:hover {
+  transform: scale(1.05);
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+.hero-image { flex:1 1 300px; text-align:center; margin-top:20px; }
+
+/* Chart-Illustration */
+.chart-illustration {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-around;
+  width:100%;
+  max-width:300px;
+  height:150px;
+  background: rgba(255,255,255,0.1);
+  border-radius:10px;
+  padding:10px;
+  animation: pop-in 1s ease-out forwards;
+}
+.chart-illustration .bar {
+  width:20%;
+  border-radius:5px 5px 0 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: grow 1s ease-out forwards;
+}
+@keyframes grow { to { transform: scaleY(1); } }
+@keyframes pop-in { from { opacity:0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0);} }
+
+/* Sections */
+section { padding:40px 20px; }
+h2 { color: var(--deep-sea); margin-bottom:15px; }
+ul { list-style: disc; margin-left:20px; }
+
+/* Form */
+form { display:flex; flex-direction:column; gap:10px; max-width:500px; }
+input, textarea { padding:10px; font-size:1rem; border:1px solid #ccc; border-radius:5px; width:100%; }
+button { padding:10px; font-size:1rem; background-color: var(--orange); color:white; border:none; border-radius:5px; cursor:pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+button:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+/* Footer */
+footer { text-align:center; padding:20px; background-color: var(--grey-dark); color:white; }
+footer a { color: var(--azure); text-decoration:none; }
+
+/* Responsive */
+@media(max-width:768px) {
+  .hero { flex-direction:column; text-align:center; }
+  .hero-text { margin-bottom:20px; }
+  .chart-illustration { max-width:80%; }
+}
