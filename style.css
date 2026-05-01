@@ -13,7 +13,7 @@
 
 body {
   margin: 0;
-  padding-top: 60px;
+  padding-top: 200px;
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f7f9fc;
   color: #1f2937;
@@ -38,10 +38,13 @@ body {
 
 /* HERO */
 .hero {
+  position: fixed;
+  top: 60px;
   width: 100%;
   background: linear-gradient(135deg, #001d3d 0%, #003566 50%, #00509e 100%);
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
 .hero-inner {
