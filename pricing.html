@@ -230,6 +230,8 @@
       <input type="hidden" name="booking_card" id="booking-card">
       <input type="hidden" name="booking_type" id="booking-type">
       <input type="hidden" name="booking_hours" id="booking-hours">
+      <input type="hidden" name="discount" id="booking-discount">
+      <input type="hidden" name="language" id="booking-language">
       <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
       <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
       <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
@@ -284,9 +286,13 @@ document.querySelectorAll('.card').forEach(card => {
         const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
         const customInput = card.querySelector('.package-custom-input');
         document.getElementById('booking-hours').value = activePkg.dataset.hours === 'custom' ? (customInput.value || 'nicht angegeben') : hoursLabel;
+        const discountMap = { '5 Stunden': '10%', '10 Stunden': '15%', '5 hours': '10%', '10 hours': '15%' };
+        document.getElementById('booking-discount').value = activePkg.dataset.hours === 'custom' ? 'individuell' : (discountMap[hoursLabel] || '0%');
       } else {
         document.getElementById('booking-hours').value = '';
+        document.getElementById('booking-discount').value = '0%';
       }
+      document.getElementById('booking-language').value = (localStorage.getItem('lang') || 'DE').toUpperCase();
     });
   }
 });
@@ -300,7 +306,8 @@ document.getElementById('pricing-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const toast = document.getElementById('toast');
   toast.classList.add('show');
-  setTimeout(() => { toast.classList.remove('show'); this.submit(); }, 1500);
+  setTimeout(() => { toast.classList.remove('show'); }, 2500);
+  setTimeout(() => { this.submit(); }, 3300);
 });
 </script>
 

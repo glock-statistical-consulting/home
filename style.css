@@ -656,13 +656,13 @@ footer {
   transform: translateX(-50%) translateY(-20px);
   background: #16a34a;
   color: white;
-  padding: 12px 30px;
+  padding: 14px 36px;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   z-index: 10000;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
   pointer-events: none;
 }
 
