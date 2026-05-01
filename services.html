@@ -84,16 +84,5 @@
   </p>
 </section>
 
-<script>
-function adjustSpacing() {
-  const navbar = document.querySelector('.navbar');
-  const hero = document.querySelector('.hero');
-  hero.style.top = navbar.offsetHeight + 'px';
-  document.body.style.paddingTop = (navbar.offsetHeight + hero.offsetHeight) + 'px';
-}
-window.addEventListener('load', adjustSpacing);
-window.addEventListener('resize', adjustSpacing);
-</script>
-
 </body>
 </html>

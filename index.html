@@ -88,16 +88,6 @@
 </footer>
 
 <script>
-/* Automatischer Abstand für fixed Navbar + Hero */
-function adjustSpacing() {
-  const navbar = document.querySelector('.navbar');
-  const hero = document.querySelector('.hero');
-  hero.style.top = navbar.offsetHeight + 'px';
-  document.body.style.paddingTop = (navbar.offsetHeight + hero.offsetHeight) + 'px';
-}
-window.addEventListener('load', adjustSpacing);
-window.addEventListener('resize', adjustSpacing);
-
 /* Smooth scroll */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
