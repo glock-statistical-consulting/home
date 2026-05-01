@@ -579,14 +579,15 @@ footer {
 }
 
 .package-options {
-  display: none;
-  gap: 8px;
-  justify-content: center;
+  display: none !important;
+  flex-direction: column !important;
+  gap: 6px;
+  align-items: center;
   margin: 10px 0;
 }
 
 .package-options.visible {
-  display: flex;
+  display: flex !important;
 }
 
 .package-option {
