@@ -21,7 +21,7 @@ const translations = {
 
     cta_title: "Done with Statistics Problems?",
     cta_text: "Book a session now and improve your academic work.",
-    cta_btn: "Jetzt Kontakt aufnehmen",
+    cta_btn: "Book Now",
 
     footer_impressum: "Imprint",
 
