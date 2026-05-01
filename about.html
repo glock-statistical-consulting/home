@@ -18,9 +18,27 @@
   <a href="services.html">Services</a>
 </nav>
 
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Glock Statistical Consulting (GSC)</h1>
+      <p>Statistik Nachhilfe & Consulting | Abitur bis Doktorat</p>
+    </div>
+    <div class="hero-image">
+      <div class="chart-illustration">
+        <div class="bar" style="height:80%; background:#FF6600;"></div>
+        <div class="bar" style="height:60%; background:#FF6600;"></div>
+        <div class="bar" style="height:90%; background:#FF6600;"></div>
+        <div class="bar" style="height:70%; background:#FF6600;"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
 <!-- About Section -->
 <section>
-  <h1>Über Glock Statistical Consulting (GSC)</h1>
+  <h2>Über Glock Statistical Consulting (GSC)</h2>
 
   <p>
     Ich bin M.Sc. Statistik (Universität Bamberg) mit über 8 Jahren Erfahrung in Forschung, Industrie und angewandter Datenanalyse.
@@ -52,6 +70,15 @@
     <a href="index.html">← Zurück zur Startseite</a>
   </p>
 </section>
+
+<script>
+function adjustSpacing() {
+  const hero = document.querySelector('.hero');
+  document.body.style.paddingTop = hero.offsetHeight + 'px';
+}
+window.addEventListener('load', adjustSpacing);
+window.addEventListener('resize', adjustSpacing);
+</script>
 
 </body>
 </html>
