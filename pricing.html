@@ -47,7 +47,7 @@
 
   <div class="pricing-grid">
 
-    <div class="card">
+    <div class="card" data-card="Basics">
       <div class="card-summary">
         <h2 data-i18n="price_basics">Basics</h2>
         <p class="price">45–60 € / h</p>
@@ -81,12 +81,12 @@
             <li data-i18n="b_r1">5 Stunden Paket → 5% Rabatt</li>
             <li data-i18n="b_r2">10 Stunden Paket → 10% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()" data-i18n="book_btn">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation(); setBooking('Basics', this)" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-card="Advanced">
       <div class="card-summary">
         <h2 data-i18n="price_advanced">Advanced</h2>
         <p class="price">60–75 € / h</p>
@@ -120,12 +120,12 @@
             <li data-i18n="a_r1">5 Stunden Paket → 10% Rabatt</li>
             <li data-i18n="a_r2">10 Stunden Paket → 15% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()" data-i18n="book_btn">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation(); setBooking('Basics', this)" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-card="Expert">
       <div class="card-summary">
         <h2 data-i18n="price_expert">Expert</h2>
         <p class="price">75–90 € / h</p>
@@ -159,7 +159,7 @@
             <li data-i18n="e_r1">5 Stunden Paket → 10% Rabatt</li>
             <li data-i18n="e_r2">10 Stunden Paket → 15% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation()" data-i18n="book_btn">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation(); setBooking('Basics', this)" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
@@ -181,6 +181,8 @@
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="booking_card" id="booking-card">
+      <input type="hidden" name="booking_type" id="booking-type">
       <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
       <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
       <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
@@ -204,6 +206,13 @@ function selectBooking(option, event) {
   const parent = option.closest('.booking-type');
   parent.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
   option.classList.add('active');
+}
+function setBooking(cardName, btn) {
+  document.getElementById('booking-card').value = cardName;
+  const card = btn.closest('.card');
+  const active = card.querySelector('.booking-option.active');
+  const type = active ? active.textContent.trim() : 'Einzelbuchung';
+  document.getElementById('booking-type').value = type;
 }
 function closeModal() {
   const modal = document.getElementById('contactModal');
