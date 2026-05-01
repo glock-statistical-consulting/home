@@ -88,3 +88,25 @@ footer a { color: var(--azure); text-decoration:none; }
   .hero-text { margin-bottom:20px; }
   .chart-illustration { max-width:80%; }
 }
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #FF6600;
+}
