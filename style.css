@@ -499,8 +499,9 @@ footer {
 
 .card-details .booking-type {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
   margin: 15px 0;
 }
 
