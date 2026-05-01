@@ -110,3 +110,18 @@ footer a { color: var(--azure); text-decoration:none; }
 .navbar a:hover {
   color: #FF6600;
 }
+
+
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h1, h2 {
+  color: #003366;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
