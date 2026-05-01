@@ -120,7 +120,7 @@ document.querySelectorAll('.smooth-redirect').forEach(btn => {
     overlay.className = 'page-transition-overlay';
     document.body.appendChild(overlay);
     requestAnimationFrame(() => overlay.classList.add('active'));
-    setTimeout(() => window.location.href = href, 400);
+    setTimeout(() => window.location.href = href, 200);
   });
 });
 </script>
