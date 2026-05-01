@@ -13,17 +13,19 @@ body {
   background-color: var(--grey-light);
   color: var(--grey-dark);
   line-height:1.6;
+  padding-top: 120px; /* Höhe des Hero-Bereichs */
 }
 
-/* Hero */
+/* Sticky Hero Header */
 .hero {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  align-items:center;
-  background: linear-gradient(to right, var(--azure), var(--deep-sea));
-  color:white;
-  padding:50px 20px;
+  position: sticky; /* oder 'fixed', wenn immer sichtbar */
+  top: 0;           /* oben am Bildschirmrand */
+  width: 100%;
+  z-index: 9999;    /* über allen anderen Elementen */
+  background-color: #4A90A9; /* gleiche Farbe wie vorher */
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* sanfter Schatten */
+  padding: 20px 0;  /* optional für etwas Luft */
 }
 .hero-text { flex:1 1 400px; }
 .hero-text h1 { margin:0 0 20px 0; }
@@ -43,6 +45,7 @@ body {
   box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 .hero-image { flex:1 1 300px; text-align:center; margin-top:20px; }
+
 
 /* Chart-Illustration */
 .chart-illustration {
