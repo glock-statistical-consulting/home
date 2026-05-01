@@ -16,22 +16,19 @@
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
   <a href="services.html">Services</a>
+  <a href="pricing.html">Pricing</a>
 </nav>
 
 <!-- Hero -->
 <header class="hero">
   <div class="hero-inner">
-    <div class="hero-text">
-      <h1>Glock Statistical Consulting (GSC)</h1>
-      <p>Statistik Nachhilfe & Consulting | Abitur bis Doktorat</p>
-    </div>
     <div class="hero-image">
-      <div class="chart-illustration">
-        <div class="bar" style="height:80%; background:#FF6600;"></div>
-        <div class="bar" style="height:60%; background:#FF6600;"></div>
-        <div class="bar" style="height:90%; background:#FF6600;"></div>
-        <div class="bar" style="height:70%; background:#FF6600;"></div>
-      </div>
+      <img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
+    </div>
+
+    <div class="hero-text">
+      <p>Statistik Nachhilfe & Consulting | Abitur bis Doktorat</p>
+      <a href="index.html#contact" class="btn">Jetzt Kontakt aufnehmen</a>
     </div>
   </div>
 </header>
@@ -89,8 +86,10 @@
 
 <script>
 function adjustSpacing() {
+  const navbar = document.querySelector('.navbar');
   const hero = document.querySelector('.hero');
-  document.body.style.paddingTop = hero.offsetHeight + 'px';
+  hero.style.top = navbar.offsetHeight + 'px';
+  document.body.style.paddingTop = (navbar.offsetHeight + hero.offsetHeight) + 'px';
 }
 window.addEventListener('load', adjustSpacing);
 window.addEventListener('resize', adjustSpacing);

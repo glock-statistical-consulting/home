@@ -27,8 +27,9 @@ body {
   padding: 15px;
   background: white;
   border-bottom: 1px solid #e5e7eb;
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1000;
 }
 
@@ -45,7 +46,7 @@ body {
 /* HERO */
 .hero {
   position: fixed;
-  top: 60px;
+  top: 0;
   width: 100%;
   background: linear-gradient(135deg, #001d3d 0%, #003566 50%, #00509e 100%);
   color: white;
@@ -56,7 +57,7 @@ body {
 .hero-inner {
   max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,6 +66,10 @@ body {
 
 .hero-text h1 {
   margin: 0 0 15px 0;
+  background: linear-gradient(90deg, #cbd5e1, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-text p {
@@ -74,13 +79,19 @@ body {
 .btn {
   display: inline-block;
   padding: 12px 25px;
-  background: var(--orange);
+  background: linear-gradient(90deg, #FF5C00, #FF6600);
   color: white;
   text-decoration: none;
   border-radius: 5px;
 }
 
-/* CHART */
+.hero-logo {
+  width: 650px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* CHART (legacy, can be removed if unused) */
 .chart-illustration {
   display: flex;
   align-items: flex-end;
@@ -125,7 +136,7 @@ input, textarea {
 }
 
 button {
-  background: var(--orange);
+  background: linear-gradient(90deg, #FF5C00, #FF6600);
   color: white;
   padding: 10px;
   border: none;
@@ -141,14 +152,62 @@ footer {
   color: white;
 }
 
+/* PRICING */
+.pricing-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.card.highlight {
+  border: 2px solid var(--orange);
+  transform: scale(1.05);
+}
+
+.card h2 {
+  color: var(--deep-sea);
+  margin-top: 0;
+}
+
+.card .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin: 10px 0;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.card ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.card ul li:last-child {
+  border-bottom: none;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero-inner {
     flex-direction: column;
     text-align: center;
-  }
-
-  .hero {
-    top: 100px;
   }
 }
