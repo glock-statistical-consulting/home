@@ -57,27 +57,27 @@
           <li>Einführung SPSS / R / Python</li>
         </ul>
       </div>
-      <div class="card-details" onclick="event.stopPropagation()">
+      <div class="card-details">
         <div class="booking-type">
-          <div class="booking-option active" onclick="selectBooking(this, event)">
+          <div class="booking-option active" data-booking="single">
             <span class="booking-circle"></span>
             <span data-i18n="booking_single">Einzelbuchung</span>
           </div>
-          <div class="booking-option" onclick="selectBooking(this, event)">
+          <div class="booking-option" data-booking="package">
             <span class="booking-circle"></span>
             <span data-i18n="booking_package">Paketbuchung</span>
           </div>
         </div>
         <div class="package-options">
-          <div class="package-option active" onclick="selectPackage(this, event)">
+          <div class="package-option active" data-hours="5">
             <span class="package-circle"></span>
             <span>5 Stunden</span>
           </div>
-          <div class="package-option" onclick="selectPackage(this, event)">
+          <div class="package-option" data-hours="10">
             <span class="package-circle"></span>
             <span>10 Stunden</span>
           </div>
-          <div class="package-option" onclick="selectPackage(this, event)">
+          <div class="package-option" data-hours="custom">
             <span class="package-circle"></span>
             <span>Individuell</span>
           </div>
@@ -96,7 +96,7 @@
             <li data-i18n="b_r1">5 Stunden Paket → 5% Rabatt</li>
             <li data-i18n="b_r2">10 Stunden Paket → 10% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation(); setBooking('Basics', this)" data-i18n="book_btn">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
@@ -111,27 +111,27 @@
           <li>Thesis Support</li>
         </ul>
       </div>
-      <div class="card-details" onclick="event.stopPropagation()">
+      <div class="card-details">
         <div class="booking-type">
-          <div class="booking-option active" onclick="selectBooking(this, event)">
+          <div class="booking-option active" data-booking="single">
             <span class="booking-circle"></span>
             <span data-i18n="booking_single">Einzelbuchung</span>
           </div>
-          <div class="booking-option" onclick="selectBooking(this, event)">
+          <div class="booking-option" data-booking="package">
             <span class="booking-circle"></span>
             <span data-i18n="booking_package">Paketbuchung</span>
           </div>
         </div>
         <div class="package-options">
-          <div class="package-option active" onclick="selectPackage(this, event)">
+          <div class="package-option active" data-hours="5">
             <span class="package-circle"></span>
             <span>5 Stunden</span>
           </div>
-          <div class="package-option" onclick="selectPackage(this, event)">
+          <div class="package-option" data-hours="10">
             <span class="package-circle"></span>
             <span>10 Stunden</span>
           </div>
-          <div class="package-option" onclick="selectPackage(this, event)">
+          <div class="package-option" data-hours="custom">
             <span class="package-circle"></span>
             <span>Individuell</span>
           </div>
@@ -150,7 +150,7 @@
             <li data-i18n="a_r1">5 Stunden Paket → 10% Rabatt</li>
             <li data-i18n="a_r2">10 Stunden Paket → 15% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation(); setBooking('Advanced', this)" data-i18n="book_btn">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
@@ -165,27 +165,27 @@
           <li>Komplexe Modellierung & Beratung</li>
         </ul>
       </div>
-      <div class="card-details" onclick="event.stopPropagation()">
+      <div class="card-details">
         <div class="booking-type">
-          <div class="booking-option active" onclick="selectBooking(this, event)">
+          <div class="booking-option active" data-booking="single">
             <span class="booking-circle"></span>
             <span data-i18n="booking_single">Einzelbuchung</span>
           </div>
-          <div class="booking-option" onclick="selectBooking(this, event)">
+          <div class="booking-option" data-booking="package">
             <span class="booking-circle"></span>
             <span data-i18n="booking_package">Paketbuchung</span>
           </div>
         </div>
         <div class="package-options">
-          <div class="package-option active" onclick="selectPackage(this, event)">
+          <div class="package-option active" data-hours="5">
             <span class="package-circle"></span>
             <span>5 Stunden</span>
           </div>
-          <div class="package-option" onclick="selectPackage(this, event)">
+          <div class="package-option" data-hours="10">
             <span class="package-circle"></span>
             <span>10 Stunden</span>
           </div>
-          <div class="package-option" onclick="selectPackage(this, event)">
+          <div class="package-option" data-hours="custom">
             <span class="package-circle"></span>
             <span>Individuell</span>
           </div>
@@ -204,7 +204,7 @@
             <li data-i18n="e_r1">5 Stunden Paket → 10% Rabatt</li>
             <li data-i18n="e_r2">10 Stunden Paket → 15% Rabatt</li>
           </ul>
-          <a href="#contact" class="btn btn-book open-modal" onclick="event.stopPropagation(); setBooking('Expert', this)" data-i18n="book_btn">Jetzt buchen</a>
+          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
         </div>
       </div>
     </div>
@@ -249,42 +249,47 @@ document.querySelectorAll('.card').forEach(card => {
     document.querySelectorAll('.card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
     card.classList.toggle('expanded');
   });
-});
-function selectBooking(option, event) {
-  event.stopPropagation(); event.preventDefault();
-  const parent = option.closest('.booking-type');
-  parent.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
-  option.classList.add('active');
-  const card = option.closest('.card');
-  const pkg = card.querySelector('.package-options');
-  const isPackage = option.textContent.trim() === 'Paketbuchung' || option.textContent.trim() === 'Package Booking';
-  pkg.classList.toggle('visible', isPackage);
-}
-function selectPackage(option, event) {
-  event.stopPropagation(); event.preventDefault();
-  const parent = option.closest('.package-options');
-  parent.querySelectorAll('.package-option').forEach(o => o.classList.remove('active'));
-  option.classList.add('active');
-  const input = parent.querySelector('.package-custom-input');
-  input.classList.toggle('visible', option.textContent.trim() === 'Individuell' || option.textContent.trim() === 'Custom');
-}
-function setBooking(cardName, btn) {
-  document.getElementById('booking-card').value = cardName;
-  const card = btn.closest('.card');
-  const active = card.querySelector('.booking-option.active');
-  const type = active ? active.textContent.trim() : 'Einzelbuchung';
-  document.getElementById('booking-type').value = type;
-  const pkgOptions = card.querySelector('.package-options');
-  const isPackage = type === 'Paketbuchung' || type === 'Package Booking';
-  if (isPackage) {
-    const activePkg = card.querySelector('.package-option.active');
-    const hours = activePkg ? activePkg.textContent.trim() : '5 Stunden';
-    const customInput = card.querySelector('.package-custom-input');
-    document.getElementById('booking-hours').value = hours === 'Individuell' || hours === 'Custom' ? (customInput.value || 'nicht angegeben') : hours;
-  } else {
-    document.getElementById('booking-hours').value = '';
+
+  card.querySelectorAll('.booking-option').forEach(opt => {
+    opt.addEventListener('click', function(e) {
+      e.stopPropagation();
+      card.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      const pkg = card.querySelector('.package-options');
+      if (pkg) pkg.classList.toggle('visible', opt.dataset.booking === 'package');
+    });
+  });
+
+  card.querySelectorAll('.package-option').forEach(opt => {
+    opt.addEventListener('click', function(e) {
+      e.stopPropagation();
+      card.querySelectorAll('.package-option').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      const input = card.querySelector('.package-custom-input');
+      if (input) input.classList.toggle('visible', opt.dataset.hours === 'custom');
+    });
+  });
+
+  const bookBtn = card.querySelector('.btn-book');
+  if (bookBtn) {
+    bookBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const cardName = card.dataset.card;
+      document.getElementById('booking-card').value = cardName;
+      const activeBooking = card.querySelector('.booking-option.active');
+      const type = activeBooking ? activeBooking.textContent.trim() : 'Einzelbuchung';
+      document.getElementById('booking-type').value = type;
+      if (activeBooking && activeBooking.dataset.booking === 'package') {
+        const activePkg = card.querySelector('.package-option.active');
+        const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
+        const customInput = card.querySelector('.package-custom-input');
+        document.getElementById('booking-hours').value = activePkg.dataset.hours === 'custom' ? (customInput.value || 'nicht angegeben') : hoursLabel;
+      } else {
+        document.getElementById('booking-hours').value = '';
+      }
+    });
   }
-}
+});
 function closeModal() {
   const modal = document.getElementById('contactModal');
   if (modal) { modal.classList.remove('active'); setTimeout(() => modal.style.display = 'none', 300); }
