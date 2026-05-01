@@ -34,7 +34,7 @@
         <p data-i18n="hero_services">Statistik Nachhilfe oder Consulting | Abitur bis Doktorat & Schulungen</p>
       </div>
       <div class="hero-action">
-        <a href="pricing.html" class="btn" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
+        <a href="pricing.html" class="btn smooth-redirect" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
@@ -109,7 +109,7 @@
 <section class="cta">
   <h2 data-i18n="cta_title">Fertig mit den Statistik-Problemen?</h2>
   <p data-i18n="cta_text">Buchen Sie jetzt einen Termin und verbessern Sie Ihre wissenschaftlichen Arbeiten.</p>
-  <a href="pricing.html" class="btn" data-i18n="cta_btn">Jetzt Kontakt aufnehmen</a>
+  <a href="pricing.html" class="btn smooth-redirect" data-i18n="cta_btn">Jetzt Kontakt aufnehmen</a>
 </section>
 </main>
 
@@ -157,6 +157,19 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
+<script>
+document.querySelectorAll('.smooth-redirect').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    const overlay = document.createElement('div');
+    overlay.className = 'page-transition-overlay';
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('active'));
+    setTimeout(() => window.location.href = href, 400);
+  });
+});
+</script>
 
 </body>
 </html>
