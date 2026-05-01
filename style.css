@@ -578,8 +578,8 @@ footer {
 }
 
 .btn-book {
-  margin-top: 10px;
-  display: inline-block;
+  margin: 15px auto 10px;
+  display: block;
 }
 
 .card h2 {
