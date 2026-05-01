@@ -93,8 +93,8 @@
           </ul>
           <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
           <ul>
-            <li data-i18n="b_r1">5 Stunden Paket → 5% Rabatt</li>
-            <li data-i18n="b_r2">10 Stunden Paket → 10% Rabatt</li>
+            <li data-i18n="b_r1">5 Stunden Paket → 10% Rabatt</li>
+            <li data-i18n="b_r2">10 Stunden Paket → 15% Rabatt</li>
           </ul>
           <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
         </div>
@@ -147,8 +147,8 @@
           </ul>
           <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
           <ul>
-            <li data-i18n="a_r1">5 Stunden Paket → 10% Rabatt</li>
-            <li data-i18n="a_r2">10 Stunden Paket → 15% Rabatt</li>
+            <li data-i18n="a_r1">5 Stunden Paket → 9% Rabatt</li>
+            <li data-i18n="a_r2">10 Stunden Paket → 14% Rabatt</li>
           </ul>
           <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
         </div>
@@ -201,8 +201,8 @@
           </ul>
           <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
           <ul>
-            <li data-i18n="e_r1">5 Stunden Paket → 10% Rabatt</li>
-            <li data-i18n="e_r2">10 Stunden Paket → 15% Rabatt</li>
+            <li data-i18n="e_r1">5 Stunden Paket → 7% Rabatt</li>
+            <li data-i18n="e_r2">10 Stunden Paket → 12% Rabatt</li>
           </ul>
           <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
         </div>
@@ -286,8 +286,12 @@ document.querySelectorAll('.card').forEach(card => {
         const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
         const customInput = card.querySelector('.package-custom-input');
         document.getElementById('booking-hours').value = activePkg.dataset.hours === 'custom' ? (customInput.value || 'nicht angegeben') : hoursLabel;
-        const discountMap = { '5 Stunden': '10%', '10 Stunden': '15%', '5 hours': '10%', '10 hours': '15%' };
-        document.getElementById('booking-discount').value = activePkg.dataset.hours === 'custom' ? 'individuell' : (discountMap[hoursLabel] || '0%');
+        const discountMap = {
+          'Basics': { '5 Stunden': '10%', '10 Stunden': '15%', '5 hours': '10%', '10 hours': '15%' },
+          'Advanced': { '5 Stunden': '9%', '10 Stunden': '14%', '5 hours': '9%', '10 hours': '14%' },
+          'Expert': { '5 Stunden': '7%', '10 Stunden': '12%', '5 hours': '7%', '10 hours': '12%' }
+        };
+        document.getElementById('booking-discount').value = activePkg.dataset.hours === 'custom' ? 'individuell' : (discountMap[cardName]?.[hoursLabel] || '0%');
       } else {
         document.getElementById('booking-hours').value = '';
         document.getElementById('booking-discount').value = '0%';
