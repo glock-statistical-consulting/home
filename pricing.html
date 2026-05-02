@@ -327,22 +327,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  if (window.innerWidth <= 768) {
+  const isMobile = () => window.innerWidth <= 768;
+
+  function expandVisibleCards() {
+    const scrollY = window.scrollY;
+    const viewTop = scrollY + window.innerHeight * 0.5;
+    const viewBottom = scrollY + window.innerHeight;
+    document.querySelectorAll('.card').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardMid = rect.top + scrollY + rect.height / 2;
+      if (cardMid >= viewTop && cardMid <= viewBottom) {
+        card.classList.add('expanded');
+      }
+    });
+  }
+
+  if (isMobile()) {
     document.querySelectorAll('.card').forEach(card => card.classList.remove('expanded'));
 
+    let ticking = false;
     window.addEventListener('scroll', function() {
-      const scrollY = window.scrollY;
-      document.querySelectorAll('.card').forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardTop = rect.top + scrollY;
-        const cardBottom = rect.bottom + scrollY;
-        const viewTop = scrollY + window.innerHeight * 0.6;
-        const viewBottom = scrollY + window.innerHeight * 0.9;
-        if (cardTop < viewBottom && cardBottom > viewTop) {
-          card.classList.add('expanded');
-        }
-      });
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          expandVisibleCards();
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
+
+    setTimeout(expandVisibleCards, 500);
   }
 
   document.getElementById('pricing-form').addEventListener('submit', function(e) {
