@@ -70,8 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     featuresContainer.addEventListener('click', function(e) {
       const card = e.target.closest('.card');
       if (!card) return;
-      if (e.target.closest('.card-details')) return;
-      e.preventDefault();
       e.stopPropagation();
       document.querySelectorAll('.features .card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
       const wasExpanded = card.classList.contains('expanded');

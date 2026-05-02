@@ -32,8 +32,8 @@ const translations = {
     features_3_detail2: "Professional support in creating your academic papers.",
     features_3_intro: "Professional support in creating your academic papers.",
 
-    cta_title: "Done with Statistics Problems?",
-    cta_text: "Book a session now and improve your academic work.",
+    cta_title: "Enhance your statistical skills with focused guidance!",
+    cta_text: "Book a session now to improve your results.",
     cta_btn: "Booking Options",
 
     footer_impressum: "Imprint",

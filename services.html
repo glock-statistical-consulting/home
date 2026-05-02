@@ -112,8 +112,8 @@
 </section>
 
 <section class="cta">
-  <h2 data-i18n="cta_title">Fertig mit den Statistik-Problemen?</h2>
-  <p data-i18n="cta_text">Buchen Sie jetzt einen Termin und verbessern Sie Ihre wissenschaftlichen Arbeiten.</p>
+  <h2 data-i18n="cta_title">Stärken Sie Ihre statistischen Kenntnisse gezielt!</h2>
+  <p data-i18n="cta_text">Vereinbaren Sie jetzt einen Termin und verbessern Sie Ihre Ergebnisse.</p>
   <a href="pricing.html" class="btn smooth-redirect" data-i18n="cta_btn">Buchungsoptionen</a>
 </section>
 </main>
@@ -146,28 +146,36 @@
 </div>
 
 <script>
-  const heroBtn = document.querySelector('.hero-contact-btn');
-  if (heroBtn) {
+document.addEventListener('DOMContentLoaded', function() {
+
+// Hero "Individuelle Anfrage" Button
+const heroBtn = document.querySelector('.hero-contact-btn');
+if (heroBtn) {
   heroBtn.addEventListener('click', function(e) {
     e.preventDefault();
     const modal = document.getElementById('contactModal');
     if (modal) {
-        const lang = localStorage.getItem('lang') || 'de';
-        modal.querySelector('h2').textContent = lang === 'de' ? 'Individuelle Anfrage' : 'Individual Inquiry';
-        modal.querySelector('[data-i18n="booking_info"]').style.display = 'none';
-        modal.querySelector('[data-i18n="booking_submit"]').textContent = lang === 'de' ? 'Anfrage senden' : 'Send Inquiry';
-        modal.style.display = 'flex';
-        setTimeout(() => modal.classList.add('active'), 10);
+      const isEnglish = document.documentElement.lang === 'en';
+      modal.querySelector('h2').textContent = isEnglish ? 'Individual Inquiry' : 'Individuelle Anfrage';
+      modal.querySelector('[data-i18n="booking_info"]').style.display = 'none';
+      const btn = modal.querySelector('.btn[type="submit"]');
+      if (btn) {
+        btn.removeAttribute('data-i18n');
+        btn.textContent = isEnglish ? 'Send Inquiry' : 'Anfrage senden';
       }
-    });
+      modal.style.display = 'flex';
+      setTimeout(() => {
+        modal.classList.add('active');
+      }, 10);
     }
   });
-  }
+}
 
+// Service Cards Click Handler
 document.querySelectorAll('.service-card').forEach(card => {
   card.style.cursor = 'pointer';
   card.addEventListener('click', function(e) {
-    e.preventDefault(); e.stopPropagation();
+    e.stopPropagation();
     document.querySelectorAll('.service-card.expanded').forEach(c => {
       if (c !== card) c.classList.remove('expanded');
     });
@@ -175,8 +183,8 @@ document.querySelectorAll('.service-card').forEach(card => {
   });
 });
 
+// Mobile Auto-Expand
 const isMobile = () => window.innerWidth <= 768;
-
 if (isMobile()) {
   document.querySelectorAll('.service-card').forEach(card => card.classList.remove('expanded'));
 
@@ -187,9 +195,8 @@ if (isMobile()) {
         document.querySelectorAll('.service-card').forEach(card => {
           const rect = card.getBoundingClientRect();
           if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
-            if (!card.classList.contains('expanded') && !card.dataset.observed) {
+            if (!card.classList.contains('expanded')) {
               card.classList.add('expanded');
-              card.dataset.observed = 'true';
             }
           }
         });
@@ -203,6 +210,22 @@ if (isMobile()) {
     window.dispatchEvent(new Event('scroll'));
   }, 300);
 }
+
+// Form Submit Handler
+const form = document.querySelector('.contact-form');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const toast = document.getElementById('toast');
+    if (toast) {
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 2500);
+    }
+    setTimeout(() => { this.submit(); }, 3300);
+  });
+}
+
+});
 </script>
 
 <script src="translations.js"></script>
