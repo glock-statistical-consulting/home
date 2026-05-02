@@ -252,7 +252,15 @@ document.querySelectorAll('.card').forEach(card => {
   summary.addEventListener('click', function(e) {
     e.preventDefault(); e.stopPropagation();
     document.querySelectorAll('.card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
+    const wasExpanded = card.classList.contains('expanded');
     card.classList.toggle('expanded');
+    if (!wasExpanded) {
+      setTimeout(() => {
+        const cardRect = card.getBoundingClientRect();
+        const scrollY = window.scrollY + cardRect.top - 120;
+        window.scrollTo({ top: scrollY, behavior: 'smooth' });
+      }, 100);
+    }
   });
 
   card.querySelectorAll('.booking-option').forEach(opt => {
