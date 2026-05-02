@@ -8,6 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Glock Statistical Consulting | Nachhilfe & Consulting</title>
 <link rel="stylesheet" href="style.css">
+<style>
+.features .card .card-summary {
+  min-height: 420px;
+}
+</style>
 </head>
 
 <body>
@@ -44,23 +49,63 @@
 
 <main>
 
-<section class="features">
-  <div class="feature-card">
-    <div class="feature-icon">📊</div>
-    <h3 data-i18n="features_1_title">Statistikverständnis</h3>
-    <p data-i18n="features_1_text">Verstehen Sie statistische Konzepte und Methoden, um fundierte Schlussfolgerungen ziehen zu können.</p>
+<section class="features pricing-grid">
+  <div class="card" data-card="Basics">
+    <div class="card-summary">
+      <div class="feature-icon">📊</div>
+      <h3 data-i18n="features_1_title">Statistikverständnis</h3>
+      <p data-i18n="features_1_intro">Verstehen Sie statistische Konzepte und Methoden, um fundierte Schlussfolgerungen ziehen zu können.</p>
+      <p data-i18n="features_1_text">Statistische Methoden wie Hypothesentests, Konfidenzintervalle und Regressionen werden praxisnah erklärt, sodass Sie sie sicher in Ihrer Arbeit anwenden können.</p>
+    </div>
+    <div class="card-details">
+        <div class="detail-content">
+          <h3 data-i18n="b_details_title">Leistungen</h3>
+          <ul>
+            <li data-i18n="features_1_detail">Statistische Methoden wie Hypothesentests, Konfidenzintervalle und Regressionen werden praxisnah erklärt, sodass Sie sie sicher in Ihrer Arbeit anwenden können.</li>
+            <li data-i18n="features_1_detail2">Verständnis von statistischen Konzepten für fundierte Schlussfolgerungen.</li>
+          </ul>
+        </div>
+    </div>
   </div>
-  <div class="feature-card">
-    <div class="feature-icon">📈</div>
-    <h3 data-i18n="features_2_title">Datenanalyse</h3>
-    <p data-i18n="features_2_text">Korrekte Auswertung und Interpretation Ihrer Daten mit SPSS, R oder Python.</p>
+
+  <div class="card" data-card="Advanced">
+    <div class="card-summary">
+      <div class="feature-icon">📈</div>
+      <h3 data-i18n="features_2_title">Datenanalyse</h3>
+      <p data-i18n="features_2_intro">Korrekte Auswertung und Interpretation Ihrer Daten mit SPSS, R oder Python.</p>
+      <p data-i18n="features_2_text">Von der Datenvorbereitung über deskriptive Statistiken bis hin zu komplexen multivariaten Analysen begleite ich Sie durch den gesamten Auswertungsprozess.</p>
+    </div>
+    <div class="card-details">
+        <div class="detail-content">
+          <h3 data-i18n="b_details_title">Leistungen</h3>
+          <ul>
+            <li data-i18n="features_2_detail">Von der Datenvorbereitung über deskriptive Statistiken bis hin zu komplexen multivariaten Analysen begleite ich Sie durch den gesamten Auswertungsprozess.</li>
+            <li data-i18n="features_2_detail2">Korrekte Auswertung und Interpretation Ihrer Daten mit SPSS, R oder Python.</li>
+          </ul>
+        </div>
+    </div>
   </div>
-  <div class="feature-card">
-    <div class="feature-icon">📝</div>
-    <h3 data-i18n="features_3_title">Arbeitshilfe</h3>
-    <p data-i18n="features_3_text">Professionelle Unterstützung bei der Erstellung Ihrer wissenschaftlichen Arbeiten.</p>
+
+  <div class="card" data-card="Expert">
+    <div class="card-summary">
+      <div class="feature-icon">📝</div>
+      <h3 data-i18n="features_3_title">Arbeitshilfe</h3>
+      <p data-i18n="features_3_intro">Professionelle Unterstützung bei der Erstellung Ihrer wissenschaftlichen Arbeiten.</p>
+      <p data-i18n="features_3_text">Ob Bachelor-, Masterarbeit oder Dissertation – ich unterstütze Sie bei der methodischen Planung, Analyse und der verständlichen Darstellung Ihrer Ergebnisse.</p>
+    </div>
+    <div class="card-details">
+        <div class="detail-content">
+          <h3 data-i18n="b_details_title">Leistungen</h3>
+          <ul>
+            <li data-i18n="features_3_detail">Ob Bachelor-, Masterarbeit oder Dissertation – ich unterstütze Sie bei der methodischen Planung.</li>
+            <li data-i18n="features_3_detail2">Professionelle Unterstützung bei der Erstellung Ihrer wissenschaftlichen Arbeiten.</li>
+          </ul>
+        </div>
+    </div>
   </div>
 </section>
+
+<div class="section-spacer"></div>
 
 <section class="cta">
   <h2 data-i18n="cta_title">Fertig mit den Statistik-Problemen?</h2>
@@ -79,7 +124,7 @@
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2 data-i18n="contact_title">Kontakt</h2>
+    <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
@@ -92,41 +137,12 @@
       <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
       <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
       <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
-      <button type="submit" class="btn" data-i18n="contact_send">Senden</button>
+      <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
     </form>
   </div>
 </div>
 
-<script>
-function closeModal() {
-  const modal = document.getElementById('contactModal');
-  if (modal) {
-    modal.classList.remove('active');
-    setTimeout(() => modal.style.display = 'none', 300);
-  }
-}
-
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('modal-overlay')) closeModal();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModal();
-});
-
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const langEl = document.getElementById('hero-lang');
-  if (langEl) langEl.value = (localStorage.getItem('lang') || 'DE').toUpperCase();
-  const toast = document.createElement('div');
-  toast.className = 'toast-success';
-  toast.textContent = 'Anfrage erfolgreich!';
-  document.body.appendChild(toast);
-  requestAnimationFrame(() => toast.classList.add('show'));
-  setTimeout(() => toast.classList.remove('show'), 2500);
-  setTimeout(() => this.submit(), 3300);
-});
-</script>
+<div class="toast-success" id="toast">Booking Successful!</div>
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>

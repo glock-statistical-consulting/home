@@ -8,6 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing | GSC - Glock Statistical Consulting</title>
 <link rel="stylesheet" href="style.css">
+<style>
+[data-i18n="booking_info"] {
+  text-align: center;
+  display: block;
+  margin-bottom: 15px;
+}
+</style>
 </head>
 <body>
 
@@ -35,11 +42,13 @@
       </div>
       <div class="hero-action">
         <span class="hero-scrolled-text" data-i18n="hero_scrolled">Schluss mit den Statistik-Problemen!</span>
-        <a href="#contact" class="btn open-modal" data-i18n="hero_contact_btn">Individuelle Anfrage</a>
+        <a href="#contact" class="btn open-modal hero-contact-btn" data-i18n="hero_contact_btn">Individuelle Anfrage</a>
       </div>
     </div>
   </div>
 </header>
+
+<div class="hero-spacer"></div>
 
 <main>
 <section>
@@ -53,9 +62,9 @@
         <h2 data-i18n="price_basics">Basics</h2>
         <p class="price">45–60 € / h</p>
         <ul>
-          <li>Abitur & Bachelor Grundlagen</li>
-          <li>Deskriptive Statistik</li>
-          <li>Einführung SPSS / R / Python</li>
+          <li data-i18n="b_card_li1">Abitur & Bachelor Grundlagen</li>
+          <li data-i18n="b_card_li2">Deskriptive Statistik</li>
+          <li data-i18n="b_card_li3">Einführung SPSS / R / Python</li>
         </ul>
       </div>
       <div class="card-details">
@@ -107,9 +116,9 @@
         <h2 data-i18n="price_advanced">Advanced</h2>
         <p class="price">60–75 € / h</p>
         <ul>
-          <li>Master-Level Statistik</li>
-          <li>Regression, ANOVA, multivariat</li>
-          <li>Thesis Support</li>
+          <li data-i18n="a_card_li1">Master-Level Statistik</li>
+          <li data-i18n="a_card_li2">Regression, ANOVA, multivariat</li>
+          <li data-i18n="a_card_li3">Thesis Support</li>
         </ul>
       </div>
       <div class="card-details">
@@ -161,9 +170,9 @@
         <h2 data-i18n="price_expert">Expert</h2>
         <p class="price">75–90 € / h</p>
         <ul>
-          <li>Dissertation / PhD-Level</li>
-          <li>Bayesian Statistics</li>
-          <li>Komplexe Modellierung & Beratung</li>
+          <li data-i18n="e_card_li1">Dissertation / PhD-Level</li>
+          <li data-i18n="e_card_li2">Bayesian Statistics</li>
+          <li data-i18n="e_card_li3">Komplexe Modellierung & Beratung</li>
         </ul>
       </div>
       <div class="card-details">
@@ -214,6 +223,8 @@
 </section>
 </main>
 
+<div class="footer-spacer"></div>
+
 <footer>
   <p> | &copy; 2026 Glock Statistical Consulting |</p>
   <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
@@ -223,7 +234,8 @@
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2 data-i18n="contact_title">Kontakt</h2>
+    <h2 data-i18n="booking_title">Paketoption buchen</h2>
+    <p data-i18n="booking_info">Ihre ausgewählte Option wird mit übertragen.</p>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" id="pricing-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
@@ -236,7 +248,7 @@
       <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
       <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
       <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
-      <button type="submit" class="btn" data-i18n="contact_send">Senden</button>
+      <button type="submit" class="btn" data-i18n="booking_submit">Verbindlich buchen</button>
     </form>
   </div>
 </div>
@@ -246,36 +258,41 @@
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
-function smoothScrollBy(distance, duration) {
-  const start = window.scrollY;
-  const startTime = performance.now();
-  function easeInOutCubic(t) {
-    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  }
-  function step(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, start + distance * easeInOutCubic(progress));
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
 document.addEventListener('DOMContentLoaded', function() {
+  handleHeroScroll();
+
+  // Hero "Individuelle Anfrage" Button
+  const heroBtn = document.querySelector('.hero-contact-btn');
+  if (heroBtn) {
+    heroBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const modal = document.getElementById('contactModal');
+      if (modal) {
+        const lang = localStorage.getItem('lang') || 'de';
+        modal.querySelector('h2').textContent = lang === 'de' ? 'Individuelle Anfrage' : 'Individual Inquiry';
+        modal.querySelector('[data-i18n="booking_info"]').style.display = 'none';
+        modal.querySelector('[data-i18n="booking_submit"]').textContent = lang === 'de' ? 'Anfrage senden' : 'Send Inquiry';
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('active'), 10);
+      }
+    });
+  }
+
   document.querySelectorAll('.card').forEach(card => {
-    const summary = card.querySelector('.card-summary');
-    summary.style.cursor = 'pointer';
-    summary.addEventListener('click', function(e) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
+      if (e.target.closest('.booking-option') || e.target.closest('.package-option') || e.target.closest('.btn-book') || e.target.closest('.package-input')) return;
       e.preventDefault(); e.stopPropagation();
       document.querySelectorAll('.card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
       const wasExpanded = card.classList.contains('expanded');
       card.classList.toggle('expanded');
-      if (!wasExpanded) {
-        setTimeout(() => {
-          const cardRect = card.getBoundingClientRect();
-          const scrollDown = cardRect.height * 0.3;
-          smoothScrollBy(scrollDown, 500);
-        }, 450);
-      }
+        if (!wasExpanded) {
+          setTimeout(() => {
+            const cardRect = card.getBoundingClientRect();
+            const scrollDown = cardRect.height * 0.49;
+            smoothScrollBy(scrollDown, 500);
+          }, 450);
+        }
     });
 
     card.querySelectorAll('.booking-option').forEach(opt => {
@@ -305,8 +322,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const cardName = card.dataset.card;
         document.getElementById('booking-card').value = cardName;
         const activeBooking = card.querySelector('.booking-option.active');
-        const type = activeBooking ? activeBooking.textContent.trim() : 'Einzelbuchung';
-        document.getElementById('booking-type').value = type;
+        const bookingType = activeBooking ? activeBooking.textContent.trim() : 'Einzelbuchung';
+        document.getElementById('booking-type').value = bookingType;
         if (activeBooking && activeBooking.dataset.booking === 'package') {
           const activePkg = card.querySelector('.package-option.active');
           const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
@@ -323,6 +340,12 @@ document.addEventListener('DOMContentLoaded', function() {
           document.getElementById('booking-discount').value = '0%';
         }
         document.getElementById('booking-language').value = (localStorage.getItem('lang') || 'DE').toUpperCase();
+        // Reset modal for package booking
+        const modal = document.getElementById('contactModal');
+        const lang = localStorage.getItem('lang') || 'de';
+        modal.querySelector('h2').textContent = lang === 'de' ? 'Paketoption buchen' : 'Book Package Option';
+        modal.querySelector('[data-i18n="booking_info"]').style.display = 'block';
+        modal.querySelector('[data-i18n="booking_submit"]').textContent = lang === 'de' ? 'Verbindlich buchen' : 'Book Now';
       });
     }
   });
@@ -355,14 +378,14 @@ document.addEventListener('DOMContentLoaded', function() {
       window.dispatchEvent(new Event('scroll'));
     }, 300);
   }
+});
 
-  document.getElementById('pricing-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => { toast.classList.remove('show'); }, 2500);
-    setTimeout(() => { this.submit(); }, 3300);
-  });
+document.getElementById('pricing-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => { toast.classList.remove('show'); }, 2500);
+  setTimeout(() => { this.submit(); }, 3300);
 });
 </script>
 

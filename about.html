@@ -31,7 +31,7 @@
     </div>
     <div class="hero-content">
       <div class="hero-text">
-        <p data-i18n="hero_about">Forschung, Industrie & Business | Langjährige Branchenerfahung</p>
+        <p data-i18n="hero_about">Forschung, Industrie & Business | Langjährige Branchenerfahrung</p>
       </div>
       <div class="hero-action">
         <span class="hero-scrolled-text" data-i18n="hero_scrolled">Schluss mit den Statistik-Problemen!</span>
@@ -53,19 +53,28 @@
 
   <p data-i18n="about_p4">Mein Ziel ist es, Sie zuverlässig bei Ihren Herausforderungen zu unterstützen – von der ersten Fragestellung bis zur erfolgreichen Umsetzung.</p>
 
-  <div class="experience">
-    <h2 data-i18n="about_exp_title">Erfahrung und Qualifikation</h2>
-    <div class="experience-item">
-      <strong data-i18n="about_exp_1">M.Sc. Statistik</strong> <span data-i18n="about_uni">(Universität Bamberg)</span>
+  <div class="service-card">
+    <div class="service-header">
+      <h2 data-i18n="about_exp_title">Erfahrung und Qualifikation</h2>
     </div>
-    <div class="experience-item">
-      <strong data-i18n="about_exp_2">8+ Jahre Erfahrung</strong> <span data-i18n="about_exp_in">in Forschung & Industrie</span>
-    </div>
-    <div class="experience-item">
-      <strong data-i18n="about_exp_3">IT-Consultant (Supply Chain)</strong>
+    <div class="service-details">
+      <div class="experience-item">
+        <strong data-i18n="about_exp_1">M.Sc. Statistik</strong> <span data-i18n="about_uni">(Universität Bamberg)</span>
+      </div>
+      <div class="experience-item">
+        <strong data-i18n="about_exp_2">8+ Jahre Erfahrung</strong> <span data-i18n="about_exp_in">in Forschung & Industrie</span>
+      </div>
+      <div class="experience-item">
+        <strong data-i18n="about_exp_3">IT-Consultant (Supply Chain)</strong>
+      </div>
+      <div class="experience-details">
+        <p data-i18n="about_exp_detail">Meine akademische Laufbahn und berufliche Praxis geben mir die Werkzeuge, um statistische Herausforderungen aus verschiedenen Perspektiven zu betrachten und maßgeschneiderte Lösungen anzubieten.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<div class="section-spacer"></div>
 
 <section class="cta">
   <h2 data-i18n="cta_title">Fertig mit den Statistik-Problemen?</h2>
@@ -83,7 +92,7 @@
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
-    <h2 data-i18n="contact_title">Kontakt</h2>
+    <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
@@ -96,40 +105,51 @@
       <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
       <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
       <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
-      <button type="submit" class="btn" data-i18n="contact_send">Senden</button>
+      <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
     </form>
   </div>
 </div>
 
 <script>
-function closeModal() {
-  const modal = document.getElementById('contactModal');
-  if (modal) {
-    modal.classList.remove('active');
-    setTimeout(() => modal.style.display = 'none', 300);
-  }
+document.querySelectorAll('.service-card').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function(e) {
+    e.preventDefault(); e.stopPropagation();
+    document.querySelectorAll('.service-card.expanded').forEach(c => {
+      if (c !== card) c.classList.remove('expanded');
+    });
+    card.classList.toggle('expanded');
+  });
+});
+
+const isMobile = () => window.innerWidth <= 768;
+
+if (isMobile()) {
+  document.querySelectorAll('.service-card').forEach(card => card.classList.remove('expanded'));
+
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        document.querySelectorAll('.service-card').forEach(card => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
+            if (!card.classList.contains('expanded') && !card.dataset.observed) {
+              card.classList.add('expanded');
+              card.dataset.observed = 'true';
+            }
+          }
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  setTimeout(function() {
+    window.dispatchEvent(new Event('scroll'));
+  }, 300);
 }
-
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('modal-overlay')) closeModal();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeModal();
-});
-
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const langEl = document.getElementById('hero-lang');
-  if (langEl) langEl.value = (localStorage.getItem('lang') || 'DE').toUpperCase();
-  const toast = document.createElement('div');
-  toast.className = 'toast-success';
-  toast.textContent = 'Anfrage erfolgreich!';
-  document.body.appendChild(toast);
-  requestAnimationFrame(() => toast.classList.add('show'));
-  setTimeout(() => toast.classList.remove('show'), 2500);
-  setTimeout(() => this.submit(), 3300);
-});
 </script>
 
 <script src="translations.js"></script>
