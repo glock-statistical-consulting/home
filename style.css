@@ -814,6 +814,15 @@ footer p {
     flex-direction: column;
     text-align: center;
   }
+
+  .pricing-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
 }
 
 .page-transition-overlay {
