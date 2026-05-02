@@ -837,11 +837,15 @@ footer p {
 
   .hero-action {
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 15px;
   }
 
   .hero-scrolled-text {
-    display: none !important;
+    display: block !important;
+    font-size: 0.95rem;
+    margin-right: 0;
   }
 
   .navbar {
