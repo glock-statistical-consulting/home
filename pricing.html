@@ -257,9 +257,10 @@ document.querySelectorAll('.card').forEach(card => {
     if (!wasExpanded) {
       setTimeout(() => {
         const cardRect = card.getBoundingClientRect();
-        const scrollY = window.scrollY + cardRect.top - 450;
-        window.scrollTo({ top: scrollY, behavior: 'smooth' });
-      }, 100);
+        const cardCenter = window.scrollY + cardRect.top + cardRect.height / 2;
+        const target = cardCenter - window.innerHeight / 2;
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      }, 600);
     }
   });
 
