@@ -12,12 +12,10 @@
 <body>
 
 <nav class="navbar">
-  <div class="nav-links-mobile">
-    <a href="index.html" data-i18n="navbar_home">Home</a>
-    <a href="about.html" data-i18n="navbar_about">About</a>
-    <a href="services.html" data-i18n="navbar_services">Services</a>
-    <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
-  </div>
+  <a href="index.html" data-i18n="navbar_home">Home</a>
+  <a href="about.html" data-i18n="navbar_about">About</a>
+  <a href="services.html" data-i18n="navbar_services">Services</a>
+  <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
   <div class="nav-lang">
     <button class="lang-btn active-lang" data-lang="de">DE</button>
     <span class="lang-separator">|</span>
@@ -37,7 +35,7 @@
       </div>
       <div class="hero-action">
         <span class="hero-scrolled-text" data-i18n="hero_scrolled">Schluss mit den Statistik-Problemen!</span>
-        <a href="#contact" class="btn open-modal" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
+        <a href="#contact" class="btn open-modal" data-i18n="hero_contact_btn">Individuelle Anfrage</a>
       </div>
     </div>
   </div>
@@ -331,21 +329,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const isMobile = () => window.innerWidth <= 768;
 
-  function expandVisibleCards() {
-    const scrollY = window.scrollY;
-    const viewTop = scrollY + window.innerHeight * 0.5;
-    const viewBottom = scrollY + window.innerHeight;
-    document.querySelectorAll('.card').forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardMid = rect.top + scrollY + rect.height / 2;
-      if (cardMid >= viewTop && cardMid <= viewBottom) {
-        card.classList.add('expanded');
-      } else {
-        card.classList.remove('expanded');
-      }
-    });
-  }
-
   if (isMobile()) {
     document.querySelectorAll('.card').forEach(card => card.classList.remove('expanded'));
 
@@ -353,14 +336,24 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
       if (!ticking) {
         requestAnimationFrame(function() {
-          expandVisibleCards();
+          document.querySelectorAll('.card').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
+              if (!card.classList.contains('expanded') && !card.dataset.observed) {
+                card.classList.add('expanded');
+                card.dataset.observed = 'true';
+              }
+            }
+          });
           ticking = false;
         });
         ticking = true;
       }
     }, { passive: true });
 
-    setTimeout(expandVisibleCards, 500);
+    setTimeout(function() {
+      window.dispatchEvent(new Event('scroll'));
+    }, 300);
   }
 
   document.getElementById('pricing-form').addEventListener('submit', function(e) {

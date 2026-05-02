@@ -12,6 +12,8 @@ const translations = {
     hero_impressum: "Imprint – Provider Information",
     hero_btn: "Contact Us Now",
 
+    hero_contact_btn: "Individual Inquiry",
+
     hero_scrolled: "No more statistics problems!",
 
     features_1_title: "Statistical Understanding",
@@ -23,7 +25,7 @@ const translations = {
 
     cta_title: "Done with Statistics Problems?",
     cta_text: "Book a session now and improve your academic work.",
-    cta_btn: "Book Now",
+    cta_btn: "Booking Options",
 
     footer_impressum: "Imprint",
 
