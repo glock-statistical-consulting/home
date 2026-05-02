@@ -833,6 +833,7 @@ footer p {
 
   .hero-text {
     max-width: 100%;
+    display: none;
   }
 
   .hero-text p {
