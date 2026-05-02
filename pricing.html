@@ -246,6 +246,20 @@
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
+function smoothScrollBy(distance, duration) {
+  const start = window.scrollY;
+  const startTime = performance.now();
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+  function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + distance * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
 document.querySelectorAll('.card').forEach(card => {
   const summary = card.querySelector('.card-summary');
   summary.style.cursor = 'pointer';
@@ -257,10 +271,9 @@ document.querySelectorAll('.card').forEach(card => {
     if (!wasExpanded) {
       setTimeout(() => {
         const cardRect = card.getBoundingClientRect();
-        const cardCenter = window.scrollY + cardRect.top + cardRect.height / 2;
-        const target = cardCenter - window.innerHeight / 2;
-        window.scrollTo({ top: target, behavior: 'smooth' });
-      }, 600);
+        const scrollDown = cardRect.height * 0.3;
+        smoothScrollBy(scrollDown, 500);
+      }, 450);
     }
   });
 
