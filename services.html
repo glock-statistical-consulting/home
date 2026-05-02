@@ -34,7 +34,7 @@
         <p data-i18n="hero_services">Statistik Nachhilfe oder Consulting | Abitur bis Doktorat & Schulungen</p>
       </div>
       <div class="hero-action">
-        <a href="pricing.html" class="btn smooth-redirect" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
+        <a href="#contact" class="btn open-modal" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
@@ -123,10 +123,15 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
     <h2 data-i18n="contact_title">Kontakt</h2>
-    <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST">
+    <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://glock-statistical-consulting.github.io/home/services.html">
+      <input type="hidden" name="booking_card" value="individual">
+      <input type="hidden" name="booking_type" value="contact">
+      <input type="hidden" name="booking_hours" value="NA">
+      <input type="hidden" name="discount" value="NA">
+      <input type="hidden" name="language" id="hero-lang">
       <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
       <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
       <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
@@ -153,23 +158,22 @@ function closeModal() {
 }
 document.addEventListener('click', function(e) { if (e.target.classList.contains('modal-overlay')) closeModal(); });
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const langEl = document.getElementById('hero-lang');
+  if (langEl) langEl.value = (localStorage.getItem('lang') || 'DE').toUpperCase();
+  const toast = document.createElement('div');
+  toast.className = 'toast-success';
+  toast.textContent = 'Anfrage erfolgreich!';
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => toast.classList.remove('show'), 2500);
+  setTimeout(() => this.submit(), 3300);
+});
 </script>
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
-<script>
-document.querySelectorAll('.smooth-redirect').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.preventDefault();
-    const href = this.getAttribute('href');
-    const overlay = document.createElement('div');
-    overlay.className = 'page-transition-overlay';
-    document.body.appendChild(overlay);
-    requestAnimationFrame(() => overlay.classList.add('active'));
-    setTimeout(() => window.location.href = href, 200);
-  });
-});
-</script>
 
 </body>
 </html>
