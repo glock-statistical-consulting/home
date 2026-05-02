@@ -34,8 +34,8 @@
         <p data-i18n="hero_pricing">Faire Preismodelle | Transparent & flexibel gestaltbar</p>
       </div>
       <div class="hero-action">
-        <a href="#contact" class="btn open-modal" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
         <span class="hero-scrolled-text" data-i18n="hero_scrolled">Schluss mit den Statistik-Problemen!</span>
+        <a href="#contact" class="btn open-modal" data-i18n="hero_btn">Jetzt Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
@@ -243,6 +243,8 @@
 
 <div class="toast-success" id="toast">Booking Successful!</div>
 
+<script src="translations.js"></script>
+<script src="hero-scroll.js"></script>
 <script>
 document.querySelectorAll('.card').forEach(card => {
   const summary = card.querySelector('.card-summary');
@@ -286,12 +288,12 @@ document.querySelectorAll('.card').forEach(card => {
         const activePkg = card.querySelector('.package-option.active');
         const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
         const customInput = card.querySelector('.package-custom-input');
-        document.getElementById('booking-hours').value = activePkg.dataset.hours === 'custom' ? (customInput.value || 'nicht angegeben') : hoursLabel;
         const discountMap = {
           'Basics': { '5 Stunden': '10%', '10 Stunden': '15%', '5 hours': '10%', '10 hours': '15%' },
           'Advanced': { '5 Stunden': '9%', '10 Stunden': '14%', '5 hours': '9%', '10 hours': '14%' },
           'Expert': { '5 Stunden': '7%', '10 Stunden': '12%', '5 hours': '7%', '10 hours': '12%' }
         };
+        document.getElementById('booking-hours').value = activePkg.dataset.hours === 'custom' ? (customInput.value || 'nicht angegeben') : hoursLabel;
         document.getElementById('booking-discount').value = activePkg.dataset.hours === 'custom' ? 'individuell' : (discountMap[cardName]?.[hoursLabel] || '0%');
       } else {
         document.getElementById('booking-hours').value = '';
@@ -301,12 +303,6 @@ document.querySelectorAll('.card').forEach(card => {
     });
   }
 });
-function closeModal() {
-  const modal = document.getElementById('contactModal');
-  if (modal) { modal.classList.remove('active'); setTimeout(() => modal.style.display = 'none', 300); }
-}
-document.addEventListener('click', function(e) { if (e.target.classList.contains('modal-overlay')) closeModal(); });
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 document.getElementById('pricing-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const toast = document.getElementById('toast');
@@ -315,9 +311,6 @@ document.getElementById('pricing-form').addEventListener('submit', function(e) {
   setTimeout(() => { this.submit(); }, 3300);
 });
 </script>
-
-<script src="translations.js"></script>
-<script src="hero-scroll.js"></script>
 
 </body>
 </html>
