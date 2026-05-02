@@ -813,6 +813,35 @@ footer p {
   .hero-inner {
     flex-direction: column;
     text-align: center;
+    padding: 20px 15px;
+  }
+
+  .hero.scrolled .hero-inner {
+    padding: 5px 15px;
+  }
+
+  .hero-content {
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .hero-action {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-scrolled-text {
+    display: none !important;
   }
 
   .navbar {
