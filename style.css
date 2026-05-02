@@ -810,20 +810,25 @@ footer p {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .hero {
+    top: 48px;
+  }
+
   .hero-inner {
     flex-direction: column;
     text-align: center;
-    padding: 15px 15px 5px;
+    padding: 10px 15px 2px;
+    gap: 0;
   }
 
   .hero.scrolled .hero-inner {
-    padding: 5px 15px;
+    padding: 3px 15px;
   }
 
   .hero-content {
     align-items: center;
     width: 100%;
-    gap: 5px;
+    gap: 2px;
   }
 
   .hero-text {
@@ -831,34 +836,41 @@ footer p {
   }
 
   .hero-text p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    margin: 0;
   }
 
   .hero-action {
     justify-content: center;
     flex-direction: column;
-    gap: 15px;
-    padding-bottom: 15px;
+    gap: 8px;
+    padding-bottom: 8px;
   }
 
   .hero-scrolled-text {
     display: block !important;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     margin-right: 0;
+    margin-bottom: 0;
+  }
+
+  .hero-logo {
+    width: 280px;
+    transform: none;
   }
 
   .navbar {
     gap: 0;
-    padding: 10px 10px;
-    height: auto;
+    padding: 8px 10px;
+    height: 48px;
     min-height: 48px;
   }
 
   .navbar a {
-    font-size: 0.8rem;
-    padding: 5px 3px;
+    font-size: 0.75rem;
+    padding: 4px 2px;
     white-space: nowrap;
   }
 
