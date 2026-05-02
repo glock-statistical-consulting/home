@@ -12,6 +12,8 @@ const translations = {
     hero_impressum: "Imprint – Provider Information",
     hero_btn: "Contact Us Now",
 
+    hero_scrolled: "No more statistics problems!",
+
     features_1_title: "Statistical Understanding",
     features_1_text: "Understand statistical concepts and methods to draw well-founded conclusions.",
     features_2_title: "Data Analysis",
