@@ -152,6 +152,10 @@ const translations = {
     book_btn: "Book Now",
     booking_single: "Single Session",
     booking_package: "Package Booking",
+    package_5h: "5 hours",
+    package_10h: "10 hours",
+    package_custom: "Custom",
+    package_custom_placeholder: "h",
 
     contact_title: "Individual Inquiry",
     contact_name: "Name",

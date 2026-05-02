@@ -11,8 +11,8 @@
 <meta property="og:image" content="https://glock-statistical-consulting.github.io/home/img/logo.svg">
 <meta property="og:url" content="https://glock-statistical-consulting.github.io/home/">
 <meta property="og:type" content="website">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<title>Pricing | Statistik Nachhilfe & Data Science Consulting | Glock Statistical Consulting Services | GSC (SPSS, R, Python)</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title>Pricing | GSC Services</title>
 <link rel="stylesheet" href="style.css">
 <style>
 [data-i18n="booking_info"] {
@@ -50,7 +50,7 @@
   <a href="services.html" data-i18n="navbar_services">Services</a>
   <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
   <div class="nav-lang">
-    <button class="lang-btn active-lang" data-lang="de">DE</button>
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
     <span class="lang-separator">|</span>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
@@ -107,17 +107,17 @@
         <div class="package-options">
           <div class="package-option active" data-hours="5">
             <span class="package-circle"></span>
-            <span>5 Stunden</span>
+            <span data-i18n="package_5h">5 Stunden</span>
           </div>
           <div class="package-option" data-hours="10">
             <span class="package-circle"></span>
-            <span>10 Stunden</span>
+            <span data-i18n="package_10h">10 Stunden</span>
           </div>
           <div class="package-option" data-hours="custom">
             <span class="package-circle"></span>
-            <span>Individuell</span>
+            <span data-i18n="package_custom">Individuell</span>
           </div>
-          <input type="number" class="package-custom-input" placeholder="Std." min="1" max="100">
+          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
         </div>
         <div class="detail-content">
           <h3 data-i18n="b_details_title">Leistungen</h3>
@@ -161,17 +161,17 @@
         <div class="package-options">
           <div class="package-option active" data-hours="5">
             <span class="package-circle"></span>
-            <span>5 Stunden</span>
+            <span data-i18n="package_5h">5 Stunden</span>
           </div>
           <div class="package-option" data-hours="10">
             <span class="package-circle"></span>
-            <span>10 Stunden</span>
+            <span data-i18n="package_10h">10 Stunden</span>
           </div>
           <div class="package-option" data-hours="custom">
             <span class="package-circle"></span>
-            <span>Individuell</span>
+            <span data-i18n="package_custom">Individuell</span>
           </div>
-          <input type="number" class="package-custom-input" placeholder="Std." min="1" max="100">
+          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
         </div>
         <div class="detail-content">
           <h3 data-i18n="b_details_title">Leistungen</h3>
@@ -215,17 +215,17 @@
         <div class="package-options">
           <div class="package-option active" data-hours="5">
             <span class="package-circle"></span>
-            <span>5 Stunden</span>
+            <span data-i18n="package_5h">5 Stunden</span>
           </div>
           <div class="package-option" data-hours="10">
             <span class="package-circle"></span>
-            <span>10 Stunden</span>
+            <span data-i18n="package_10h">10 Stunden</span>
           </div>
           <div class="package-option" data-hours="custom">
             <span class="package-circle"></span>
-            <span>Individuell</span>
+            <span data-i18n="package_custom">Individuell</span>
           </div>
-          <input type="number" class="package-custom-input" placeholder="Std." min="1" max="100">
+          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
         </div>
         <div class="detail-content">
           <h3 data-i18n="b_details_title">Leistungen</h3>
@@ -252,22 +252,23 @@
 <div class="footer-spacer"></div>
 
 <footer>
-  <p> | &copy; 2026 Glock Statistical Consulting |</p>
-  <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
+  <p>Handcrafted with ❤️</p>
+  <p>&copy; GSC | Glock Statistical Consulting Services</p>
+  <p><a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a></p>
 </footer>
 
 <!-- Contact Modal -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
     <h2 data-i18n="booking_title">Paketoption buchen</h2>
     <p data-i18n="booking_info">Ihre ausgewählte Option wird mit übertragen.</p>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" id="pricing-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://glock-statistical-consulting.github.io/home/pricing.html">
-      <input type="hidden" name="booking_card" id="booking-card">
-      <input type="hidden" name="booking_type" id="booking-type">
+      <input type="hidden" name="booking_card" id="booking-card" value="pricing-page">
+      <input type="hidden" name="booking_type" id="booking-type" value="booking">
       <input type="hidden" name="booking_hours" id="booking-hours">
       <input type="hidden" name="discount" id="booking-discount">
       <input type="hidden" name="language" id="booking-language">
@@ -283,137 +284,5 @@
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  handleHeroScroll();
-
-  // Hero "Individuelle Anfrage" Button
-  const heroBtn = document.querySelector('.hero-contact-btn');
-  if (heroBtn) {
-    heroBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const modal = document.getElementById('contactModal');
-      if (modal) {
-        const lang = localStorage.getItem('lang') || 'de';
-        modal.querySelector('h2').textContent = lang === 'de' ? 'Individuelle Anfrage' : 'Individual Inquiry';
-        modal.querySelector('[data-i18n="booking_info"]').style.display = 'none';
-        modal.querySelector('[data-i18n="booking_submit"]').textContent = lang === 'de' ? 'Anfrage senden' : 'Send Inquiry';
-        modal.style.display = 'flex';
-        setTimeout(() => modal.classList.add('active'), 10);
-      }
-    });
-  }
-
-  document.querySelectorAll('.card').forEach(card => {
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', function(e) {
-      if (e.target.closest('.booking-option') || e.target.closest('.package-option') || e.target.closest('.btn-book') || e.target.closest('.package-input')) return;
-      e.preventDefault(); e.stopPropagation();
-      document.querySelectorAll('.card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
-      const wasExpanded = card.classList.contains('expanded');
-      card.classList.toggle('expanded');
-        if (!wasExpanded) {
-          setTimeout(() => {
-            const cardRect = card.getBoundingClientRect();
-            const scrollDown = cardRect.height * 0.49;
-            smoothScrollBy(scrollDown, 500);
-          }, 450);
-        }
-    });
-
-    card.querySelectorAll('.booking-option').forEach(opt => {
-      opt.addEventListener('click', function(e) {
-        e.stopPropagation();
-        card.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
-        opt.classList.add('active');
-        const pkg = card.querySelector('.package-options');
-        if (pkg) pkg.classList.toggle('visible', opt.dataset.booking === 'package');
-      });
-    });
-
-    card.querySelectorAll('.package-option').forEach(opt => {
-      opt.addEventListener('click', function(e) {
-        e.stopPropagation();
-        card.querySelectorAll('.package-option').forEach(o => o.classList.remove('active'));
-        opt.classList.add('active');
-        const input = card.querySelector('.package-custom-input');
-        if (input) input.classList.toggle('visible', opt.dataset.hours === 'custom');
-      });
-    });
-
-    const bookBtn = card.querySelector('.btn-book');
-    if (bookBtn) {
-      bookBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const cardName = card.dataset.card;
-        document.getElementById('booking-card').value = cardName;
-        const activeBooking = card.querySelector('.booking-option.active');
-        const bookingType = activeBooking ? activeBooking.textContent.trim() : 'Einzelbuchung';
-        document.getElementById('booking-type').value = bookingType;
-        if (activeBooking && activeBooking.dataset.booking === 'package') {
-          const activePkg = card.querySelector('.package-option.active');
-          const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
-          const customInput = card.querySelector('.package-custom-input');
-          const discountMap = {
-            'Basics': { '5 Stunden': '10%', '10 Stunden': '15%', '5 hours': '10%', '10 hours': '15%' },
-            'Advanced': { '5 Stunden': '9%', '10 Stunden': '14%', '5 hours': '9%', '10 hours': '14%' },
-            'Expert': { '5 Stunden': '7%', '10 Stunden': '12%', '5 hours': '7%', '10 hours': '12%' }
-          };
-          document.getElementById('booking-hours').value = activePkg.dataset.hours === 'custom' ? (customInput.value || 'nicht angegeben') : hoursLabel;
-          document.getElementById('booking-discount').value = activePkg.dataset.hours === 'custom' ? 'individuell' : (discountMap[cardName]?.[hoursLabel] || '0%');
-        } else {
-          document.getElementById('booking-hours').value = '';
-          document.getElementById('booking-discount').value = '0%';
-        }
-        document.getElementById('booking-language').value = (localStorage.getItem('lang') || 'DE').toUpperCase();
-        // Reset modal for package booking
-        const modal = document.getElementById('contactModal');
-        const lang = localStorage.getItem('lang') || 'de';
-        modal.querySelector('h2').textContent = lang === 'de' ? 'Paketoption buchen' : 'Book Package Option';
-        modal.querySelector('[data-i18n="booking_info"]').style.display = 'block';
-        modal.querySelector('[data-i18n="booking_submit"]').textContent = lang === 'de' ? 'Verbindlich buchen' : 'Book Now';
-      });
-    }
-  });
-
-  const isMobile = () => window.innerWidth <= 768;
-
-  if (isMobile()) {
-    document.querySelectorAll('.card').forEach(card => card.classList.remove('expanded'));
-
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          document.querySelectorAll('.card').forEach(card => {
-            const rect = card.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
-              if (!card.classList.contains('expanded') && !card.dataset.observed) {
-                card.classList.add('expanded');
-                card.dataset.observed = 'true';
-              }
-            }
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-
-    setTimeout(function() {
-      window.dispatchEvent(new Event('scroll'));
-    }, 300);
-  }
-});
-
-document.getElementById('pricing-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(() => { toast.classList.remove('show'); }, 2500);
-  setTimeout(() => { this.submit(); }, 3300);
-});
-</script>
-
 </body>
 </html>

@@ -1,4 +1,4 @@
-function handleHeroScroll() {
+﻿function handleHeroScroll() {
   const hero = document.querySelector('.hero');
   if (!hero) return;
 
@@ -31,126 +31,181 @@ function smoothScrollBy(distance, duration) {
   requestAnimationFrame(step);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  handleHeroScroll();
+function setFormLanguage(form) {
+  if (!form) return;
+  const lang = (document.documentElement.lang || 'de').toUpperCase();
+  const langInput = form.querySelector('[name="language"], #booking-language');
+  if (langInput) langInput.value = lang;
+}
 
-  // Modal öffnen
-  document.querySelectorAll('.open-modal').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const modal = document.getElementById('contactModal');
-      if (modal) {
-        modal.style.display = 'flex';
-        setTimeout(() => modal.classList.add('active'), 10);
-      }
-    });
-  });
+function updateModalText(modal, mode) {
+  if (!modal || typeof applyLanguage !== 'function') return;
 
-  // Formular absenden
-  const form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const langEl = document.getElementById('hero-lang');
-      if (langEl) langEl.value = (localStorage.getItem('lang') || 'DE').toUpperCase();
-      const toast = document.createElement('div');
-      toast.className = 'toast-success';
-      const isEnglish = document.documentElement.lang === 'en';
-      toast.textContent = isEnglish ? 'Booking Successful!' : 'Anfrage erfolgreich!';
-      document.body.appendChild(toast);
-      requestAnimationFrame(() => toast.classList.add('show'));
-      setTimeout(() => toast.classList.remove('show'), 2500);
-      setTimeout(() => this.submit(), 3300);
-    });
+  const title = modal.querySelector('h2');
+  const submitBtn = modal.querySelector('button[type="submit"]');
+  const bookingInfo = modal.querySelector('[data-i18n="booking_info"]');
+
+  if (title && !modal.dataset.originalTitleKey) {
+    modal.dataset.originalTitleKey = title.dataset.i18n || '';
+  }
+  if (submitBtn && !modal.dataset.originalSubmitKey) {
+    modal.dataset.originalSubmitKey = submitBtn.dataset.i18n || '';
   }
 
-  // Features-Karten (Home)
-  const featuresContainer = document.querySelector('.features.pricing-grid');
-  if (featuresContainer) {
-    featuresContainer.addEventListener('click', function(e) {
-      const card = e.target.closest('.card');
-      if (!card) return;
-      e.stopPropagation();
-      document.querySelectorAll('.features .card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
-      const wasExpanded = card.classList.contains('expanded');
-      card.classList.toggle('expanded');
-      if (!wasExpanded) {
-        setTimeout(() => {
-          const cardRect = card.getBoundingClientRect();
-          const scrollDown = cardRect.height * 0.49;
-          smoothScrollBy(scrollDown, 500);
-        }, 450);
-      }
+  if (mode === 'inquiry') {
+    modal.dataset.mode = 'inquiry';
+    if (title) title.dataset.i18n = 'contact_title';
+    if (submitBtn) submitBtn.dataset.i18n = 'hero_contact_submit';
+    if (bookingInfo) bookingInfo.style.display = 'none';
+  } else {
+    modal.dataset.mode = 'booking';
+    if (title && modal.dataset.originalTitleKey) title.dataset.i18n = modal.dataset.originalTitleKey;
+    if (submitBtn && modal.dataset.originalSubmitKey) submitBtn.dataset.i18n = modal.dataset.originalSubmitKey;
+    if (bookingInfo) bookingInfo.style.display = 'block';
+  }
+
+  applyLanguage(document.documentElement.lang || 'de');
+}
+
+function setInquiryMode(modal) {
+  if (!modal) return;
+  updateModalText(modal, 'inquiry');
+  const bookingType = modal.querySelector('[name="booking_type"]');
+  const bookingHours = modal.querySelector('[name="booking_hours"]');
+  const bookingDiscount = modal.querySelector('[name="discount"]');
+  if (bookingType) bookingType.value = 'inquiry';
+  if (bookingHours) bookingHours.value = 'NA';
+  if (bookingDiscount) bookingDiscount.value = 'NA';
+  setFormLanguage(modal.querySelector('form'));
+}
+
+function setBookingMode(modal) {
+  if (!modal) return;
+  updateModalText(modal, 'booking');
+}
+
+function setupPricingCards() {
+  const pricingContainer = document.querySelector('.features.pricing-grid, .pricing-grid');
+  if (!pricingContainer) return;
+
+  const cards = pricingContainer.querySelectorAll('.card');
+  const discountMap = {
+    'Basics': { '5 Stunden': '10%', '10 Stunden': '15%', '5 hours': '10%', '10 hours': '15%' },
+    'Advanced': { '5 Stunden': '9%', '10 Stunden': '14%', '5 hours': '9%', '10 hours': '14%' },
+    'Expert': { '5 Stunden': '7%', '10 Stunden': '12%', '5 hours': '7%', '10 hours': '12%' }
+  };
+
+  pricingContainer.addEventListener('click', function(e) {
+    const card = e.target.closest('.card');
+    if (!card) return;
+    if (e.target.closest('.booking-option') || e.target.closest('.package-option') || e.target.closest('.btn-book') || e.target.closest('.package-custom-input')) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    const wasExpanded = card.classList.contains('expanded');
+    cards.forEach(c => { if (c !== card) c.classList.remove('expanded'); });
+    card.classList.toggle('expanded');
+    if (!wasExpanded) {
+      setTimeout(() => {
+        const cardRect = card.getBoundingClientRect();
+        const scrollDown = cardRect.height * 0.49;
+        smoothScrollBy(scrollDown, 500);
+      }, 450);
+    }
+  });
+
+  cards.forEach(card => {
+    card.querySelectorAll('.booking-option').forEach(opt => {
+      opt.addEventListener('click', function(e) {
+        e.stopPropagation();
+        card.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+        const pkg = card.querySelector('.package-options');
+        if (pkg) pkg.classList.toggle('visible', opt.dataset.booking === 'package');
+      });
     });
 
-    // Booking-Type (Einzel/Paket)
-    document.querySelectorAll('.features .card').forEach(card => {
-      card.querySelectorAll('.booking-option').forEach(opt => {
-        opt.addEventListener('click', function(e) {
-          e.stopPropagation();
-          card.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
-          opt.classList.add('active');
-          const pkg = card.querySelector('.package-options');
-          if (pkg) pkg.classList.toggle('visible', opt.dataset.booking === 'package');
-        });
+    card.querySelectorAll('.package-option').forEach(opt => {
+      opt.addEventListener('click', function(e) {
+        e.stopPropagation();
+        card.querySelectorAll('.package-option').forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+        const input = card.querySelector('.package-custom-input');
+        if (input) input.classList.toggle('visible', opt.dataset.hours === 'custom');
       });
+    });
 
-      // Package-Optionen (5h/10h/custom)
-      card.querySelectorAll('.package-option').forEach(opt => {
-        opt.addEventListener('click', function(e) {
-          e.stopPropagation();
-          card.querySelectorAll('.package-option').forEach(o => o.classList.remove('active'));
-          opt.classList.add('active');
-          const input = card.querySelector('.package-custom-input');
-          if (input) input.classList.toggle('visible', opt.dataset.hours === 'custom');
-        });
-      });
+    const bookBtn = card.querySelector('.btn-book');
+    if (bookBtn) {
+      bookBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const modal = document.getElementById('contactModal');
+        setBookingMode(modal);
 
-      // Buchungs-Button
-      const bookBtn = card.querySelector('.btn-book');
-      if (bookBtn) {
-        bookBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          const cardName = card.dataset.card;
-          document.getElementById('booking-card').value = cardName;
-          const activeBooking = card.querySelector('.booking-option.active');
-          const bookingType = activeBooking ? activeBooking.textContent.trim() : 'Einzelbuchung';
-          document.getElementById('booking-type').value = bookingType;
-          if (activeBooking && activeBooking.dataset.booking === 'package') {
-            const activePkg = card.querySelector('.package-option.active');
-            const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
-            const customInput = card.querySelector('.package-custom-input');
-            const discountMap = {
-              'Basics': { '5 Stunden': '10%', '10 Stunden': '15%', '5 hours': '10%', '10 hours': '15%' },
-              'Advanced': { '5 Stunden': '9%', '10 Stunden': '14%', '5 hours': '9%', '10 hours': '14%' },
-              'Expert': { '5 Stunden': '7%', '10 Stunden': '12%', '5 hours': '7%', '10 hours': '12%' }
-            };
-            document.getElementById('booking-hours').value = activePkg.dataset.hours === 'custom' ? (customInput.value || 'nicht angegeben') : hoursLabel;
-            document.getElementById('booking-discount').value = activePkg.dataset.hours === 'custom' ? 'individuell' : (discountMap[cardName]?.[hoursLabel] || '0%');
-          } else {
-            document.getElementById('booking-hours').value = '';
-            document.getElementById('booking-discount').value = '0%';
+        const cardName = card.dataset.card;
+        const bookingCard = document.getElementById('booking-card');
+        if (bookingCard) bookingCard.value = cardName;
+
+        const activeBooking = card.querySelector('.booking-option.active');
+        const bookingType = activeBooking ? activeBooking.textContent.trim() : 'Einzelbuchung';
+        const bookingTypeField = document.getElementById('booking-type');
+        if (bookingTypeField) bookingTypeField.value = bookingType;
+
+        const bookingHoursField = document.getElementById('booking-hours');
+        const bookingDiscountField = document.getElementById('booking-discount');
+        const bookingLanguageField = document.getElementById('booking-language');
+
+        if (activeBooking && activeBooking.dataset.booking === 'package') {
+          const activePkg = card.querySelector('.package-option.active');
+          const hoursLabel = activePkg ? activePkg.textContent.trim() : '5 Stunden';
+          const customInput = card.querySelector('.package-custom-input');
+          if (bookingHoursField) {
+            bookingHoursField.value = activePkg && activePkg.dataset.hours === 'custom'
+              ? (customInput.value || 'nicht angegeben')
+              : hoursLabel;
           }
-          document.getElementById('booking-language').value = (localStorage.getItem('lang') || 'DE').toUpperCase();
+          if (bookingDiscountField) {
+            bookingDiscountField.value = activePkg && activePkg.dataset.hours === 'custom'
+              ? 'individuell'
+              : (discountMap[cardName]?.[hoursLabel] || '0%');
+          }
+        } else {
+          if (bookingHoursField) bookingHoursField.value = '';
+          if (bookingDiscountField) bookingDiscountField.value = '0%';
+        }
+
+        if (bookingLanguageField) bookingLanguageField.value = (document.documentElement.lang || 'DE').toUpperCase();
+      });
+    }
+  });
+
+  const isMobile = () => window.innerWidth <= 768;
+  if (isMobile()) {
+    cards.forEach(card => card.classList.remove('expanded'));
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            if (!card.classList.contains('expanded')) {
+              card.classList.add('expanded');
+            }
+            obs.unobserve(card);
+          }
         });
-      }
-    });
-
-    // Mobile: Auto-Expand beim Scrollen (nur für Pricing-Seite)
-    const isMobile = () => window.innerWidth <= 768;
-    if (isMobile() && document.querySelector('.pricing-grid')) {
-      document.querySelectorAll('.pricing-grid .card').forEach(card => card.classList.remove('expanded'));
-
+      }, { threshold: 0.25 });
+      cards.forEach(card => observer.observe(card));
+    } else {
       let ticking = false;
       window.addEventListener('scroll', function() {
         if (!ticking) {
           requestAnimationFrame(function() {
-            document.querySelectorAll('.pricing-grid .card').forEach(card => {
+            cards.forEach(card => {
               const rect = card.getBoundingClientRect();
               if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
-                if (!card.classList.contains('expanded') && !card.dataset.observed) {
+                if (!card.classList.contains('expanded')) {
                   card.classList.add('expanded');
-                  card.dataset.observed = 'true';
                 }
               }
             });
@@ -159,25 +214,117 @@ document.addEventListener('DOMContentLoaded', function() {
           ticking = true;
         }
       }, { passive: true });
-
-      setTimeout(function() {
-        window.dispatchEvent(new Event('scroll'));
-      }, 300);
+      setTimeout(() => window.dispatchEvent(new Event('scroll')), 300);
     }
   }
+}
 
-  // About-Seite: Service-Card
-  const aboutContainer = document.querySelector('.about-content');
-  if (aboutContainer) {
-    aboutContainer.addEventListener('click', function(e) {
-      const header = e.target.closest('.service-header');
-      if (!header) return;
-      e.preventDefault();
+function setupServiceCards() {
+  const cards = document.querySelectorAll('.service-card');
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
       e.stopPropagation();
-      const card = header.closest('.service-card');
-      document.querySelectorAll('.about-content .service-card').forEach(c => { if (c !== card) c.classList.remove('expanded'); });
+      cards.forEach(c => { if (c !== card) c.classList.remove('expanded'); });
       card.classList.toggle('expanded');
     });
+  });
+
+  const isMobile = () => window.innerWidth <= 768;
+  if (!isMobile()) return;
+
+  cards.forEach(card => card.classList.remove('expanded'));
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          if (!card.classList.contains('expanded')) {
+            card.classList.add('expanded');
+          }
+          obs.unobserve(card);
+        }
+      });
+    }, { threshold: 0.25 });
+    cards.forEach(card => observer.observe(card));
+  } else {
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
+              if (!card.classList.contains('expanded')) {
+                card.classList.add('expanded');
+              }
+            }
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+    setTimeout(() => window.dispatchEvent(new Event('scroll')), 300);
+  }
+}
+
+function setupContactForms() {
+  const forms = document.querySelectorAll('.contact-form, #pricing-form');
+  if (!forms.length) return;
+
+  forms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      setFormLanguage(form);
+
+      const lang = (document.documentElement.lang || 'de').toLowerCase();
+      const toast = document.getElementById('toast');
+      if (toast) {
+        const mode = form.id === 'pricing-form'
+          ? (document.getElementById('contactModal')?.dataset.mode || 'booking')
+          : 'inquiry';
+        toast.textContent = mode === 'inquiry'
+          ? (lang === 'de' ? 'Anfrage erfolgreich!' : 'Inquiry Successful!')
+          : (lang === 'de' ? 'Buchung erfolgreich!' : 'Booking Successful!');
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 2500);
+      }
+      setTimeout(() => { this.submit(); }, 3300);
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  handleHeroScroll();
+  setupPricingCards();
+  setupServiceCards();
+  setupContactForms();
+
+  const modal = document.getElementById('contactModal');
+  if (modal) {
+    document.querySelectorAll('.open-modal').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (this.closest('.btn-book')) {
+          setBookingMode(modal);
+        } else {
+          setInquiryMode(modal);
+        }
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('active'), 10);
+      });
+    });
+
+    const modalContent = modal.querySelector('.modal');
+    if (modalContent) {
+      modalContent.addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+    }
   }
 });
 
@@ -189,8 +336,19 @@ function closeModal() {
   }
 }
 
+// Close button event listener
+document.addEventListener('DOMContentLoaded', function() {
+  const closeBtn = document.querySelector('.modal-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeModal();
+    });
+  }
+});
+
 document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('modal-overlay')) {
+  if (e.target.closest('.modal-overlay')) {
     closeModal();
   }
 });

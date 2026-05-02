@@ -11,8 +11,8 @@
 <meta property="og:image" content="https://glock-statistical-consulting.github.io/home/img/logo.svg">
 <meta property="og:url" content="https://glock-statistical-consulting.github.io/home/">
 <meta property="og:type" content="website">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<title>About | Statistik Nachhilfe & Data Science Consulting | Glock Statistical Consulting Services | GSC (SPSS, R, Python)</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title>About | GSC Services</title>
 <link rel="stylesheet" href="style.css">
 
 <!-- Strukturierte Daten (Schema.org) Image -->
@@ -43,7 +43,7 @@
   <a href="services.html" data-i18n="navbar_services">Services</a>
   <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
   <div class="nav-lang">
-    <button class="lang-btn active-lang" data-lang="de">DE</button>
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
     <span class="lang-separator">|</span>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
@@ -57,7 +57,7 @@
     </div>
     <div class="hero-content">
       <div class="hero-text">
-        <p data-i18n="hero_about">Forschung, Industrie & Business | Langjährige Branchenerfahrung</p>
+        <p data-i18n="hero_about">Langjährige Erfahrung aus Forschung, Industrie & Business</p>
       </div>
       <div class="hero-action">
         <span class="hero-scrolled-text" data-i18n="hero_scrolled">Schluss mit den Statistik-Problemen!</span>
@@ -110,21 +110,22 @@
 </main>
 
 <footer>
-  <p> | &copy; 2026 Glock Statistical Consulting |</p>
-  <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
+  <p>Handcrafted with ❤️</p>
+  <p>&copy; GSC | Glock Statistical Consulting Services</p>
+  <p><a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a></p>
 </footer>
 
 <!-- Contact Modal -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
     <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://glock-statistical-consulting.github.io/home/about.html">
-      <input type="hidden" name="booking_card" value="individual">
-      <input type="hidden" name="booking_type" value="contact">
+      <input type="hidden" name="booking_card" value="about-page">
+      <input type="hidden" name="booking_type" value="inquiry">
       <input type="hidden" name="booking_hours" value="NA">
       <input type="hidden" name="discount" value="NA">
       <input type="hidden" name="language" id="hero-lang">
@@ -135,48 +136,6 @@
     </form>
   </div>
 </div>
-
-<script>
-document.querySelectorAll('.service-card').forEach(card => {
-  card.style.cursor = 'pointer';
-  card.addEventListener('click', function(e) {
-    e.preventDefault(); e.stopPropagation();
-    document.querySelectorAll('.service-card.expanded').forEach(c => {
-      if (c !== card) c.classList.remove('expanded');
-    });
-    card.classList.toggle('expanded');
-  });
-});
-
-const isMobile = () => window.innerWidth <= 768;
-
-if (isMobile()) {
-  document.querySelectorAll('.service-card').forEach(card => card.classList.remove('expanded'));
-
-  let ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        document.querySelectorAll('.service-card').forEach(card => {
-          const rect = card.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
-            if (!card.classList.contains('expanded') && !card.dataset.observed) {
-              card.classList.add('expanded');
-              card.dataset.observed = 'true';
-            }
-          }
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  setTimeout(function() {
-    window.dispatchEvent(new Event('scroll'));
-  }, 300);
-}
-</script>
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>

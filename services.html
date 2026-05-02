@@ -11,9 +11,17 @@
 <meta property="og:image" content="https://glock-statistical-consulting.github.io/home/img/logo.svg">
 <meta property="og:url" content="https://glock-statistical-consulting.github.io/home/">
 <meta property="og:type" content="website">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<title>Services | Statistik Nachhilfe & Data Science Consulting | Glock Statistical Consulting Services | GSC (SPSS, R, Python)</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title>Services | GSC Services</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* Focus indicator for service cards */
+.service-card:focus {
+  outline: 3px solid #0078d7;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(0,120,215,0.2);
+}
+</style>
 
 <!-- Strukturierte Daten (Schema.org) Image -->
 <script type="application/ld+json">
@@ -43,7 +51,7 @@
   <a href="services.html" data-i18n="navbar_services">Services</a>
   <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
   <div class="nav-lang">
-    <button class="lang-btn active-lang" data-lang="de">DE</button>
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
     <span class="lang-separator">|</span>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
@@ -68,7 +76,7 @@
 </header>
 
 <main>
-<section>
+<section aria-label="Leistungen">
   <h2 data-i18n="services_title">Leistungen</h2>
   <p class="subtitle" data-i18n="services_subtitle">Statistik-Nachhilfe, Data Science & Beratung – individuell auf Ihr Niveau abgestimmt.</p>
 
@@ -76,7 +84,7 @@
 
     <div class="service-card">
       <div class="service-header">
-        <h2 data-i18n="serv1_title">Statistik Nachhilfe</h2>
+        <h3 data-i18n="serv1_title">Statistik Nachhilfe</h3>
         <p data-i18n="serv1_text">Von Abitur bis Bachelor – Grundlagen, deskriptive Statistik, Hypothesentests & mehr.</p>
       </div>
       <div class="service-details">
@@ -91,7 +99,7 @@
 
     <div class="service-card">
       <div class="service-header">
-        <h2 data-i18n="serv2_title">Data Science & Machine Learning</h2>
+        <h3 data-i18n="serv2_title">Data Science & Machine Learning</h3>
         <p data-i18n="serv2_text">Von Regression bis Deep Learning – praxisnah in Python, R & SQL.</p>
       </div>
       <div class="service-details">
@@ -106,7 +114,7 @@
 
     <div class="service-card">
       <div class="service-header">
-        <h2 data-i18n="serv3_title">Bachelor- & Masterthesis</h2>
+        <h3 data-i18n="serv3_title">Bachelor- & Masterthesis</h3>
         <p data-i18n="serv3_text">Methodik, Stichprobe, Auswertung – methodische Begleitung bis zur Abgabe.</p>
       </div>
       <div class="service-details">
@@ -121,7 +129,7 @@
 
     <div class="service-card">
       <div class="service-header">
-        <h2 data-i18n="serv4_title">Doktorat & Forschung</h2>
+        <h3 data-i18n="serv4_title">Doktorat & Forschung</h3>
         <p data-i18n="serv4_text">Fortgeschrittene Statistik, Poweranalysen & Publikationsberatung.</p>
       </div>
       <div class="service-details">
@@ -145,21 +153,22 @@
 </main>
 
 <footer>
-  <p> | &copy; 2026 Glock Statistical Consulting |</p>
-  <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
+  <p>Handcrafted with ❤️</p>
+  <p>&copy; GSC | Glock Statistical Consulting Services</p>
+  <p><a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a></p>
 </footer>
 
 <!-- Contact Modal -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
     <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://glock-statistical-consulting.github.io/home/services.html">
-      <input type="hidden" name="booking_card" value="individual">
-      <input type="hidden" name="booking_type" value="contact">
+      <input type="hidden" name="booking_card" value="services-page">
+      <input type="hidden" name="booking_type" value="inquiry">
       <input type="hidden" name="booking_hours" value="NA">
       <input type="hidden" name="discount" value="NA">
       <input type="hidden" name="language" id="hero-lang">
@@ -171,101 +180,7 @@
   </div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-// Hero "Individuelle Anfrage" Button
-const heroBtn = document.querySelector('.hero-contact-btn');
-if (heroBtn) {
-  heroBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    const modal = document.getElementById('contactModal');
-    if (modal) {
-      const isEnglish = document.documentElement.lang === 'en';
-      modal.querySelector('h2').textContent = isEnglish ? 'Individual Inquiry' : 'Individuelle Anfrage';
-      modal.querySelector('[data-i18n="booking_info"]').style.display = 'none';
-      const btn = modal.querySelector('.btn[type="submit"]');
-      if (btn) {
-        btn.removeAttribute('data-i18n');
-        btn.textContent = isEnglish ? 'Send Inquiry' : 'Anfrage senden';
-      }
-      modal.style.display = 'flex';
-      setTimeout(() => {
-        modal.classList.add('active');
-      }, 10);
-    }
-  });
-}
-
-// Service Cards Click Handler
-document.querySelectorAll('.service-card').forEach(card => {
-  card.style.cursor = 'pointer';
-  card.addEventListener('click', function(e) {
-    e.stopPropagation();
-    document.querySelectorAll('.service-card.expanded').forEach(c => {
-      if (c !== card) c.classList.remove('expanded');
-    });
-    card.classList.toggle('expanded');
-  });
-});
-
-// Mobile Auto-Expand
-const isMobile = () => window.innerWidth <= 768;
-if (isMobile()) {
-  document.querySelectorAll('.service-card').forEach(card => card.classList.remove('expanded'));
-
-  let ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        document.querySelectorAll('.service-card').forEach(card => {
-          const rect = card.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
-            if (!card.classList.contains('expanded')) {
-              card.classList.add('expanded');
-            }
-          }
-        });
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  setTimeout(function() {
-    window.dispatchEvent(new Event('scroll'));
-  }, 300);
-}
-
-// Form Submit Handler
-const form = document.querySelector('.contact-form');
-if (form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const toast = document.getElementById('toast');
-    if (toast) {
-      toast.classList.add('show');
-      setTimeout(() => { toast.classList.remove('show'); }, 2500);
-    }
-    setTimeout(() => { this.submit(); }, 3300);
-  });
-}
-
-});
-</script>
-
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
-<script>
-function closeModal() {
-  const modal = document.getElementById('contactModal');
-  if (modal) {
-    modal.classList.remove('active');
-    setTimeout(() => {
-      modal.style.display = 'none';
-    }, 300);
-  }
-}
-</script>
 </body>
 </html>

@@ -931,8 +931,10 @@ footer p {
 
 .service-details ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 0 0 0 1.25rem;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
 }
 
 .service-details ul li {
@@ -1063,4 +1065,10 @@ footer p {
 .page-transition-overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }

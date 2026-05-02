@@ -11,8 +11,8 @@
 <meta property="og:image" content="https://glock-statistical-consulting.github.io/home/img/logo.svg">
 <meta property="og:url" content="https://glock-statistical-consulting.github.io/home/">
 <meta property="og:type" content="website">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<title>Impressum | Statistik Nachhilfe & Data Science Consulting | Glock Statistical Consulting Services | GSC (SPSS, R, Python)</title>
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title>Impressum | GSC Services</title>
 <link rel="stylesheet" href="style.css">
 
 <!-- Strukturierte Daten (Schema.org) Image -->
@@ -43,7 +43,7 @@
   <a href="services.html" data-i18n="navbar_services">Services</a>
   <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
   <div class="nav-lang">
-    <button class="lang-btn active-lang" data-lang="de">DE</button>
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
     <span class="lang-separator">|</span>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
@@ -72,22 +72,21 @@
 
   <p><strong>Glock Statistical Consulting</strong></p>
   <p>
-    [Vorname Nachname]<br>
-    [Straße Hausnummer]<br>
-    [PLZ Ort]
+    Kevin Glock<br>
+    Schönebecker Straße 76<br>
+    45359 Essen
   </p>
 
   <h2 data-i18n="imp_contact">Kontakt</h2>
   <p>
-    Telefon: [Telefonnummer]<br>
     E-Mail: glock.gsc@web.de
   </p>
 
   <h2 data-i18n="imp_resp">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
   <p>
-    [Vorname Nachname]<br>
-    [Straße Hausnummer]<br>
-    [PLZ Ort]
+    Kevin Glock<br>
+    Schönebecker Straße 76<br>
+    45359 Essen
   </p>
 
   <h2 data-i18n="imp_dispute_title">Streitschlichtung</h2>
@@ -149,12 +148,36 @@
 </section>
 
 <footer>
-  <p> | &copy; 2026 Glock Statistical Consulting |</p>
-  <p><a href="impressum.html" style="color: white; text-decoration: none;" data-i18n="footer_impressum">Impressum</a></p>
+  <p>Handcrafted with ❤️</p>
+  <p>&copy; GSC | Glock Statistical Consulting Services</p>
+  <p><a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a></p>
 </footer>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
+    <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://glock-statistical-consulting.github.io/home/">
+      <input type="hidden" name="booking_card" value="imprint-page">
+      <input type="hidden" name="booking_type" value="inquiry">
+      <input type="hidden" name="booking_hours" value="NA">
+      <input type="hidden" name="discount" value="NA">
+      <input type="hidden" name="language" id="hero-lang">
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-success" id="toast">Inquiry Successful!</div>
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
-
 </body>
 </html>
