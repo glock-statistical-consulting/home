@@ -813,7 +813,7 @@ footer p {
   .hero-inner {
     flex-direction: column;
     text-align: center;
-    padding: 20px 15px;
+    padding: 15px 15px 5px;
   }
 
   .hero.scrolled .hero-inner {
@@ -823,6 +823,7 @@ footer p {
   .hero-content {
     align-items: center;
     width: 100%;
+    gap: 5px;
   }
 
   .hero-text {
