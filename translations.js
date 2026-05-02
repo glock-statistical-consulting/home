@@ -30,13 +30,14 @@ const translations = {
     footer_impressum: "Imprint",
 
     about_title: "About GSC",
-    about_p1: "Welcome to GSC – your expert for statistical support in academic research. With an M.Sc. in Statistics (University of Bamberg) and over 8 years of experience in research and industry, I offer professional support for students and researchers.",
-    about_p2: "My expertise as an IT Consultant (Supply Chain) enables me to present complex statistical concepts in an understandable way and develop practical solutions for your academic challenges.",
+    about_p1: "GSC stands for well-founded statistical consulting and practice-oriented support in all phases of your education and professional career. Whether Abitur, university studies, PhD or data-driven questions in business – I accompany you with tailored expertise on your individual path.",
+    about_p2: "As founder of GSC, I combine a Master's degree in Statistics with over eight years of experience in research and industry. My work as an IT Consultant in Supply Chain enables me to efficiently analyze complex data structures and translate them into clear, understandable results.",
+    about_p3: "GSC follows a holistic approach: In addition to the correct application of statistical methods, I place special emphasis on conveying content in a comprehensible way and creating sustainable understanding. This creates solutions that are not only methodologically convincing, but also practically implementable.",
+    about_p4: "My goal is to reliably support you with your challenges – from the initial question to successful implementation.",
     about_exp_title: "Experience & Qualification",
     about_exp_1: "M.Sc. Statistics (University of Bamberg)",
     about_exp_2: "8+ Years of Experience in Research & Industry",
     about_exp_3: "IT Consultant (Supply Chain)",
-    about_p3: "With GSC, we help you understand statistical concepts, correctly evaluate data, and professionally implement academic work.",
     about_cta_text: "Interested in my support? Feel free to contact me!",
     about_cta_btn: "Contact Us",
 
