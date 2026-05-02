@@ -440,7 +440,11 @@ footer {
   text-align: center;
   padding: 20px;
   background: #001d3d;
+}
+
+footer p {
   color: white;
+  margin: 5px 0;
 }
 
 /* PRICING */
