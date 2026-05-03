@@ -14,7 +14,8 @@
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title>Impressum | GSC Services</title>
 <link rel="stylesheet" href="style.css">
-
+<!-- Icons von Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <!-- Strukturierte Daten (Schema.org) Image -->
 <script type="application/ld+json">
 {
@@ -34,6 +35,30 @@
   "url": "https://glock-statistical-consulting.github.io/home/"
 }
 </script>
+<style>
+.features .card .card-summary {
+  min-height: 420px;
+}
+
+@media (max-width: 600px) {
+  .features .card .card-summary {
+    min-height: 180px;
+  }
+}
+
+/* Visible focus style for language buttons */
+.lang-btn:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+  background-color: #e6f0fa;
+}
+
+[data-i18n="booking_info"] {
+  text-align: center;
+  display: block;
+  margin-bottom: 15px;
+}
+</style>
 </head>
 <body>
 
@@ -68,6 +93,8 @@
 </header>
 
 <section>
+  <h1 data-i18n="imp_title">Impressum</h1>
+
   <h2 data-i18n="imp_ddg">Angaben gemäß § 5 DDG (ehemals TMG)</h2>
 
   <p><strong>Glock Statistical Consulting</strong></p>
@@ -79,7 +106,7 @@
 
   <h2 data-i18n="imp_contact">Kontakt</h2>
   <p>
-    E-Mail: glock.gsc@web.de
+    Bitte kontaktieren Sie uns über das Kontaktformular auf unserer Website, wir werden uns umgehend bei Ihnen melden.
   </p>
 
   <h2 data-i18n="imp_resp">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
@@ -148,9 +175,48 @@
 </section>
 
 <footer>
-  <p>Handcrafted with ❤️</p>
-  <p>&copy; GSC | Glock Statistical Consulting Services</p>
-  <p><a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a></p>
+  <div>
+    <!-- Social Media Buttons -->
+  <div class="chr-footer__social__container">
+      <h3 class="chr-footer__social__title chr-headline-6"> Folge uns</h3>
+        <ul class="chr-footer__social__list">
+          <li> <!--YouTube-->
+          <a href="https://www.youtube.com/user/@meinuser"
+            aria-label="YouTube" target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn youtube"
+            data-i18n-aria-label="youtube"
+            data-i18n-title="youtube">
+          <img src="img/youtube_icon.svg" alt="YouTube">
+          <title>YouTube</title></a></li>
+
+          <li> <!-- LinkedIn -->
+          <a href="https://de.linkedin.com/in/glockconsulting"
+            aria-label="linkedin"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn linkedin"
+            data-i18n-aria-label="linkedin"
+            data-i18n-title="linkedin">
+          <img src="img/linkedin_icon.svg" alt="LinkedIn">
+          <title>LinkedIn</title></a></li>
+        </ul>
+    </div>
+<div class="section-divider"></div>
+
+<div class="footer-spacer">
+        <ul class="chr-footer__list">
+          <li> <!--Company-->
+          <p>&copy; GSC | Glock Statistical Consulting Services</p></li>
+          
+          <li> <!--Impressum-->
+          <a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a></li>
+          
+          <li> <!--Handcrafted-->
+          <p>Handcrafted with ❤️</p></li>
+        </ul>
+</div>
+</div>
 </footer>
 
 <!-- Contact Modal -->
@@ -167,9 +233,9 @@
       <input type="hidden" name="booking_hours" value="NA">
       <input type="hidden" name="discount" value="NA">
       <input type="hidden" name="language" id="hero-lang">
-      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Name" required>
-      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Email" required>
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nachricht" rows="5" required></textarea>
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required></textarea>
       <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
     </form>
   </div>
@@ -179,5 +245,21 @@
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
+<script>
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+  const key = el.dataset.i18n;
+  el.textContent = translations[currentLang][key];
+});
+
+document.querySelectorAll("[data-i18n-aria-label]").forEach(el => {
+  const key = el.dataset.i18nAriaLabel;
+  el.setAttribute("aria-label", translations[currentLang][key]);
+});
+
+document.querySelectorAll("[data-i18n-title]").forEach(el => {
+  const key = el.dataset.i18nTitle;
+  el.setAttribute("title", translations[currentLang][key]);
+});
+</script>
 </body>
 </html>

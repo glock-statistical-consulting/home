@@ -169,6 +169,7 @@ const translations = {
     hero_contact_submit: "Send Inquiry",
 
     impressum_title: "Imprint – Provider Information",
+    imp_title: "Provider Information",
     imp_ddg: "Information according to § 5 DDG (formerly TMG)",
     imp_contact: "Contact",
     imp_resp: "Responsible for content according to § 55 Abs. 2 RStV",
@@ -184,6 +185,9 @@ const translations = {
     imp_copyright_title: "Copyright",
     imp_copyright_text1: "The content and works created by the site operators on these pages are subject to German copyright law. The reproduction, editing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator.",
     imp_copyright_text2: "Downloads and copies of this site are only permitted for private, non-commercial use. As far as the content on this site was not created by the operator, the copyrights of third parties are respected.",
+    
+    linkedin: "LinkedIn Profile",
+    youtube: "YouTube Channel"
   }
 };
 
