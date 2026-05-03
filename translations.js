@@ -187,9 +187,12 @@ const translations = {
     imp_copyright_text2: "Downloads and copies of this site are only permitted for private, non-commercial use. As far as the content on this site was not created by the operator, the copyrights of third parties are respected.",
     
     linkedin: "LinkedIn Profile",
-    youtube: "YouTube Channel"
+    youtube: "YouTube Channel",
+    footer_social_title: "Follow Me"
   }
 };
+
+let currentLang = 'de';
 
 const defaults = {};
 
@@ -236,6 +239,7 @@ function switchLanguage(lang) {
 document.addEventListener('DOMContentLoaded', function() {
   storeDefaults();
   const saved = localStorage.getItem('lang') || 'de';
+  currentLang = saved;
   if (saved !== 'de') applyLanguage(saved);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {

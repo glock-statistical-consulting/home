@@ -14,8 +14,6 @@
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title>About | GSC Services</title>
 <link rel="stylesheet" href="style.css">
-<!-- Icons von Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <!-- Strukturierte Daten (Schema.org) Image -->
 <script type="application/ld+json">
 {
@@ -52,27 +50,45 @@
   outline-offset: 2px;
   background-color: #e6f0fa;
 }
+
+[data-i18n="booking_info"] {
+  text-align: center;
+  display: block;
+  margin-bottom: 15px;
+}
 </style>
 </head>
 <body>
 
 <nav class="navbar">
-  <a href="index.html" data-i18n="navbar_home">Home</a>
-  <a href="about.html" data-i18n="navbar_about">About</a>
-  <a href="services.html" data-i18n="navbar_services">Services</a>
-  <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
-  <div class="nav-lang">
+<div class="nav-left">
+  <img src="img/logo-compact.svg" alt="GSC Logo" class="nav-logo">
+</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">About</a>
+    <a href="services.html" data-i18n="navbar_services">Services</a>
+    <a href="pricing.html" data-i18n="navbar_pricing">Pricing</a>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-lang">
     <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
     <span class="lang-separator">|</span>
     <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+<div class="burger" id="burger">
+      ☰
+    </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-brand">
-      <img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
-      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact">
+      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
+      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
     </div>
     <div class="hero-content">
       <div class="hero-text">
@@ -141,7 +157,7 @@
   <div>
     <!-- Social Media Buttons -->
   <div class="chr-footer__social__container">
-      <h3 class="chr-footer__social__title chr-headline-6"> Folge uns</h3>
+      <h3 class="chr-footer__social__title chr-headline-6" data-i18n="footer_social_title"> Folge Mir</h3>
         <ul class="chr-footer__social__list">
           <li> <!--YouTube-->
           <a href="https://www.youtube.com/user/@meinuser"
@@ -170,7 +186,7 @@
 <div class="footer-spacer">
         <ul class="chr-footer__list">
           <li> <!--Company-->
-          <p>&copy; GSC | Glock Statistical Consulting Services</p></li>
+          <p>Kevin Glock | Statistical Consulting Services</p></li>
           
           <li> <!--Impressum-->
           <a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a></li>
@@ -204,23 +220,28 @@
   </div>
 </div>
 
+<div class="toast-success" id="toast">Inquiry Successful!</div>
+
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-  const key = el.dataset.i18n;
-  el.textContent = translations[currentLang][key];
-});
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
 
-document.querySelectorAll("[data-i18n-aria-label]").forEach(el => {
-  const key = el.dataset.i18nAriaLabel;
-  el.setAttribute("aria-label", translations[currentLang][key]);
-});
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+</script>
+<script src="https://unpkg.com/@studio-freight/lenis/bundled/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 5.5 });
 
-document.querySelectorAll("[data-i18n-title]").forEach(el => {
-  const key = el.dataset.i18nTitle;
-  el.setAttribute("title", translations[currentLang][key]);
-});
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
 </script>
 </body>
 </html>

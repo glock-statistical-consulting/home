@@ -24,15 +24,18 @@ body {
   background: #f7f9fc;
   color: #1f2937;
   line-height: 1.6;
+  overflow: auto;
 }
 
-/* NAVBAR */
+html{
+  height: auto;
+}
+
 .navbar {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 25px;
-  padding: 15px;
+  justify-content: space-between;
+  padding: 15px 20px;
   background: #001d3d;
   position: fixed;
   top: 0;
@@ -41,12 +44,37 @@ body {
   z-index: 1000;
 }
 
-.nav-lang {
+.nav-left {
   display: flex;
   align-items: center;
+}
+
+.nav-logo {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-lang {
+  display: flex;
   gap: 5px;
-  position: absolute;
-  right: 20px;
+}
+
+.burger {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
 }
 
 .lang-btn {
@@ -56,8 +84,6 @@ body {
   font-weight: 600;
   color: #535c86;
   cursor: pointer;
-  padding: 4px 8px;
-  transition: color 0.2s ease;
 }
 
 .lang-btn:hover {
@@ -80,8 +106,8 @@ body {
 .navbar a:hover {
   color: var(--orange);
   transform: scale(1.03) translateY(-0.5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    transition: top 0.8s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: top 0.8s ease;
 }
 
 .nav-links-mobile {
@@ -97,18 +123,14 @@ body {
   font-weight: 300;
 }
 
-/* HERO SPACER */
 .hero-spacer {
   height: 10px;
 }
 
-
-/* SECTION SPACER */
 .section-spacer {
   height: 20px;
 }
 
-/* HERO */
 .hero {
   position: fixed;
   top: 60px;
@@ -138,7 +160,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  transition: all 0.1s ease;
+  transition: all 0.6s ease;
 }
 
 .hero.scrolled .hero-content {
@@ -180,20 +202,22 @@ body {
 .hero-text {
   text-align: left;
   opacity: 1;
-  max-height: 100px;
+  max-height: 50px;
   overflow: hidden;
-  transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+  transition: transform 0.6s ease, opacity 0.6s ease, max-height 0.4s ease, margin 0.4s ease;
 }
 
 .hero.scrolled .hero-text {
   opacity: 0;
   max-height: 0;
   margin: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease, max-height 0.4s ease, margin 0.4s ease;
 }
 
 .hero-action {
   display: flex;
   align-items: center;
+  padding: 20px 20px 20px;
 }
 
 .hero-action .btn {
@@ -207,6 +231,7 @@ body {
   font-weight: 600;
   white-space: nowrap;
   margin-right: 20px;
+  padding: 10px 15px 0;
 }
 
 .hero.scrolled .hero-scrolled-text {
@@ -371,6 +396,35 @@ h1, h2 {
 
   .card {
     width: 90%;
+  }
+  
+  .burger {
+    display: block;
+  }
+
+   .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #001d3d;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-lang {
+    display: flex;
+    margin-top: 10px;
   }
 }
 
@@ -995,6 +1049,7 @@ footer p {
     width: 100%;
     gap: 2px;
     opacity: 0.95;
+    transition: all 0.6s ease;
   }
 
   .hero-text {
@@ -1026,6 +1081,7 @@ footer p {
   .hero-scrolled-text {
     display: none !important;
     opacity: 0.95;
+    transition: all 0.6s ease;
   }
 
   .hero.scrolled .hero-scrolled-text {
@@ -1062,10 +1118,31 @@ footer p {
     transition: top 0.8s ease;
   }
 
-  .nav-lang {
-    position: static;
+  .nav-right {
     margin-left: auto;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  }
+
+  .nav-lang {
+    display: flex;
     gap: 3px;
+  }
+
+  .lang-btn {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+  }
+
+  .burger {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    padding: 0px;
   }
 
   .pricing-grid {
