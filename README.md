@@ -1,2 +1,2 @@
 # info
-LandingPage Glock Statistical Consulting | GSC Services
+LandingPage of Kevin Glock Statistical Consulting Services | GSC Services
