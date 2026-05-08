@@ -1,22 +1,4 @@
-﻿function handleHeroScroll() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-
-  const threshold = 100;
-
-  function updateHero() {
-    if (window.scrollY > threshold) {
-      hero.classList.add('scrolled');
-    } else {
-      hero.classList.remove('scrolled');
-    }
-  }
-
-  window.addEventListener('scroll', updateHero, { passive: true });
-  updateHero();
-}
-
-function smoothScrollBy(distance, duration) {
+﻿function smoothScrollBy(distance, duration) {
   const start = window.scrollY;
   const startTime = performance.now();
   function easeInOutCubic(t) {
@@ -281,15 +263,13 @@ function setupContactForms() {
       e.preventDefault();
       setFormLanguage(form);
 
-      const lang = (document.documentElement.lang || 'de').toLowerCase();
       const toast = document.getElementById('toast');
       if (toast) {
         const mode = form.id === 'pricing-form'
           ? (document.getElementById('contactModal')?.dataset.mode || 'booking')
           : 'inquiry';
-        toast.textContent = mode === 'inquiry'
-          ? (lang === 'de' ? 'Anfrage erfolgreich!' : 'Inquiry Successful!')
-          : (lang === 'de' ? 'Buchung erfolgreich!' : 'Booking Successful!');
+        const key = mode === 'inquiry' ? 'toast_inquiry' : 'toast_booking';
+        toast.textContent = translations[currentLang]?.[key] || toast.textContent;
         toast.classList.add('show');
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
       }
@@ -299,7 +279,6 @@ function setupContactForms() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  handleHeroScroll();
   setupPricingCards();
   setupServiceCards();
   setupContactForms();

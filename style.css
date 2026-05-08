@@ -19,12 +19,15 @@ header, section, footer, nav {
 
 body {
   margin: 0;
-  padding-top: 400px;
+  padding-top: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f7f9fc;
   color: #1f2937;
   line-height: 1.6;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 html{
@@ -132,14 +135,13 @@ html{
 }
 
 .hero {
-  position: fixed;
-  top: 60px;
   width: 100%;
   background: #001d3d;
   color: white;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 60px;
   z-index: 999;
-  transition: top 0.8s ease;
 }
 
 .hero-inner {
@@ -147,25 +149,18 @@ html{
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  transition: padding 0.1s ease;
+  justify-content: flex-end;
 }
 
 .hero-brand {
-  transition: all 1.0s ease;
+  transition: opacity 1.0s ease;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 0;
-  transition: all 0.6s ease;
-}
-
-.hero.scrolled .hero-content {
-  align-items: center;
-  gap: 0px;
 }
 
 .hero-logo {
@@ -173,50 +168,14 @@ html{
   max-width: 100%;
   height: auto;
   transform: translate(-20px, 10px);
-  opacity: 1;
   max-height: 200px;
   transition: opacity 0.4s ease, max-height 0.4s ease, transform 0.4s ease;
-}
-
-.hero.scrolled .hero-logo {
-  opacity: 0;
-  max-height: 0;
-  transform: translate(0, 0);
-  pointer-events: none;
-}
-
-.hero-logo-compact {
-  width: 250px;
-  max-width: 100%;
-  height: auto;
-  opacity: 0;
-  max-height: 0;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
-}
-
-.hero.scrolled .hero-logo-compact {
-  opacity: 1;
-  max-height: 50px;
-}
-
-.hero-text {
-  text-align: left;
-  opacity: 1;
-  max-height: 50px;
-  overflow: hidden;
-  transition: transform 0.6s ease, opacity 0.6s ease, max-height 0.4s ease, margin 0.4s ease;
-}
-
-.hero.scrolled .hero-text {
-  opacity: 0;
-  max-height: 0;
-  margin: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease, max-height 0.4s ease, margin 0.4s ease;
 }
 
 .hero-action {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   padding: 20px 20px 20px;
 }
 
@@ -225,17 +184,11 @@ html{
 }
 
 .hero-scrolled-text {
-  display: none;
   color: white;
   font-size: 0.95rem;
   font-weight: 600;
   white-space: nowrap;
   margin-right: 20px;
-  padding: 10px 15px 0;
-}
-
-.hero.scrolled .hero-scrolled-text {
-  display: inline;
 }
 
 .btn {
@@ -352,9 +305,11 @@ html{
 /* CONTENT */
 main {
   max-width: 1000px;
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
   padding: 40px 20px;
   text-align: center;
+  flex: 1;
 }
 
 main ul {
@@ -1026,9 +981,12 @@ footer p {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  body {
+    padding-top: 0;
+  }
+
   .hero {
-    top: 48px;
-    opacity: 0.95;
+    display: none;
   }
 
   .hero-inner {
@@ -1039,35 +997,12 @@ footer p {
     opacity: 0.95;
   }
 
-  .hero.scrolled .hero-inner {
-    padding: 3px 15px;
-    opacity: 0.95;
-  }
-
   .hero-content {
     align-items: center;
     width: 100%;
     gap: 2px;
     opacity: 0.95;
-    transition: all 0.6s ease;
-  }
-
-  .hero-text {
-    max-width: 100%;
-    opacity: 0.95;
-  }
-
-  .hero.scrolled .hero-text {
-    display: none;
-    opacity: 0.95;
-  }
-
-  .hero-text p {
-    font-size: 0.85rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    margin: 0;
-    opacity: 0.95;
+    transition: gap 0.6s ease;
   }
 
   .hero-action {
@@ -1075,20 +1010,6 @@ footer p {
     flex-direction: column;
     gap: 8px;
     padding-bottom: 8px;
-    opacity: 0.95;
-  }
-
-  .hero-scrolled-text {
-    display: none !important;
-    opacity: 0.95;
-    transition: all 0.6s ease;
-  }
-
-  .hero.scrolled .hero-scrolled-text {
-    display: block !important;
-    font-size: 0.85rem;
-    margin-right: 0;
-    margin-bottom: 0;
     opacity: 0.95;
   }
 
@@ -1183,7 +1104,14 @@ footer p {
 .footer-link {
   color: white;
   text-decoration: none;
-  transition: color 0.2s ease;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--orange);
+  transform: scale(1.03) translateY(-0.5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
  .social-buttons {
@@ -1201,7 +1129,7 @@ footer p {
       text-decoration: none;
       color: white;
       font-size: 22px;
-      transition: all 0.2s ease;
+      transition: transform, box-shadow 0.2s ease;
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     }
 
