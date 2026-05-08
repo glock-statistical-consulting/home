@@ -1144,6 +1144,29 @@ footer p {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.footer-sep {
+  color: #666;
+  font-weight: 300;
+}
+
+.chr-footer__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
  .social-buttons {
       display: flex;
       gap: 15px;
@@ -1233,7 +1256,9 @@ footer p {
   .chr-footer__list {
     display: flex;
     align-items: center;
-    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px 30px;
     list-style: none;
     margin: 0;
     padding: 0;
