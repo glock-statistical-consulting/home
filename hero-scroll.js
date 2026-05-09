@@ -39,6 +39,11 @@ function updateModalText(modal, mode) {
     if (title) title.dataset.i18n = 'contact_title';
     if (submitBtn) submitBtn.dataset.i18n = 'hero_contact_submit';
     if (bookingInfo) bookingInfo.style.display = 'none';
+  } else if (mode === 'quote') {
+    modal.dataset.mode = 'quote';
+    if (title && modal.dataset.originalTitleKey) title.dataset.i18n = modal.dataset.originalTitleKey;
+    if (submitBtn && modal.dataset.originalSubmitKey) submitBtn.dataset.i18n = modal.dataset.originalSubmitKey;
+    if (bookingInfo) bookingInfo.style.display = 'none';
   } else {
     modal.dataset.mode = 'booking';
     if (title && modal.dataset.originalTitleKey) title.dataset.i18n = modal.dataset.originalTitleKey;
@@ -64,6 +69,18 @@ function setInquiryMode(modal) {
 function setBookingMode(modal) {
   if (!modal) return;
   updateModalText(modal, 'booking');
+}
+
+function setQuoteMode(modal) {
+  if (!modal) return;
+  updateModalText(modal, 'quote');
+  const bookingType = modal.querySelector('[name="booking_type"]');
+  const bookingHours = modal.querySelector('[name="booking_hours"]');
+  const bookingDiscount = modal.querySelector('[name="discount"]');
+  if (bookingType) bookingType.value = 'inquiry';
+  if (bookingHours) bookingHours.value = 'NA';
+  if (bookingDiscount) bookingDiscount.value = 'NA';
+  setFormLanguage(modal.querySelector('form'));
 }
 
 function setupPricingCards() {
@@ -161,44 +178,6 @@ function setupPricingCards() {
     }
   });
 
-  const isMobile = () => window.innerWidth <= 768;
-  if (isMobile()) {
-    cards.forEach(card => card.classList.remove('expanded'));
-
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const card = entry.target;
-            if (!card.classList.contains('expanded')) {
-              card.classList.add('expanded');
-            }
-            obs.unobserve(card);
-          }
-        });
-      }, { threshold: 0.25 });
-      cards.forEach(card => observer.observe(card));
-    } else {
-      let ticking = false;
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          requestAnimationFrame(function() {
-            cards.forEach(card => {
-              const rect = card.getBoundingClientRect();
-              if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
-                if (!card.classList.contains('expanded')) {
-                  card.classList.add('expanded');
-                }
-              }
-            });
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
-      setTimeout(() => window.dispatchEvent(new Event('scroll')), 300);
-    }
-  }
 }
 
 function setupServiceCards() {
@@ -208,6 +187,7 @@ function setupServiceCards() {
   cards.forEach(card => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', function(e) {
+      if (e.target.closest('.btn, .open-modal')) return;
       e.stopPropagation();
       cards.forEach(c => { if (c !== card) c.classList.remove('expanded'); });
       card.classList.toggle('expanded');
@@ -255,7 +235,7 @@ function setupServiceCards() {
 }
 
 function setupContactForms() {
-  const forms = document.querySelectorAll('.contact-form, #pricing-form');
+  const forms = document.querySelectorAll('.contact-form, .quote-form, #pricing-form, #booking-form');
   if (!forms.length) return;
 
   forms.forEach(form => {
@@ -265,10 +245,8 @@ function setupContactForms() {
 
       const toast = document.getElementById('toast');
       if (toast) {
-        const mode = form.id === 'pricing-form'
-          ? (document.getElementById('contactModal')?.dataset.mode || 'booking')
-          : 'inquiry';
-        const key = mode === 'inquiry' ? 'toast_inquiry' : 'toast_booking';
+        const mode = document.getElementById('contactModal')?.dataset.mode || 'inquiry';
+        const key = mode === 'booking' ? 'toast_booking' : 'toast_inquiry';
         toast.textContent = translations[currentLang]?.[key] || toast.textContent;
         toast.classList.add('show');
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
@@ -290,11 +268,18 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         if (this.closest('.btn-book')) {
           setBookingMode(modal);
+        } else if (this.closest('.btn-quote')) {
+          setQuoteMode(modal);
         } else {
           setInquiryMode(modal);
         }
         modal.style.display = 'flex';
         setTimeout(() => modal.classList.add('active'), 10);
+
+        const serviceField = modal.querySelector('[name="booking_service"]');
+        if (serviceField && this.dataset.service) {
+          serviceField.value = this.dataset.service;
+        }
       });
     });
 

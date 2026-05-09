@@ -14,7 +14,16 @@
 <link rel="canonical" href="https://glock-statistical-consulting.github.io/home/datenschutz.html">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title data-i18n="title_datenschutz">Datenschutzerklärung | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_two.jpg">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_two.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -49,18 +58,19 @@
 }
 
 .datenschutz-content h1 {
-  text-align: center;
   margin-bottom: 30px;
 }
 
 .datenschutz-content h2 {
   margin-top: 30px;
   font-size: 1.2rem;
+  text-align: left;
 }
 
 .datenschutz-content h3 {
   margin-top: 20px;
   font-size: 1.05rem;
+  text-align: left;
 }
 
 .datenschutz-content p,
@@ -96,7 +106,7 @@
     <a href="about.html" data-i18n="navbar_about">Über mich</a>
     <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
     <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
-    <a href="pricing.html" data-i18n="navbar_pricing">Preise</a>
+
   </div>
 
   <div class="nav-right">
@@ -125,13 +135,15 @@
 </header>
 
 <main>
+
+<div class="section-spacer" style="margin-top: 150px;"></div>
+
 <section class="datenschutz-content">
   <h1 data-i18n="ds_title">Datenschutzerklärung</h1>
 
   <p style="font-style: italic;"><strong data-i18n="ds_update">Stand: Mai 2026</strong></p>
 
-  <p data-i18n="ds_en_notice" data-i18n-show-lang="en" style="background: #fff3e0; padding: 15px; border-radius: 8px; border-left: 4px solid #FF6600;"></p>
-
+  
   <h2 data-i18n="ds_h2_1">1. Verantwortlicher</h2>
   <p>
     Kevin Glock<br>
@@ -140,8 +152,9 @@
     45359 Essen<br>
     Deutschland
   </p>
-  <p>
-    E-Mail: glock.gsc@web.de
+<h2 data-i18n="imp_contact">Kontakt</h2>
+  <p data-i18n="imp_contact_text">
+    Bitte kontaktieren Sie mich über das Kontaktformular auf dieser Website \u2013 ich werde mich umgehend bei Ihnen melden.
   </p>
 
   <h2 data-i18n="ds_h2_2">2. Allgemeines zur Datenverarbeitung</h2>
@@ -337,5 +350,8 @@
 
     requestAnimationFrame(raf);
   </script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
 </body>
 </html>

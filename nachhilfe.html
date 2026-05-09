@@ -14,7 +14,16 @@
 <link rel="canonical" href="https://glock-statistical-consulting.github.io/home/nachhilfe.html">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title data-i18n="title_services">Nachhilfe &amp; Studium | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_four.jpg">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_four.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
 <!-- Strukturierte Daten (Schema.org) -->
 <script type="application/ld+json">
 {
@@ -116,7 +125,7 @@
     <a href="about.html" data-i18n="navbar_about">Über mich</a>
     <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
     <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
-    <a href="pricing.html" data-i18n="navbar_pricing">Preise</a>
+
   </div>
 
   <div class="nav-right">
@@ -140,13 +149,16 @@
     <div class="hero-content">
       <div class="hero-action">
         <span class="hero-scrolled-text" data-i18n="hero_services">Statistik Nachhilfe oder Consulting | Abitur bis Doktorat & Schulungen</span>
-        <a href="#contact" class="btn open-modal hero-contact-btn" data-i18n="hero_contact_btn">Individuelle Anfrage</a>
+        <a href="#contact" class="btn btn-book open-modal" data-i18n="hero_nachhilfe_btn">Jetzt Nachhilfe buchen</a>
       </div>
     </div>
   </div>
 </header>
 
 <main>
+
+<div class="section-spacer" style="margin-top: 150px;"></div>
+
 <section aria-label="Leistungen">
   <h2 data-i18n="services_title">Leistungen</h2>
   <p class="subtitle" data-i18n="services_subtitle">Statistik-Nachhilfe, Data Science & Beratung – individuell auf Ihr Niveau abgestimmt.</p>
@@ -216,10 +228,183 @@
   </div>
 </section>
 
+<section>
+  <h2 data-i18n="pricing_title">Preismodelle</h2>
+  <p class="subtitle" data-i18n="pricing_subtitle">Transparente Preise für Statistik-Nachhilfe & Data Science Consulting – angepasst an Komplexität und Niveau.</p>
+
+  <div class="pricing-grid">
+
+    <div class="card" data-card="Basics">
+      <div class="card-summary">
+        <h2 data-i18n="price_basics">Basics</h2>
+        <p class="price">45–60 € / h</p>
+        <ul>
+          <li data-i18n="b_card_li1">Abitur & Bachelor Grundlagen</li>
+          <li data-i18n="b_card_li2">Deskriptive Statistik</li>
+          <li data-i18n="b_card_li3">Einführung SPSS / R / Python</li>
+        </ul>
+      </div>
+      <div class="card-details">
+        <div class="booking-type">
+          <div class="booking-option active" data-booking="single">
+            <span class="booking-circle"></span>
+            <span data-i18n="booking_single">Einzelbuchung</span>
+          </div>
+          <div class="booking-option" data-booking="package">
+            <span class="booking-circle"></span>
+            <span data-i18n="booking_package">Paketbuchung</span>
+          </div>
+        </div>
+        <div class="package-options">
+          <div class="package-option active" data-hours="5">
+            <span class="package-circle"></span>
+            <span data-i18n="package_5h">5 Stunden</span>
+          </div>
+          <div class="package-option" data-hours="10">
+            <span class="package-circle"></span>
+            <span data-i18n="package_10h">10 Stunden</span>
+          </div>
+          <div class="package-option" data-hours="custom">
+            <span class="package-circle"></span>
+            <span data-i18n="package_custom">Individuell</span>
+          </div>
+          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
+        </div>
+        <div class="detail-content">
+          <h3 data-i18n="b_details_title">Leistungen</h3>
+          <ul>
+            <li data-i18n="b_li1">Grundlagen der deskriptiven Statistik</li>
+            <li data-i18n="b_li2">Einführung in SPSS / R / Python</li>
+            <li data-i18n="b_li3">Hilfe bei Abitur- & Bachelor-Aufgaben</li>
+            <li data-i18n="b_li4">Datenaufbereitung & Visualisierung</li>
+          </ul>
+          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
+          <ul>
+            <li data-i18n="b_r1">5 Stunden Paket → 10% Rabatt</li>
+            <li data-i18n="b_r2">10 Stunden Paket → 15% Rabatt</li>
+          </ul>
+          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-card="Advanced">
+      <div class="card-summary">
+        <h2 data-i18n="price_advanced">Advanced</h2>
+        <p class="price">60–75 € / h</p>
+        <ul>
+          <li data-i18n="a_card_li1">Master-Level Statistik</li>
+          <li data-i18n="a_card_li2">Regression, ANOVA, multivariat</li>
+          <li data-i18n="a_card_li3">Thesis Support</li>
+        </ul>
+      </div>
+      <div class="card-details">
+        <div class="booking-type">
+          <div class="booking-option active" data-booking="single">
+            <span class="booking-circle"></span>
+            <span data-i18n="booking_single">Einzelbuchung</span>
+          </div>
+          <div class="booking-option" data-booking="package">
+            <span class="booking-circle"></span>
+            <span data-i18n="booking_package">Paketbuchung</span>
+          </div>
+        </div>
+        <div class="package-options">
+          <div class="package-option active" data-hours="5">
+            <span class="package-circle"></span>
+            <span data-i18n="package_5h">5 Stunden</span>
+          </div>
+          <div class="package-option" data-hours="10">
+            <span class="package-circle"></span>
+            <span data-i18n="package_10h">10 Stunden</span>
+          </div>
+          <div class="package-option" data-hours="custom">
+            <span class="package-circle"></span>
+            <span data-i18n="package_custom">Individuell</span>
+          </div>
+          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
+        </div>
+        <div class="detail-content">
+          <h3 data-i18n="b_details_title">Leistungen</h3>
+          <ul>
+            <li data-i18n="a_li1">Regression, ANOVA & multivariate Verfahren</li>
+            <li data-i18n="a_li2">Unterstützung bei Masterarbeiten</li>
+            <li data-i18n="a_li3">Fortgeschrittene Datenanalyse</li>
+            <li data-i18n="a_li4">Modellierung & Interpretation</li>
+          </ul>
+          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
+          <ul>
+            <li data-i18n="a_r1">5 Stunden Paket → 9% Rabatt</li>
+            <li data-i18n="a_r2">10 Stunden Paket → 14% Rabatt</li>
+          </ul>
+          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-card="Expert">
+      <div class="card-summary">
+        <h2 data-i18n="price_expert">Expert</h2>
+        <p class="price">75–90 € / h</p>
+        <ul>
+          <li data-i18n="e_card_li1">Dissertation / PhD-Level</li>
+          <li data-i18n="e_card_li2">Bayesian Statistics</li>
+          <li data-i18n="e_card_li3">Komplexe Modellierung & Beratung</li>
+        </ul>
+      </div>
+      <div class="card-details">
+        <div class="booking-type">
+          <div class="booking-option active" data-booking="single">
+            <span class="booking-circle"></span>
+            <span data-i18n="booking_single">Einzelbuchung</span>
+          </div>
+          <div class="booking-option" data-booking="package">
+            <span class="booking-circle"></span>
+            <span data-i18n="booking_package">Paketbuchung</span>
+          </div>
+        </div>
+        <div class="package-options">
+          <div class="package-option active" data-hours="5">
+            <span class="package-circle"></span>
+            <span data-i18n="package_5h">5 Stunden</span>
+          </div>
+          <div class="package-option" data-hours="10">
+            <span class="package-circle"></span>
+            <span data-i18n="package_10h">10 Stunden</span>
+          </div>
+          <div class="package-option" data-hours="custom">
+            <span class="package-circle"></span>
+            <span data-i18n="package_custom">Individuell</span>
+          </div>
+          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
+        </div>
+        <div class="detail-content">
+          <h3 data-i18n="b_details_title">Leistungen</h3>
+          <ul>
+            <li data-i18n="e_li1">Dissertation & PhD-Level Statistik</li>
+            <li data-i18n="e_li2">Bayesianische Statistik & MCMC</li>
+            <li data-i18n="e_li3">Komplexe Modellierung & Methodik</li>
+            <li data-i18n="e_li4">Individuelle Beratung & Betreuung</li>
+          </ul>
+          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
+          <ul>
+            <li data-i18n="e_r1">5 Stunden Paket → 7% Rabatt</li>
+            <li data-i18n="e_r2">10 Stunden Paket → 12% Rabatt</li>
+          </ul>
+          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="cta">
-  <h2 data-i18n="cta_title">Stärken Sie Ihre statistischen Kenntnisse gezielt!</h2>
-  <p data-i18n="cta_text">Vereinbaren Sie jetzt einen Termin und verbessern Sie Ihre Ergebnisse.</p>
-  <a href="pricing.html" class="btn smooth-redirect" data-i18n="cta_btn">Buchungsoptionen</a>
+  <h2 data-i18n="cta_title">Stärke deine statistischen Kenntnisse gezielt!</h2>
+  <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
+
+  <!-- <a href="nachhilfe.html" class="btn" data-i18n="segment_student_btn">Zu Nachhilfe & Studium</a> -->
+  <!-- <a href="consulting.html" class="btn" data-i18n="segment_company_btn">Zur Beratungsseite</a> -->
 </section>
 </main>
 
@@ -270,29 +455,49 @@
 </div>
 </footer>
 
-<!-- Contact Modal -->
+<!-- Contact Modal (booking + inquiry modes) -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" id="modalCloseBtn">&times;</button>
-    <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
-    <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form">
+    <span data-i18n="booking_title" hidden>Nachhilfe buchen</span>
+    <span data-i18n="contact_title" hidden>Individuelle Anfrage</span>
+    <span data-i18n="booking_submit" hidden>Verbindlich buchen</span>
+    <span data-i18n="hero_contact_submit" hidden>Anfrage senden</span>
+    <h2 data-i18n="booking_title">Nachhilfe buchen</h2>
+    <p data-i18n="booking_info">Ihre ausgewählte Option wird mit übertragen.</p>
+    <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="contact-form" id="booking-form">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://glock-statistical-consulting.github.io/home/nachhilfe.html">
-      <input type="hidden" name="booking_card" value="services-page">
-      <input type="hidden" name="booking_type" value="inquiry">
-      <input type="hidden" name="booking_hours" value="NA">
-      <input type="hidden" name="discount" value="NA">
-      <input type="hidden" name="language" id="hero-lang">
+      <input type="hidden" name="booking_type" id="booking-type" value="booking">
+      <input type="hidden" name="booking_hours" id="booking-hours">
+      <input type="hidden" name="discount" id="booking-discount">
+      <input type="hidden" name="booking_card" id="booking-card" value="nachhilfe-page">
+      <input type="hidden" name="language" id="booking-language">
+      <input type="hidden" name="booking_service" id="booking-service">
+
+      <label class="form-label" data-i18n="booking_topic_label">Themenschwerpunkt</label>
+      <select name="booking_topic" id="booking-topic" class="form-select" required>
+        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+        <option value="deskriptiv" data-i18n="booking_topic_opt1">Deskriptive Statistik & Grafiken</option>
+        <option value="wahrscheinlichkeit" data-i18n="booking_topic_opt2">Wahrscheinlichkeitsrechnung</option>
+        <option value="hypothesentests" data-i18n="booking_topic_opt3">Hypothesentests (t-Test, ANOVA, Chi²)</option>
+        <option value="spss_intro" data-i18n="booking_topic_opt4">SPSS / R / Python Einführung</option>
+        <option value="regression" data-i18n="booking_topic_opt5">Regression & Modellierung</option>
+        <option value="ml_basics" data-i18n="booking_topic_opt6">Machine Learning Grundlagen</option>
+        <option value="thesis" data-i18n="booking_topic_opt7">Thesis / Methodenberatung</option>
+        <option value="custom" data-i18n="booking_topic_opt8">Individuelles Thema</option>
+      </select>
+
       <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
       <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required></textarea>
-      <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details zu Ihrer Buchung?" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="booking_submit">Verbindlich buchen</button>
     </form>
   </div>
 </div>
 
-<div class="toast-success" id="toast" data-i18n="toast_inquiry">Anfrage erfolgreich!</div>
+<div class="toast-success" id="toast" data-i18n="toast_booking">Buchung erfolgreich!</div>
 
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
@@ -315,5 +520,8 @@
 
     requestAnimationFrame(raf);
 </script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
 </body>
 </html>

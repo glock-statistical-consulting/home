@@ -14,7 +14,16 @@
 <link rel="canonical" href="https://glock-statistical-consulting.github.io/home/impressum.html">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title data-i18n="title_impressum">Impressum | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_two.jpg">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_two.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
 <!-- Strukturierte Daten (Schema.org) -->
 <script type="application/ld+json">
 {
@@ -102,6 +111,48 @@
   display: block;
   margin-bottom: 15px;
 }
+
+.impressum-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.impressum-content h1 {
+  margin-bottom: 30px;
+}
+
+.impressum-content h2 {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.impressum-content h3 {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.impressum-content p,
+.impressum-content li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.impressum-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;
+  max-width: 100%;
+}
+
+.impressum-content hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
 </style>
 </head>
 <body>
@@ -116,7 +167,7 @@
     <a href="about.html" data-i18n="navbar_about">Über mich</a>
     <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
     <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
-    <a href="pricing.html" data-i18n="navbar_pricing">Preise</a>
+
   </div>
 
   <div class="nav-right">
@@ -147,8 +198,14 @@
 </header>
 
 <main>
-<section style="text-align: left;">
+
+<div class="section-spacer" style="margin-top: 150px;"></div>
+
+<section class="impressum-content">
+  
   <h1 data-i18n="imp_title">Impressum</h1>
+
+  <p style="font-style: italic;"><strong data-i18n="ds_update">Stand: Mai 2026</strong></p>
 
   <h2 data-i18n="imp_ddg">Angaben gemäß § 5 DDG (ehemals TMG)</h2>
 
@@ -161,7 +218,7 @@
 
   <h2 data-i18n="imp_contact">Kontakt</h2>
   <p data-i18n="imp_contact_text">
-    Bitte kontaktieren Sie uns über das Kontaktformular auf unserer Website, wir werden uns umgehend bei Ihnen melden.
+    Bitte kontaktieren Sie mich über das Kontaktformular auf dieser Website \u2013 ich werde mich umgehend bei Ihnen melden.
   </p>
 
   <h2 data-i18n="imp_resp">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
@@ -322,5 +379,8 @@
 
     requestAnimationFrame(raf);
   </script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
 </body>
 </html>

@@ -14,7 +14,16 @@
 <link rel="canonical" href="https://glock-statistical-consulting.github.io/home/about.html">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title data-i18n="title_about">Über mich | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_three.jpg">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_three.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
 <!-- Strukturierte Daten (Schema.org) -->
 <script type="application/ld+json">
 {
@@ -116,7 +125,7 @@
     <a href="about.html" data-i18n="navbar_about">Über mich</a>
     <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
     <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
-    <a href="pricing.html" data-i18n="navbar_pricing">Preise</a>
+
   </div>
 
   <div class="nav-right">
@@ -147,6 +156,9 @@
 </header>
 
 <main>
+
+<div class="section-spacer" style="margin-top: 150px;"></div>
+
 <section class="about-content">
   <h2 data-i18n="about_title">Über GSC</h2>
 
@@ -193,13 +205,34 @@
 
 <div class="section-spacer"></div>
 
-<section class="cta">
-  <h2 data-i18n="cta_title">Stärken Sie Ihre statistischen Kenntnisse gezielt!</h2>
-  <p data-i18n="cta_text">Vereinbaren Sie jetzt einen Termin und verbessern Sie Ihre Ergebnisse.</p>
-  <a href="pricing.html" class="btn smooth-redirect" data-i18n="cta_btn">Buchungsoptionen</a>
+<section id="segment-section">
+  <h2 data-i18n="segment_title">Wähle was zu dir passt!</h2>
+  <div class="segment-grid">
+    <a href="nachhilfe.html" class="segment-card">
+      <h3 data-i18n="segment_student_title">Für Dich</h3>
+      <p data-i18n="segment_student_text">Nachhilfe, Thesis-Unterstützung & Prüfungsvorbereitung</p>
+      <span class="segment-arrow">→</span>
+    </a>
+    <a href="consulting.html" class="segment-card">
+      <h3 data-i18n="segment_company_title">Für Dein Team</h3>
+      <p data-i18n="segment_company_text">Datenanalyse, Schulungen & Consulting</p>
+      <span class="segment-arrow">→</span>
+    </a>
+  </div>
 </section>
-</main>
 
+<div class="section-spacer"></div>
+
+
+<section class="cta">
+  <h2 data-i18n="cta_title">Stärke deine statistischen Kenntnisse gezielt!</h2>
+  <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
+
+  <!-- <a href="nachhilfe.html" class="btn" data-i18n="segment_student_btn">Zu Nachhilfe & Studium</a> -->
+  <!-- <a href="consulting.html" class="btn" data-i18n="segment_company_btn">Zur Beratungsseite</a> -->
+</section>
+
+</main>
 <footer>
   <div>
     <!-- Social Media Buttons -->
@@ -292,6 +325,9 @@
 
     requestAnimationFrame(raf);
 </script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
 </body>
 </html>
 

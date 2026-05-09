@@ -14,7 +14,16 @@
 <link rel="canonical" href="https://glock-statistical-consulting.github.io/home/">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title data-i18n="title_home">GSC Services - Statistik Nachhilfe & Data Science Consulting</title>
+<link rel="preload" as="image" href="img/body_background_four.jpg">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_four.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
 <!-- Strukturierte Daten (Schema.org) -->
 <script type="application/ld+json">
 {
@@ -81,7 +90,7 @@
 </script>
 <style>
 .features .card .card-summary {
-  min-height: 420px;
+  min-height: 250px;
 }
 
 @media (max-width: 600px) {
@@ -117,7 +126,7 @@
     <a href="about.html" data-i18n="navbar_about">Über mich</a>
     <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
     <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
-    <a href="pricing.html" data-i18n="navbar_pricing">Preise</a>
+
   </div>
 
   <div class="nav-right">
@@ -141,7 +150,7 @@
     <div class="hero-content">
       <div class="hero-action">
         <span class="hero-scrolled-text" data-i18n="hero_home">Sie suchen Unterstützung für Projekt, Thesis, Unterricht oder Schulungen?</span>
-        <a href="#contact" class="btn open-modal" data-i18n="hero_contact_btn">Individuelle Anfrage</a>
+        <a href="#segment-section" class="btn" data-i18n="hero_index_btn">Leistungen entdecken</a>
       </div>
     </div>
   </div>
@@ -149,66 +158,91 @@
 
 <main>
 
+<div class="section-spacer" style="margin-top: 150px;"></div>
+
+<section id="segment-section">
+  <h2 data-i18n="page_title">Herzlich Willkommen!</h2>
+</section>
+
+
+<div class="section-spacer" style="margin-top: 50px;"></div>
+
 <section class="features pricing-grid">
-  <div class="card" data-card="Basics">
+  <div class="card merged">
     <div class="card-summary">
-      <h3 data-i18n="features_1_title">Statistikverständnis</h3>
-      <p data-i18n="features_1_intro">Verstehen Sie statistische Konzepte und Methoden, um fundierte Schlussfolgerungen ziehen zu können.</p>
-      <p data-i18n="features_1_text">Statistische Methoden wie Hypothesentests, Konfidenzintervalle und Regressionen werden praxisnah erklärt, sodass Sie sie sicher in Ihrer Arbeit anwenden können.</p>
+      <div class="merged-grid">
+        <div class="merged-col">
+          <h3 data-i18n="features_1_title">Statistikverständnis</h3>
+          <p data-i18n="features_1_intro">Verstehen Sie statistische Konzepte und Methoden, um fundierte Schlussfolgerungen ziehen zu können.</p>
+          <p data-i18n="features_1_text">Statistische Methoden wie Hypothesentests, Konfidenzintervalle und Regressionen werden praxisnah erklärt, sodass Sie sie sicher in Ihrer Arbeit anwenden können.</p>
+        </div>
+        <div class="merged-col">
+          <h3 data-i18n="features_2_title">Datenanalyse</h3>
+          <p data-i18n="features_2_intro">Korrekte Auswertung und Interpretation Ihrer Daten mit SPSS, R oder Python.</p>
+          <p data-i18n="features_2_text">Von der Datenvorbereitung über deskriptive Statistiken bis hin zu komplexen multivariaten Analysen begleite ich Sie durch den gesamten Auswertungsprozess.</p>
+        </div>
+        <div class="merged-col">
+          <h3 data-i18n="features_3_title">Arbeitshilfe</h3>
+          <p data-i18n="features_3_intro">Professionelle Unterstützung bei der Erstellung Ihrer wissenschaftlichen Arbeiten.</p>
+          <p data-i18n="features_3_text">Ob Bachelor-, Masterarbeit oder Dissertation – ich unterstütze Sie bei der methodischen Planung, Analyse und der verständlichen Darstellung Ihrer Ergebnisse.</p>
+        </div>
+      </div>
     </div>
     <div class="card-details">
-        <div class="detail-content">
-          <h3 data-i18n="b_details_title">Details</h3>
+      <div><h3 data-i18n="b_details_title">Leistungen</h3>
+      <div class="section-divider-card-details"></div></div>
+      <div class="merged-grid">
+        <div class="merged-col">
           <ul>
             <li data-i18n="features_1_detail">Statistische Methoden wie Hypothesentests, Konfidenzintervalle und Regressionen werden praxisnah erklärt, sodass Sie sie sicher in Ihrer Arbeit anwenden können.</li>
             <li data-i18n="features_1_detail2">Verständnis von statistischen Konzepten für fundierte Schlussfolgerungen.</li>
           </ul>
         </div>
-    </div>
-  </div>
-
-  <div class="card" data-card="Advanced">
-    <div class="card-summary">
-      <h3 data-i18n="features_2_title">Datenanalyse</h3>
-      <p data-i18n="features_2_intro">Korrekte Auswertung und Interpretation Ihrer Daten mit SPSS, R oder Python.</p>
-      <p data-i18n="features_2_text">Von der Datenvorbereitung über deskriptive Statistiken bis hin zu komplexen multivariaten Analysen begleite ich Sie durch den gesamten Auswertungsprozess.</p>
-    </div>
-    <div class="card-details">
-        <div class="detail-content">
-          <h3 data-i18n="b_details_title">Details</h3>
+        <div class="merged-col">
           <ul>
             <li data-i18n="features_2_detail">Von der Datenvorbereitung über deskriptive Statistiken bis hin zu komplexen multivariaten Analysen begleite ich Sie durch den gesamten Auswertungsprozess.</li>
             <li data-i18n="features_2_detail2">Korrekte Auswertung und Interpretation Ihrer Daten mit SPSS, R oder Python.</li>
           </ul>
         </div>
-    </div>
-  </div>
-
-  <div class="card" data-card="Expert">
-    <div class="card-summary">
-      <h3 data-i18n="features_3_title">Arbeitshilfe</h3>
-      <p data-i18n="features_3_intro">Professionelle Unterstützung bei der Erstellung Ihrer wissenschaftlichen Arbeiten.</p>
-      <p data-i18n="features_3_text">Ob Bachelor-, Masterarbeit oder Dissertation – ich unterstütze Sie bei der methodischen Planung, Analyse und der verständlichen Darstellung Ihrer Ergebnisse.</p>
-    </div>
-    <div class="card-details">
-        <div class="detail-content">
-          <h3 data-i18n="b_details_title">Details</h3>
+        <div class="merged-col">
           <ul>
-            <li data-i18n="features_3_detail">Ob Bachelor-, Masterarbeit oder Dissertation – ich unterstütze Sie bei der methodischen Planung.</li>
+            <li data-i18n="features_3_detail">Ob Bachelor-, Masterarbeit oder Dissertation – ich unterstütze Sie bei der methodischen Planung, Analyse und der verständlichen Darstellung Ihrer Ergebnisse.</li>
             <li data-i18n="features_3_detail2">Professionelle Unterstützung bei der Erstellung Ihrer wissenschaftlichen Arbeiten.</li>
           </ul>
         </div>
+      </div>
     </div>
+  </div>
+</section>
+
+
+<section id="segment-section">
+  <h2 data-i18n="segment_title">Wähle was zu dir passt!</h2>
+  <div class="segment-grid">
+    <a href="nachhilfe.html" class="segment-card">
+      <h3 data-i18n="segment_student_title">Für Dich</h3>
+      <p data-i18n="segment_student_text">Nachhilfe, Thesis-Unterstützung & Prüfungsvorbereitung</p>
+      <span class="segment-arrow">→</span>
+    </a>
+    <a href="consulting.html" class="segment-card">
+      <h3 data-i18n="segment_company_title">Für Dein Team</h3>
+      <p data-i18n="segment_company_text">Datenanalyse, Schulungen & Consulting</p>
+      <span class="segment-arrow">→</span>
+    </a>
   </div>
 </section>
 
 <div class="section-spacer"></div>
 
+
 <section class="cta">
-  <h2 data-i18n="cta_title">Stärken Sie Ihre statistischen Kenntnisse gezielt!</h2>
-  <p data-i18n="cta_text">Vereinbaren Sie jetzt einen Termin und verbessern Sie Ihre Ergebnisse.</p>
-  <a href="pricing.html" class="btn smooth-redirect" data-i18n="cta_btn">Buchungsoptionen</a>
+  <h2 data-i18n="cta_title">Stärke deine statistischen Kenntnisse gezielt!</h2>
+  <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
+
+  <!-- <a href="nachhilfe.html" class="btn" data-i18n="segment_student_btn">Zu Nachhilfe & Studium</a> -->
+  <!-- <a href="consulting.html" class="btn" data-i18n="segment_company_btn">Zur Beratungsseite</a> -->
 </section>
+
 
 </main>
 
@@ -304,5 +338,8 @@
 
     requestAnimationFrame(raf);
   </script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
 </body>
 </html>
