@@ -89,66 +89,327 @@
 }
 </script>
 <style>
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
+/* Section header */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.features .feature-card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  border: none;
-  border-left: 4px solid var(--orange);
-  flex: none;
-  max-width: none;
-  text-align: left;
-  min-height: 280px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
 }
 
-.features .feature-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.features .feature-card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: var(--deep-sea);
-  font-size: 1.2rem;
-}
-
-.features .feature-card p {
+.section-header p {
   color: #555;
-  margin-bottom: 15px;
-  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
   line-height: 1.5;
 }
 
-.features .feature-card ul {
-  padding-left: 18px;
-  color: #333;
+/* Trust bar */
+.trust-bar {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: white;
+  padding: 24px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
-.features .feature-card li {
-  margin-bottom: 8px;
+.trust-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.trust-grid .trust-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
   font-size: 0.9rem;
+  font-weight: 700;
+  color: #1f2937;
+  border: 1px solid #e2e8f0;
+}
+
+.trust-grid .trust-item::before {
+  content: "\2713";
+  margin-right: 6px;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* Segment card enhancements */
+.segment-tag {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+.segment-list {
+  list-style: none;
   padding: 0;
+  margin: 12px 0 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.segment-list li {
+  padding: 5px 0 5px 18px;
+  position: relative;
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.segment-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* New feature cards */
+.features-grid {
+  padding: 20px 0;
+}
+
+.features-grid .section-header {
+  margin-bottom: 40px;
+}
+
+.features-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.features-grid .feature-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-grid .feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-color: var(--orange);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.features-grid .feature-card h3 {
+  margin: 0 0 10px;
+  color: var(--deep-sea);
+  font-size: 1.15rem;
+}
+
+.features-grid .feature-card p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Process section overrides inside main */
+.process {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.process .section-header h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-grid-inner {
+    grid-template-columns: 1fr;
+  }
+  .features-grid .feature-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .segment-list {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero concept */
+section.hero {
+  padding-top: 140px;
+  padding-bottom: 120px;
+  background: #1e4466;
+  color: white;
+  position: static;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.17);
+  width: 100%;
+  opacity: 1;
+  display: block;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+section.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 24px;
+  color: white;
+  text-align: left;
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 650px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+section.hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border-radius: 18px;
+  font-weight: 700;
   border: none;
 }
 
-/* Hero desktop layout */
-.hero-inner {
-  padding: 5px 20px;
-  text-align: center;
-  justify-content: center;
+.hero-btn-primary {
+  background: linear-gradient(90deg, #FF5C00, #FF6600);
+  color: white;
 }
+
+.hero-btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+section.hero .hero-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+section.hero .hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.8);
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 32px;
+  padding: 40px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.hero-card h3 {
+  margin: 0 0 16px;
+  color: white;
+  font-size: 1.15rem;
+  text-align: left;
+}
+
+.hero-list {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.hero-list li {
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  section.hero {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  section.hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+}
+
+/* Hero desktop layout */
 
 .hero-inner .hero-content {
   align-items: center;
@@ -228,95 +489,136 @@ main > .section-spacer:first-of-type {
   </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-brand">
-      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
-      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
-    </div>
-    <div class="hero-content">
-      <h1 data-i18n="hero_index_title">Statistik verst&auml;ndlich. Ergebnisse sicher.</h1>
-      <p class="hero-subtitle" data-i18n="hero_index_subtitle">Ich helfe Dir und Deinem Team, datenbasierte Probleme klar zu verstehen und zuverl&auml;ssig zu l&ouml;sen &ndash; von der ersten Fragestellung bis zum umsetzbaren Ergebnis.</p>
-      <div class="hero-action">
-        <a href="#segment-section" class="btn" data-i18n="hero_index_btn">Leistungen entdecken</a>
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge" data-i18n="hero_index_badge">Statistik &bull; Data Science &bull; Consulting</span>
+        <h1 data-i18n="hero_index_title_new">Statistik verstehen. Daten sinnvoll nutzen.</h1>
+        <p class="hero-text" data-i18n="hero_index_subtitle_new">Unterst&uuml;tzung f&uuml;r Studium, Forschung und Unternehmen &mdash; von Nachhilfe und Thesis Support bis zu datenbasierten Analysen und Consulting.</p>
+        <div class="hero-actions">
+          <a href="nachhilfe.html" class="btn hero-btn-primary" data-i18n="hero_student_btn">F&uuml;r Studium</a>
+          <a href="consulting.html" class="btn hero-btn-secondary" data-i18n="hero_company_btn">F&uuml;r Unternehmen</a>
+        </div>
       </div>
+      <aside class="hero-card">
+        <h3 data-i18n="hero_card_title">Schwerpunktbereiche</h3>
+        <ul class="hero-list">
+          <li data-i18n="hero_card_li1">Statistik & Datenanalyse</li>
+          <li data-i18n="hero_card_li2">SPSS, R & Python</li>
+          <li data-i18n="hero_card_li3">Thesis & Pr&uuml;fungsunterst&uuml;tzung</li>
+          <li data-i18n="hero_card_li4">Datenvisualisierung & Reporting</li>
+          <li data-i18n="hero_card_li5">Workshops & Consulting</li>
+        </ul>
+      </aside>
     </div>
   </div>
-</header>
+</section>
 
 <main>
+  <div class="section-spacer"></div>
 
-<div class="section-spacer"></div>
-
-<section id="segment-section">
-  <h2 data-i18n="page_title">Herzlich Willkommen!</h2>
+<section class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item" data-i18n="home_trust_1">Online & flexibel</div>
+    <div class="trust-item" data-i18n="home_trust_2">Statistik verst&auml;ndlich erkl&auml;rt</div>
+    <div class="trust-item" data-i18n="home_trust_3">Praxisnahe Datenanalyse</div>
+    <div class="trust-item" data-i18n="home_trust_4">Individuelle Unterst&uuml;tzung</div>
+  </div>
 </section>
 
-
-<div class="section-spacer" style="margin-top: 100px;"></div>
-
-<section id="features" class="features">
-
-  <div class="feature-card">
-    <h3 data-i18n="home_feature_1_title">Lernen &amp; Verstehen</h3>
-    <p data-i18n="home_feature_1_text">Baue ein sicheres Verst&amp;auml;ndnis f&amp;uuml;r Statistik und Datenanalyse auf.</p>
-    <ul>
-      <li data-i18n="home_feature_1_li1">Video- &amp; PDF-Lernmaterial</li>
-      <li data-i18n="home_feature_1_li2">Statistik verst&amp;auml;ndlich erkl&amp;auml;rt</li>
-      <li data-i18n="home_feature_1_li3">Schritt-f&amp;uuml;r-Schritt Lernstruktur</li>
-    </ul>
-  </div>
-
-  <div class="feature-card">
-    <h3 data-i18n="home_feature_2_title">Unterst&amp;uuml;tzung &amp; Nachhilfe</h3>
-    <p data-i18n="home_feature_2_text">Gezielte Hilfe bei Aufgaben, Arbeiten und Pr&amp;uuml;fungen.</p>
-    <ul>
-      <li data-i18n="home_feature_2_li1">Online- &amp; Vor-Ort-Nachhilfe</li>
-      <li data-i18n="home_feature_2_li2">Thesis- &amp; Pr&amp;uuml;fungsunterst&amp;uuml;tzung</li>
-      <li data-i18n="home_feature_2_li3">Hilfe bei konkreten Problemen</li>
-    </ul>
-  </div>
-
-  <div class="feature-card">
-    <h3 data-i18n="home_feature_3_title">Analyse &amp; Consulting</h3>
-    <p data-i18n="home_feature_3_text">Datenanalyse und Beratung f&amp;uuml;r Unternehmen.</p>
-    <ul>
-      <li data-i18n="home_feature_3_li1">Datenanalyse &amp; Modellierung</li>
-      <li data-i18n="home_feature_3_li2">Methodenberatung &amp; Konzeption</li>
-      <li data-i18n="home_feature_3_li3">Workshops &amp; Projektunterst&amp;uuml;tzung</li>
-    </ul>
-  </div>
-
-</section>
-
-
 <section id="segment-section">
-  <h2 data-i18n="segment_title">Wähle was zu dir passt!</h2>
+  <header class="section-header">
+    <h2 data-i18n="segment_title">W&auml;hle den passenden Bereich</h2>
+    <p data-i18n="segment_subtitle">Individuelle Unterst&uuml;tzung f&uuml;r Studium, Forschung und datengetriebene Projekte.</p>
+  </header>
   <div class="segment-grid">
     <a href="nachhilfe.html" class="segment-card">
-      <h3 data-i18n="segment_student_title">Für Dich</h3>
-      <p data-i18n="segment_student_text">Nachhilfe, Thesis-Unterstützung & Prüfungsvorbereitung</p>
-      <span class="segment-arrow">→</span>
+      <span class="segment-tag" data-i18n="home_seg_student_tag">Studium & Lernen</span>
+      <h3 data-i18n="segment_student_title">F&uuml;r Dich</h3>
+      <p data-i18n="segment_student_text">Unterst&uuml;tzung bei Statistik, Pr&uuml;fungen, Thesis und Datenanalyse &ndash; verst&auml;ndlich und individuell.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_student_li1">Online-Nachhilfe</li>
+        <li data-i18n="home_seg_student_li2">Thesis Support</li>
+        <li data-i18n="home_seg_student_li3">Statistik verst&auml;ndlich erkl&auml;rt</li>
+        <li data-i18n="home_seg_student_li4">Lernmaterialien & &Uuml;bungen</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_student_arrow">Zur Nachhilfe &rarr;</span>
     </a>
     <a href="consulting.html" class="segment-card">
-      <h3 data-i18n="segment_company_title">Für Dein Team</h3>
-      <p data-i18n="segment_company_text">Datenanalyse, Schulungen & Consulting</p>
-      <span class="segment-arrow">→</span>
+      <span class="segment-tag" data-i18n="home_seg_company_tag">Business & Analytics</span>
+      <h3 data-i18n="segment_company_title">F&uuml;r Ihr Team</h3>
+      <p data-i18n="segment_company_text">Datenanalyse, Reporting, Workshops und Consulting f&uuml;r moderne Unternehmen.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_company_li1">Datenanalyse & Dashboards</li>
+        <li data-i18n="home_seg_company_li2">Team Workshops</li>
+        <li data-i18n="home_seg_company_li3">Reporting & Prozesse</li>
+        <li data-i18n="home_seg_company_li4">Strategische Beratung</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_company_arrow">Zum Consulting &rarr;</span>
     </a>
   </div>
 </section>
 
-<div class="section-spacer"></div>
-
-
-<section class="cta">
-  <h2 data-i18n="cta_title">Stärke deine statistischen Kenntnisse gezielt!</h2>
-  <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
-
-  <!-- <a href="nachhilfe.html" class="btn" data-i18n="segment_student_btn">Zu Nachhilfe & Studium</a> -->
-  <!-- <a href="consulting.html" class="btn" data-i18n="segment_company_btn">Zur Beratungsseite</a> -->
+<section id="features" class="features-grid">
+  <header class="section-header">
+    <h2 data-i18n="home_features_title">Unterst&uuml;tzung, die verst&auml;ndlich bleibt</h2>
+    <p data-i18n="home_features_subtitle">Fokus auf nachvollziehbare Erkl&auml;rungen, praxisnahe Analysen und nachhaltiges Lernen.</p>
+  </header>
+  <div class="features-grid-inner">
+    <article class="feature-card">
+      <div class="feature-icon">📚</div>
+      <h3 data-i18n="home_feature_1_title">Lernen & Verstehen</h3>
+      <p data-i18n="home_feature_1_text">Schritt-f&uuml;r-Schritt Erkl&auml;rungen, Lernmaterialien und verst&auml;ndliche Statistik f&uuml;r nachhaltiges Verst&auml;ndnis.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3 data-i18n="home_feature_2_title">Individuelle Unterst&uuml;tzung</h3>
+      <p data-i18n="home_feature_2_text">Hilfe bei konkreten Aufgaben, Pr&uuml;fungen, Projekten und wissenschaftlichen Arbeiten.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3 data-i18n="home_feature_3_title">Daten sinnvoll nutzen</h3>
+      <p data-i18n="home_feature_3_text">Analyse, Reporting und Consulting f&uuml;r datenbasierte Entscheidungen und strukturierte Prozesse.</p>
+    </article>
+  </div>
 </section>
 
+<section class="process">
+  <header class="section-header">
+    <h2 data-i18n="home_process_title">So l&auml;uft die Zusammenarbeit ab</h2>
+  </header>
+  <div class="process-grid">
+    <article class="process-step">
+      <div class="process-number">01</div>
+      <h3 data-i18n="home_process_1_title">Anliegen verstehen</h3>
+      <p data-i18n="home_process_1_text">Gemeinsame Kl&auml;rung der Ziele und Herausforderungen.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">02</div>
+      <h3 data-i18n="home_process_2_title">Individuelle Unterst&uuml;tzung</h3>
+      <p data-i18n="home_process_2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projektarbeit.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">03</div>
+      <h3 data-i18n="home_process_3_title">Verst&auml;ndliche L&ouml;sungen</h3>
+      <p data-i18n="home_process_3_text">Nachvollziehbare Erkl&auml;rungen und strukturierte Ergebnisse.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">04</div>
+      <h3 data-i18n="home_process_4_title">Nachhaltiger Fortschritt</h3>
+      <p data-i18n="home_process_4_text">Langfristiges Verst&auml;ndnis statt kurzfristiger L&ouml;sungen.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="cta-box">
+    <h2 data-i18n="home_cta_title">Finde die passende Unterst&uuml;tzung</h2>
+    <p data-i18n="home_cta_text">Egal ob Statistik-Nachhilfe, Thesis Support oder datenbasierte Unternehmensberatung &ndash; gemeinsam finden wir die passende L&ouml;sung.</p>
+    <a href="#contact" class="btn btn-light open-modal" data-i18n="home_cta_btn">Kontakt aufnehmen</a>
+  </div>
+</section>
 
 </main>
 
