@@ -98,6 +98,7 @@
 .section-header h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 16px;
+  margin-top: 0;
 }
 
 .section-header p {
@@ -106,6 +107,18 @@
   margin: 0 auto;
   font-size: 1.05rem;
   line-height: 1.5;
+}
+
+main > .section-spacer:first-of-type {
+  height: 0;
+}
+
+main {
+  padding-top: 0;
+}
+
+.features-grid {
+  padding-top: 0;
 }
 
 /* Trust bar */
@@ -258,7 +271,10 @@
     margin: 0 auto;
   }
   .segment-list {
-    display: none;
+    font-size: 0.8rem;
+  }
+  .segment-list li {
+    padding: 3px 0 3px 16px;
   }
 }
 
@@ -395,11 +411,14 @@ section.hero .hero-btn-secondary:hover {
     gap: 30px;
   }
   section.hero {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 80px;
+    padding-bottom: 30px;
   }
   section.hero h1 {
     font-size: 1.8rem;
+  }
+  .hero-card {
+    padding: 24px;
   }
 }
 
@@ -516,7 +535,31 @@ main > .section-spacer:first-of-type {
 </section>
 
 <main>
-  <div class="section-spacer"></div>
+<section id="features" class="features-grid">
+  <header class="section-header">
+    <h2 data-i18n="home_features_title">Unterst&uuml;tzung, die verst&auml;ndlich bleibt</h2>
+    <p data-i18n="home_features_subtitle">Fokus auf nachvollziehbare Erkl&auml;rungen, praxisnahe Analysen und nachhaltiges Lernen.</p>
+  </header>
+  <div class="features-grid-inner">
+    <article class="feature-card">
+      <div class="feature-icon">📚</div>
+      <h3 data-i18n="home_feature_1_title">Lernen & Verstehen</h3>
+      <p data-i18n="home_feature_1_text">Schritt-f&uuml;r-Schritt Erkl&auml;rungen, Lernmaterialien und verst&auml;ndliche Statistik f&uuml;r nachhaltiges Verst&auml;ndnis.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3 data-i18n="home_feature_2_title">Individuelle Unterst&uuml;tzung</h3>
+      <p data-i18n="home_feature_2_text">Hilfe bei konkreten Aufgaben, Pr&uuml;fungen, Projekten und wissenschaftlichen Arbeiten.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3 data-i18n="home_feature_3_title">Daten sinnvoll nutzen</h3>
+      <p data-i18n="home_feature_3_text">Analyse, Reporting und Consulting f&uuml;r datenbasierte Entscheidungen und strukturierte Prozesse.</p>
+    </article>
+  </div>
+</section>
+
+<div class="section-spacer"></div>
 
 <section class="trust-bar">
   <div class="trust-grid">
@@ -557,30 +600,6 @@ main > .section-spacer:first-of-type {
       </ul>
       <span class="segment-arrow" data-i18n="home_seg_company_arrow">Zum Consulting &rarr;</span>
     </a>
-  </div>
-</section>
-
-<section id="features" class="features-grid">
-  <header class="section-header">
-    <h2 data-i18n="home_features_title">Unterst&uuml;tzung, die verst&auml;ndlich bleibt</h2>
-    <p data-i18n="home_features_subtitle">Fokus auf nachvollziehbare Erkl&auml;rungen, praxisnahe Analysen und nachhaltiges Lernen.</p>
-  </header>
-  <div class="features-grid-inner">
-    <article class="feature-card">
-      <div class="feature-icon">📚</div>
-      <h3 data-i18n="home_feature_1_title">Lernen & Verstehen</h3>
-      <p data-i18n="home_feature_1_text">Schritt-f&uuml;r-Schritt Erkl&auml;rungen, Lernmaterialien und verst&auml;ndliche Statistik f&uuml;r nachhaltiges Verst&auml;ndnis.</p>
-    </article>
-    <article class="feature-card">
-      <div class="feature-icon">🎯</div>
-      <h3 data-i18n="home_feature_2_title">Individuelle Unterst&uuml;tzung</h3>
-      <p data-i18n="home_feature_2_text">Hilfe bei konkreten Aufgaben, Pr&uuml;fungen, Projekten und wissenschaftlichen Arbeiten.</p>
-    </article>
-    <article class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3 data-i18n="home_feature_3_title">Daten sinnvoll nutzen</h3>
-      <p data-i18n="home_feature_3_text">Analyse, Reporting und Consulting f&uuml;r datenbasierte Entscheidungen und strukturierte Prozesse.</p>
-    </article>
   </div>
 </section>
 

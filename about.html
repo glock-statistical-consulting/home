@@ -247,7 +247,7 @@ main > .section-spacer:first-of-type {
 
 @media (max-width: 1024px) {
   main > .section-spacer:first-of-type {
-    margin-top: 80px;
+    margin-top: 20px;
   }
 }
 
@@ -259,6 +259,10 @@ main > .section-spacer:first-of-type {
   scroll-margin-top: 295px;
 }
 
+#segment-section {
+  scroll-margin-top: 80px;
+}
+
 /* Hero desktop layout */
 .about-hero .hero-inner {
   max-width: 1200px;
@@ -266,18 +270,16 @@ main > .section-spacer:first-of-type {
 }
 
 .about-hero .hero-content {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 460px;
   gap: 24px;
-  align-items: flex-start;
+  align-items: start;
   width: 100%;
 }
 
-.about-hero .hero-left {
-  flex: 1;
-}
-
-.about-hero .hero-left h1 {
+.about-hero .hero-content > h1 {
+  grid-column: 1;
+  grid-row: 1;
   font-size: 2.5rem;
   margin-top: 0;
   margin-bottom: 16px;
@@ -285,7 +287,9 @@ main > .section-spacer:first-of-type {
   line-height: 1.2;
 }
 
-.about-hero .hero-subtitle {
+.about-hero .hero-content > .hero-subtitle {
+  grid-column: 1;
+  grid-row: 2;
   font-size: 1.05rem;
   line-height: 1.6;
   opacity: 0.9;
@@ -293,11 +297,47 @@ main > .section-spacer:first-of-type {
   max-width: 620px;
 }
 
-.hero-badges {
+.about-hero .hero-content > .hero-badges {
+  grid-column: 1;
+  grid-row: 3;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 18px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.about-content-card {
+  background: rgba(255,255,255,0.6);
+  border-radius: 16px;
+  padding: 4px 16px;
+  margin-bottom: 10px;
+}
+
+.about-content-card .about-hero {
+  margin-bottom: 8px;
+}
+
+.about-content-card .about-hero-text_bottom {
+  margin-top: -8px;
+  margin-bottom: 8px;
 }
 
 .badge {
@@ -316,14 +356,17 @@ main > .section-spacer:first-of-type {
   border-color: rgba(255,255,255,0.5);
 }
 
-.hero-actions {
+.about-hero .hero-content > .hero-actions {
+  grid-column: 1;
+  grid-row: 4;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
 .about-hero .hero-card {
-  flex: 0 0 460px;
+  grid-column: 2;
+  grid-row: 1 / 5;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 12px;
@@ -385,9 +428,31 @@ main > .section-spacer:first-of-type {
 }
 
 @media (max-width: 1100px) {
+  .about-hero .hero-content {
+    grid-template-columns: 1fr;
+  }
   .about-hero .hero-card {
-    flex: 0 0 auto;
+    grid-column: 1;
+    grid-row: 3;
     width: 100%;
+  }
+  .about-hero .hero-content > h1 { grid-row: 1; }
+  .about-hero .hero-content > .hero-subtitle { grid-row: 2; }
+  .about-hero .hero-content > .hero-badges {
+    grid-row: 4;
+    justify-content: center;
+  }
+  .about-hero .hero-content > .hero-actions {
+    grid-row: 5;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero .hero-content > h1 {
+    font-size: 1.8rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }
 </style>
@@ -426,20 +491,8 @@ main > .section-spacer:first-of-type {
       <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
     </div>
     <div class="hero-content">
-      <div class="hero-left">
-        <h1 data-i18n="hero_about_title">Statistik verst&auml;ndlich machen. Entscheidungen erm&ouml;glichen.</h1>
-        <p class="hero-subtitle" data-i18n="hero_about_subtitle">Ich bin Kevin Glock und unterst&uuml;tze Dich und Dein Team dabei, komplexe statistische und datengetriebene Fragestellungen klar zu verstehen und sicher zu l&ouml;sen &ndash; von der ersten Idee bis zur umsetzbaren L&ouml;sung.</p>
-        <div class="hero-badges">
-          <div class="badge" data-i18n="hero_about_badge_1">+8 Jahre Erfahrung</div>
-          <div class="badge" data-i18n="hero_about_badge_2">M.Sc. Statistik</div>
-          <div class="badge" data-i18n="hero_about_badge_3">Forschung &amp; Industrie</div>
-          <div class="badge" data-i18n="hero_about_badge_4">IT &amp; Data Consulting</div>
-        </div>
-        <div class="hero-actions">
-          <a href="#berufserfahrung" class="btn" data-i18n="hero_about_btn_primary">Leistungen ansehen</a>
-          <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_contact_btn">Kontakt aufnehmen</a>
-        </div>
-      </div>
+      <h1 data-i18n="hero_about_title">Statistik verst&auml;ndlich machen. Entscheidungen erm&ouml;glichen.</h1>
+      <p class="hero-subtitle" data-i18n="hero_about_subtitle">Ich bin Kevin Glock und unterst&uuml;tze Dich und Dein Team dabei, komplexe statistische und datengetriebene Fragestellungen klar zu verstehen und sicher zu l&ouml;sen &ndash; von der ersten Idee bis zur umsetzbaren L&ouml;sung.</p>
       <div class="hero-card">
         <h3 data-i18n="hero_about_card_title">Wof&uuml;r ich stehe</h3>
         <p data-i18n="hero_about_card_text">Mein Fokus liegt nicht auf komplexer Theorie, sondern auf verst&auml;ndlicher, praxisnaher Umsetzung. Ich &uuml;bersetze Statistik in klare Entscheidungen und anwendbare L&ouml;sungen.</p>
@@ -450,6 +503,16 @@ main > .section-spacer:first-of-type {
           <li data-i18n="hero_about_card_li4">Br&uuml;cke zwischen Wissenschaft &amp; Anwendung</li>
         </ul>
       </div>
+      <div class="hero-badges">
+        <div class="badge" data-i18n="hero_about_badge_1">+8 Jahre Erfahrung</div>
+        <div class="badge" data-i18n="hero_about_badge_2">M.Sc. Statistik</div>
+        <div class="badge" data-i18n="hero_about_badge_3">Forschung &amp; Industrie</div>
+        <div class="badge" data-i18n="hero_about_badge_4">IT &amp; Data Consulting</div>
+      </div>
+      <div class="hero-actions">
+        <a href="#segment-section" class="btn" data-i18n="hero_about_btn_primary">Leistungen ansehen</a>
+        <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_contact_btn">Kontakt aufnehmen</a>
+      </div>
     </div>
   </div>
 </header>
@@ -459,22 +522,24 @@ main > .section-spacer:first-of-type {
 <div class="section-spacer"></div>
 
 <section id="about-content" class="about-content">
-  <h2 data-i18n="about_title">Kevin Glock</h2>
+  <div class="about-content-card">
+    <h2 data-i18n="about_title">Kevin Glock</h2>
 
-  <div class="about-hero">
-    <img src="img/own_img_02.jpg" alt="Kevin Glock" class="about-hero-img">
-    <div class="about-hero-text">
-      <p data-i18n="about_p1">Ich unterst\u00fctze Dich und Dein Team mit fundierter statistischer Beratung und praxisnaher Begleitung \u2013 von Abitur und Studium bis hin zu eigener Forschung und datengetriebenen Fragestellungen im Unternehmen. Ich begleite Dich mit ma\u00dfgeschneiderter Expertise auf Deinem individuellen Weg.</p>
-      <p data-i18n="about_p2">Als Gr\u00fcler von Kevin Glock Statistical Consulting Services verbinde ich einen Masterabschluss in Statistik mit \u00ber acht Jahren Erfahrung in Forschung und freier Wirtschaft. Durch meine T\u00e4tigkeit als IT Consultant im Bereich Supply Chain arbeite ich t\u00e4glich mit komplexen Datenstrukturen und analytischen Prozessen.</p>
-      <p data-i18n="about_p3">Dabei verfolge ich einen ganzheitlichen Ansatz: Mir ist nicht nur wichtig, statistische Methoden korrekt anzuwenden, sondern Inhalte auch verst\u00e4ndlich und nachvollziehbar zu vermitteln. So entstehen L\u00f6sungen, die methodisch \u00fcberzeugen und sich gleichzeitig praktisch umsetzen lassen.</p>
-      <p data-i18n="about_p4">Mein Ziel ist es, Dich und Dein Team zuverl\u00e4ssig bei Ihren Herausforderungen zu unterst\u00fctzen \u2013 von der ersten Fragestellung bis zur erfolgreichen Umsetzung.</p>
-      </div>
+    <div class="about-hero">
+      <img src="img/own_img_02.jpg" alt="Kevin Glock" class="about-hero-img">
+      <div class="about-hero-text">
+        <p data-i18n="about_p1">Ich unterst\u00fctze Dich und Dein Team mit fundierter statistischer Beratung und praxisnaher Begleitung \u2013 von Abitur und Studium bis hin zu eigener Forschung und datengetriebenen Fragestellungen im Unternehmen. Ich begleite Dich mit ma\u00dfgeschneiderter Expertise auf Deinem individuellen Weg.</p>
+        <p data-i18n="about_p2">Als Gr\u00fcler von Kevin Glock Statistical Consulting Services verbinde ich einen Masterabschluss in Statistik mit \u00ber acht Jahren Erfahrung in Forschung und freier Wirtschaft. Durch meine T\u00e4tigkeit als IT Consultant im Bereich Supply Chain arbeite ich t\u00e4glich mit komplexen Datenstrukturen und analytischen Prozessen.</p>
+        <p data-i18n="about_p3">Dabei verfolge ich einen ganzheitlichen Ansatz: Mir ist nicht nur wichtig, statistische Methoden korrekt anzuwenden, sondern Inhalte auch verst\u00e4ndlich und nachvollziehbar zu vermitteln. So entstehen L\u00f6sungen, die methodisch \u00fcberzeugen und sich gleichzeitig praktisch umsetzen lassen.</p>
+        <p data-i18n="about_p4">Mein Ziel ist es, Dich und Dein Team zuverl\u00e4ssig bei Ihren Herausforderungen zu unterst\u00fctzen \u2013 von der ersten Fragestellung bis zur erfolgreichen Umsetzung.</p>
+        </div>
+    </div>
+    
+    <div class="about-hero-text_bottom">
+    <p data-i18n="about_p5">Ob einzelne Analyse, wissenschaftliche Arbeit oder langfristige Unterst\u00fctzung im Unternehmen \u2013 mein Ziel ist es, Dich und Dein Team zuverl\u00e4ssig, pers\u00f6nlich und l\u00f6sungsorientiert zu begleiten.</p>
+    <p data-i18n="about_p6">Die Verbindung aus akademischer Laufbahn und praktischer Erfahrung erm\u00f6glicht es mir, statistische Herausforderungen aus unterschiedlichen Perspektiven zu betrachten und individuelle L\u00f6sungen zu entwickeln.</p>
+    </div>
   </div>
-  
-  <div class="about-hero-text_bottom">
-  <p data-i18n="about_p5">Ob einzelne Analyse, wissenschaftliche Arbeit oder langfristige Unterst\u00fctzung im Unternehmen \u2013 mein Ziel ist es, Dich und Dein Team zuverl\u00e4ssig, pers\u00f6nlich und l\u00f6sungsorientiert zu begleiten.</p>
-  <p data-i18n="about_p6">Die Verbindung aus akademischer Laufbahn und praktischer Erfahrung erm\u00f6glicht es mir, statistische Herausforderungen aus unterschiedlichen Perspektiven zu betrachten und individuelle L\u00f6sungen zu entwickeln.</p>
-  </div>  
 
   <div class="about-exp-section" id="experience-section">
     <h2 data-i18n="about_exp_title">Erfahrung und Qualifikation</h2>
@@ -607,17 +672,34 @@ main > .section-spacer:first-of-type {
 <div class="section-spacer"></div>
 
 <section id="segment-section">
-  <h2 data-i18n="segment_title">Wähle was zu dir passt!</h2>
+  <header class="section-header">
+    <h2 data-i18n="segment_title">W&auml;hle den passenden Bereich</h2>
+    <p data-i18n="segment_subtitle">Individuelle Unterst&uuml;tzung f&uuml;r Studium, Forschung und datengetriebene Projekte.</p>
+  </header>
   <div class="segment-grid">
     <a href="nachhilfe.html" class="segment-card">
+      <span class="segment-tag" data-i18n="home_seg_student_tag">Studium & Lernen</span>
       <h3 data-i18n="segment_student_title">Für Dich</h3>
-      <p data-i18n="segment_student_text">Nachhilfe, Thesis-Unterstützung & Prüfungsvorbereitung</p>
-      <span class="segment-arrow">→</span>
+      <p data-i18n="segment_student_text">Unterstützung bei Statistik, Prüfungen, Thesis und Datenanalyse – verständlich und individuell.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_student_li1">Online-Nachhilfe</li>
+        <li data-i18n="home_seg_student_li2">Thesis Support</li>
+        <li data-i18n="home_seg_student_li3">Statistik verständlich erklärt</li>
+        <li data-i18n="home_seg_student_li4">Lernmaterialien & Übungen</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_student_arrow">Zur Nachhilfe →</span>
     </a>
     <a href="consulting.html" class="segment-card">
-      <h3 data-i18n="segment_company_title">Für Dein Team</h3>
-      <p data-i18n="segment_company_text">Datenanalyse, Schulungen & Consulting</p>
-      <span class="segment-arrow">→</span>
+      <span class="segment-tag" data-i18n="home_seg_company_tag">Business & Analytics</span>
+      <h3 data-i18n="segment_company_title">F&uuml;r Ihr Team</h3>
+      <p data-i18n="segment_company_text">Datenanalyse, Reporting, Workshops und Consulting f&uuml;r moderne Unternehmen.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_company_li1">Datenanalyse & Dashboards</li>
+        <li data-i18n="home_seg_company_li2">Team Workshops</li>
+        <li data-i18n="home_seg_company_li3">Reporting & Prozesse</li>
+        <li data-i18n="home_seg_company_li4">Strategische Beratung</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_company_arrow">Zum Consulting →</span>
     </a>
   </div>
 </section>
@@ -625,13 +707,11 @@ main > .section-spacer:first-of-type {
 <div class="section-spacer"></div>
 
 
-<section class="cta">
-  <h2 data-i18n="cta_title">Stärke deine statistischen Kenntnisse gezielt!</h2>
+<div class="cta-box">
+  <h2 data-i18n="cta_title">Komplexe Daten verstehen. Klar entscheiden. Sicher umsetzen.</h2>
   <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
-
-  <!-- <a href="nachhilfe.html" class="btn" data-i18n="segment_student_btn">Zu Nachhilfe & Studium</a> -->
-  <!-- <a href="consulting.html" class="btn" data-i18n="segment_company_btn">Zur Beratungsseite</a> -->
-</section>
+  <a href="#contact" class="btn btn-light open-modal" data-i18n="about_cta_btn">Kontakt aufnehmen</a>
+</div>
 
 </main>
 <footer>
@@ -731,6 +811,14 @@ main > .section-spacer:first-of-type {
     }
 
     requestAnimationFrame(raf);
+
+    document.querySelectorAll('a[href^="#"]:not(.open-modal)').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) lenis.scrollTo(target, { duration: 3 });
+      });
+    });
 </script>
 <div class="bg-band band-1"></div>
 <div class="bg-band band-2"></div>
