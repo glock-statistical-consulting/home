@@ -93,7 +93,7 @@ function setupPricingCards() {
   pricingContainer.addEventListener('click', function(e) {
     const card = e.target.closest('.card');
     if (!card) return;
-    if (e.target.closest('.btn, .open-modal')) return;
+    if (e.target.closest('.btn, .open-modal, .booking-option, .package-option, .package-custom-input')) return;
     e.preventDefault();
     e.stopPropagation();
 
@@ -124,6 +124,38 @@ function setupPricingCards() {
       }
     }
   });
+
+  pricingContainer.addEventListener('click', function(e) {
+    const opt = e.target.closest('.booking-option');
+    if (!opt) return;
+    e.stopPropagation();
+    const card = opt.closest('.card');
+    card.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    const pkg = card.querySelector('.package-options');
+    if (opt.dataset.booking === 'package') {
+      pkg.classList.add('visible');
+    } else {
+      pkg.classList.remove('visible');
+      const ci = card.querySelector('.package-custom-input');
+      if (ci) ci.classList.remove('visible');
+    }
+  });
+
+  pricingContainer.addEventListener('click', function(e) {
+    const opt = e.target.closest('.package-option');
+    if (!opt) return;
+    e.stopPropagation();
+    const card = opt.closest('.card');
+    card.querySelectorAll('.package-option').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    const ci = card.querySelector('.package-custom-input');
+    if (opt.dataset.hours === 'custom') {
+      if (ci) ci.classList.add('visible');
+    } else {
+      if (ci) ci.classList.remove('visible');
+    }
+  });
 }
 
 function setupServiceCards() {
@@ -135,7 +167,7 @@ function setupServiceCards() {
   cards.forEach(card => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', function(e) {
-      if (e.target.closest('.btn, .open-modal')) return;
+    if (e.target.closest('.btn, .open-modal')) return;
       e.stopPropagation();
       if (this === openCard) {
         this.classList.remove('expanded');
