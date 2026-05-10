@@ -133,12 +133,22 @@ function setupPricingCards() {
     card.querySelectorAll('.booking-option').forEach(o => o.classList.remove('active'));
     opt.classList.add('active');
     const pkg = card.querySelector('.package-options');
-    if (opt.dataset.booking === 'package') {
-      pkg.classList.add('visible');
-    } else {
-      pkg.classList.remove('visible');
-      const ci = card.querySelector('.package-custom-input');
-      if (ci) ci.classList.remove('visible');
+    if (pkg) {
+      if (opt.dataset.booking === 'package') {
+        pkg.classList.add('visible');
+      } else {
+        pkg.classList.remove('visible');
+        const ci = card.querySelector('.package-custom-input');
+        if (ci) ci.classList.remove('visible');
+      }
+    }
+    const topicOpts = card.querySelector('.library-topic-options');
+    if (topicOpts) {
+      if (opt.dataset.booking === 'single') {
+        topicOpts.classList.add('visible');
+      } else {
+        topicOpts.classList.remove('visible');
+      }
     }
   });
 

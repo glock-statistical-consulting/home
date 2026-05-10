@@ -1039,6 +1039,22 @@ footer p {
   display: inline-block;
 }
 
+.library-topic-options {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.library-topic-options.visible {
+  display: flex;
+}
+
+.library-topic-select {
+  max-width: 260px;
+}
+
 .toast-success {
   position: fixed;
   top: 80px;
