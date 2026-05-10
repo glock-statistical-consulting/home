@@ -314,214 +314,113 @@ main > .section-spacer:first-of-type {
   <div class="pricing-grid">
 
     <div class="card" data-card="Library">
-      <div class="card-summary">
-        <h2 data-i18n="price_library">Library</h2>
-        <p class="price">12–39 €</p>
-        <ul>
-          <li data-i18n="lib_card_li1">Video- &amp; PDF-Materialien zum Download</li>
-          <li data-i18n="lib_card_li2">Selbstbestimmtes Lernen, kein Termin</li>
-          <li data-i18n="lib_card_li3">Einmaliger Kauf, lebenslanger Zugriff</li>
-        </ul>
+      <span class="badge">Selbstlern</span>
+      <h2 data-i18n="price_library">Library</h2>
+      <p class="price">12–39 €</p>
+      <ul class="feature-list">
+        <li data-i18n="lib_card_li1">Video- &amp; PDF-Materialien zum Download</li>
+        <li data-i18n="lib_card_li2">Selbstbestimmtes Lernen, kein Termin</li>
+        <li data-i18n="lib_card_li3">Einmaliger Kauf, lebenslanger Zugriff</li>
+      </ul>
+      <div class="select-group">
+        <label class="form-label" data-i18n="lib_topic_label">Themenauswahl</label>
+        <select class="form-select library-topic-select">
+          <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+          <option value="deskriptiv" data-i18n="booking_topic_opt1">Deskriptive Statistik &amp; Grafiken</option>
+          <option value="wahrscheinlichkeit" data-i18n="booking_topic_opt2">Wahrscheinlichkeitsrechnung</option>
+          <option value="hypothesentests" data-i18n="booking_topic_opt3">Hypothesentests (t-Test, ANOVA, Chi²)</option>
+          <option value="spss_intro" data-i18n="booking_topic_opt4">SPSS / R / Python Einf&uuml;hrung</option>
+          <option value="regression" data-i18n="booking_topic_opt5">Regression &amp; Modellierung</option>
+          <option value="ml_basics" data-i18n="booking_topic_opt6">Machine Learning Grundlagen</option>
+          <option value="thesis" data-i18n="booking_topic_opt7">Thesis / Methodenberatung</option>
+        </select>
       </div>
-      <div class="card-details">
-        <div class="booking-type">
-          <div class="booking-option active" data-booking="single">
-            <span class="booking-circle"></span>
-            <span data-i18n="lib_booking_single">Einzelpaket – 12 €</span>
-          </div>
-          <div class="booking-option" data-booking="package">
-            <span class="booking-circle"></span>
-            <span data-i18n="lib_booking_package">Vollzugriff – 39 €</span>
-          </div>
-        </div>
-        <div class="library-topic-options visible">
-          <label class="form-label" data-i18n="lib_topic_label">Themenauswahl</label>
-          <select class="form-select library-topic-select">
-            <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
-            <option value="deskriptiv" data-i18n="booking_topic_opt1">Deskriptive Statistik &amp; Grafiken</option>
-            <option value="wahrscheinlichkeit" data-i18n="booking_topic_opt2">Wahrscheinlichkeitsrechnung</option>
-            <option value="hypothesentests" data-i18n="booking_topic_opt3">Hypothesentests (t-Test, ANOVA, Chi²)</option>
-            <option value="spss_intro" data-i18n="booking_topic_opt4">SPSS / R / Python Einf&uuml;hrung</option>
-            <option value="regression" data-i18n="booking_topic_opt5">Regression &amp; Modellierung</option>
-            <option value="ml_basics" data-i18n="booking_topic_opt6">Machine Learning Grundlagen</option>
-            <option value="thesis" data-i18n="booking_topic_opt7">Thesis / Methodenberatung</option>
-          </select>
-        </div>
-        <div class="detail-content">
-          <h3 data-i18n="lib_details_title">Enthaltene Materialien</h3>
-          <ul>
-            <li data-i18n="lib_li1">PDF-Skripten &amp; &Uuml;bungsaufgaben</li>
-            <li data-i18n="lib_li2">Video-Tutorials (Step-by-Step)</li>
-            <li data-i18n="lib_li3">Datens&auml;tze zum Mit&uuml;ben</li>
-            <li data-i18n="lib_li4">L&ouml;sungswege &amp; Interpretationen</li>
-          </ul>
-          <a href="#contact" class="btn btn-book open-modal" data-service="library" data-i18n="lib_buy_btn">Jetzt kaufen</a>
-        </div>
-      </div>
+      <a href="#contact" class="btn btn-book open-modal" data-service="library" data-i18n="lib_buy_btn">Jetzt kaufen</a>
     </div>
 
     <div class="card" data-card="Basics">
-      <div class="card-summary">
-        <h2 data-i18n="price_basics">Basics</h2>
-        <p class="price">45–60 € <span data-i18n="price_unit">/ Std.</span></p>
-        <ul>
-          <li data-i18n="b_card_li1">Abitur & Bachelor Grundlagen</li>
-          <li data-i18n="b_card_li2">Deskriptive Statistik</li>
-          <li data-i18n="b_card_li3">Einführung SPSS / R / Python</li>
-        </ul>
+      <span class="badge" data-i18n="badge_basics">Einstieg</span>
+      <h2 data-i18n="price_basics">Basics</h2>
+      <p class="price">45–60 € <span data-i18n="price_unit">/ Std.</span></p>
+      <ul class="feature-list">
+        <li data-i18n="b_card_li1">Abitur &amp; Bachelor Grundlagen</li>
+        <li data-i18n="b_card_li2">Deskriptive Statistik</li>
+        <li data-i18n="b_card_li3">Einf&uuml;hrung SPSS / R / Python</li>
+      </ul>
+      <div class="select-group">
+        <label data-i18n="dropdown_package_label">Paket ausw&auml;hlen</label>
+        <select class="form-select">
+          <option data-i18n="dropdown_single">Einzelstunde</option>
+          <option data-i18n="dropdown_basics_5h">5 Stunden (10% Rabatt)</option>
+          <option data-i18n="dropdown_basics_10h">10 Stunden (15% Rabatt)</option>
+        </select>
       </div>
-      <div class="card-details">
-        <div class="booking-type">
-          <div class="booking-option active" data-booking="single">
-            <span class="booking-circle"></span>
-            <span data-i18n="booking_single">Einzelbuchung</span>
-          </div>
-          <div class="booking-option" data-booking="package">
-            <span class="booking-circle"></span>
-            <span data-i18n="booking_package">Paketbuchung</span>
-          </div>
-        </div>
-        <div class="package-options">
-          <div class="package-option active" data-hours="5">
-            <span class="package-circle"></span>
-            <span data-i18n="package_5h">5 Stunden</span>
-          </div>
-          <div class="package-option" data-hours="10">
-            <span class="package-circle"></span>
-            <span data-i18n="package_10h">10 Stunden</span>
-          </div>
-          <div class="package-option" data-hours="custom">
-            <span class="package-circle"></span>
-            <span data-i18n="package_custom">Individuell</span>
-          </div>
-          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
-        </div>
-        <div class="detail-content">
-          <h3 data-i18n="b_details_title">Leistungen</h3>
-          <ul>
-            <li data-i18n="b_li1">Grundlagen der deskriptiven Statistik</li>
-            <li data-i18n="b_li2">Einführung in SPSS / R / Python</li>
-            <li data-i18n="b_li3">Hilfe bei Abitur- & Bachelor-Aufgaben</li>
-            <li data-i18n="b_li4">Datenaufbereitung & Visualisierung</li>
-          </ul>
-          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
-          <ul>
-            <li data-i18n="b_r1">5 Stunden Paket → 10% Rabatt</li>
-            <li data-i18n="b_r2">10 Stunden Paket → 15% Rabatt</li>
-          </ul>
-          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
-        </div>
-      </div>
+      <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
     </div>
 
     <div class="card" data-card="Advanced">
-      <div class="card-summary">
-        <h2 data-i18n="price_advanced">Advanced</h2>
-        <p class="price">60–75 € <span data-i18n="price_unit">/ Std.</span></p>
-        <ul>
-          <li data-i18n="a_card_li1">Master-Level Statistik</li>
-          <li data-i18n="a_card_li2">Regression, ANOVA, multivariat</li>
-          <li data-i18n="a_card_li3">Thesis Support</li>
-        </ul>
+      <span class="badge" data-i18n="badge_advanced">Beliebt</span>
+      <h2 data-i18n="price_advanced">Advanced</h2>
+      <p class="price">60–75 € <span data-i18n="price_unit">/ Std.</span></p>
+      <ul class="feature-list">
+        <li data-i18n="a_card_li1">Master-Level Statistik</li>
+        <li data-i18n="a_card_li2">Regression, ANOVA, multivariat</li>
+        <li data-i18n="a_card_li3">Thesis Support</li>
+      </ul>
+      <div class="select-group">
+        <label data-i18n="dropdown_package_label">Paket ausw&auml;hlen</label>
+        <select class="form-select">
+          <option data-i18n="dropdown_single">Einzelstunde</option>
+          <option data-i18n="dropdown_advanced_5h">5 Stunden (9% Rabatt)</option>
+          <option data-i18n="dropdown_advanced_10h">10 Stunden (14% Rabatt)</option>
+        </select>
       </div>
-      <div class="card-details">
-        <div class="booking-type">
-          <div class="booking-option active" data-booking="single">
-            <span class="booking-circle"></span>
-            <span data-i18n="booking_single">Einzelbuchung</span>
-          </div>
-          <div class="booking-option" data-booking="package">
-            <span class="booking-circle"></span>
-            <span data-i18n="booking_package">Paketbuchung</span>
-          </div>
-        </div>
-        <div class="package-options">
-          <div class="package-option active" data-hours="5">
-            <span class="package-circle"></span>
-            <span data-i18n="package_5h">5 Stunden</span>
-          </div>
-          <div class="package-option" data-hours="10">
-            <span class="package-circle"></span>
-            <span data-i18n="package_10h">10 Stunden</span>
-          </div>
-          <div class="package-option" data-hours="custom">
-            <span class="package-circle"></span>
-            <span data-i18n="package_custom">Individuell</span>
-          </div>
-          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
-        </div>
-        <div class="detail-content">
-          <h3 data-i18n="b_details_title">Leistungen</h3>
-          <ul>
-            <li data-i18n="a_li1">Regression, ANOVA & multivariate Verfahren</li>
-            <li data-i18n="a_li2">Unterstützung bei Masterarbeiten</li>
-            <li data-i18n="a_li3">Fortgeschrittene Datenanalyse</li>
-            <li data-i18n="a_li4">Modellierung & Interpretation</li>
-          </ul>
-          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
-          <ul>
-            <li data-i18n="a_r1">5 Stunden Paket → 9% Rabatt</li>
-            <li data-i18n="a_r2">10 Stunden Paket → 14% Rabatt</li>
-          </ul>
-          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
-        </div>
-      </div>
+      <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
     </div>
 
     <div class="card" data-card="Expert">
-      <div class="card-summary">
-        <h2 data-i18n="price_expert">Expert</h2>
-        <p class="price">75–90 € <span data-i18n="price_unit">/ Std.</span></p>
-        <ul>
-          <li data-i18n="e_card_li1">Dissertation / PhD-Level</li>
-          <li data-i18n="e_card_li2">Bayesian Statistics</li>
-          <li data-i18n="e_card_li3">Komplexe Modellierung & Beratung</li>
-        </ul>
+      <span class="badge" data-i18n="badge_expert">Research</span>
+      <h2 data-i18n="price_expert">Expert</h2>
+      <p class="price">75–90 € <span data-i18n="price_unit">/ Std.</span></p>
+      <ul class="feature-list">
+        <li data-i18n="e_card_li1">Dissertation / PhD-Level</li>
+        <li data-i18n="e_card_li2">Bayesian Statistics</li>
+        <li data-i18n="e_card_li3">Komplexe Modellierung &amp; Beratung</li>
+      </ul>
+      <div class="select-group">
+        <label data-i18n="dropdown_package_label">Paket ausw&auml;hlen</label>
+        <select class="form-select">
+          <option data-i18n="dropdown_single">Einzelstunde</option>
+          <option data-i18n="dropdown_expert_5h">5 Stunden (7% Rabatt)</option>
+          <option data-i18n="dropdown_expert_10h">10 Stunden (12% Rabatt)</option>
+        </select>
       </div>
-      <div class="card-details">
-        <div class="booking-type">
-          <div class="booking-option active" data-booking="single">
-            <span class="booking-circle"></span>
-            <span data-i18n="booking_single">Einzelbuchung</span>
-          </div>
-          <div class="booking-option" data-booking="package">
-            <span class="booking-circle"></span>
-            <span data-i18n="booking_package">Paketbuchung</span>
-          </div>
-        </div>
-        <div class="package-options">
-          <div class="package-option active" data-hours="5">
-            <span class="package-circle"></span>
-            <span data-i18n="package_5h">5 Stunden</span>
-          </div>
-          <div class="package-option" data-hours="10">
-            <span class="package-circle"></span>
-            <span data-i18n="package_10h">10 Stunden</span>
-          </div>
-          <div class="package-option" data-hours="custom">
-            <span class="package-circle"></span>
-            <span data-i18n="package_custom">Individuell</span>
-          </div>
-          <input type="number" class="package-custom-input" data-i18n-placeholder="package_custom_placeholder" placeholder="Std." min="1" max="100">
-        </div>
-        <div class="detail-content">
-          <h3 data-i18n="b_details_title">Leistungen</h3>
-          <ul>
-            <li data-i18n="e_li1">Dissertation & PhD-Level Statistik</li>
-            <li data-i18n="e_li2">Bayesianische Statistik & MCMC</li>
-            <li data-i18n="e_li3">Komplexe Modellierung & Methodik</li>
-            <li data-i18n="e_li4">Individuelle Beratung & Betreuung</li>
-          </ul>
-          <h3 data-i18n="b_rabatt_title">Rabattoptionen</h3>
-          <ul>
-            <li data-i18n="e_r1">5 Stunden Paket → 7% Rabatt</li>
-            <li data-i18n="e_r2">10 Stunden Paket → 12% Rabatt</li>
-          </ul>
-          <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
-        </div>
-      </div>
+      <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
     </div>
 
+  </div>
+</section>
+
+<section id="study-library">
+  <h2 data-i18n="library_title">Selbstlern-Library</h2>
+  <p class="subtitle" data-i18n="library_subtitle">Lernmaterialien zum Download &ndash; flexibel, sofort, lebenslang.</p>
+  <div class="library-grid">
+    <div class="library-card">
+      <h3 data-i18n="library_feat1_title">Lebenslanger Zugriff</h3>
+      <p data-i18n="library_feat1_text">Einmal kaufen, dauerhaft nutzen &ndash; alle Materialien stehen Dir f&uuml;r immer zur Verf&uuml;gung.</p>
+    </div>
+    <div class="library-card">
+      <h3 data-i18n="library_feat2_title">Sofortiger Download</h3>
+      <p data-i18n="library_feat2_text">Nach Zahlung sofort verf&uuml;gbar &ndash; kein Warten, kein Versand.</p>
+    </div>
+    <div class="library-card">
+      <h3 data-i18n="library_feat3_title">Ideal f&uuml;r Klausuren</h3>
+      <p data-i18n="library_feat3_text">Strukturiere Deine Pr&uuml;fungsvorbereitung mit gezielten &Uuml;bungen und Erkl&auml;rungen.</p>
+    </div>
+    <div class="library-card">
+      <h3 data-i18n="library_feat4_title">Bachelor &amp; Master Niveau</h3>
+      <p data-i18n="library_feat4_text">Von Grundlagen bis fortgeschrittene Methoden &ndash; f&uuml;r jedes Studienlevel.</p>
+    </div>
   </div>
 </section>
 

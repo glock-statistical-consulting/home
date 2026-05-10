@@ -770,11 +770,9 @@ footer p {
 
 /* PRICING */
 .pricing-grid {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
   margin: 30px 0;
 }
 
@@ -784,8 +782,6 @@ footer p {
   padding: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   border: 2px solid transparent;
-  flex: 1 1 280px;
-  max-width: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -1115,6 +1111,61 @@ footer p {
 
 .card ul li:last-child {
   border-bottom: none;
+}
+
+.badge {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.select-group {
+  margin: 18px 0;
+}
+
+.select-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.card .btn {
+  margin-top: 0;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.library-card {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-left: 4px solid var(--orange);
+}
+
+.library-card h3 {
+  color: var(--deep-sea);
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.library-card p {
+  color: #555;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* SERVICES */
