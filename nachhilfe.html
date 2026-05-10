@@ -313,6 +313,53 @@ main > .section-spacer:first-of-type {
 
   <div class="pricing-grid">
 
+    <div class="card" data-card="Library">
+      <div class="card-summary">
+        <h2 data-i18n="price_library">Library</h2>
+        <p class="price">12–39 €</p>
+        <ul>
+          <li data-i18n="lib_card_li1">Video- &amp; PDF-Materialien zum Download</li>
+          <li data-i18n="lib_card_li2">Selbstbestimmtes Lernen, kein Termin</li>
+          <li data-i18n="lib_card_li3">Einmaliger Kauf, lebenslanger Zugriff</li>
+        </ul>
+      </div>
+      <div class="card-details">
+        <div class="booking-type">
+          <div class="booking-option active" data-booking="single">
+            <span class="booking-circle"></span>
+            <span data-i18n="lib_booking_single">Einzelpaket – 12 €</span>
+          </div>
+          <div class="booking-option" data-booking="package">
+            <span class="booking-circle"></span>
+            <span data-i18n="lib_booking_package">Vollzugriff – 39 €</span>
+          </div>
+        </div>
+        <div class="library-topic-options visible">
+          <label class="form-label" data-i18n="lib_topic_label">Themenauswahl</label>
+          <select class="form-select library-topic-select">
+            <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+            <option value="deskriptiv" data-i18n="booking_topic_opt1">Deskriptive Statistik &amp; Grafiken</option>
+            <option value="wahrscheinlichkeit" data-i18n="booking_topic_opt2">Wahrscheinlichkeitsrechnung</option>
+            <option value="hypothesentests" data-i18n="booking_topic_opt3">Hypothesentests (t-Test, ANOVA, Chi²)</option>
+            <option value="spss_intro" data-i18n="booking_topic_opt4">SPSS / R / Python Einf&uuml;hrung</option>
+            <option value="regression" data-i18n="booking_topic_opt5">Regression &amp; Modellierung</option>
+            <option value="ml_basics" data-i18n="booking_topic_opt6">Machine Learning Grundlagen</option>
+            <option value="thesis" data-i18n="booking_topic_opt7">Thesis / Methodenberatung</option>
+          </select>
+        </div>
+        <div class="detail-content">
+          <h3 data-i18n="lib_details_title">Enthaltene Materialien</h3>
+          <ul>
+            <li data-i18n="lib_li1">PDF-Skripten &amp; &Uuml;bungsaufgaben</li>
+            <li data-i18n="lib_li2">Video-Tutorials (Step-by-Step)</li>
+            <li data-i18n="lib_li3">Datens&auml;tze zum Mit&uuml;ben</li>
+            <li data-i18n="lib_li4">L&ouml;sungswege &amp; Interpretationen</li>
+          </ul>
+          <a href="#contact" class="btn btn-book open-modal" data-service="library" data-i18n="lib_buy_btn">Jetzt kaufen</a>
+        </div>
+      </div>
+    </div>
+
     <div class="card" data-card="Basics">
       <div class="card-summary">
         <h2 data-i18n="price_basics">Basics</h2>
@@ -471,53 +518,6 @@ main > .section-spacer:first-of-type {
             <li data-i18n="e_r2">10 Stunden Paket → 12% Rabatt</li>
           </ul>
           <a href="#contact" class="btn btn-book open-modal" data-i18n="book_btn">Jetzt buchen</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-card="Library">
-      <div class="card-summary">
-        <h2 data-i18n="price_library">Library</h2>
-        <p class="price">12–39 €</p>
-        <ul>
-          <li data-i18n="lib_card_li1">Video- &amp; PDF-Materialien zum Download</li>
-          <li data-i18n="lib_card_li2">Selbstbestimmtes Lernen, kein Termin</li>
-          <li data-i18n="lib_card_li3">Einmaliger Kauf, lebenslanger Zugriff</li>
-        </ul>
-      </div>
-      <div class="card-details">
-        <div class="booking-type">
-          <div class="booking-option active" data-booking="single">
-            <span class="booking-circle"></span>
-            <span data-i18n="lib_booking_single">Einzelpaket – 12 €</span>
-          </div>
-          <div class="booking-option" data-booking="package">
-            <span class="booking-circle"></span>
-            <span data-i18n="lib_booking_package">Vollzugriff – 39 €</span>
-          </div>
-        </div>
-        <div class="library-topic-options visible">
-          <label class="form-label" data-i18n="lib_topic_label">Themenauswahl</label>
-          <select class="form-select library-topic-select">
-            <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
-            <option value="deskriptiv" data-i18n="booking_topic_opt1">Deskriptive Statistik &amp; Grafiken</option>
-            <option value="wahrscheinlichkeit" data-i18n="booking_topic_opt2">Wahrscheinlichkeitsrechnung</option>
-            <option value="hypothesentests" data-i18n="booking_topic_opt3">Hypothesentests (t-Test, ANOVA, Chi²)</option>
-            <option value="spss_intro" data-i18n="booking_topic_opt4">SPSS / R / Python Einf&uuml;hrung</option>
-            <option value="regression" data-i18n="booking_topic_opt5">Regression &amp; Modellierung</option>
-            <option value="ml_basics" data-i18n="booking_topic_opt6">Machine Learning Grundlagen</option>
-            <option value="thesis" data-i18n="booking_topic_opt7">Thesis / Methodenberatung</option>
-          </select>
-        </div>
-        <div class="detail-content">
-          <h3 data-i18n="lib_details_title">Enthaltene Materialien</h3>
-          <ul>
-            <li data-i18n="lib_li1">PDF-Skripten &amp; &Uuml;bungsaufgaben</li>
-            <li data-i18n="lib_li2">Video-Tutorials (Step-by-Step)</li>
-            <li data-i18n="lib_li3">Datens&auml;tze zum Mit&uuml;ben</li>
-            <li data-i18n="lib_li4">L&ouml;sungswege &amp; Interpretationen</li>
-          </ul>
-          <a href="#contact" class="btn btn-book open-modal" data-service="library" data-i18n="lib_buy_btn">Jetzt kaufen</a>
         </div>
       </div>
     </div>
