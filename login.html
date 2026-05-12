@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="description" content="Login / Registrierung – Kevin Glock Statistical Consulting Services | GSC. Melden Sie sich an oder registrieren Sie sich für den geschützten Kundenbereich.">
+<meta name="keywords" content="Login, Registrierung, GSC, Kundenbereich, Kevin Glock, Statistik Beratung, Datenbank, Essen">
+<meta name="author" content="Kevin Glock Statistical Consulting Services | GSC- Professionelle Statistik Beratung">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Login | GSC Services">
+<meta property="og:description" content="Login / Registrierung – Kevin Glock Statistical Consulting Services | GSC. Kundenbereich für Datenaustausch.">
+<meta property="og:image" content="https://glock-statistical-consulting.github.io/home/img/logo.svg">
+<meta property="og:url" content="https://glock-statistical-consulting.github.io/home/login.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://glock-statistical-consulting.github.io/home/login.html">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title data-i18n="title_login">Login | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_two.jpg">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_two.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+<style>
+.lang-btn:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+  background-color: #e6f0fa;
+}
+
+.login-content {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+}
+
+.login-content h1 {
+  margin-bottom: 30px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .login-content {
+    padding: 24px 20px;
+  }
+}
+
+.login-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 28px;
+  border-bottom: 2px solid #ddd;
+}
+
+.login-tab {
+  flex: 1;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #888;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+
+.login-tab.active {
+  color: var(--deep-sea);
+  border-bottom-color: var(--orange);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+.login-form .btn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px 25px;
+  font-size: 1.05rem;
+  border-radius: 18px;
+}
+
+.login-form .btn:hover {
+  transform: none;
+}
+
+.login-form .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  text-align: center;
+  min-height: 20px;
+}
+
+.login-success {
+  color: #16a34a;
+  font-size: 0.85rem;
+  text-align: center;
+  min-height: 20px;
+}
+
+.login-info {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
+
+.login-info a {
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-info a:hover {
+  text-decoration: underline;
+}
+
+.dashboard {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+}
+
+.dashboard-email {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 24px;
+}
+
+.btn-logout {
+  background: transparent;
+  color: var(--deep-sea);
+  border: 2px solid var(--deep-sea);
+  padding: 8px 20px;
+  border-radius: 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+}
+
+.btn-logout:hover {
+  background: var(--deep-sea);
+  color: white;
+}
+
+.upload-area {
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.upload-area:hover,
+.upload-area.dragover {
+  border-color: var(--orange);
+  background: rgba(255, 102, 0, 0.05);
+}
+
+.upload-area p {
+  margin: 8px 0 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.upload-area .upload-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.file-list {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+}
+
+.file-list h3 {
+  margin: 0 0 16px;
+  color: var(--deep-sea);
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  gap: 12px;
+}
+
+.file-item:last-child {
+  border-bottom: none;
+}
+
+.file-item-name {
+  font-size: 0.9rem;
+  color: #333;
+  word-break: break-all;
+  flex: 1;
+}
+
+.file-item-size {
+  font-size: 0.8rem;
+  color: #999;
+  white-space: nowrap;
+}
+
+.file-item .btn-download {
+  background: var(--deep-sea);
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.file-item .btn-download:hover {
+  background: #002244;
+}
+
+.file-item .btn-delete {
+  background: transparent;
+  color: #dc2626;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+  font-family: inherit;
+}
+
+.file-item .btn-delete:hover {
+  color: #b91c1c;
+}
+
+.empty-files {
+  text-align: center;
+  color: #999;
+  font-size: 0.9rem;
+  padding: 20px 0;
+}
+
+.hidden {
+  display: none !important;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="nav-left">
+  <img src="img/logo-compact.svg" alt="GSC Logo" class="nav-logo">
+</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">Über mich</a>
+    <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
+    <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
+    <a href="login.html" data-i18n="navbar_login">Login</a>
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+<div class="burger" id="burger">
+      ☰
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-brand">
+    </div>
+    <div class="hero-content">
+        <div class="hero-action">
+          <span class="hero-scrolled-text" data-i18n="hero_login">Login – Kundenbereich</span>
+        </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="section-spacer" style="margin-top: 150px;"></div>
+
+<!-- Login / Register -->
+<section class="login-content" id="authSection">
+  <div class="login-tabs">
+    <button class="login-tab active" data-login-tab="login" data-i18n="login_tab_login">Anmelden</button>
+    <button class="login-tab" data-login-tab="register" data-i18n="login_tab_register">Registrieren</button>
+  </div>
+
+  <form class="login-form" id="authForm" autocomplete="off">
+    <input type="email" name="email" data-i18n-placeholder="login_email_placeholder" placeholder="E-Mail-Adresse" required autocomplete="email" inputmode="email">
+    <input type="password" name="password" data-i18n-placeholder="login_password_placeholder" placeholder="Passwort" required autocomplete="current-password">
+    <p class="login-error" id="authError">&nbsp;</p>
+    <p class="login-success" id="authSuccess">&nbsp;</p>
+    <button type="submit" class="btn" id="authSubmitBtn" data-i18n="login_submit_login">Anmelden</button>
+  </form>
+
+  <p class="login-info">
+    <span id="authInfoText" data-i18n="login_info_text">Noch kein Konto?</span>
+    <a id="authToggleLink" data-i18n="login_info_link">Jetzt registrieren</a>
+  </p>
+</section>
+
+<!-- Dashboard -->
+<section class="dashboard hidden" id="dashboardSection">
+  <div class="dashboard-header">
+    <h1 data-i18n="dashboard_title">Kundenbereich</h1>
+    <button class="btn-logout" id="logoutBtn" data-i18n="dashboard_logout">Abmelden</button>
+  </div>
+  <p class="dashboard-email" id="dashboardEmail"></p>
+
+  <div class="upload-area" id="uploadArea">
+    <div class="upload-icon">&#128229;</div>
+    <p data-i18n="dashboard_upload_text">Datei hier ablegen oder klicken zum Hochladen</p>
+    <input type="file" id="fileInput" class="hidden" multiple>
+  </div>
+
+  <div class="file-list">
+    <h3 data-i18n="dashboard_files_title">Ihre Dateien</h3>
+    <div id="fileListContainer">
+      <p class="empty-files" data-i18n="dashboard_files_empty">Noch keine Dateien vorhanden.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>
+  <div class="chr-footer__social__container">
+      <h3 class="chr-footer__social__title chr-headline-6" data-i18n="footer_social_title"> Folge Mir</h3>
+        <ul class="chr-footer__social__list">
+          <li>
+          <a href="https://www.youtube.com/user/@meinuser"
+            aria-label="YouTube" target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn youtube"
+            data-i18n-aria-label="youtube"
+            data-i18n-title="youtube">
+          <img src="img/youtube_icon.svg" alt="YouTube">
+          <title>YouTube</title></a></li>
+
+          <li>
+          <a href="https://de.linkedin.com/in/glockconsulting"
+            aria-label="linkedin"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn linkedin"
+            data-i18n-aria-label="linkedin"
+            data-i18n-title="linkedin">
+          <img src="img/linkedin_icon.svg" alt="LinkedIn">
+          <title>LinkedIn</title></a></li>
+        </ul>
+    </div>
+<div class="section-divider"></div>
+
+<div class="footer-spacer">
+        <ul class="chr-footer__list">
+          <li>
+          <p>Kevin Glock Statistical Consulting Services | GSC</p></li>
+
+          <li class="footer-legal">
+          <a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a>
+          <span class="footer-sep">|</span>
+          <a href="datenschutz.html" class="footer-link" data-i18n="footer_datenschutz">Datenschutz</a></li>
+
+          <li>
+          <p>Handcrafted with ❤️</p></li>
+        </ul>
+</div>
+</div>
+</footer>
+
+<div class="toast-success" id="toast">&nbsp;</div>
+
+<script src="translations.js"></script>
+<script src="hero-scroll.js"></script>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function() {
+  const SUPABASE_URL = 'https://wbgnlnvvmifvcenjlmqp.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndiZ25sbnZ2bWlmdmNlbmpsbXFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDk5NTIsImV4cCI6MjA5NDE4NTk1Mn0.AVjXlvMKHm-WNGgXG33P0OwxJMePLRKjJxtCEa2LB_k';
+  const STORAGE_BUCKET = 'uploads';
+
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const authSection = document.getElementById('authSection');
+  const dashboardSection = document.getElementById('dashboardSection');
+  const authForm = document.getElementById('authForm');
+  const emailInput = authForm.querySelector('input[name="email"]');
+  const passwordInput = authForm.querySelector('input[name="password"]');
+  const authSubmitBtn = document.getElementById('authSubmitBtn');
+  const authError = document.getElementById('authError');
+  const authSuccess = document.getElementById('authSuccess');
+  const authToggleLink = document.getElementById('authToggleLink');
+  const authInfoText = document.getElementById('authInfoText');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const dashboardEmail = document.getElementById('dashboardEmail');
+  const fileInput = document.getElementById('fileInput');
+  const uploadArea = document.getElementById('uploadArea');
+  const fileListContainer = document.getElementById('fileListContainer');
+  const toast = document.getElementById('toast');
+
+  const tabs = document.querySelectorAll('.login-tab');
+  let mode = 'login';
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  function setMode(newMode) {
+    mode = newMode;
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.loginTab === mode));
+    const isLogin = mode === 'login';
+    authSubmitBtn.textContent = isLogin ? 'Anmelden' : 'Registrieren';
+    authInfoText.textContent = isLogin ? 'Noch kein Konto?' : 'Bereits registriert?';
+    authToggleLink.textContent = isLogin ? 'Jetzt registrieren' : 'Jetzt anmelden';
+    passwordInput.autocomplete = isLogin ? 'current-password' : 'new-password';
+    authError.innerHTML = '&nbsp;';
+    authSuccess.innerHTML = '&nbsp;';
+    authForm.reset();
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      setMode(this.dataset.loginTab);
+    });
+  });
+
+  authToggleLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    setMode(mode === 'login' ? 'register' : 'login');
+  });
+
+  authForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    authError.innerHTML = '&nbsp;';
+    authSuccess.innerHTML = '&nbsp;';
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (!email || !password) {
+      authError.textContent = translations[currentLang]?.login_error_required || 'Bitte füllen Sie alle Felder aus.';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      authError.textContent = translations[currentLang]?.login_error_email || 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+      return;
+    }
+    if (password.length < 6) {
+      authError.textContent = translations[currentLang]?.login_error_password || 'Das Passwort muss mindestens 6 Zeichen lang sein.';
+      return;
+    }
+
+    authSubmitBtn.disabled = true;
+    authSubmitBtn.textContent = mode === 'login' ? 'Wird angemeldet...' : 'Wird registriert...';
+
+    try {
+      let result;
+      if (mode === 'login') {
+        result = await supabase.auth.signInWithPassword({ email, password });
+      } else {
+        result = await supabase.auth.signUp({ email, password });
+      }
+
+      const { data, error } = result;
+
+      if (error) {
+        authError.textContent = error.message;
+        authSubmitBtn.disabled = false;
+        authSubmitBtn.textContent = mode === 'login' ? 'Anmelden' : 'Registrieren';
+        return;
+      }
+
+      if (mode === 'register' && data.user && !data.session) {
+        authSuccess.textContent = translations[currentLang]?.login_confirm_email || 'Bestätigungslink wurde an Ihre E-Mail gesendet.';
+        authSubmitBtn.disabled = false;
+        authSubmitBtn.textContent = 'Registrieren';
+        authForm.reset();
+        return;
+      }
+
+      authSuccess.textContent = '';
+      authForm.reset();
+      showToast(translations[currentLang]?.toast_login_success || 'Erfolgreich!');
+      loadDashboard(data.session || data.user);
+    } catch (err) {
+      authError.textContent = 'Ein unerwarteter Fehler ist aufgetreten.';
+      authSubmitBtn.disabled = false;
+      authSubmitBtn.textContent = mode === 'login' ? 'Anmelden' : 'Registrieren';
+    }
+  });
+
+  async function loadFiles() {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const { data: files, error } = await supabase.storage.from(STORAGE_BUCKET).list(user.id, { sortBy: { column: 'created_at', order: 'desc' } });
+
+    if (error) {
+      fileListContainer.innerHTML = '<p class="empty-files">Fehler beim Laden der Dateien.</p>';
+      return;
+    }
+
+    if (!files || files.length === 0) {
+      fileListContainer.innerHTML = '<p class="empty-files" data-i18n="dashboard_files_empty">Noch keine Dateien vorhanden.</p>';
+      applyLangToEmptyFiles();
+      return;
+    }
+
+    let html = '';
+    for (const file of files) {
+      const size = file.metadata?.size ? formatSize(file.metadata.size) : '';
+      html += `
+        <div class="file-item">
+          <span class="file-item-name">${escapeHtml(file.name)}</span>
+          ${size ? `<span class="file-item-size">${size}</span>` : ''}
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="btn-download" data-filename="${escapeHtml(file.name)}" data-i18n="dashboard_download">Download</button>
+            <button class="btn-delete" data-filename="${escapeHtml(file.name)}">&times;</button>
+          </div>
+        </div>`;
+    }
+    fileListContainer.innerHTML = html;
+
+    fileListContainer.querySelectorAll('.btn-download').forEach(btn => {
+      btn.addEventListener('click', downloadFile);
+    });
+    fileListContainer.querySelectorAll('.btn-delete').forEach(btn => {
+      btn.addEventListener('click', deleteFile);
+    });
+  }
+
+  function applyLangToEmptyFiles() {
+    if (translations[currentLang]?.dashboard_files_empty) {
+      const el = fileListContainer.querySelector('.empty-files');
+      if (el) el.textContent = translations[currentLang].dashboard_files_empty;
+    }
+  }
+
+  async function downloadFile(e) {
+    const fileName = e.currentTarget.dataset.filename;
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const { data, error } = await supabase.storage.from(STORAGE_BUCKET).createSignedUrl(`${user.id}/${fileName}`, 60);
+
+    if (error || !data) {
+      showToast(translations[currentLang]?.dashboard_download_error || 'Download fehlgeschlagen.');
+      return;
+    }
+
+    window.open(data.signedUrl, '_blank');
+  }
+
+  async function deleteFile(e) {
+    const fileName = e.currentTarget.dataset.filename;
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const { error } = await supabase.storage.from(STORAGE_BUCKET).remove([`${user.id}/${fileName}`]);
+
+    if (error) {
+      showToast(translations[currentLang]?.dashboard_delete_error || 'Löschen fehlgeschlagen.');
+      return;
+    }
+
+    showToast(translations[currentLang]?.dashboard_delete_success || 'Datei gelöscht.');
+    loadFiles();
+  }
+
+  async function uploadFiles(files) {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    for (const file of files) {
+      const filePath = `${user.id}/${file.name}`;
+      const { error } = await supabase.storage.from(STORAGE_BUCKET).upload(filePath, file, { upsert: true });
+
+      if (error) {
+        showToast(`${escapeHtml(file.name)}: ${error.message}`);
+      } else {
+        showToast(`${escapeHtml(file.name)} ${translations[currentLang]?.dashboard_upload_success || 'hochgeladen.'}`);
+      }
+    }
+    loadFiles();
+  }
+
+  function loadDashboard(sessionOrUser) {
+    const user = sessionOrUser?.user || sessionOrUser;
+    authSection.classList.add('hidden');
+    dashboardSection.classList.remove('hidden');
+    const email = user?.email || user?.user_metadata?.email || '';
+    dashboardEmail.textContent = email;
+    loadFiles();
+  }
+
+  logoutBtn.addEventListener('click', async function() {
+    await supabase.auth.signOut();
+    dashboardSection.classList.add('hidden');
+    authSection.classList.remove('hidden');
+    authError.innerHTML = '&nbsp;';
+    authSuccess.innerHTML = '&nbsp;';
+    authForm.reset();
+    setMode('login');
+  });
+
+  uploadArea.addEventListener('click', () => fileInput.click());
+
+  uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.classList.add('dragover');
+  });
+
+  uploadArea.addEventListener('dragleave', () => {
+    uploadArea.classList.remove('dragover');
+  });
+
+  uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    if (e.dataTransfer.files.length) {
+      uploadFiles(e.dataTransfer.files);
+    }
+  });
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) {
+      uploadFiles(fileInput.files);
+      fileInput.value = '';
+    }
+  });
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' && session) {
+      loadDashboard(session);
+    }
+  });
+
+  supabase.auth.getUser().then(({ data }) => {
+    if (data?.user) {
+      loadDashboard(data.user);
+    }
+  });
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / 1048576).toFixed(1) + ' MB';
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+})();
+</script>
+<script src="https://unpkg.com/@studio-freight/lenis/bundled/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 5.5 });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  </script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
+</body>
+</html>
