@@ -135,27 +135,42 @@ export default function LoginPage() {
   const showPassword = tab !== "reset" || isRecovery
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#e8eef3] p-4">
-      <div className="w-full max-w-md rounded-2xl bg-white/70 p-8 shadow-lg backdrop-blur">
-        <div className="mb-6 flex justify-end gap-2 text-sm">
+    <div className="flex min-h-screen flex-col bg-[#e8eef3]">
+      <header className="flex items-center justify-between px-6 py-4">
+        <a href="/" className="flex items-center gap-3">
+          <img src="/img/logo-compact.svg" alt="GSC" className="h-10" />
+          <span className="hidden text-sm font-semibold text-[#1e4466] sm:inline">
+            Glock Statistical Consulting
+          </span>
+        </a>
+        <div className="flex items-center gap-3">
+          <a href="/" className="text-xs text-gray-500 hover:text-[#ff6600]">
+            {lang === "de" ? "Zurück zur Startseite" : "Back to Home"}
+          </a>
           <button
             onClick={() => setLangAndStore("de")}
-            className={`font-semibold ${lang === "de" ? "text-[#ff6600]" : "text-gray-500"}`}
+            className={`text-xs font-semibold ${lang === "de" ? "text-[#ff6600]" : "text-gray-500"}`}
           >
             DE
           </button>
-          <span className="text-gray-400">|</span>
+          <span className="text-xs text-gray-400">|</span>
           <button
             onClick={() => setLangAndStore("en")}
-            className={`font-semibold ${lang === "en" ? "text-[#ff6600]" : "text-gray-500"}`}
+            className={`text-xs font-semibold ${lang === "en" ? "text-[#ff6600]" : "text-gray-500"}`}
           >
             EN
           </button>
         </div>
+      </header>
 
-        <h1 className="mb-6 text-center text-2xl font-bold text-[#1e4466]">
-          {tr("login_tab_login")}
-        </h1>
+      <div className="flex flex-1 items-center justify-center px-4 pb-16">
+      <div className="w-full max-w-md rounded-2xl bg-white/70 p-8 shadow-lg backdrop-blur">
+        <div className="mb-6 flex flex-col items-center gap-2">
+          <img src="/img/logo-compact.svg" alt="GSC" className="h-10" />
+          <h1 className="text-xl font-bold text-[#1e4466]">
+            {tr("login_tab_login")}
+          </h1>
+        </div>
 
         {!isRecovery && tab !== "reset" && (
           <div className="mb-6 flex border-b-2 border-gray-300">
@@ -240,6 +255,7 @@ export default function LoginPage() {
           </div>
         )}
       </div>
+    </div>
     </div>
   )
 }
