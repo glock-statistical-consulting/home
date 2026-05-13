@@ -2,6 +2,12 @@ import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
 
 export async function middleware(request: NextRequest) {
+  const path = request.nextUrl.pathname
+
+  if (path === "/login.html") {
+    return NextResponse.redirect(new URL("/login", request.url))
+  }
+
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -29,7 +35,6 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  const path = request.nextUrl.pathname
   const isAuthRoute = path.startsWith("/login")
   const isDashboardRoute = path.startsWith("/dashboard")
 
@@ -45,5 +50,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/login", "/login/:path*", "/dashboard", "/dashboard/:path*"],
+  matcher: ["/login", "/login.html", "/login/:path*", "/dashboard", "/dashboard/:path*"],
 }
