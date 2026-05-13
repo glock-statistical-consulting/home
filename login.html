@@ -630,7 +630,12 @@
       return;
     }
 
-    window.open(data.signedUrl, '_blank');
+    const a = document.createElement('a');
+    a.href = data.signedUrl;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   }
 
   async function deleteFile(e) {
