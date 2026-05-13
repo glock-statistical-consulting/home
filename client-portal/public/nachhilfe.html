@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="description" content="Nachhilfe & Studium – Statistik Hilfe von Abitur über Bachelor, Master bis zum Doktorat. SPSS, R, Python Nachhilfe, Thesis-Unterstützung und Selbstlernmaterial.">
+<meta name="keywords" content="Statistik Nachhilfe, Abitur, Bachelor, Master, Doktorat, SPSS Nachhilfe, R Nachhilfe, Python Nachhilfe, Thesis Unterstützung, Studienberatung, Studium">
+<meta name="author" content="Kevin Glock Statistical Consulting Services | GSC- Professionelle Statistik Beratung">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Nachhilfe & Studium – Statistik Hilfe bis PhD | GSC">
+<meta property="og:description" content="Nachhilfe & Studium – Statistik Hilfe von Abitur bis Doktorat. SPSS, R, Python Nachhilfe, Thesis-Unterstützung und Selbstlernmaterial.">
+<meta property="og:image" content="https://www.kevinglock.de/img/logo.svg">
+<meta property="og:url" content="https://www.kevinglock.de/nachhilfe.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kevinglock.de/nachhilfe.html">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title data-i18n="title_services">Nachhilfe &amp; Studium | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_four.jpg">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_four.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+<!-- Strukturierte Daten (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kevin Glock Statistical Consulting Services | GSC",
+  "image": "https://www.kevinglock.de/img/logo.svg",
+  "description": "Professionelle Statistik Nachhilfe und Data Science Consulting für SPSS, R und Python",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Schönebecker Straße 76",
+    "addressLocality": "Essen",
+    "postalCode": "45359",
+    "addressCountry": "Deutschland"
+  },
+  "email": "glock.gsc@web.de",
+  "url": "https://www.kevinglock.de/nachhilfe.html",
+  "priceRange": "€€",
+  "areaServed": "DE",
+  "knowsAbout": ["Statistik", "Data Science", "SPSS", "R", "Python", "Machine Learning"],
+  "sameAs": [
+    "https://www.youtube.com/user/@meinuser",
+    "https://de.linkedin.com/in/glockconsulting"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Statistische Dienstleistungen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Statistik Nachhilfe",
+          "description": "Von Abitur bis Bachelor – Grundlagen, deskriptive Statistik, Hypothesentests & mehr."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Science & Machine Learning",
+          "description": "Von Regression bis Deep Learning – praxisnah in Python, R & SQL."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bachelor- & Masterthesis Unterstützung",
+          "description": "Methodik, Stichprobe, Auswertung – methodische Begleitung bis zur Abgabe."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Doktorat & Forschung",
+          "description": "Fortgeschrittene Statistik, Poweranalysen & Publikationsberatung."
+        }
+      }
+    ]
+  }
+}
+</script>
+<style>
+/* Trust bar */
+.trust-bar {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: white;
+  padding: 20px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.trust-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.trust-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.trust-grid .trust-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1f2937;
+  border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 800px) {
+  .trust-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .trust-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features .card .card-summary {
+  min-height: 420px;
+}
+
+@media (max-width: 600px) {
+  .features .card .card-summary {
+    min-height: 180px;
+  }
+}
+
+/* Hero desktop layout */
+.hero-inner {
+  padding: 5px 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.hero-inner .hero-content {
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-subtitle {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.hero-action {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+/* Services grid - side by side on desktop */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+#pricing {
+  scroll-margin-top: 90px;
+}
+
+#process {
+  scroll-margin-top: 90px;
+}
+
+/* Visible focus style for language buttons */
+.lang-btn:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+  background-color: #e6f0fa;
+}
+
+[data-i18n="booking_info"] {
+  text-align: center;
+  display: block;
+  margin-bottom: 15px;
+}
+
+main > .section-spacer:first-of-type {
+  margin-top: 75px;
+}
+
+@media (max-width: 1024px) {
+  main > .section-spacer:first-of-type {
+    margin-top: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="nav-left">
+  <img src="img/logo-compact.svg" alt="GSC Logo" class="nav-logo">
+</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">Über mich</a>
+    <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
+    <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
+    <a href="login.html" data-i18n="navbar_login">Login</a>
+
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+<div class="burger" id="burger">
+      ☰
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-brand">
+      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
+      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
+    </div>
+    <div class="hero-content">
+      <h1 data-i18n="hero_nachhilfe_title">Statistik verstehen. Probleme l&ouml;sen. Sicher bestehen.</h1>
+      <p class="hero-subtitle" data-i18n="hero_nachhilfe_subtitle">Ich unterst&uuml;tze Dich bei Statistik, Datenanalyse und wissenschaftlichen Arbeiten &ndash; verst&auml;ndlich, strukturiert und genau auf Dein Niveau abgestimmt.</p>
+      <div class="hero-action">
+        <a href="#process" class="btn" data-i18n="hero_nachhilfe_pricing_btn">Wie ich arbeite</a>
+        <a href="#contact" class="btn-secondary open-modal btn-book" data-i18n="hero_nachhilfe_btn">Jetzt Nachhilfe buchen</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="section-spacer"></div>
+
+<section id="services">
+  <h2 data-i18n="nach_services_title">Unterst&uuml;tzung f&uuml;r Dein Ziel</h2>
+  <p class="subtitle" data-i18n="nach_services_subtitle">Ob Pr&uuml;fung, Hausarbeit oder komplexe Analyse &ndash; ich helfe Dir, Statistik wirklich zu verstehen und anzuwenden.</p>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="nach_1_title">Statistik verstehen</h3>
+        <span class="service-toggle">+</span>
+      </div>
+      <div class="service-details">
+        <div class="service-body-inner">
+          <p data-i18n="nach_1_text">Du verstehst endlich, was hinter den Methoden wirklich steckt.</p>
+          <ul>
+            <li data-i18n="nach_1_li1">Grundlagen &amp; Denkweise der Statistik</li>
+            <li data-i18n="nach_1_li2">Hypothesentests &amp; Regression verst&auml;ndlich erkl&auml;rt</li>
+            <li data-i18n="nach_1_li3">Konfidenzintervalle &amp; Wahrscheinlichkeiten</li>
+            <li data-i18n="nach_1_li4">SPSS, R &amp; Python Einf&uuml;hrung</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="nach_2_title">Analyse &amp; Aufgaben l&ouml;sen</h3>
+        <span class="service-toggle">+</span>
+      </div>
+      <div class="service-details">
+        <div class="service-body-inner">
+          <p data-i18n="nach_2_text">Du bekommst Unterst&uuml;tzung bei konkreten Aufgaben und Auswertungen.</p>
+          <ul>
+            <li data-i18n="nach_2_li1">Datenaufbereitung &amp; Cleaning</li>
+            <li data-i18n="nach_2_li2">Deskriptive &amp; explorative Analysen</li>
+            <li data-i18n="nach_2_li3">Regression &amp; ANOVA</li>
+            <li data-i18n="nach_2_li4">Interpretation deiner Ergebnisse</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="nach_3_title">Abschlussarbeiten</h3>
+        <span class="service-toggle">+</span>
+      </div>
+      <div class="service-details">
+        <div class="service-body-inner">
+          <p data-i18n="nach_3_text">Strukturierte Unterst&uuml;tzung von der Idee bis zur Abgabe.</p>
+          <ul>
+            <li data-i18n="nach_3_li1">Forschungsfrage &amp; Methodik</li>
+            <li data-i18n="nach_3_li2">Statistische Auswertung</li>
+            <li data-i18n="nach_3_li3">Interpretation &amp; Darstellung</li>
+            <li data-i18n="nach_3_li4">Feedback &amp; Korrektur</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="nach_4_title">Fortgeschrittene Statistik</h3>
+        <span class="service-toggle">+</span>
+      </div>
+      <div class="service-details">
+        <div class="service-body-inner">
+          <p data-i18n="nach_4_text">F&uuml;r Master &amp; Promotion mit komplexen Fragestellungen.</p>
+          <ul>
+            <li data-i18n="nach_4_li1">Multivariate Verfahren</li>
+            <li data-i18n="nach_4_li2">Modellierung &amp; Interpretation</li>
+            <li data-i18n="nach_4_li3">Poweranalyse &amp; Studiendesign</li>
+            <li data-i18n="nach_4_li4">Forschungsorientierte Beratung</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="process" class="process">
+  <header class="section-header">
+    <h2 data-i18n="home_process_title">So l&auml;uft die Zusammenarbeit ab</h2>
+  </header>
+  <div class="process-grid">
+    <article class="process-step">
+      <div class="process-number">01</div>
+      <h3 data-i18n="home_process_1_title">Anliegen verstehen</h3>
+      <p data-i18n="home_process_1_text">Gemeinsame Kl&auml;rung der Ziele und Herausforderungen.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">02</div>
+      <h3 data-i18n="home_process_2_title">Individuelle Unterst&uuml;tzung</h3>
+      <p data-i18n="home_process_2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projektarbeit.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">03</div>
+      <h3 data-i18n="home_process_3_title">Verst&auml;ndliche L&ouml;sungen</h3>
+      <p data-i18n="home_process_3_text">Nachvollziehbare Erkl&auml;rungen und strukturierte Ergebnisse.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">04</div>
+      <h3 data-i18n="home_process_4_title">Nachhaltiger Fortschritt</h3>
+      <p data-i18n="home_process_4_text">Langfristiges Verst&auml;ndnis statt kurzfristiger L&ouml;sungen.</p>
+    </article>
+  </div>
+</section>
+
+<section id="pricing">
+
+  <h2 data-i18n="nach_pricing_title">Preise &amp; Buchung</h2>
+  <p class="subtitle" data-i18n="nach_pricing_subtitle">Flexible Unterst&uuml;tzung zu transparenten Konditionen.</p>
+
+  <div class="pricing-grid">
+
+    <div class="card" data-card="Basics">
+      <span class="badge" data-i18n="badge_basics">Einstieg</span>
+      <h2 data-i18n="price_basics">Basics</h2>
+      <p class="price">45&ndash;60 &euro; <span data-i18n="price_unit">/ Std.</span></p>
+      <ul class="feature-list">
+        <li data-i18n="nach_b_feat1">Deskriptive Statistik</li>
+        <li data-i18n="nach_b_feat2">SPSS / R / Python Einf&uuml;hrung</li>
+        <li data-i18n="nach_b_feat3">Klausurvorbereitung</li>
+        <li data-i18n="nach_b_feat4">Visualisierung &amp; Datens&auml;tze</li>
+      </ul>
+    </div>
+
+    <div class="card" data-card="Advanced">
+      <span class="badge" data-i18n="badge_advanced">Beliebt</span>
+      <h2 data-i18n="price_advanced">Advanced</h2>
+      <p class="price">60&ndash;75 &euro; <span data-i18n="price_unit">/ Std.</span></p>
+      <ul class="feature-list">
+        <li data-i18n="nach_a_feat1">Regression &amp; ANOVA</li>
+        <li data-i18n="nach_a_feat2">Masterarbeiten</li>
+        <li data-i18n="nach_a_feat3">Multivariate Verfahren</li>
+        <li data-i18n="nach_a_feat4">Methodik &amp; Interpretation</li>
+      </ul>
+    </div>
+
+    <div class="card" data-card="Expert">
+      <span class="badge" data-i18n="badge_expert">Research</span>
+      <h2 data-i18n="price_expert">Expert</h2>
+      <p class="price">75&ndash;90 &euro; <span data-i18n="price_unit">/ Std.</span></p>
+      <ul class="feature-list">
+        <li data-i18n="nach_e_feat1">PhD-Level Statistik</li>
+        <li data-i18n="nach_e_feat2">Bayesian Statistics</li>
+        <li data-i18n="nach_e_feat3">Komplexe Modellierung</li>
+        <li data-i18n="nach_e_feat4">Individuelle Betreuung</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <section class="trust-bar">
+    <div class="trust-grid trust-grid-3">
+      <div class="trust-item check" data-i18n="nach_trust_1">Remote via MS Teams oder pers&ouml;nlich</div>
+      <div class="trust-item check" data-i18n="nach_trust_2">Antwort innerhalb von 24 Stunden</div>
+      <div class="trust-item check" data-i18n="nach_trust_3">DSGVO-konform</div>
+    </div>
+  </section>
+
+</section>
+
+<section id="study-library" class="library-section">
+
+  <article class="library-card">
+    <div class="library-content">
+      <span class="library-tag" data-i18n="lib_tag">&#x1F4DA; Selbstlern-Library</span>
+      <h2 class="library-title" data-i18n="lib_title">Statistik lernen &mdash; flexibel &amp; in deinem Tempo</h2>
+      <p class="library-text" data-i18n="lib_text">Zugriff auf Video-Tutorials, PDF-Skripte, Datens&auml;tze und Schritt-f&uuml;r-Schritt &Uuml;bungen f&uuml;r Statistik, SPSS, R und Python.</p>
+      <div class="library-features">
+        <div class="library-feature check"><span data-i18n="lib_feat1">Lebenslanger Zugriff</span></div>
+        <div class="library-feature check"><span data-i18n="lib_feat2">Sofortiger Download</span></div>
+        <div class="library-feature check"><span data-i18n="lib_feat3">Ideal f&uuml;r Klausuren</span></div>
+        <div class="library-feature check"><span data-i18n="lib_feat4">Bachelor &amp; Master Niveau</span></div>
+      </div>
+      <div class="library-actions">
+        <a href="#library" class="btn" data-i18n="lib_materials_btn">Materialien ansehen</a>
+      </div>
+    </div>
+    <aside class="library-preview">
+      <div class="preview-box">
+        <h3 data-i18n="lib_preview_title">Statistics Library</h3>
+        <p class="preview-price">12&ndash;39 &euro;</p>
+        <ul class="preview-list">
+          <li data-i18n="lib_preview_li1">Video Tutorials</li>
+          <li data-i18n="lib_preview_li2">PDF-Skripte</li>
+          <li data-i18n="lib_preview_li3">&Uuml;bungsaufgaben</li>
+          <li data-i18n="lib_preview_li4">SPSS / R / Python</li>
+        </ul>
+      </div>
+    </aside>
+  </article>
+
+</section>
+
+<section>
+  <div class="cta-box">
+    <h2 data-i18n="nach_cta_title">Statistik verstehen leicht gemacht!</h2>
+    <p data-i18n="nach_cta_text">Buche Deine Unterst&uuml;tzung oder starte direkt mit einer meiner Aufgaben.</p>
+    <a href="#contact" class="btn btn-light open-modal btn-book" data-i18n="about_cta_btn">Kontakt aufnehmen</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div>
+    <!-- Social Media Buttons -->
+  <div class="chr-footer__social__container">
+      <h3 class="chr-footer__social__title chr-headline-6" data-i18n="footer_social_title"> Folge Mir</h3>
+        <ul class="chr-footer__social__list">
+          <li> <!--YouTube-->
+          <a href="https://www.youtube.com/user/@meinuser"
+            aria-label="YouTube" target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn youtube"
+            data-i18n-aria-label="youtube"
+            data-i18n-title="youtube">
+          <img src="img/youtube_icon.svg" alt="YouTube">
+          <title>YouTube</title></a></li>
+
+          <li> <!-- LinkedIn -->
+          <a href="https://de.linkedin.com/in/glockconsulting"
+            aria-label="linkedin"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn linkedin"
+            data-i18n-aria-label="linkedin"
+            data-i18n-title="linkedin">
+          <img src="img/linkedin_icon.svg" alt="LinkedIn">
+          <title>LinkedIn</title></a></li>
+        </ul>
+    </div>
+<div class="section-divider"></div>
+
+<div class="footer-spacer">
+        <ul class="chr-footer__list">
+          <li> <!--Company-->
+          <p>Kevin Glock Statistical Consulting Services | GSC</p></li>
+          
+          <li class="footer-legal">
+          <a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a>
+          <span class="footer-sep">|</span>
+          <a href="datenschutz.html" class="footer-link" data-i18n="footer_datenschutz">Datenschutz</a></li>
+          
+          <li> <!--Handcrafted-->
+          <p>Handcrafted with ❤️</p></li>
+        </ul>
+</div>
+</div>
+</footer>
+
+<!-- Contact Modal (booking + inquiry modes) -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <span data-i18n="booking_title" hidden>Nachhilfe buchen</span>
+    <span data-i18n="contact_title" hidden>Individuelle Anfrage</span>
+    <span data-i18n="booking_submit" hidden>Verbindlich buchen</span>
+    <span data-i18n="hero_contact_submit" hidden>Anfrage senden</span>
+    <h2 data-i18n="booking_title">Nachhilfe buchen</h2>
+    <p data-i18n="booking_info">Ihre ausgewählte Option wird mit übertragen.</p>
+    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form" id="booking-form">
+                  <input type="hidden" name="_next" value="https://www.kevinglock.de/nachhilfe.html">
+      <input type="hidden" name="booking_type" id="booking-type" value="booking">
+      <input type="hidden" name="discount" id="booking-discount">
+      <input type="hidden" name="booking_card" id="booking-card" value="nachhilfe-page">
+      <input type="hidden" name="language" id="booking-language">
+      <input type="hidden" name="booking_service" id="booking-service">
+
+      <label class="form-label" data-i18n="booking_topic_label">Themenschwerpunkt</label>
+      <select name="booking_topic" id="booking-topic" class="form-select" required>
+        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+        <option value="deskriptiv" data-i18n="booking_topic_opt1">Deskriptive Statistik & Grafiken</option>
+        <option value="wahrscheinlichkeit" data-i18n="booking_topic_opt2">Wahrscheinlichkeitsrechnung</option>
+        <option value="hypothesentests" data-i18n="booking_topic_opt3">Hypothesentests (t-Test, ANOVA, Chi²)</option>
+        <option value="spss_intro" data-i18n="booking_topic_opt4">SPSS / R / Python Einführung</option>
+        <option value="regression" data-i18n="booking_topic_opt5">Regression & Modellierung</option>
+        <option value="ml_basics" data-i18n="booking_topic_opt6">Machine Learning Grundlagen</option>
+        <option value="thesis" data-i18n="booking_topic_opt7">Thesis / Methodenberatung</option>
+        <option value="custom" data-i18n="booking_topic_opt8">Individuelles Thema</option>
+      </select>
+
+      <label class="form-label" data-i18n="dropdown_package_label">Paket auswählen</label>
+      <select name="booking_hours" class="form-select" required>
+        <option value="" disabled selected data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+        <option value="1" data-i18n="nach_dropdown_single">Einzelstunde</option>
+        <option value="5" data-i18n="nach_dropdown_b_5h">5 Stunden (10% Rabatt)</option>
+        <option value="10" data-i18n="nach_dropdown_b_10h">10 Stunden (15% Rabatt)</option>
+        <option value="custom" data-i18n="nach_dropdown_custom">Individuell</option>
+      </select>
+
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details zu Ihrer Buchung?" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="booking_submit">Verbindlich buchen</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-success" id="toast" data-i18n="toast_booking">Buchung erfolgreich!</div>
+
+<script src="translations.js"></script>
+<script src="hero-scroll.js"></script>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+</script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous"></script>
+  <script>
+    const lenis = new Lenis({ duration: 5.5 });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    document.querySelectorAll('a[href^="#"]:not(.open-modal)').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) lenis.scrollTo(target, { duration: 3 });
+      });
+    });
+</script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
+</body>
+</html>

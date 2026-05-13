@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="description" content="Lernen Sie Kevin Glock Statistical Consulting Services | GSC kennen. Master in Statistik, 8+ Jahre Erfahrung in Forschung, Industrie &amp; Business. Statistik Beratung aus Essen f\u00fcr die DACH-Region.">
+<meta name="keywords" content="Über mich, Kevin Glock, Statistik Berater, Qualifikation, Master Statistik, 8+ Jahre Erfahrung, Forschung, Industrie, Statistik Nachhilfe, Data Science Consulting, Essen">
+<meta name="author" content="Kevin Glock Statistical Consulting Services | GSC- Professionelle Statistik Beratung">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Über mich – Statistik Nachhilfe & Consulting | GSC">
+<meta property="og:description" content="Lernen Sie Kevin Glock Statistical Consulting Services | GSC kennen. Master in Statistik, 8+ Jahre Erfahrung in Forschung, Industrie &amp; Business.">
+<meta property="og:image" content="https://www.kevinglock.de/img/logo.svg">
+<meta property="og:url" content="https://www.kevinglock.de/about.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kevinglock.de/about.html">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title data-i18n="title_about">Über mich | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_three.jpg">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_three.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+<!-- Strukturierte Daten (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kevin Glock Statistical Consulting Services | GSC",
+  "image": "https://www.kevinglock.de/img/logo.svg",
+  "description": "Professionelle Statistik Nachhilfe und Data Science Consulting für SPSS, R und Python",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Schönebecker Straße 76",
+    "addressLocality": "Essen",
+    "postalCode": "45359",
+    "addressCountry": "Deutschland"
+  },
+  "email": "glock.gsc@web.de",
+  "url": "https://www.kevinglock.de/about.html",
+  "priceRange": "€€",
+  "areaServed": "DE",
+  "knowsAbout": ["Statistik", "Data Science", "SPSS", "R", "Python", "Machine Learning"],
+  "sameAs": [
+    "https://www.youtube.com/user/@meinuser",
+    "https://de.linkedin.com/in/glockconsulting"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Statistische Dienstleistungen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Statistik Nachhilfe",
+          "description": "Von Abitur bis Bachelor – Grundlagen, deskriptive Statistik, Hypothesentests & mehr."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Science & Machine Learning",
+          "description": "Von Regression bis Deep Learning – praxisnah in Python, R & SQL."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bachelor- & Masterthesis Unterstützung",
+          "description": "Methodik, Stichprobe, Auswertung – methodische Begleitung bis zur Abgabe."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Doktorat & Forschung",
+          "description": "Fortgeschrittene Statistik, Poweranalysen & Publikationsberatung."
+        }
+      }
+    ]
+  }
+}
+</script>
+<style>
+.features .card .card-summary {
+  min-height: 420px;
+}
+
+@media (max-width: 600px) {
+  .features .card .card-summary {
+    min-height: 180px;
+  }
+}
+
+/* Experience section */
+.about-exp-section {
+  margin-top: 40px;
+}
+
+.about-exp-section h2 {
+  color: var(--deep-sea);
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.exp-item {
+  margin-bottom: 24px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+  border-left: 4px solid var(--orange);
+  overflow: hidden;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.exp-subtitle {
+  color: var(--deep-sea);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.exp-toggle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--orange);
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.exp-item.expanded .exp-toggle {
+  transform: rotate(45deg);
+}
+
+.exp-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.exp-item.expanded .exp-body {
+  max-height: 3000px;
+}
+
+.exp-body-inner {
+  padding: 0 20px 16px;
+}
+
+.exp-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.exp-period {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.exp-role {
+  font-size: 1rem;
+  color: var(--deep-sea);
+}
+
+.exp-company {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.exp-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.exp-details-list li {
+  font-size: 0.95rem;
+  color: #555;
+  padding: 4px 0 4px 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.exp-details-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+}
+
+.exp-summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exp-summary-list li {
+  padding: 0;
+  border: none;
+  text-align: left;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.exp-summary-list li::before {
+  content: none;
+}
+
+.exp-summary-list li strong {
+  color: var(--deep-sea);
+}
+
+@media (max-width: 600px) {
+  .exp-header {
+    padding: 12px 14px;
+  }
+  .exp-body-inner {
+    padding: 0 14px 12px;
+  }
+  .exp-details-list li {
+    font-size: 0.9rem;
+  }
+}
+
+main > .section-spacer:first-of-type {
+  margin-top: 18px;
+}
+
+@media (max-width: 1024px) {
+  main > .section-spacer:first-of-type {
+    margin-top: 20px;
+  }
+}
+
+#about-content {
+  scroll-margin-top: 100px;
+}
+
+#berufserfahrung {
+  scroll-margin-top: 295px;
+}
+
+#segment-section {
+  scroll-margin-top: 80px;
+}
+
+/* Hero desktop layout */
+.about-hero .hero-inner {
+  max-width: 1200px;
+  padding: 5px 20px 20px;
+}
+
+.about-hero .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 24px;
+  align-items: start;
+  width: 100%;
+}
+
+.about-hero .hero-content > h1 {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: white;
+  line-height: 1.2;
+}
+
+.about-hero .hero-content > .hero-subtitle {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 16px;
+  max-width: 620px;
+}
+
+.about-hero .hero-content > .hero-badges {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.about-content-card {
+  background: rgba(255,255,255,0.6);
+  border-radius: 16px;
+  padding: 4px 16px;
+  margin-bottom: 10px;
+}
+
+.about-content-card .about-hero {
+  margin-bottom: 8px;
+}
+
+.about-content-card .about-hero-text_bottom {
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.82rem;
+  color: white;
+  white-space: nowrap;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.badge:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.about-hero .hero-content > .hero-actions {
+  grid-column: 1;
+  grid-row: 4;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.about-hero .hero-card {
+  grid-column: 2;
+  grid-row: 1 / 5;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 8px 28px 4px;
+  color: white;
+}
+
+.about-hero .hero-card h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.15rem;
+  color: white;
+}
+
+.about-hero .hero-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+.hero-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-list li {
+  padding: 5px 0 5px 22px;
+  position: relative;
+  font-size: 0.88rem;
+  opacity: 0.92;
+  line-height: 1.5;
+}
+
+.hero-list li:last-child {
+  padding-bottom: 4px;
+}
+
+.hero-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+  font-weight: bold;
+}
+
+/* Visible focus style for language buttons */
+.lang-btn:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+  background-color: #e6f0fa;
+}
+
+[data-i18n="booking_info"] {
+  text-align: center;
+  display: block;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1100px) {
+  .about-hero .hero-content {
+    grid-template-columns: 1fr;
+  }
+  .about-hero .hero-card {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+  }
+  .about-hero .hero-content > h1 { grid-row: 1; }
+  .about-hero .hero-content > .hero-subtitle { grid-row: 2; }
+  .about-hero .hero-content > .hero-badges {
+    grid-row: 4;
+    justify-content: center;
+  }
+  .about-hero .hero-content > .hero-actions {
+    grid-row: 5;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero .hero-content > h1 {
+    font-size: 1.8rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="nav-left">
+  <img src="img/logo-compact.svg" alt="GSC Logo" class="nav-logo">
+</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">Über mich</a>
+    <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
+    <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
+    <a href="login.html" data-i18n="navbar_login">Login</a>
+
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+<div class="burger" id="burger">
+      ☰
+    </div>
+  </div>
+</nav>
+
+<header class="hero about-hero">
+  <div class="hero-inner">
+    <div class="hero-brand">
+      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
+      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
+    </div>
+    <div class="hero-content">
+      <h1 data-i18n="hero_about_title">Statistik verst&auml;ndlich machen. Entscheidungen erm&ouml;glichen.</h1>
+      <p class="hero-subtitle" data-i18n="hero_about_subtitle">Ich bin Kevin Glock und unterst&uuml;tze Dich und Dein Team dabei, komplexe statistische und datengetriebene Fragestellungen klar zu verstehen und sicher zu l&ouml;sen &ndash; von der ersten Idee bis zur umsetzbaren L&ouml;sung.</p>
+      <div class="hero-card">
+        <h3 data-i18n="hero_about_card_title">Wof&uuml;r ich stehe</h3>
+        <p data-i18n="hero_about_card_text">Mein Fokus liegt nicht auf komplexer Theorie, sondern auf verst&auml;ndlicher, praxisnaher Umsetzung. Ich &uuml;bersetze Statistik in klare Entscheidungen und anwendbare L&ouml;sungen.</p>
+        <ul class="hero-list">
+          <li data-i18n="hero_about_card_li1">Verst&auml;ndliche Erkl&auml;rung statt Fachjargon</li>
+          <li data-i18n="hero_about_card_li2">Praxisorientierte Datenanalyse</li>
+          <li data-i18n="hero_about_card_li3">Individuelle Betreuung statt Standardl&ouml;sungen</li>
+          <li data-i18n="hero_about_card_li4">Br&uuml;cke zwischen Wissenschaft &amp; Anwendung</li>
+        </ul>
+      </div>
+      <div class="hero-badges">
+        <div class="badge" data-i18n="hero_about_badge_1">+8 Jahre Erfahrung</div>
+        <div class="badge" data-i18n="hero_about_badge_2">M.Sc. Statistik</div>
+        <div class="badge" data-i18n="hero_about_badge_3">Forschung &amp; Industrie</div>
+        <div class="badge" data-i18n="hero_about_badge_4">IT &amp; Data Consulting</div>
+      </div>
+      <div class="hero-actions">
+        <a href="#segment-section" class="btn" data-i18n="hero_about_btn_primary">Leistungen ansehen</a>
+        <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_contact_btn">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="section-spacer"></div>
+
+<section id="about-content" class="about-content">
+  <div class="about-content-card">
+    <h2 data-i18n="about_title">Kevin Glock</h2>
+
+    <div class="about-hero">
+      <img src="img/own_img_02.jpg" alt="Kevin Glock" class="about-hero-img">
+      <div class="about-hero-text">
+        <p data-i18n="about_p1">Ich unterst\u00fctze Dich und Dein Team mit fundierter statistischer Beratung und praxisnaher Begleitung \u2013 von Abitur und Studium bis hin zu eigener Forschung und datengetriebenen Fragestellungen im Unternehmen. Ich begleite Dich mit ma\u00dfgeschneiderter Expertise auf Deinem individuellen Weg.</p>
+        <p data-i18n="about_p2">Als Gr\u00fcler von Kevin Glock Statistical Consulting Services verbinde ich einen Masterabschluss in Statistik mit \u00ber acht Jahren Erfahrung in Forschung und freier Wirtschaft. Durch meine T\u00e4tigkeit als IT Consultant im Bereich Supply Chain arbeite ich t\u00e4glich mit komplexen Datenstrukturen und analytischen Prozessen.</p>
+        <p data-i18n="about_p3">Dabei verfolge ich einen ganzheitlichen Ansatz: Mir ist nicht nur wichtig, statistische Methoden korrekt anzuwenden, sondern Inhalte auch verst\u00e4ndlich und nachvollziehbar zu vermitteln. So entstehen L\u00f6sungen, die methodisch \u00fcberzeugen und sich gleichzeitig praktisch umsetzen lassen.</p>
+        <p data-i18n="about_p4">Mein Ziel ist es, Dich und Dein Team zuverl\u00e4ssig bei Ihren Herausforderungen zu unterst\u00fctzen \u2013 von der ersten Fragestellung bis zur erfolgreichen Umsetzung.</p>
+        </div>
+    </div>
+    
+    <div class="about-hero-text_bottom">
+    <p data-i18n="about_p5">Ob einzelne Analyse, wissenschaftliche Arbeit oder langfristige Unterst\u00fctzung im Unternehmen \u2013 mein Ziel ist es, Dich und Dein Team zuverl\u00e4ssig, pers\u00f6nlich und l\u00f6sungsorientiert zu begleiten.</p>
+    <p data-i18n="about_p6">Die Verbindung aus akademischer Laufbahn und praktischer Erfahrung erm\u00f6glicht es mir, statistische Herausforderungen aus unterschiedlichen Perspektiven zu betrachten und individuelle L\u00f6sungen zu entwickeln.</p>
+    </div>
+  </div>
+
+  <div class="about-exp-section" id="experience-section">
+    <h2 data-i18n="about_exp_title">Erfahrung und Qualifikation</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3 class="exp-subtitle" data-i18n="about_exp_summary_title">Auf einen Blick</h3>
+        <span class="exp-toggle">+</span>
+      </div>
+      <div class="exp-body">
+        <div class="exp-body-inner">
+          <ul class="exp-details-list exp-summary-list">
+            <li data-i18n="about_exp_summary_academic"></li>
+            <li data-i18n="about_exp_summary_experience"></li>
+            <li data-i18n="about_exp_summary_focus"></li>
+            <li data-i18n="about_exp_summary_projects"></li>
+            <li data-i18n="about_exp_summary_tech"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <h3 class="exp-subtitle" data-i18n="about_exp_education_title">Ausbildung</h3>
+        <span class="exp-toggle">+</span>
+      </div>
+      <div class="exp-body">
+        <div class="exp-body-inner">
+          <div class="exp-meta">
+            <span class="exp-period" data-i18n="about_exp_edu_period_1">04.2020 \u2013 09.2022</span>
+            <strong class="exp-role" data-i18n="about_exp_edu_role_1">M.Sc. Survey Statistics</strong>
+            <span class="exp-company" data-i18n="about_exp_edu_institution_1">Otto-Friedrich-Universit\u00e4t Bamberg</span>
+
+            <div class="section-spacer"></div>
+
+            <span class="exp-period" data-i18n="about_exp_edu_period_2">10.2016 \u2013 02.2020</span>
+            <strong class="exp-role" data-i18n="about_exp_edu_role_2">B.A. Political Science</strong>
+            <span class="exp-company" data-i18n="about_exp_edu_institution_2">Universit\u00e4t Duisburg-Essen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="berufserfahrung" class="exp-item">
+      <div class="exp-header">
+        <h3 class="exp-subtitle" data-i18n="about_exp_professional_title">Berufserfahrung</h3>
+        <span class="exp-toggle">+</span>
+      </div>
+      <div class="exp-body">
+        <div class="exp-body-inner">
+          <div class="exp-meta">
+            <span class="exp-period" data-i18n="about_exp_period_1">Seit 06.2024</span>
+            <strong class="exp-role" data-i18n="about_exp_role_1">IT Consultant | Forecasting &amp; Planning</strong>
+            <span class="exp-company" data-i18n="about_exp_company_1">ALDI International Services SE &amp; Co. oHG</span>
+          </div>
+          <ul class="exp-details-list">
+            <li data-i18n="about_exp_detail_1_1">Global Knowledge &amp; Requirement Manager: SAP UDF Standard &amp; Custom Enhancements &amp; Prozesse, KBA Owner, Partnerl\u00e4nder Q&amp;A-Sessions (Mitarbeiter, (Executive) Manager), Anforderungsmanagement</li>
+            <li data-i18n="about_exp_detail_1_2">SAP Store Prognosekorrektur App Global Contact (Dokumentation, Optimierung, Service-Management)</li>
+            <li data-i18n="about_exp_detail_1_3">Globale Arbeitsgruppe KPI Optimierung: Forecast Accuracy, Order Amount, Stock Availability, Overstock Loss, A/B Test Approach</li>
+          </ul>
+
+          <div class="section-spacer"></div>
+
+          <div class="exp-meta">
+            <span class="exp-period" data-i18n="about_exp_period_2">10.2022 \u2013 05.2024</span>
+            <strong class="exp-role" data-i18n="about_exp_role_2">Data Scientist | Forecasting, Planning &amp; Replenishment</strong>
+            <span class="exp-company" data-i18n="about_exp_company_2">ALDI S\u00dcD Dienstleistungs GmbH &amp; Co. KG</span>
+          </div>
+          <ul class="exp-details-list">
+            <li data-i18n="about_exp_detail_2_1">Einf\u00fchrung von DevOps &amp; agilem Projektmanagement</li>
+            <li data-i18n="about_exp_detail_2_2">SAP UDF Bedarfsprognosen: Modelling, Forecasting, Optimierung</li>
+            <li data-i18n="about_exp_detail_2_3">SAP Store Prognosekorrektur App: Projektumsetzung, Dokumentation, Schulungen f\u00fcr (Executive) Manager</li>
+            <li data-i18n="about_exp_detail_2_4">Arbeitsgruppe KPI Optimierung: Forecast Accuracy, Stock Availability, Overstock Loss</li>
+          </ul>
+
+          <div class="section-spacer"></div>
+
+          <div class="exp-meta">
+            <span class="exp-period" data-i18n="about_exp_period_3">09.2021 \u2013 09.2022</span>
+            <strong class="exp-role" data-i18n="about_exp_role_3">Junior Data Scientist | Model Predictive Control Leiterplattenfertigung</strong>
+            <span class="exp-company" data-i18n="about_exp_company_3">Rohde &amp; Schwarz GmbH &amp; Co. KG</span>
+          </div>
+          <ul class="exp-details-list">
+            <li data-i18n="about_exp_detail_3_1">Anforderungsaufnahme, Datenmanagement, -analyse &amp; -modellierung (Masterarbeit)</li>
+            <li data-i18n="about_exp_detail_3_2">Softwarekonzeption &amp; Testplanimplementierung, Schulungen f\u00fcr Mitarbeiter &amp; Manager</li>
+          </ul>
+
+          <div class="section-spacer"></div>
+
+          <div class="exp-meta">
+            <span class="exp-period" data-i18n="about_exp_period_4">06.2020 \u2013 08.2021 &amp; 11.2021 \u2013 12.2021</span>
+            <strong class="exp-role" data-i18n="about_exp_role_4">Research Assistant | Promotionsassistenz</strong>
+            <span class="exp-company" data-i18n="about_exp_company_4">Leibniz-Institut f\u00fcr Bildungsverl\u00e4ufe e.V</span>
+          </div>
+          <ul class="exp-details-list">
+            <li data-i18n="about_exp_detail_4_1">Beratung zu deskriptiven &amp; multivariaten Analysemethoden, Publikationsreviews, Datenaufbereitung</li>
+            <li data-i18n="about_exp_detail_4_2">NEPS Bildungsrenditen: Programmiertestung, kognitive Pretests</li>
+          </ul>
+
+          <div class="section-spacer"></div>
+
+          <div class="exp-meta">
+            <span class="exp-period" data-i18n="about_exp_period_5">02.2018 \u2013 09.2019</span>
+            <strong class="exp-role" data-i18n="about_exp_role_5">Project Associate | Natural Language Processing &amp; Data Mining</strong>
+            <span class="exp-company" data-i18n="about_exp_company_5">Lehrstuhl f\u00fcr Public Policy &amp; Landespolitik</span>
+          </div>
+          <ul class="exp-details-list">
+            <li data-i18n="about_exp_detail_5_1">Projekt MigTex (PolmineR): Datenmanagement, -validierung, Natural Language Processing &amp; Data Mining</li>
+          </ul>
+
+          <div class="section-spacer"></div>
+
+          <div class="exp-meta">
+            <span class="exp-period" data-i18n="about_exp_period_6">10.2017 \u2013 07.2018</span>
+            <strong class="exp-role" data-i18n="about_exp_role_6">Tutor | Lehrstuhl f\u00fcr empirische Politologie</strong>
+          </div>
+          <ul class="exp-details-list">
+            <li data-i18n="about_exp_detail_6_1">Statistische Methodik, SPSS Einf\u00fchrung, Klausurbetreuung (45 Teiln.)</li>
+            <li data-i18n="about_exp_detail_6_2">Wissenschaftliche Methodenlehre, Klausurbetreuung (30 Teiln.)</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section id="segment-section">
+  <header class="section-header">
+    <h2 data-i18n="segment_title">W&auml;hle den passenden Bereich</h2>
+    <p data-i18n="segment_subtitle">Individuelle Unterst&uuml;tzung f&uuml;r Studium, Forschung und datengetriebene Projekte.</p>
+  </header>
+  <div class="segment-grid">
+    <a href="nachhilfe.html" class="segment-card">
+      <span class="segment-tag" data-i18n="home_seg_student_tag">Studium & Lernen</span>
+      <h3 data-i18n="segment_student_title">Für Dich</h3>
+      <p data-i18n="segment_student_text">Unterstützung bei Statistik, Prüfungen, Thesis und Datenanalyse – verständlich und individuell.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_student_li1">Online-Nachhilfe</li>
+        <li data-i18n="home_seg_student_li2">Thesis Support</li>
+        <li data-i18n="home_seg_student_li3">Statistik verständlich erklärt</li>
+        <li data-i18n="home_seg_student_li4">Lernmaterialien & Übungen</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_student_arrow">Zur Nachhilfe →</span>
+    </a>
+    <a href="consulting.html" class="segment-card">
+      <span class="segment-tag" data-i18n="home_seg_company_tag">Business & Analytics</span>
+      <h3 data-i18n="segment_company_title">F&uuml;r Ihr Team</h3>
+      <p data-i18n="segment_company_text">Datenanalyse, Reporting, Workshops und Consulting f&uuml;r moderne Unternehmen.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_company_li1">Datenanalyse & Dashboards</li>
+        <li data-i18n="home_seg_company_li2">Team Workshops</li>
+        <li data-i18n="home_seg_company_li3">Reporting & Prozesse</li>
+        <li data-i18n="home_seg_company_li4">Strategische Beratung</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_company_arrow">Zum Consulting →</span>
+    </a>
+  </div>
+</section>
+
+<div class="section-spacer"></div>
+
+
+<div class="cta-box">
+  <h2 data-i18n="cta_title">Komplexe Daten verstehen. Klar entscheiden. Sicher umsetzen.</h2>
+  <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
+  <a href="#contact" class="btn btn-light open-modal" data-i18n="about_cta_btn">Kontakt aufnehmen</a>
+</div>
+
+</main>
+<footer>
+  <div>
+    <!-- Social Media Buttons -->
+  <div class="chr-footer__social__container">
+      <h3 class="chr-footer__social__title chr-headline-6" data-i18n="footer_social_title"> Folge Mir</h3>
+        <ul class="chr-footer__social__list">
+          <li> <!--YouTube-->
+          <a href="https://www.youtube.com/user/@meinuser"
+            aria-label="YouTube" target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn youtube"
+            data-i18n-aria-label="youtube"
+            data-i18n-title="youtube">
+          <img src="img/youtube_icon.svg" alt="YouTube">
+          <title>YouTube</title></a></li>
+
+          <li> <!-- LinkedIn -->
+          <a href="https://de.linkedin.com/in/glockconsulting"
+            aria-label="linkedin"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn linkedin"
+            data-i18n-aria-label="linkedin"
+            data-i18n-title="linkedin">
+          <img src="img/linkedin_icon.svg" alt="LinkedIn">
+          <title>LinkedIn</title></a></li>
+        </ul>
+    </div>
+<div class="section-divider"></div>
+
+<div class="footer-spacer">
+        <ul class="chr-footer__list">
+          <li> <!--Company-->
+          <p>Kevin Glock Statistical Consulting Services | GSC</p></li>
+          
+          <li class="footer-legal">
+          <a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a>
+          <span class="footer-sep">|</span>
+          <a href="datenschutz.html" class="footer-link" data-i18n="footer_datenschutz">Datenschutz</a></li>
+          
+          <li> <!--Handcrafted-->
+          <p>Handcrafted with ❤️</p></li>
+        </ul>
+</div>
+</div>
+</footer>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
+    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form">
+                  <input type="hidden" name="_next" value="https://www.kevinglock.de/about.html">
+      <input type="hidden" name="booking_card" value="about-page">
+      <input type="hidden" name="booking_type" value="inquiry">
+      <input type="hidden" name="booking_hours" value="NA">
+      <input type="hidden" name="discount" value="NA">
+      <input type="hidden" name="language" id="hero-lang">
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-success" id="toast" data-i18n="toast_inquiry">Anfrage erfolgreich!</div>
+
+<script src="translations.js"></script>
+<script src="hero-scroll.js"></script>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".exp-header").forEach(header => {
+      header.addEventListener("click", () => {
+        header.parentElement.classList.toggle("expanded");
+      });
+    });
+</script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous"></script>
+  <script>
+    const lenis = new Lenis({ duration: 5.5 });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    document.querySelectorAll('a[href^="#"]:not(.open-modal)').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) lenis.scrollTo(target, { duration: 3 });
+      });
+    });
+</script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
+</body>
+</html>
+
+
+
+      

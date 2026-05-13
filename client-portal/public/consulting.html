@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="description" content="Datenanalyse, Methodentraining, Datenmanagement und Statistik-Consulting für Unternehmen. SPSS, R, Python, SQL – individuell auf Ihre Anforderungen abgestimmt. Jetzt Beratungsgespräch vereinbaren!">
+<meta name="keywords" content="Datenanalyse Consulting, Statistik Beratung Unternehmen, Methodentraining, Datenmanagement, SPSS Consulting, R Beratung, Python Datenanalyse, SQL Consulting, Data Science Schulung, A/B Testing, Statistik Schulung Führungskräfte">
+<meta name="author" content="Kevin Glock Statistical Consulting Services | GSC- Professionelle Statistik Beratung">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Beratung & Datenanalyse für Unternehmen | GSC">
+<meta property="og:description" content="Datenanalyse, Methodentraining und Statistik-Consulting für Unternehmen und Organisationen. Individuelle Lösungen für Ihre Datenherausforderungen.">
+<meta property="og:image" content="https://www.kevinglock.de/img/logo.svg">
+<meta property="og:url" content="https://www.kevinglock.de/consulting.html">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kevinglock.de/consulting.html">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title data-i18n="title_consulting">Beratung &amp; Datenanalyse | GSC Services</title>
+<link rel="preload" as="image" href="img/body_background_three.jpg">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_three.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .trust-bar {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .trust-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+    padding: 0 20px;
+  }
+
+  .trust-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .trust-grid .trust-item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1f2937;
+    border: 1px solid #e2e8f0;
+  }
+
+  @media (max-width: 900px) {
+    .trust-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .trust-grid-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  #engagement {
+    scroll-margin-top: 90px;
+  }
+
+  #process {
+    scroll-margin-top: 90px;
+  }
+</style>
+<!-- Strukturierte Daten (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kevin Glock Statistical Consulting Services | GSC",
+  "image": "https://www.kevinglock.de/img/logo.svg",
+  "description": "Professionelle Statistik Nachhilfe und Data Science Consulting für SPSS, R und Python",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Schönebecker Straße 76",
+    "addressLocality": "Essen",
+    "postalCode": "45359",
+    "addressCountry": "Deutschland"
+  },
+  "email": "glock.gsc@web.de",
+  "url": "https://www.kevinglock.de/consulting.html",
+  "priceRange": "€€",
+  "areaServed": "DE",
+  "knowsAbout": ["Statistik", "Data Science", "SPSS", "R", "Python", "Machine Learning"],
+  "sameAs": [
+    "https://www.youtube.com/user/@meinuser",
+    "https://de.linkedin.com/in/glockconsulting"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Consulting & Dienstleistungen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Datenanalyse & Beratung",
+          "description": "Auswertungen, Testpläne, A/B-Testing & multivariate Verfahren – maßgeschneidert für Unternehmen."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Methodentraining & Schulungen",
+          "description": "Individuelle Schulungen für Führungskräfte und Mitarbeiter in Statistik, Tools und Methoden."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Datenmanagement & Dokumentation",
+          "description": "Datenbereinigung, Pre- & Post-Checks, Versionierung und Confluence."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Evaluation & Review",
+          "description": "Bestehende Praxis evaluieren, Schwachstellen identifizieren und konkrete Überarbeitungsempfehlungen geben."
+        }
+      }
+    ]
+  }
+}
+</script>
+<style>
+.subtitle {
+  text-align: center;
+}
+
+main > .section-spacer:first-of-type {
+  margin-top: 75px;
+}
+
+@media (max-width: 1024px) {
+  main > .section-spacer:first-of-type {
+    margin-top: 20px;
+  }
+}
+</style>
+<body>
+
+<nav class="navbar">
+<div class="nav-left">
+  <img src="img/logo-compact.svg" alt="GSC Logo" class="nav-logo">
+</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">Über mich</a>
+    <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
+    <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
+    <a href="login.html" data-i18n="navbar_login">Login</a>
+
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+<div class="burger" id="burger">
+      ☰
+    </div>
+  </div>
+</nav>
+
+<header class="hero consulting-hero">
+  <div class="hero-inner">
+    <div class="hero-brand">
+      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
+      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
+    </div>
+    <div class="hero-content">
+      <h1 data-i18n="hero_consulting_title">Daten in Entscheidungen verwandeln.</h1>
+      <p class="hero-subtitle" data-i18n="hero_consulting_subtitle">Ich unterst&uuml;tze Unternehmen bei datengetriebenen Entscheidungen, Analysen und Methodenfragen &ndash; klar, effizient und direkt umsetzbar im Gesch&auml;ftsalltag.</p>
+      <div class="hero-action">
+        <a href="#process" class="btn" data-i18n="hero_consulting_pricing_btn">Wie ich arbeite</a>
+        <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_consulting_btn">Angebot anfordern</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<div class="section-spacer"></div>
+
+<section id="services" class="consulting-services">
+  <h2 data-i18n="cons_services_title">Daten sinnvoll nutzen &mdash; Entscheidungen sicher treffen</h2>
+  <p class="subtitle" data-i18n="cons_services_subtitle">Unterst&uuml;tzung f&uuml;r Unternehmen bei Analyse, Datenqualit&auml;t, Reporting und datenbasierten Entscheidungsprozessen.</p>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="cons_new_1_title">Datenanalyse &amp; Reporting</h3>
+      </div>
+      <div class="service-body-inner">
+        <p data-i18n="cons_new_1_text">Strukturierte Analysen zur Unterst&uuml;tzung operativer und strategischer Entscheidungen.</p>
+        <ul>
+          <li data-i18n="cons_new_1_li1">Dashboards &amp; KPIs</li>
+          <li data-i18n="cons_new_1_li2">A/B-Testing &amp; Experimente</li>
+          <li data-i18n="cons_new_1_li3">Reporting &amp; Visualisierung</li>
+          <li data-i18n="cons_new_1_li4">SQL, Python &amp; Statistik</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="cons_new_2_title">Team Enablement</h3>
+      </div>
+      <div class="service-body-inner">
+        <p data-i18n="cons_new_2_text">Schulungen und Workshops f&uuml;r Teams, die Daten sicherer interpretieren und nutzen m&ouml;chten.</p>
+        <ul>
+          <li data-i18n="cons_new_2_li1">Statistik &amp; Datenkompetenz im Unternehmen</li>
+          <li data-i18n="cons_new_2_li2">Python / R / Excel Trainings</li>
+          <li data-i18n="cons_new_2_li3">Analyse-Workflows</li>
+          <li data-i18n="cons_new_2_li4">Individuelle Workshops</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3 data-i18n="cons_new_3_title">Datenqualit&auml;t &amp; Prozesse</h3>
+      </div>
+      <div class="service-body-inner">
+        <p data-i18n="cons_new_3_text">Strukturierte Daten als Grundlage f&uuml;r zuverl&auml;ssige Entscheidungen.</p>
+        <ul>
+          <li data-i18n="cons_new_3_li1">Datenvalidierung</li>
+          <li data-i18n="cons_new_3_li2">Dokumentation &amp; Standards</li>
+          <li data-i18n="cons_new_3_li3">Versionierung</li>
+          <li data-i18n="cons_new_3_li4">Qualit&auml;tssicherung</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="process" class="process">
+  <h2 data-i18n="cons_process_title">So l&auml;uft die Zusammenarbeit ab</h2>
+  <div class="process-grid">
+    <article class="process-step">
+      <div class="process-number">01</div>
+      <h3 data-i18n="cons_step1_title">Erstgespr&auml;ch</h3>
+      <p data-i18n="cons_step1_text">Verst&auml;ndnis Ihrer Ziele, Herausforderungen und Datenlage.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">02</div>
+      <h3 data-i18n="cons_step2_title">Analyse</h3>
+      <p data-i18n="cons_step2_text">Strukturierte Auswertung, Modellierung und Bewertung.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">03</div>
+      <h3 data-i18n="cons_step3_title">Umsetzung</h3>
+      <p data-i18n="cons_step3_text">Konkrete Handlungsempfehlungen, Dashboards oder Workshops.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">04</div>
+      <h3 data-i18n="cons_step4_title">Support</h3>
+      <p data-i18n="cons_step4_text">Begleitung, Optimierung und langfristige Unterst&uuml;tzung.</p>
+    </article>
+  </div>
+</section>
+
+<section id="engagement">
+  <h2 data-i18n="cons_engagement_title">Zusammenarbeitsmodelle</h2>
+  <p class="subtitle" data-i18n="cons_engagement_subtitle">Flexible Unterst&uuml;tzung &mdash; von punktuellen Analysen bis zur langfristigen Zusammenarbeit.</p>
+
+  <div class="pricing-grid">
+
+    <div class="card" data-card="Advisory">
+      <span class="badge" data-i18n="badge_advisory">Einstieg</span>
+      <h2 data-i18n="price_advisory">Advisory</h2>
+      <p class="price" data-i18n="price_advisory_value">Projektbasiert</p>
+      <p class="price-note" data-i18n="price_advisory_note">F&uuml;r kleinere Analysen und erste datenbasierte Prozesse.</p>
+      <ul class="feature-list">
+        <li data-i18n="adv_li1">Kurzfristige Unterst&uuml;tzung</li>
+        <li data-i18n="adv_li2">Datenanalyse &amp; Reporting</li>
+        <li data-i18n="adv_li3">Feedback &amp; Handlungsempfehlungen</li>
+      </ul>
+    </div>
+
+    <div class="card" data-card="Project">
+      <span class="badge" data-i18n="badge_project">Beliebt</span>
+      <h2 data-i18n="price_project">Project Support</h2>
+      <p class="price" data-i18n="price_project_value">Individuelles Angebot</p>
+      <p class="price-note" data-i18n="price_project_note">F&uuml;r laufende Projekte und Team-Unterst&uuml;tzung.</p>
+      <ul class="feature-list">
+        <li data-i18n="proj_li1">Analyse &amp; Modellierung</li>
+        <li data-i18n="proj_li2">Team Workshops</li>
+        <li data-i18n="proj_li3">Dashboard Entwicklung</li>
+      </ul>
+    </div>
+
+    <div class="card" data-card="Strategic">
+      <span class="badge" data-i18n="badge_strategic">Langfristig</span>
+      <h2 data-i18n="price_strategic">Strategic Consulting</h2>
+      <p class="price" data-i18n="price_strategic_value">Retainer Modell</p>
+      <p class="price-note" data-i18n="price_strategic_note">F&uuml;r Unternehmen mit langfristigem Datenfokus.</p>
+      <ul class="feature-list">
+        <li data-i18n="strat_li1">Kontinuierliche Beratung</li>
+        <li data-i18n="strat_li2">Prozessoptimierung</li>
+        <li data-i18n="strat_li3">Strategische Analysen</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="trust-grid trust-grid-4">
+    <div class="trust-item check" data-i18n="cons_trust_1">Remote &amp; pers&ouml;nlich</div>
+    <div class="trust-item check" data-i18n="cons_trust_2">DSGVO-konform</div>
+    <div class="trust-item check" data-i18n="cons_trust_3">Schnelle Kommunikation</div>
+    <div class="trust-item check" data-i18n="cons_trust_4">Dokumentierte Ergebnisse</div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-box">
+    <h2 data-i18n="cons_cta_title">Lassen Sie uns &uuml;ber Ihr Projekt sprechen</h2>
+    <p data-i18n="cons_cta_text">Gemeinsam finden wir heraus, wie Daten sinnvoll genutzt werden k&ouml;nnen &mdash; pragmatisch, nachvollziehbar und umsetzbar.</p>
+    <a href="#contact" class="btn btn-light open-modal" data-i18n="cons_cta_btn">Kostenloses Erstgespr&auml;ch</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div>
+    <!-- Social Media Buttons -->
+  <div class="chr-footer__social__container">
+      <h3 class="chr-footer__social__title chr-headline-6" data-i18n="footer_social_title"> Folge Mir</h3>
+        <ul class="chr-footer__social__list">
+          <li> <!--YouTube-->
+          <a href="https://www.youtube.com/user/@meinuser"
+            aria-label="YouTube" target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn youtube"
+            data-i18n-aria-label="youtube"
+            data-i18n-title="youtube">
+          <img src="img/youtube_icon.svg" alt="YouTube">
+          <title>YouTube</title></a></li>
+
+          <li> <!-- LinkedIn -->
+          <a href="https://de.linkedin.com/in/glockconsulting"
+            aria-label="linkedin"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn linkedin"
+            data-i18n-aria-label="linkedin"
+            data-i18n-title="linkedin">
+          <img src="img/linkedin_icon.svg" alt="LinkedIn">
+          <title>LinkedIn</title></a></li>
+        </ul>
+    </div>
+<div class="section-divider"></div>
+
+<div class="footer-spacer">
+        <ul class="chr-footer__list">
+          <li> <!--Company-->
+          <p>Kevin Glock Statistical Consulting Services | GSC</p></li>
+          
+          <li class="footer-legal">
+          <a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a>
+          <span class="footer-sep">|</span>
+          <a href="datenschutz.html" class="footer-link" data-i18n="footer_datenschutz">Datenschutz</a></li>
+          
+          <li> <!--Handcrafted-->
+          <p>Handcrafted with ❤️</p></li>
+        </ul>
+</div>
+</div>
+</footer>
+
+<!-- Quote Modal (mit strukturierten Feldern) -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <span data-i18n="quote_title" hidden>Individuelles Angebot anfordern</span>
+    <span data-i18n="contact_title" hidden>Individuelle Anfrage</span>
+    <span data-i18n="quote_submit" hidden>Angebot anfordern</span>
+    <span data-i18n="hero_contact_submit" hidden>Anfrage senden</span>
+    <h2 data-i18n="quote_title">Individuelles Angebot anfordern</h2>
+    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="quote-form">
+                  <input type="hidden" name="_next" value="https://www.kevinglock.de/consulting.html">
+      <input type="hidden" name="booking_type" id="booking-type" value="quote">
+      <input type="hidden" name="booking_card" id="booking-card" value="consulting-page">
+      <input type="hidden" name="booking_hours" id="booking-hours">
+      <input type="hidden" name="discount" id="booking-discount">
+      <input type="hidden" name="language" id="booking-language">
+      <input type="hidden" name="booking_service" id="booking-service">
+
+      <label class="form-label" data-i18n="quote_scope_label">Projektart</label>
+      <select name="quote_scope" class="form-select" required>
+        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+        <option value="datenanalyse" data-i18n="quote_scope_opt1">Datenanalyse & Auswertung</option>
+        <option value="training" data-i18n="quote_scope_opt2">Methodentraining & Schulung</option>
+        <option value="datenmanagement" data-i18n="quote_scope_opt3">Datenmanagement & Dokumentation</option>
+        <option value="evaluation" data-i18n="quote_scope_opt4">Evaluation & Review</option>
+        <option value="individual" data-i18n="quote_scope_opt5">Individuelle Beratung</option>
+      </select>
+
+      <label class="form-label" data-i18n="quote_timeline_label">Gewünschter Zeitrahmen</label>
+      <select name="quote_timeline" class="form-select">
+        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+        <option value="1-2w" data-i18n="quote_timeline_opt1">1–2 Wochen</option>
+        <option value="1m" data-i18n="quote_timeline_opt2">1 Monat</option>
+        <option value="3m" data-i18n="quote_timeline_opt3">3+ Monate</option>
+        <option value="open" data-i18n="quote_timeline_opt4">Noch offen</option>
+      </select>
+
+      <label class="form-label" data-i18n="quote_budget_label">Budgetrahmen (optional)</label>
+      <select name="quote_budget" class="form-select">
+        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
+        <option value="<500" data-i18n="quote_budget_opt1">< 500 €</option>
+        <option value="500-2000" data-i18n="quote_budget_opt2">500–2.000 €</option>
+        <option value="2000-5000" data-i18n="quote_budget_opt3">2.000–5.000 €</option>
+        <option value=">5000" data-i18n="quote_budget_opt4">> 5.000 €</option>
+        <option value="na" data-i18n="quote_budget_opt5">Keine Angabe</option>
+      </select>
+
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Beschreiben Sie kurz Ihr Projektvorhaben?" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="quote_submit">Angebot anfordern</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-success" id="toast" data-i18n="toast_inquiry">Anfrage erfolgreich!</div>
+
+<script src="translations.js"></script>
+<script src="hero-scroll.js"></script>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+</script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous"></script>
+  <script>
+    const lenis = new Lenis({ duration: 5.5 });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    document.querySelectorAll('a[href^="#"]:not(.open-modal)').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) lenis.scrollTo(target, { duration: 3 });
+      });
+    });
+</script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
+</body>
+</html>

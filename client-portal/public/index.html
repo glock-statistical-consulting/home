@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="description" content="Professionelle Statistik Nachhilfe und Data Science Consulting mit SPSS, R und Python. Individuelle Unterstützung von Abitur bis Doktorat. Jetzt unverbindlich anfragen!">
+<meta name="keywords" content="Statistik Nachhilfe, Data Science Consulting, SPSS, R, Python, Statistik Hilfe, Thesis Unterstützung, Dissertation Beratung, Statistik Essen, akademische Statistik, wissenschaftliche Datenanalyse">
+<meta name="author" content="Kevin Glock Statistical Consulting Services | GSC- Professionelle Statistik Beratung">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Statistik Nachhilfe & Data Science Consulting | GSC">
+<meta property="og:description" content="Professionelle Statistik Nachhilfe und Data Science Consulting mit SPSS, R und Python. Individuelle Unterstützung von Abitur bis Doktorat.">
+<meta property="og:image" content="https://www.kevinglock.de/img/logo.svg">
+<meta property="og:url" content="https://www.kevinglock.de/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.kevinglock.de/">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<title data-i18n="title_home">GSC Services - Statistik Nachhilfe & Data Science Consulting</title>
+<link rel="preload" as="image" href="img/body_background_four.jpg">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #e8eef3;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_four.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+<!-- Strukturierte Daten (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kevin Glock Statistical Consulting Services | GSC",
+  "image": "https://www.kevinglock.de/img/logo.svg",
+  "description": "Professionelle Statistik Nachhilfe und Data Science Consulting für SPSS, R und Python",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Schönebecker Straße 76",
+    "addressLocality": "Essen",
+    "postalCode": "45359",
+    "addressCountry": "Deutschland"
+  },
+  "email": "glock.gsc@web.de",
+  "url": "https://www.kevinglock.de/",
+  "priceRange": "€€",
+  "areaServed": "DE",
+  "knowsAbout": ["Statistik", "Data Science", "SPSS", "R", "Python", "Machine Learning"],
+  "sameAs": [
+    "https://www.youtube.com/user/@meinuser",
+    "https://de.linkedin.com/in/glockconsulting"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Statistische Dienstleistungen",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Statistik Nachhilfe",
+          "description": "Von Abitur bis Bachelor – Grundlagen, deskriptive Statistik, Hypothesentests & mehr."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Science & Machine Learning",
+          "description": "Von Regression bis Deep Learning – praxisnah in Python, R & SQL."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bachelor- & Masterthesis Unterstützung",
+          "description": "Methodik, Stichprobe, Auswertung – methodische Begleitung bis zur Abgabe."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Doktorat & Forschung",
+          "description": "Fortgeschrittene Statistik, Poweranalysen & Publikationsberatung."
+        }
+      }
+    ]
+  }
+}
+</script>
+<style>
+/* Section header */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.section-header p {
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+main > .section-spacer:first-of-type {
+  height: 0;
+}
+
+main {
+  padding-top: 0;
+}
+
+.features-grid {
+  padding-top: 0;
+}
+
+/* Trust bar */
+.trust-bar {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: white;
+  padding: 24px 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.trust-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.trust-grid .trust-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1f2937;
+  border: 1px solid #e2e8f0;
+}
+
+.trust-grid .trust-item::before {
+  content: "\2713";
+  margin-right: 6px;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* Segment card enhancements */
+.segment-tag {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+.segment-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.segment-list li {
+  padding: 5px 0 5px 18px;
+  position: relative;
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.segment-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* New feature cards */
+.features-grid {
+  padding: 20px 0;
+}
+
+.features-grid .section-header {
+  margin-bottom: 40px;
+}
+
+.features-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.features-grid .feature-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-grid .feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-color: var(--orange);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.features-grid .feature-card h3 {
+  margin: 0 0 10px;
+  color: var(--deep-sea);
+  font-size: 1.15rem;
+}
+
+.features-grid .feature-card p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Process section overrides inside main */
+.process {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.process .section-header h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-grid-inner {
+    grid-template-columns: 1fr;
+  }
+  .features-grid .feature-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .segment-list {
+    font-size: 0.8rem;
+  }
+  .segment-list li {
+    padding: 3px 0 3px 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero concept */
+section.hero {
+  padding-top: 140px;
+  padding-bottom: 120px;
+  background: #1e4466;
+  color: white;
+  position: static;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.17);
+  width: 100%;
+  opacity: 1;
+  display: block;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+section.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 24px;
+  color: white;
+  text-align: left;
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 650px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+section.hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border-radius: 18px;
+  font-weight: 700;
+  border: none;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(90deg, #FF5C00, #FF6600);
+  color: white;
+}
+
+.hero-btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+section.hero .hero-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+section.hero .hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.8);
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 32px;
+  padding: 40px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.hero-card h3 {
+  margin: 0 0 16px;
+  color: white;
+  font-size: 1.15rem;
+  text-align: left;
+}
+
+.hero-list {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.hero-list li {
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 800px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  section.hero {
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+  section.hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+}
+
+/* Hero desktop layout */
+
+.hero-inner .hero-content {
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-subtitle {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.hero-action {
+  justify-content: center;
+}
+
+main > .section-spacer:first-of-type {
+  margin-top: 75px;
+}
+
+@media (max-width: 1024px) {
+  main > .section-spacer:first-of-type {
+    margin-top: 150px;
+  }
+}
+
+#segment-section {
+  scroll-margin-top: 200px;
+}
+
+/* Visible focus style for language buttons */
+.lang-btn:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+  background-color: #e6f0fa;
+}
+
+[data-i18n="booking_info"] {
+  text-align: center;
+  display: block;
+  margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="nav-left">
+  <img src="img/logo-compact.svg" alt="GSC Logo" class="nav-logo">
+</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="navbar_home">Home</a>
+    <a href="about.html" data-i18n="navbar_about">Über mich</a>
+    <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
+    <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
+    <a href="login.html" data-i18n="navbar_login">Login</a>
+
+  </div>
+
+  <div class="nav-right">
+    <div class="nav-lang">
+    <button class="lang-btn active-lang" data-lang="de" aria-current="true">DE</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+<div class="burger" id="burger">
+      ☰
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge" data-i18n="hero_index_badge">Statistik &bull; Data Science &bull; Consulting</span>
+        <h1 data-i18n="hero_index_title_new">Statistik verstehen. Daten sinnvoll nutzen.</h1>
+        <p class="hero-text" data-i18n="hero_index_subtitle_new">Unterst&uuml;tzung f&uuml;r Studium, Forschung und Unternehmen &mdash; von Nachhilfe und Thesis Support bis zu datenbasierten Analysen und Consulting.</p>
+        <div class="hero-actions">
+          <a href="nachhilfe.html" class="btn hero-btn-primary" data-i18n="hero_student_btn">F&uuml;r Studium</a>
+          <a href="consulting.html" class="btn hero-btn-secondary" data-i18n="hero_company_btn">F&uuml;r Unternehmen</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3 data-i18n="hero_card_title">Schwerpunktbereiche</h3>
+        <ul class="hero-list">
+          <li data-i18n="hero_card_li1">Statistik & Datenanalyse</li>
+          <li data-i18n="hero_card_li2">SPSS, R & Python</li>
+          <li data-i18n="hero_card_li3">Thesis & Pr&uuml;fungsunterst&uuml;tzung</li>
+          <li data-i18n="hero_card_li4">Datenvisualisierung & Reporting</li>
+          <li data-i18n="hero_card_li5">Workshops & Consulting</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<main>
+<section id="features" class="features-grid">
+  <header class="section-header">
+    <h2 data-i18n="home_features_title">Unterst&uuml;tzung, die verst&auml;ndlich bleibt</h2>
+    <p data-i18n="home_features_subtitle">Fokus auf nachvollziehbare Erkl&auml;rungen, praxisnahe Analysen und nachhaltiges Lernen.</p>
+  </header>
+  <div class="features-grid-inner">
+    <article class="feature-card">
+      <div class="feature-icon">📚</div>
+      <h3 data-i18n="home_feature_1_title">Lernen & Verstehen</h3>
+      <p data-i18n="home_feature_1_text">Schritt-f&uuml;r-Schritt Erkl&auml;rungen, Lernmaterialien und verst&auml;ndliche Statistik f&uuml;r nachhaltiges Verst&auml;ndnis.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3 data-i18n="home_feature_2_title">Individuelle Unterst&uuml;tzung</h3>
+      <p data-i18n="home_feature_2_text">Hilfe bei konkreten Aufgaben, Pr&uuml;fungen, Projekten und wissenschaftlichen Arbeiten.</p>
+    </article>
+    <article class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3 data-i18n="home_feature_3_title">Daten sinnvoll nutzen</h3>
+      <p data-i18n="home_feature_3_text">Analyse, Reporting und Consulting f&uuml;r datenbasierte Entscheidungen und strukturierte Prozesse.</p>
+    </article>
+  </div>
+</section>
+
+<div class="section-spacer"></div>
+
+<section class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item" data-i18n="home_trust_1">Online & flexibel</div>
+    <div class="trust-item" data-i18n="home_trust_2">Statistik verst&auml;ndlich erkl&auml;rt</div>
+    <div class="trust-item" data-i18n="home_trust_3">Praxisnahe Datenanalyse</div>
+    <div class="trust-item" data-i18n="home_trust_4">Individuelle Unterst&uuml;tzung</div>
+  </div>
+</section>
+
+<section id="segment-section">
+  <header class="section-header">
+    <h2 data-i18n="segment_title">W&auml;hle den passenden Bereich</h2>
+    <p data-i18n="segment_subtitle">Individuelle Unterst&uuml;tzung f&uuml;r Studium, Forschung und datengetriebene Projekte.</p>
+  </header>
+  <div class="segment-grid">
+    <a href="nachhilfe.html" class="segment-card">
+      <span class="segment-tag" data-i18n="home_seg_student_tag">Studium & Lernen</span>
+      <h3 data-i18n="segment_student_title">F&uuml;r Dich</h3>
+      <p data-i18n="segment_student_text">Unterst&uuml;tzung bei Statistik, Pr&uuml;fungen, Thesis und Datenanalyse &ndash; verst&auml;ndlich und individuell.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_student_li1">Online-Nachhilfe</li>
+        <li data-i18n="home_seg_student_li2">Thesis Support</li>
+        <li data-i18n="home_seg_student_li3">Statistik verst&auml;ndlich erkl&auml;rt</li>
+        <li data-i18n="home_seg_student_li4">Lernmaterialien & &Uuml;bungen</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_student_arrow">Zur Nachhilfe &rarr;</span>
+    </a>
+    <a href="consulting.html" class="segment-card">
+      <span class="segment-tag" data-i18n="home_seg_company_tag">Business & Analytics</span>
+      <h3 data-i18n="segment_company_title">F&uuml;r Ihr Team</h3>
+      <p data-i18n="segment_company_text">Datenanalyse, Reporting, Workshops und Consulting f&uuml;r moderne Unternehmen.</p>
+      <ul class="segment-list">
+        <li data-i18n="home_seg_company_li1">Datenanalyse & Dashboards</li>
+        <li data-i18n="home_seg_company_li2">Team Workshops</li>
+        <li data-i18n="home_seg_company_li3">Reporting & Prozesse</li>
+        <li data-i18n="home_seg_company_li4">Strategische Beratung</li>
+      </ul>
+      <span class="segment-arrow" data-i18n="home_seg_company_arrow">Zum Consulting &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<section class="process">
+  <header class="section-header">
+    <h2 data-i18n="home_process_title">So l&auml;uft die Zusammenarbeit ab</h2>
+  </header>
+  <div class="process-grid">
+    <article class="process-step">
+      <div class="process-number">01</div>
+      <h3 data-i18n="home_process_1_title">Anliegen verstehen</h3>
+      <p data-i18n="home_process_1_text">Gemeinsame Kl&auml;rung der Ziele und Herausforderungen.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">02</div>
+      <h3 data-i18n="home_process_2_title">Individuelle Unterst&uuml;tzung</h3>
+      <p data-i18n="home_process_2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projektarbeit.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">03</div>
+      <h3 data-i18n="home_process_3_title">Verst&auml;ndliche L&ouml;sungen</h3>
+      <p data-i18n="home_process_3_text">Nachvollziehbare Erkl&auml;rungen und strukturierte Ergebnisse.</p>
+    </article>
+    <article class="process-step">
+      <div class="process-number">04</div>
+      <h3 data-i18n="home_process_4_title">Nachhaltiger Fortschritt</h3>
+      <p data-i18n="home_process_4_text">Langfristiges Verst&auml;ndnis statt kurzfristiger L&ouml;sungen.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="cta-box">
+    <h2 data-i18n="home_cta_title">Finde die passende Unterst&uuml;tzung</h2>
+    <p data-i18n="home_cta_text">Egal ob Statistik-Nachhilfe, Thesis Support oder datenbasierte Unternehmensberatung &ndash; gemeinsam finden wir die passende L&ouml;sung.</p>
+    <a href="#contact" class="btn btn-light open-modal" data-i18n="home_cta_btn">Kontakt aufnehmen</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div>
+    <!-- Social Media Buttons -->
+  <div class="chr-footer__social__container">
+      <h3 class="chr-footer__social__title chr-headline-6" data-i18n="footer_social_title"> Folge Mir</h3>
+        <ul class="chr-footer__social__list">
+          <li> <!--YouTube-->
+          <a href="https://www.youtube.com/user/@meinuser"
+            aria-label="YouTube" target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn youtube"
+            data-i18n-aria-label="youtube"
+            data-i18n-title="youtube">
+          <img src="img/youtube_icon.svg" alt="YouTube">
+          <title>YouTube</title></a></li>
+
+          <li> <!-- LinkedIn -->
+          <a href="https://de.linkedin.com/in/glockconsulting"
+            aria-label="linkedin"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="social-btn linkedin"
+            data-i18n-aria-label="linkedin"
+            data-i18n-title="linkedin">
+          <img src="img/linkedin_icon.svg" alt="LinkedIn">
+          <title>LinkedIn</title></a></li>
+        </ul>
+    </div>
+<div class="section-divider"></div>
+
+<div class="footer-spacer">
+        <ul class="chr-footer__list">
+          <li> <!--Company-->
+          <p>Kevin Glock Statistical Consulting Services | GSC</p></li>
+          
+          <li class="footer-legal">
+          <a href="impressum.html" class="footer-link" data-i18n="footer_impressum">Impressum</a>
+          <span class="footer-sep">|</span>
+          <a href="datenschutz.html" class="footer-link" data-i18n="footer_datenschutz">Datenschutz</a></li>
+          
+          <li> <!--Handcrafted-->
+          <p>Handcrafted with ❤️</p></li>
+        </ul>
+</div>
+</div>
+</footer>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
+    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form">
+                  <input type="hidden" name="_next" value="https://www.kevinglock.de/">
+      <input type="hidden" name="booking_card" value="home-page">
+      <input type="hidden" name="booking_type" value="inquiry">
+      <input type="hidden" name="booking_hours" value="NA">
+      <input type="hidden" name="discount" value="NA">
+      <input type="hidden" name="language" id="hero-lang">
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required></textarea>
+      <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-success" id="toast" data-i18n="toast_inquiry">Anfrage erfolgreich!</div>
+
+<script src="translations.js"></script>
+<script src="hero-scroll.js"></script>
+<script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+</script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous"></script>
+  <script>
+    const lenis = new Lenis({ duration: 5.5 });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  </script>
+<div class="bg-band band-1"></div>
+<div class="bg-band band-2"></div>
+<div class="bg-band band-3"></div>
+</body>
+</html>

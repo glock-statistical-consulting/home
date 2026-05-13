@@ -1,0 +1,100 @@
+export type Lang = "de" | "en"
+
+export const translations: Record<Lang, Record<string, string>> = {
+  de: {
+    login_tab_login: "Anmelden",
+    login_tab_register: "Registrieren",
+    login_email_placeholder: "E-Mail-Adresse",
+    login_password_placeholder: "Passwort",
+    login_submit_login: "Anmelden",
+    login_submit_register: "Registrieren",
+    login_info_text: "Noch kein Konto?",
+    login_info_link: "Jetzt registrieren",
+    login_info_text_alt: "Bereits registriert?",
+    login_info_link_alt: "Jetzt anmelden",
+    login_forgot_password: "Passwort vergessen?",
+    login_reset: "Passwort zurücksetzen",
+    login_reset_sending: "Wird gesendet...",
+    login_reset_sent: "Passwort-Reset-Link wurde an Ihre E-Mail gesendet.",
+    login_new_password: "Neues Passwort",
+    login_save_password: "Passwort speichern",
+    login_password_updated: "Passwort erfolgreich aktualisiert.",
+    login_back_to_login: "Zurück zum Login",
+    login_confirm_email: "Bestätigungslink wurde an Ihre E-Mail gesendet.",
+    login_error_required: "Bitte füllen Sie alle Felder aus.",
+    login_error_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    login_error_password: "Das Passwort muss mindestens 6 Zeichen lang sein.",
+    login_error_password_length:
+      "Das Passwort muss mindestens 8 Zeichen lang sein.",
+    login_error_password_lowercase:
+      "Das Passwort muss mindestens einen Kleinbuchstaben enthalten.",
+    login_error_password_uppercase:
+      "Das Passwort muss mindestens einen Großbuchstaben enthalten.",
+    login_error_password_digit:
+      "Das Passwort muss mindestens eine Ziffer enthalten.",
+    login_error_password_special:
+      "Das Passwort muss mindestens ein Sonderzeichen enthalten.",
+    dashboard_title: "Kundenbereich",
+    dashboard_logout: "Abmelden",
+    dashboard_upload_text: "Datei hier ablegen oder klicken zum Hochladen",
+    dashboard_files_title: "Ihre Dateien",
+    dashboard_files_empty: "Noch keine Dateien vorhanden.",
+    dashboard_download: "Download",
+    dashboard_download_error: "Download fehlgeschlagen.",
+    dashboard_delete_error: "Löschen fehlgeschlagen.",
+    dashboard_delete_success: "Datei gelöscht.",
+    dashboard_upload_success: "hochgeladen.",
+    toast_login_success: "Erfolgreich angemeldet!",
+    login_title: "Login | GSC Services",
+  },
+  en: {
+    login_tab_login: "Sign In",
+    login_tab_register: "Sign Up",
+    login_email_placeholder: "Email address",
+    login_password_placeholder: "Password",
+    login_submit_login: "Sign In",
+    login_submit_register: "Sign Up",
+    login_info_text: "No account yet?",
+    login_info_link: "Register now",
+    login_info_text_alt: "Already registered?",
+    login_info_link_alt: "Sign in now",
+    login_forgot_password: "Forgot password?",
+    login_reset: "Reset password",
+    login_reset_sending: "Sending...",
+    login_reset_sent: "Password reset link has been sent to your email.",
+    login_new_password: "New password",
+    login_save_password: "Save password",
+    login_password_updated: "Password updated successfully.",
+    login_back_to_login: "Back to login",
+    login_confirm_email: "Confirmation link has been sent to your email.",
+    login_error_required: "Please fill in all fields.",
+    login_error_email: "Please enter a valid email address.",
+    login_error_password: "Password must be at least 6 characters long.",
+    login_error_password_length:
+      "Password must be at least 8 characters long.",
+    login_error_password_lowercase:
+      "Password must contain at least one lowercase letter.",
+    login_error_password_uppercase:
+      "Password must contain at least one uppercase letter.",
+    login_error_password_digit:
+      "Password must contain at least one digit.",
+    login_error_password_special:
+      "Password must contain at least one special character.",
+    dashboard_title: "Dashboard",
+    dashboard_logout: "Logout",
+    dashboard_upload_text: "Drop file here or click to upload",
+    dashboard_files_title: "Your Files",
+    dashboard_files_empty: "No files yet.",
+    dashboard_download: "Download",
+    dashboard_download_error: "Download failed.",
+    dashboard_delete_error: "Delete failed.",
+    dashboard_delete_success: "File deleted.",
+    dashboard_upload_success: "uploaded.",
+    toast_login_success: "Signed in successfully!",
+    login_title: "Login | GSC Services",
+  },
+}
+
+export function t(key: string, lang: Lang): string {
+  return translations[lang]?.[key] ?? translations.de[key] ?? key
+}
