@@ -153,6 +153,10 @@
   text-decoration: underline;
 }
 
+#forgotPasswordRow {
+  margin-top: 4px;
+}
+
 .dashboard {
   max-width: 700px;
   margin: 0 auto;
@@ -358,7 +362,7 @@
 
   <form class="login-form" id="authForm" autocomplete="off">
     <input type="email" name="email" data-i18n-placeholder="login_email_placeholder" placeholder="E-Mail-Adresse" required autocomplete="email" inputmode="email">
-    <input type="password" name="password" data-i18n-placeholder="login_password_placeholder" placeholder="Passwort" required autocomplete="current-password">
+    <input type="password" name="password" id="authPassword" data-i18n-placeholder="login_password_placeholder" placeholder="Passwort" required autocomplete="current-password">
     <p class="login-error" id="authError">&nbsp;</p>
     <p class="login-success" id="authSuccess">&nbsp;</p>
     <button type="submit" class="btn" id="authSubmitBtn" data-i18n="login_submit_login">Anmelden</button>
@@ -367,6 +371,10 @@
   <p class="login-info">
     <span id="authInfoText" data-i18n="login_info_text">Noch kein Konto?</span>
     <a id="authToggleLink" data-i18n="login_info_link">Jetzt registrieren</a>
+  </p>
+
+  <p class="login-info" id="forgotPasswordRow">
+    <a id="forgotPasswordLink">Passwort vergessen?</a>
   </p>
 </section>
 
@@ -465,12 +473,14 @@
   const dashboardSection = document.getElementById('dashboardSection');
   const authForm = document.getElementById('authForm');
   const emailInput = authForm.querySelector('input[name="email"]');
-  const passwordInput = authForm.querySelector('input[name="password"]');
+  const passwordInput = document.getElementById('authPassword');
   const authSubmitBtn = document.getElementById('authSubmitBtn');
   const authError = document.getElementById('authError');
   const authSuccess = document.getElementById('authSuccess');
   const authToggleLink = document.getElementById('authToggleLink');
   const authInfoText = document.getElementById('authInfoText');
+  const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+  const forgotPasswordRow = document.getElementById('forgotPasswordRow');
   const logoutBtn = document.getElementById('logoutBtn');
   const dashboardEmail = document.getElementById('dashboardEmail');
   const fileInput = document.getElementById('fileInput');
@@ -480,6 +490,7 @@
 
   const tabs = document.querySelectorAll('.login-tab');
   let mode = 'login';
+  let isPasswordRecovery = false;
 
   function showToast(msg) {
     toast.textContent = msg;
@@ -489,12 +500,28 @@
 
   function setMode(newMode) {
     mode = newMode;
+    isPasswordRecovery = false;
     tabs.forEach(t => t.classList.toggle('active', t.dataset.loginTab === mode));
+    authInfoText.style.display = '';
+    authToggleLink.style.display = '';
+    const showReset = mode === 'reset';
     const isLogin = mode === 'login';
-    authSubmitBtn.textContent = isLogin ? 'Anmelden' : 'Registrieren';
-    authInfoText.textContent = isLogin ? 'Noch kein Konto?' : 'Bereits registriert?';
-    authToggleLink.textContent = isLogin ? 'Jetzt registrieren' : 'Jetzt anmelden';
-    passwordInput.autocomplete = isLogin ? 'current-password' : 'new-password';
+    const t = translations[currentLang] || {};
+    passwordInput.style.display = isLogin || mode === 'register' ? '' : 'none';
+    passwordInput.required = !showReset;
+    forgotPasswordRow.style.display = isLogin ? '' : 'none';
+    forgotPasswordLink.textContent = t.login_forgot_password || 'Passwort vergessen?';
+    tabs.forEach(tab => tab.style.display = showReset ? 'none' : '');
+    if (showReset) {
+      authSubmitBtn.textContent = t.login_reset || 'Passwort zurücksetzen';
+      authInfoText.textContent = '';
+      authToggleLink.textContent = t.login_back_to_login || 'Zurück zum Login';
+    } else {
+      authSubmitBtn.textContent = isLogin ? (t.login_submit_login || 'Anmelden') : (t.login_submit_register || 'Registrieren');
+      authInfoText.textContent = isLogin ? (t.login_info_text || 'Noch kein Konto?') : (t.login_info_text_alt || 'Bereits registriert?');
+      authToggleLink.textContent = isLogin ? (t.login_info_link || 'Jetzt registrieren') : (t.login_info_link_alt || 'Jetzt anmelden');
+      passwordInput.autocomplete = isLogin ? 'current-password' : 'new-password';
+    }
     authError.innerHTML = '&nbsp;';
     authSuccess.innerHTML = '&nbsp;';
     authForm.reset();
@@ -508,7 +535,16 @@
 
   authToggleLink.addEventListener('click', function(e) {
     e.preventDefault();
-    setMode(mode === 'login' ? 'register' : 'login');
+    if (mode === 'reset') {
+      setMode('login');
+    } else {
+      setMode(mode === 'login' ? 'register' : 'login');
+    }
+  });
+
+  forgotPasswordLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    setMode('reset');
   });
 
   authForm.addEventListener('submit', async function(e) {
@@ -517,18 +553,64 @@
     authSuccess.innerHTML = '&nbsp;';
 
     const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+    const isReset = mode === 'reset';
+    const t = translations[currentLang] || {};
 
-    if (!email || !password) {
-      authError.textContent = translations[currentLang]?.login_error_required || 'Bitte füllen Sie alle Felder aus.';
+    if (!email) {
+      authError.textContent = t.login_error_required || 'Bitte füllen Sie alle Felder aus.';
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      authError.textContent = translations[currentLang]?.login_error_email || 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+      authError.textContent = t.login_error_email || 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+      return;
+    }
+
+    if (isReset) {
+      authSubmitBtn.disabled = true;
+      authSubmitBtn.textContent = t.login_reset_sending || 'Wird gesendet...';
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://www.kevinglock.de/login.html',
+      });
+      authSubmitBtn.disabled = false;
+      if (error) {
+        authError.textContent = error.message;
+        authSubmitBtn.textContent = t.login_reset || 'Passwort zurücksetzen';
+      } else {
+        authSuccess.textContent = t.login_reset_sent || 'Passwort-Reset-Link wurde an Ihre E-Mail gesendet.';
+        authSubmitBtn.textContent = t.login_reset || 'Passwort zurücksetzen';
+        authForm.reset();
+      }
+      return;
+    }
+
+    if (isPasswordRecovery) {
+      const newPassword = passwordInput.value.trim();
+      if (newPassword.length < 6) {
+        authError.textContent = 'Das Passwort muss mindestens 6 Zeichen lang sein.';
+        return;
+      }
+      authSubmitBtn.disabled = true;
+      authSubmitBtn.textContent = 'Wird gespeichert...';
+      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      authSubmitBtn.disabled = false;
+      if (error) {
+        authError.textContent = error.message;
+        authSubmitBtn.textContent = t.login_save_password || 'Passwort speichern';
+      } else {
+        authSuccess.textContent = t.login_password_updated || 'Passwort erfolgreich aktualisiert.';
+        setTimeout(() => location.reload(), 2000);
+      }
+      return;
+    }
+
+    const password = passwordInput.value.trim();
+
+    if (!password) {
+      authError.textContent = t.login_error_required || 'Bitte füllen Sie alle Felder aus.';
       return;
     }
     if (password.length < 6) {
-      authError.textContent = translations[currentLang]?.login_error_password || 'Das Passwort muss mindestens 6 Zeichen lang sein.';
+      authError.textContent = t.login_error_password || 'Das Passwort muss mindestens 6 Zeichen lang sein.';
       return;
     }
 
@@ -553,7 +635,7 @@
       }
 
       if (mode === 'register' && data.user && !data.session) {
-        authSuccess.textContent = translations[currentLang]?.login_confirm_email || 'Bestätigungslink wurde an Ihre E-Mail gesendet.';
+        authSuccess.textContent = t.login_confirm_email || 'Bestätigungslink wurde an Ihre E-Mail gesendet.';
         authSubmitBtn.disabled = false;
         authSubmitBtn.textContent = 'Registrieren';
         authForm.reset();
@@ -719,7 +801,28 @@
   });
 
   supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'PASSWORD_RECOVERY') {
+      authSection.classList.remove('hidden');
+      dashboardSection.classList.add('hidden');
+      isPasswordRecovery = true;
+      setMode('reset');
+      const t = translations[currentLang] || {};
+      passwordInput.style.display = '';
+      passwordInput.required = true;
+      passwordInput.placeholder = t.login_new_password || 'Neues Passwort';
+      passwordInput.autocomplete = 'new-password';
+      authSubmitBtn.textContent = t.login_save_password || 'Passwort speichern';
+      authInfoText.style.display = 'none';
+      authToggleLink.style.display = 'none';
+      forgotPasswordRow.style.display = 'none';
+      tabs.forEach(tab => tab.style.display = 'none');
+      return;
+    }
+
     if (event === 'SIGNED_IN' && session) {
+      if (isPasswordRecovery) {
+        isPasswordRecovery = false;
+      }
       loadDashboard(session);
     }
   });
