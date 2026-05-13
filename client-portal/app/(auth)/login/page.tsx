@@ -130,6 +130,12 @@ export default function LoginPage() {
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative" }}>
       <div style={{ position: "fixed", inset: 0, background: "linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), center/cover url('/img/body_background_two.jpg') #e8eef3", zIndex: -1 }} />
+      <link rel="stylesheet" href="/style.css" />
+      <style>{`
+        html { scroll-behavior: auto !important; overflow-x: visible !important; }
+        body { overflow: visible !important; }
+      `}</style>
+
       <nav className="navbar">
         <div className="nav-left">
           <img src="/img/logo-compact.svg" alt="GSC Logo" className="nav-logo" />
