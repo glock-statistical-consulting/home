@@ -129,13 +129,7 @@ export default function LoginPage() {
 
   return (
     <div style={{ background: "#e8eef3", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      <style>{`
-        body {
-          background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('/img/body_background_two.jpg');
-          background-size: cover;
-          background-attachment: fixed;
-        }
-      `}</style>
+      <link rel="stylesheet" href="/style.css" />
 
       <nav className="navbar">
         <div className="nav-left">
