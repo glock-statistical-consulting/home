@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { ReactLenis } from "lenis/react"
+import "lenis/dist/lenis.css"
 import { useAuth } from "@/components/auth-context"
 import { t, type Lang } from "@/lib/translations"
 import { createClient } from "@/lib/supabase/client"
@@ -128,8 +130,9 @@ export default function LoginPage() {
   const showForm = isRecovery || tab !== "reset"
 
   return (
+    <ReactLenis root options={{ duration: 5.5 }}>
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative" }}>
-      <div style={{ position: "fixed", inset: 0, background: "#e8eef3", zIndex: -1 }} />
+      <div style={{ position: "fixed", inset: 0, background: "linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), center/cover url('/img/body_background_two.jpg') #e8eef3", zIndex: -1 }} />
       <link rel="stylesheet" href="/style.css" />
 
       <nav className="navbar">
@@ -244,5 +247,6 @@ export default function LoginPage() {
       <div className="bg-band band-2"></div>
       <div className="bg-band band-3"></div>
     </div>
+    </ReactLenis>
   )
 }
