@@ -1,14 +1,12 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/login.html",
-        destination: "/login",
-        permanent: true,
-      },
-    ]
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/login.html", destination: "/login" },
+      ],
+    }
   },
   async headers() {
     return [
