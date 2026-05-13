@@ -1,5 +1,5 @@
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1'
 
 serve(async (req) => {
   if (req.method !== 'POST') {
@@ -19,7 +19,7 @@ serve(async (req) => {
 
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+      Deno.env.get('SUPABASE_ANON_KEY')!
     )
 
     const { error } = await supabase.from('contact_submissions').insert({
@@ -44,7 +44,8 @@ serve(async (req) => {
       headers: { Location: redirectUrl },
     })
   } catch (err) {
-    console.error(err)
-    return new Response('Internal error', { status: 500 })
+    return new Response(err instanceof Error ? err.message : 'Internal error', {
+      status: 500,
+    })
   }
 })

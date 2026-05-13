@@ -16,12 +16,12 @@ CREATE TABLE contact_submissions (
 
 ALTER TABLE contact_submissions ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Only service_role can insert contact_submissions"
+CREATE POLICY "Anyone can insert contact_submissions"
   ON contact_submissions FOR INSERT
-  TO service_role
+  TO anon
   WITH CHECK (true);
 
-CREATE POLICY "Only service_role can select contact_submissions"
+CREATE POLICY "Only authenticated can select contact_submissions"
   ON contact_submissions FOR SELECT
-  TO service_role
+  TO authenticated
   USING (true);
