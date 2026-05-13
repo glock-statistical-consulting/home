@@ -29,7 +29,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://wbgnlnvvmifvcenjlmqp.supabase.co wss://wbgnlnvvmifvcenjlmqp.supabase.co https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://wbgnlnvvmifvcenjlmqp.supabase.co wss://wbgnlnvvmifvcenjlmqp.supabase.co; form-action 'self' https://wbgnlnvvmifvcenjlmqp.supabase.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'"
         }
       ]
     }
