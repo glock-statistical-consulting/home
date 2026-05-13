@@ -53,7 +53,13 @@ Deno.serve(async (req) => {
       headers: { Location: redirectUrl },
     })
   } catch (err) {
-    return new Response(JSON.stringify({ error: String(err), type: typeof err, keys: err && typeof err === "object" ? Object.keys(err as object) : [] }), {
+    const errObj = err as Record<string, unknown>
+    return new Response(JSON.stringify({
+      message: errObj.message,
+      code: errObj.code,
+      details: errObj.details,
+      hint: errObj.hint,
+    }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     })
