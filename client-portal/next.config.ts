@@ -1,11 +1,12 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: "/login.html",
         destination: "/login",
+        permanent: true,
       },
     ]
   },
