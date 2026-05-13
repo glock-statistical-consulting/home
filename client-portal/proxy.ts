@@ -3,11 +3,6 @@ import { NextResponse, type NextRequest } from "next/server"
 
 export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname
-
-  if (path === "/login.html") {
-    return NextResponse.redirect(new URL("/login", request.url))
-  }
-
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -50,5 +45,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/login", "/login.html", "/login/:path*", "/dashboard", "/dashboard/:path*"],
+  matcher: ["/login", "/login/:path*", "/dashboard", "/dashboard/:path*"],
 }
