@@ -36,13 +36,13 @@ Deno.serve(async (req) => {
       email: data.email,
       message: data.message || null,
       page: data.booking_card || null,
-      booking_card: data.booking_card || null,
       booking_type: data.booking_type || null,
       booking_hours: data.booking_hours || null,
-      topic: data.topic || null,
-      scope: data.scope || null,
-      timeline: data.timeline || null,
-      budget: data.budget || null,
+      booking_card: data.booking_card || null,
+      topic: data.booking_topic || data.topic || data.quote_scope || null,
+      timeline: data.quote_timeline || null,
+      budget: data.quote_budget || null,
+      scope: data.quote_scope || null,
     })
 
     if (error) throw error
@@ -53,12 +53,12 @@ Deno.serve(async (req) => {
       headers: { Location: redirectUrl },
     })
   } catch (err) {
-    const errObj = err as Record<string, unknown>
+    const e = err as Record<string, unknown>
     return new Response(JSON.stringify({
-      message: errObj.message,
-      code: errObj.code,
-      details: errObj.details,
-      hint: errObj.hint,
+      message: e.message,
+      code: e.code,
+      details: e.details,
+      hint: e.hint,
     }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
