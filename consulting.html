@@ -403,7 +403,7 @@ main > .section-spacer:first-of-type {
     <span data-i18n="hero_contact_submit" hidden>Anfrage senden</span>
     <h2 data-i18n="quote_title">Individuelles Angebot anfordern</h2>
     <form action="https://formsubmit.co/e8dd958568039deb4ac117b70dfe51ee" method="POST" class="quote-form">
-      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_captcha" value="true">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://glock-statistical-consulting.github.io/home/consulting.html">
       <input type="hidden" name="booking_type" id="booking-type" value="quote">
@@ -462,7 +462,7 @@ main > .section-spacer:first-of-type {
       navLinks.classList.toggle("active");
     });
 </script>
-<script src="https://unpkg.com/@studio-freight/lenis/bundled/lenis.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous"></script>
   <script>
     const lenis = new Lenis({ duration: 5.5 });
 
