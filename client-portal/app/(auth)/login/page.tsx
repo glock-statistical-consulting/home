@@ -128,7 +128,8 @@ export default function LoginPage() {
   const showForm = isRecovery || tab !== "reset"
 
   return (
-    <div style={{ background: "#e8eef3", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative" }}>
+      <div style={{ position: "fixed", inset: 0, background: "linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), center/cover url('/img/body_background_two.jpg') #e8eef3", zIndex: -1 }} />
       <link rel="stylesheet" href="/style.css" />
 
       <nav className="navbar">
