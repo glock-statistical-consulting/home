@@ -134,6 +134,80 @@ export default function LoginPage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative" }}>
       <div style={{ position: "fixed", inset: 0, background: "linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), center/cover url('/img/body_background_two.jpg') #e8eef3", zIndex: -1 }} />
       <link rel="stylesheet" href="/style.css" />
+      <style>{`
+        .login-content {
+          max-width: 520px;
+          margin: 0 auto;
+          text-align: center;
+          background: rgba(255, 255, 255, 0.6);
+          border-radius: 12px;
+          padding: 40px;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+          backdrop-filter: blur(4px);
+        }
+        @media (max-width: 600px) {
+          .login-content { padding: 24px 20px; }
+        }
+        .login-tabs {
+          display: flex;
+          justify-content: center;
+          gap: 0;
+          margin-bottom: 28px;
+          border-bottom: 2px solid #ddd;
+        }
+        .login-tab {
+          flex: 1;
+          padding: 10px 20px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #888;
+          background: none;
+          border: none;
+          border-bottom: 3px solid transparent;
+          cursor: pointer;
+          transition: color 0.2s, border-color 0.2s;
+          font-family: inherit;
+        }
+        .login-tab.active {
+          color: var(--deep-sea);
+          border-bottom-color: var(--orange);
+        }
+        .login-form {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          text-align: left;
+        }
+        .login-form input {
+          width: 100%;
+          padding: 12px 14px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          font-size: 0.95rem;
+          font-family: inherit;
+          box-sizing: border-box;
+          transition: border-color 0.2s;
+        }
+        .login-form input:focus {
+          outline: none;
+          border-color: var(--orange);
+        }
+        .login-form .btn {
+          width: 100%;
+          margin-top: 6px;
+          padding: 13px 25px;
+          font-size: 1.05rem;
+          border-radius: 18px;
+        }
+        .login-form .btn:hover { transform: none; }
+        .login-form .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .login-error { color: #dc2626; font-size: 0.85rem; text-align: center; min-height: 20px; }
+        .login-success { color: #16a34a; font-size: 0.85rem; text-align: center; min-height: 20px; }
+        .login-info { margin-top: 18px; font-size: 0.85rem; color: #666; text-align: center; }
+        .login-info a { color: var(--orange); text-decoration: none; font-weight: 600; cursor: pointer; }
+        .login-info a:hover { text-decoration: underline; }
+        #forgotPasswordRow { margin-top: 4px; }
+      `}</style>
 
       <nav className="navbar">
         <div className="nav-left">
