@@ -369,30 +369,6 @@ main {
   z-index: 1;
 }
 
-.bg-band {
-  position: fixed;
-  left: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.6);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.band-1 {
-  top: 164px;
-  height: 380px;
-}
-
-.band-2 {
-  top: 770px;
-  height: 380px;
-}
-
-.band-3 {
-  top: 1310px;
-  height: 380px;
-}
-
 main ul {
   text-align: left;
   max-width: 600px;

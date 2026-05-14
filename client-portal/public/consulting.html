@@ -19,59 +19,15 @@
 <style>
   body {
     background-color: #e8eef3;
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_three.webp');
+    background: url('img/body_background_three.webp');
     background-size: cover;
   }
-
-  .trust-bar {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    background: white;
-    padding: 20px 0;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-
-  .trust-grid {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    gap: 12px;
-    padding: 0 20px;
-  }
-
-  .trust-grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .trust-grid .trust-item {
-    background: #f8fafc;
-    border-radius: 12px;
-    padding: 14px 10px;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #1f2937;
-    border: 1px solid #e2e8f0;
-  }
-
-  @media (max-width: 900px) {
-    .trust-grid-4 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 500px) {
-    .trust-grid-4 {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  #engagement {
-    scroll-margin-top: 90px;
-  }
-
-  #process {
-    scroll-margin-top: 90px;
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.92);
+    z-index: -1;
+    pointer-events: none;
   }
 </style>
 <!-- Strukturierte Daten (Schema.org) -->
@@ -478,8 +434,6 @@ main > .section-spacer:first-of-type {
       });
     });
 </script>
-<div class="bg-band band-1"></div>
-<div class="bg-band band-2"></div>
-<div class="bg-band band-3"></div>
+<div class="bg-overlay"></div>
 </body>
 </html>
