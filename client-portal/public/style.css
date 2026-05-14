@@ -43,7 +43,7 @@ html{
   align-items: center;
   justify-content: space-between;
   padding: 15px 25px;
-  background: #1e4466;
+  background: #1B263B;
   position: fixed;
   top: 0;
   width: 100%;
@@ -142,7 +142,7 @@ html{
 
 .hero {
   width: 100%;
-  background: #1e4466;
+  background: #1B263B;
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.17);
   position: sticky;
@@ -423,7 +423,7 @@ h1, h2 {
      top: 100%;
      left: 0;
      width: 100%;
-     background: #1e4466;
+     background: #1B263B;
 
      flex-direction: column;
      align-items: center;
@@ -754,7 +754,7 @@ button {
 footer {
   text-align: center;
   padding: 10px;
-  background: #1e4466;
+  background: #1B263B;
 }
 
 footer p {
@@ -1214,7 +1214,7 @@ footer p {
 }
 
 .process {
-  background: #1e4466;
+  background: #1B263B;
   color: white;
   padding: 60px 0;
   width: 100vw;
@@ -1283,7 +1283,7 @@ footer p {
 }
 
 .cta-box {
-  background: #1e4466;
+  background: #1B263B;
   color: white;
   text-align: center;
   border-radius: 32px;
@@ -1817,7 +1817,7 @@ footer p {
       gap: 0px;
       padding: 30px 30px 20px;
       margin: 10px 10px 30px;
-      background: #1e4466;
+      background: #1B263B;
       padding-left: 50px;
     }
 
