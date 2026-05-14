@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://wbgnlnvvmifvcenjlmqp.supabase.co wss://wbgnlnvvmifvcenjlmqp.supabase.co; form-action 'self' https://wbgnlnvvmifvcenjlmqp.supabase.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://wbgnlnvvmifvcenjlmqp.supabase.co wss://wbgnlnvvmifvcenjlmqp.supabase.co; form-action 'self' https://wbgnlnvvmifvcenjlmqp.supabase.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests",
           },
         ],
       },
