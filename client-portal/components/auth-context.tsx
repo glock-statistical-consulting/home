@@ -21,7 +21,7 @@ type AuthMode =
 type AuthContext = {
   mode: AuthMode
   signIn: (email: string, password: string) => Promise<AuthError | null>
-  signUp: (email: string, password: string) => Promise<AuthError | null>
+  signUp: (email: string, password: string, lang?: string) => Promise<AuthError | null>
   signOut: () => Promise<void>
   resetPassword: (email: string) => Promise<AuthError | null>
   updatePassword: (password: string) => Promise<AuthError | null>
@@ -83,8 +83,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   )
 
   const signUp = useCallback(
-    async (email: string, password: string) => {
-      const { error } = await supabase.auth.signUp({ email, password })
+    async (email: string, password: string, lang?: string) => {
+      const { error } = await supabase.auth.signUp({ email, password, options: { data: { lang: lang || 'de' } } })
       return error
     },
     [supabase],

@@ -636,7 +636,7 @@
       if (mode === 'login') {
         result = await supabase.auth.signInWithPassword({ email, password });
       } else {
-        result = await supabase.auth.signUp({ email, password });
+        result = await supabase.auth.signUp({ email, password, options: { data: { lang: currentLang } } });
       }
 
       const { data, error } = result;
@@ -653,6 +653,7 @@
         authSubmitBtn.disabled = false;
         authSubmitBtn.textContent = 'Registrieren';
         authForm.reset();
+        setTimeout(() => setMode('login'), 2000);
         return;
       }
 

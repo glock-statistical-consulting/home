@@ -110,7 +110,7 @@ export default function LoginPage() {
     setSubmitting(true)
     const err = tab === "login"
       ? await auth.signIn(email, password)
-      : await auth.signUp(email, password)
+      : await auth.signUp(email, password, lang)
     setSubmitting(false)
 
     if (err) { setError(err.message); return }
@@ -118,6 +118,7 @@ export default function LoginPage() {
     if (tab === "register") {
       setSuccess(tr("login_confirm_email"))
       setPassword("")
+      setTimeout(() => { setTab("login"); setError(""); setSuccess("") }, 2000)
     }
   }
 
