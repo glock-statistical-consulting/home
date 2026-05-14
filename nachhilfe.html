@@ -540,6 +540,7 @@ main > .section-spacer:first-of-type {
     <p data-i18n="booking_info">Ihre ausgewählte Option wird mit übertragen.</p>
     <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form" id="booking-form">
                   <input type="hidden" name="_next" value="https://www.kevinglock.de/nachhilfe.html">
+      <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <input type="hidden" name="booking_type" id="booking-type" value="booking">
       <input type="hidden" name="discount" id="booking-discount">
       <input type="hidden" name="booking_card" id="booking-card" value="nachhilfe-page">
@@ -568,9 +569,9 @@ main > .section-spacer:first-of-type {
         <option value="custom" data-i18n="nach_dropdown_custom">Individuell</option>
       </select>
 
-      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
-      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details zu Ihrer Buchung?" rows="5" required></textarea>
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name" maxlength="200">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email" maxlength="320">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details zu Ihrer Buchung?" rows="5" required maxlength="5000"></textarea>
       <button type="submit" class="btn" data-i18n="booking_submit">Verbindlich buchen</button>
     </form>
   </div>

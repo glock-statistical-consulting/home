@@ -769,14 +769,15 @@ main > .section-spacer:first-of-type {
     <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
     <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form">
                   <input type="hidden" name="_next" value="https://www.kevinglock.de/about.html">
+      <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <input type="hidden" name="booking_card" value="about-page">
       <input type="hidden" name="booking_type" value="inquiry">
       <input type="hidden" name="booking_hours" value="NA">
       <input type="hidden" name="discount" value="NA">
       <input type="hidden" name="language" id="hero-lang">
-      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
-      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required></textarea>
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name" maxlength="200">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email" maxlength="320">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required maxlength="5000"></textarea>
       <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
     </form>
   </div>

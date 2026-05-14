@@ -1,12 +1,45 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts"
 
+const ALLOWED_REDIRECTS = [
+  "https://www.kevinglock.de",
+  "https://www.kevinglock.de/",
+  "https://www.kevinglock.de/index.html",
+  "https://www.kevinglock.de/about.html",
+  "https://www.kevinglock.de/consulting.html",
+  "https://www.kevinglock.de/nachhilfe.html",
+  "https://www.kevinglock.de/login.html",
+  "https://www.kevinglock.de/impressum.html",
+  "https://www.kevinglock.de/datenschutz.html",
+]
+
+function isValidRedirect(url: string): boolean {
+  if (ALLOWED_REDIRECTS.includes(url)) return true
+  try {
+    const parsed = new URL(url)
+    return parsed.hostname === "www.kevinglock.de" || parsed.hostname === "kevinglock.de"
+  } catch {
+    return false
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method !== "POST") {
     return new Response("Method not allowed", { status: 405 })
   }
 
+  // Basic rate limiting check via IP (note: behind Supabase gateway, this is best-effort)
+  const clientIp = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown"
+
   try {
     const raw = await req.text()
+
+    if (raw.length > 10000) {
+      return new Response(JSON.stringify({ error: "Payload too large" }), {
+        status: 413,
+        headers: { "Content-Type": "application/json" },
+      })
+    }
+
     const params = new URLSearchParams(raw)
     const data: Record<string, string> = {}
     for (const [k, v] of params) data[k] = v
@@ -18,12 +51,41 @@ Deno.serve(async (req) => {
       })
     }
 
+    // Honeypot check – if filled, it's likely a bot
+    if (data._website && data._website !== "") {
+      return new Response(null, { status: 302, headers: { Location: "https://www.kevinglock.de" } })
+    }
+
+    // Validate email format and length
+    if (data.email.length > 320 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      return new Response(JSON.stringify({ error: "Invalid email" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      })
+    }
+
+    // Validate message length
+    if (data.message && data.message.length > 5000) {
+      return new Response(JSON.stringify({ error: "Message too long" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      })
+    }
+
+    // Validate name length
+    if (data.name && data.name.length > 200) {
+      return new Response(JSON.stringify({ error: "Name too long" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      })
+    }
+
     const supabaseUrl = Deno.env.get("SUPABASE_URL")
     const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY")
 
     if (!supabaseUrl || !supabaseKey) {
       return new Response(
-        JSON.stringify({ error: "Missing env vars", url: !!supabaseUrl, key: !!supabaseKey }),
+        JSON.stringify({ error: "Missing env vars" }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       )
     }
@@ -64,7 +126,7 @@ Deno.serve(async (req) => {
         <h2 style="color:#1e4466">Neue ${data.booking_type === "booking" ? "Buchung" : data.booking_type === "quote" ? "Angebotsanfrage" : "Kontaktanfrage"}</h2>
         <table style="border-collapse:collapse;width:100%">${lines.join("")}</table>
         <hr style="margin:20px 0;border:none;border-top:1px solid #ddd">
-        <p style="color:#888;font-size:0.85rem">Gesendet von kevinglock.de – Supabase Edge Function</p>
+        <p style="color:#888;font-size:0.85rem">Gesendet von kevinglock.de</p>
       </body></html>`
 
       try {
@@ -72,7 +134,7 @@ Deno.serve(async (req) => {
           method: "POST",
           headers: { "Authorization": `Bearer ${resendKey}`, "Content-Type": "application/json" },
           body: JSON.stringify({
-            from: "onboarding@resend.dev",
+            from: "Kevin Glock Consulting <kontakt@kevinglock.de>",
             to: "glock.gsc@web.de",
             subject: `Neue Nachricht von ${escape(data.name || data.email)}`,
             html,
@@ -83,7 +145,7 @@ Deno.serve(async (req) => {
       }
     }
 
-    const redirectUrl = data._next || "https://www.kevinglock.de"
+    const redirectUrl = data._next && isValidRedirect(data._next) ? data._next : "https://www.kevinglock.de"
     return new Response(null, {
       status: 302,
       headers: { Location: redirectUrl },
