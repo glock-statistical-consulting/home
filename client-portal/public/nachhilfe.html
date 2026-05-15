@@ -21,6 +21,7 @@
     background-color: #e8eef3;
     background: url('img/body_background_four.webp');
     background-size: cover;
+    background-attachment: fixed;
   }
   .bg-overlay {
     position: fixed;
@@ -117,6 +118,9 @@
 }
 
 .trust-grid .trust-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #f8fafc;
   border-radius: 12px;
   padding: 14px 10px;
@@ -210,9 +214,9 @@
 
 /* Visible focus style for language buttons */
 .lang-btn:focus {
-  outline: 2px solid #0078d4;
+  outline: 2px solid #FAFAF8;
   outline-offset: 2px;
-  background-color: #e6f0fa;
+  background-color: #4F6D8A;
 }
 
 [data-i18n="booking_info"] {
@@ -364,7 +368,7 @@ main > .section-spacer:first-of-type {
 
 <section id="process" class="process">
   <header class="section-header">
-    <h2 data-i18n="home_process_title">So l&auml;uft die Zusammenarbeit ab</h2>
+    <h2 data-i18n="home_process_title">Gemeinsam zur L&ouml;sung</h2>
   </header>
   <div class="process-grid">
     <article class="process-step">

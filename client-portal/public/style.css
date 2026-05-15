@@ -99,9 +99,9 @@ html{
 
 /* Visible focus style for language buttons */
 .lang-btn:focus {
-  outline: 2px solid #626faa;
+  outline: 2px solid #FAFAF8;
   outline-offset: 2px;
-  background-color: #1e4466;
+  background-color: #4F6D8A;
 }
 
 .navbar a {
@@ -821,7 +821,7 @@ footer p {
 }
 
 .card:hover {
-  transform: scale(1.05) translateY(-8px);
+  transform: scale(1.0) translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   border-color: var(--orange);
 }
@@ -1111,11 +1111,13 @@ footer p {
   display: inline-block;
   background: #dbeafe;
   color: #1d4ed8;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.35rem 0.8rem;
+  padding: 4px 10px;
   border-radius: 999px;
   margin-bottom: 12px;
+  letter-spacing: 0.3px;
+  align-self: flex-start;
 }
 
 .hero-badges {
@@ -1127,9 +1129,23 @@ footer p {
 
 .hero-badge {
   background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
   padding: 14px 16px;
   border-radius: 14px;
   font-size: 0.9rem;
+}
+
+.hero-badges .badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .select-group {
@@ -1328,8 +1344,8 @@ footer p {
 }
 
 .library-card {
-  background: linear-gradient(135deg, #1e4466, #1a3650);
-  color: white;
+  background: linear-gradient(135deg, #1B263B, #3E5C76);
+  color: #FAFAF8;
   border-radius: 32px;
   overflow: hidden;
   display: grid;
@@ -1342,11 +1358,17 @@ footer p {
 }
 
 .library-tag {
-  display: inline-block;
-  background: rgba(255,255,255,0.12);
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  white-space: nowrap;
   margin-bottom: 24px;
 }
 
@@ -1354,11 +1376,11 @@ footer p {
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.15;
   margin: 0 0 20px;
-  color: white;
+  color: #FAFAF8;
 }
 
 .library-text {
-  color: #d1d5db;
+  color: #FAFAF8;
   max-width: 650px;
   margin-bottom: 30px;
   line-height: 1.6;
@@ -1372,16 +1394,26 @@ footer p {
 }
 
 .library-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
   padding: 14px 16px;
   border-radius: 14px;
   font-size: 0.9rem;
+  box-sizing: border-box;
 }
 
 .library-actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.library-card .btn {
+  border-color: #FAFAF8;
 }
 
 .btn-light {
@@ -1869,7 +1901,6 @@ footer p {
 }
 
 .segment-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   border-color: var(--orange);
 }
@@ -1993,7 +2024,6 @@ footer p {
 }
 
 .features-grid .feature-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   border-color: var(--orange);
 }

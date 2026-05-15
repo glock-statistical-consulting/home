@@ -21,6 +21,7 @@
     background-color: #e8eef3;
     background: url('img/body_background_four.webp');
     background-size: cover;
+    background-attachment: fixed;
   }
   .bg-overlay {
     position: fixed;
@@ -132,7 +133,7 @@ main {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   background: white;
-  padding: 24px 0;
+  padding: 20px 0;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
@@ -140,12 +141,18 @@ main {
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   padding: 0 20px;
 }
 
+.trust-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .trust-grid .trust-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #f8fafc;
   border-radius: 12px;
   padding: 14px 10px;
@@ -154,13 +161,6 @@ main {
   font-weight: 700;
   color: #1f2937;
   border: 1px solid #e2e8f0;
-}
-
-.trust-grid .trust-item::before {
-  content: "\2713";
-  margin-right: 6px;
-  color: var(--orange);
-  font-weight: 700;
 }
 
 /* Segment card enhancements */
@@ -229,7 +229,6 @@ main {
 }
 
 .features-grid .feature-card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   border-color: var(--orange);
 }
@@ -266,7 +265,7 @@ main {
 
 /* Mobile */
 @media (max-width: 800px) {
-  .trust-grid {
+  .trust-grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
   .features-grid-inner {
@@ -285,7 +284,7 @@ main {
 }
 
 @media (max-width: 500px) {
-  .trust-grid {
+  .trust-grid-3 {
     grid-template-columns: 1fr;
   }
 }
@@ -320,12 +319,14 @@ section.hero {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
   color: white;
-  padding: .55rem .9rem;
-  border-radius: 999px;
-  font-size: .9rem;
-  font-weight: 600;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  white-space: nowrap;
   margin-bottom: 24px;
 }
 
@@ -474,9 +475,9 @@ main > .section-spacer:first-of-type {
 
 /* Visible focus style for language buttons */
 .lang-btn:focus {
-  outline: 2px solid #0078d4;
+  outline: 2px solid #FAFAF8;
   outline-offset: 2px;
-  background-color: #e6f0fa;
+  background-color: #4F6D8A;
 }
 
 [data-i18n="booking_info"] {
@@ -544,8 +545,8 @@ main > .section-spacer:first-of-type {
 <main>
 <section id="features" class="features-grid">
   <header class="section-header">
-    <h2 data-i18n="home_features_title">Unterst&uuml;tzung, die verst&auml;ndlich bleibt</h2>
-    <p data-i18n="home_features_subtitle">Fokus auf nachvollziehbare Erkl&auml;rungen, praxisnahe Analysen und nachhaltiges Lernen.</p>
+    <h2 data-i18n="home_features_title">Statistik einfach erkl&auml;rt. Problem gel&ouml;st.</h2>
+    <p data-i18n="home_features_subtitle">Egal ob Abschlussarbeit, Pr&uuml;fung oder Datenanalyse. Klare Orientierung. Echte Resultate.</p>
   </header>
   <div class="features-grid-inner">
     <article class="feature-card">
@@ -569,11 +570,10 @@ main > .section-spacer:first-of-type {
 <div class="section-spacer"></div>
 
 <section class="trust-bar">
-  <div class="trust-grid">
-    <div class="trust-item" data-i18n="home_trust_1">Online & flexibel</div>
-    <div class="trust-item" data-i18n="home_trust_2">Statistik verst&auml;ndlich erkl&auml;rt</div>
-    <div class="trust-item" data-i18n="home_trust_3">Praxisnahe Datenanalyse</div>
-    <div class="trust-item" data-i18n="home_trust_4">Individuelle Unterst&uuml;tzung</div>
+  <div class="trust-grid trust-grid-3">
+    <div class="trust-item check" data-i18n="home_trust_1">Remote via MS Teams oder pers&ouml;nlich</div>
+    <div class="trust-item check" data-i18n="home_trust_2">Antwort innerhalb von 24 Stunden</div>
+    <div class="trust-item check" data-i18n="home_trust_3">DSGVO-konform</div>
   </div>
 </section>
 
@@ -612,7 +612,7 @@ main > .section-spacer:first-of-type {
 
 <section class="process">
   <header class="section-header">
-    <h2 data-i18n="home_process_title">So l&auml;uft die Zusammenarbeit ab</h2>
+    <h2 data-i18n="home_process_title">Gemeinsam zur L&ouml;sung</h2>
   </header>
   <div class="process-grid">
     <article class="process-step">

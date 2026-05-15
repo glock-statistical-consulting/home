@@ -19,11 +19,17 @@
 <style>
   body {
     background-color: #e8eef3;
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('img/body_background_three.jpg');
+    background: url('img/body_background_three.jpg');
     background-size: cover;
     background-attachment: fixed;
   }
-
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.92);
+    z-index: -1;
+    pointer-events: none;
+  }
   .trust-bar {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -31,7 +37,6 @@
     padding: 20px 0;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
-
   .trust-grid {
     max-width: 1000px;
     margin: 0 auto;
@@ -39,12 +44,13 @@
     gap: 12px;
     padding: 0 20px;
   }
-
-  .trust-grid-4 {
-    grid-template-columns: repeat(4, 1fr);
+  .trust-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
   }
-
   .trust-grid .trust-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: #f8fafc;
     border-radius: 12px;
     padding: 14px 10px;
@@ -53,26 +59,6 @@
     font-weight: 700;
     color: #1f2937;
     border: 1px solid #e2e8f0;
-  }
-
-  @media (max-width: 900px) {
-    .trust-grid-4 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 500px) {
-    .trust-grid-4 {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  #engagement {
-    scroll-margin-top: 90px;
-  }
-
-  #process {
-    scroll-margin-top: 90px;
   }
 </style>
 <!-- Strukturierte Daten (Schema.org) -->
@@ -151,6 +137,18 @@ main > .section-spacer:first-of-type {
 @media (max-width: 1024px) {
   main > .section-spacer:first-of-type {
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .trust-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .trust-grid-3 {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -258,7 +256,7 @@ main > .section-spacer:first-of-type {
 </section>
 
 <section id="process" class="process">
-  <h2 data-i18n="cons_process_title">So l&auml;uft die Zusammenarbeit ab</h2>
+  <h2 data-i18n="cons_process_title">Gemeinsam zur L&ouml;sung</h2>
   <div class="process-grid">
     <article class="process-step">
       <div class="process-number">01</div>
@@ -329,11 +327,10 @@ main > .section-spacer:first-of-type {
 </section>
 
 <section class="trust-bar">
-  <div class="trust-grid trust-grid-4">
-    <div class="trust-item check" data-i18n="cons_trust_1">Remote &amp; pers&ouml;nlich</div>
-    <div class="trust-item check" data-i18n="cons_trust_2">DSGVO-konform</div>
-    <div class="trust-item check" data-i18n="cons_trust_3">Schnelle Kommunikation</div>
-    <div class="trust-item check" data-i18n="cons_trust_4">Dokumentierte Ergebnisse</div>
+  <div class="trust-grid trust-grid-3">
+    <div class="trust-item check" data-i18n="cons_trust_1">Remote via MS Teams oder pers&ouml;nlich</div>
+    <div class="trust-item check" data-i18n="cons_trust_2">Antwort innerhalb von 24 Stunden</div>
+    <div class="trust-item check" data-i18n="cons_trust_3">DSGVO-konform</div>
   </div>
 </section>
 
@@ -463,7 +460,7 @@ main > .section-spacer:first-of-type {
 </script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous"></script>
   <script>
-    const lenis = new Lenis({ duration: 5.5 });
+    const lenis = new Lenis({ duration: 1.2 });
 
     function raf(time) {
       lenis.raf(time);
@@ -480,8 +477,6 @@ main > .section-spacer:first-of-type {
       });
     });
 </script>
-<div class="bg-band band-1"></div>
-<div class="bg-band band-2"></div>
-<div class="bg-band band-3"></div>
+<div class="bg-overlay"></div>
 </body>
 </html>
