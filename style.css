@@ -1684,19 +1684,6 @@ footer p {
   .feature-card {
     width: 90%;
   }
-
-  .band-1 {
-    top: 200px;
-    height: 300px;
-  }
-  .band-2 {
-    top: 650px;
-    height: 300px;
-  }
-  .band-3 {
-    top: 1100px;
-    height: 300px;
-  }
 }
 
 .page-transition-overlay {

@@ -131,7 +131,7 @@ export default function LoginPage() {
   const showForm = isRecovery || tab !== "reset"
 
   return (
-    <ReactLenis root options={{ duration: 5.5 }}>
+    <ReactLenis root options={{ duration: 1.2 }}>
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative" }}>
       <div style={{ position: "fixed", inset: 0, background: "linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), center/cover url('/img/body_background_two.jpg') #e8eef3", zIndex: -1 }} />
       <link rel="stylesheet" href="/style.css" />
@@ -243,7 +243,7 @@ export default function LoginPage() {
       </header>
 
       <main style={{ flex: 1 }}>
-        <div className="section-spacer" style={{ marginTop: "150px" }}></div>
+        <div className="section-spacer" style={{ marginTop: "100px" }}></div>
 
         <section className="login-content" id="authSection">
           {!isRecovery && tab !== "reset" && (
@@ -318,9 +318,7 @@ export default function LoginPage() {
         </div>
       </footer>
 
-      <div className="bg-band band-1"></div>
-      <div className="bg-band band-2"></div>
-      <div className="bg-band band-3"></div>
+
     </div>
     </ReactLenis>
   )
