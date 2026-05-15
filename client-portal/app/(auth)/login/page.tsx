@@ -231,7 +231,7 @@ export default function LoginPage() {
         </div>
       </nav>
 
-      <header className="hero">
+      <header className="hero" style={{ position: "absolute" }}>
         <div className="hero-inner">
           <div className="hero-brand"></div>
           <div className="hero-content">
@@ -243,7 +243,7 @@ export default function LoginPage() {
       </header>
 
       <main style={{ flex: 1 }}>
-        <div className="section-spacer" style={{ marginTop: "100px" }}></div>
+        <div className="section-spacer" style={{ marginTop: "150px" }}></div>
 
         <section className="login-content" id="authSection">
           {!isRecovery && tab !== "reset" && (
