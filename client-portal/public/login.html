@@ -18,8 +18,17 @@
 <link rel="stylesheet" href="style.css">
 <style>
   body {
-    background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
-                url('img/body_background_two.jpg') center/cover fixed #e8eef3;
+    background-color: #e8eef3;
+    background: url('img/body_background_two.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.92);
+    z-index: -1;
+    pointer-events: none;
   }
   header.hero { position: fixed !important; top: 70px; }
   header.hero.hero-short { padding-top: 20px; padding-bottom: 20px; min-height: auto; z-index: 10; }
@@ -901,5 +910,6 @@
 
     requestAnimationFrame(raf);
   </script>
+  <div class="bg-overlay"></div>
 </body>
 </html>
