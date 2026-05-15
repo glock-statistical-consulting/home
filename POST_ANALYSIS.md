@@ -1,0 +1,36 @@
+## Postanalyse
+
+### Durchgeführte Änderungen
+- ...
+
+### Geprüfte Bereiche
+- ...
+- ...
+
+### Tests
+- Unit Tests:
+  - PASS / FAIL
+- Integration Tests:
+  - PASS / FAIL
+- Manual Testing:
+  - PASS / FAIL
+
+### Testergebnisse
+- ...
+
+### Regression Check
+- ...
+
+### Performance Auswirkungen
+- ...
+
+### Risiken / Auffälligkeiten
+- ...
+
+### Rollback-Möglichkeit
+1. ...
+2. ...
+3. ...
+
+### Empfehlung
+- ...

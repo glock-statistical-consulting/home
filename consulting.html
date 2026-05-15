@@ -126,6 +126,40 @@
 }
 </script>
 <style>
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 24px;
+  color: white;
+  max-width: 650px;
+}
+
+.hero-subtitle {
+  max-width: 650px;
+  margin: 0 0 40px 0;
+  font-size: 1.15rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.hero-action {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  border-radius: 0;
+}
+
 .subtitle {
   text-align: center;
 }
@@ -187,12 +221,15 @@ main > .section-spacer:first-of-type {
       <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
     </div>
     <div class="hero-content">
-      <h1 data-i18n="hero_consulting_title">Daten in Entscheidungen verwandeln.</h1>
-      <p class="hero-subtitle" data-i18n="hero_consulting_subtitle">Ich unterst&uuml;tze Unternehmen bei datengetriebenen Entscheidungen, Analysen und Methodenfragen &ndash; klar, effizient und direkt umsetzbar im Gesch&auml;ftsalltag.</p>
-      <div class="hero-action">
-        <a href="#process" class="btn" data-i18n="hero_consulting_pricing_btn">Wie ich arbeite</a>
-        <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_consulting_btn">Angebot anfordern</a>
+      <div>
+        <h1 data-i18n="hero_consulting_title">Daten in Entscheidungen verwandeln.</h1>
+        <p class="hero-subtitle" data-i18n="hero_consulting_subtitle">Ich unterst&uuml;tze Dich und Dein Team bei Analyse, Methodik und Interpretation. Pers&ouml;nlich, direkt und ohne Umwege.</p>
+        <div class="hero-action">
+          <a href="#process" class="btn" data-i18n="hero_consulting_pricing_btn">Wie ich arbeite</a>
+          <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_consulting_btn">Angebot anfordern</a>
+        </div>
       </div>
+      <div></div>
     </div>
   </div>
 </header>
@@ -260,66 +297,52 @@ main > .section-spacer:first-of-type {
   <div class="process-grid">
     <article class="process-step">
       <div class="process-number">01</div>
-      <h3 data-i18n="cons_step1_title">Erstgespr&auml;ch</h3>
-      <p data-i18n="cons_step1_text">Verst&auml;ndnis Ihrer Ziele, Herausforderungen und Datenlage.</p>
+      <h3 data-i18n="cons_step1_title">Anliegen verstehen</h3>
+      <p data-i18n="cons_step1_text">Verst&auml;ndnis deiner Ziele und Anforderungen</p>
     </article>
     <article class="process-step">
       <div class="process-number">02</div>
-      <h3 data-i18n="cons_step2_title">Analyse</h3>
-      <p data-i18n="cons_step2_text">Strukturierte Auswertung, Modellierung und Bewertung.</p>
+      <h3 data-i18n="cons_step2_title">Individuelle Unterst&uuml;tzung</h3>
+      <p data-i18n="cons_step2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projekt</p>
     </article>
     <article class="process-step">
       <div class="process-number">03</div>
-      <h3 data-i18n="cons_step3_title">Umsetzung</h3>
-      <p data-i18n="cons_step3_text">Konkrete Handlungsempfehlungen, Dashboards oder Workshops.</p>
+      <h3 data-i18n="cons_step3_title">Verst&auml;ndliche L&ouml;sung</h3>
+      <p data-i18n="cons_step3_text">Klar erkl&auml;rt, direkt umsetzbar</p>
     </article>
     <article class="process-step">
       <div class="process-number">04</div>
-      <h3 data-i18n="cons_step4_title">Support</h3>
-      <p data-i18n="cons_step4_text">Begleitung, Optimierung und langfristige Unterst&uuml;tzung.</p>
+      <h3 data-i18n="cons_step4_title">Ergebnis &amp; Support</h3>
+      <p data-i18n="cons_step4_text">Dein Ergebnis steht - Ich bleibe ansprechbar</p>
     </article>
   </div>
 </section>
 
 <section id="engagement">
-  <h2 data-i18n="cons_engagement_title">Zusammenarbeitsmodelle</h2>
+  <h2 data-i18n="cons_engagement_title">Wie wir zusammenarbeiten</h2>
   <p class="subtitle" data-i18n="cons_engagement_subtitle">Flexible Unterst&uuml;tzung &mdash; von punktuellen Analysen bis zur langfristigen Zusammenarbeit.</p>
 
   <div class="pricing-grid">
 
     <div class="card" data-card="Advisory">
-      <span class="badge" data-i18n="badge_advisory">Einstieg</span>
-      <h2 data-i18n="price_advisory">Advisory</h2>
-      <p class="price" data-i18n="price_advisory_value">Projektbasiert</p>
-      <p class="price-note" data-i18n="price_advisory_note">F&uuml;r kleinere Analysen und erste datenbasierte Prozesse.</p>
+      <span class="badge" data-i18n="badge_advisory">Beliebt</span>
+      <h2 data-i18n="price_advisory">Einzelberatung</h2>
+      <p class="price-note" data-i18n="price_advisory_note">F&uuml;r kleine Analysen und methodische Beratung.</p>
       <ul class="feature-list">
-        <li data-i18n="adv_li1">Kurzfristige Unterst&uuml;tzung</li>
+        <li data-i18n="adv_li1">Kurzfristig verf&uuml;gbar</li>
         <li data-i18n="adv_li2">Datenanalyse &amp; Reporting</li>
         <li data-i18n="adv_li3">Feedback &amp; Handlungsempfehlungen</li>
       </ul>
     </div>
 
     <div class="card" data-card="Project">
-      <span class="badge" data-i18n="badge_project">Beliebt</span>
+      <span class="badge" data-i18n="badge_project">Empfohlen</span>
       <h2 data-i18n="price_project">Project Support</h2>
-      <p class="price" data-i18n="price_project_value">Individuelles Angebot</p>
-      <p class="price-note" data-i18n="price_project_note">F&uuml;r laufende Projekte und Team-Unterst&uuml;tzung.</p>
+      <p class="price-note" data-i18n="price_project_note">F&uuml;r Teams mit regelm&auml;&szlig;igen Bedarfen.</p>
       <ul class="feature-list">
-        <li data-i18n="proj_li1">Analyse &amp; Modellierung</li>
-        <li data-i18n="proj_li2">Team Workshops</li>
-        <li data-i18n="proj_li3">Dashboard Entwicklung</li>
-      </ul>
-    </div>
-
-    <div class="card" data-card="Strategic">
-      <span class="badge" data-i18n="badge_strategic">Langfristig</span>
-      <h2 data-i18n="price_strategic">Strategic Consulting</h2>
-      <p class="price" data-i18n="price_strategic_value">Retainer Modell</p>
-      <p class="price-note" data-i18n="price_strategic_note">F&uuml;r Unternehmen mit langfristigem Datenfokus.</p>
-      <ul class="feature-list">
-        <li data-i18n="strat_li1">Kontinuierliche Beratung</li>
-        <li data-i18n="strat_li2">Prozessoptimierung</li>
-        <li data-i18n="strat_li3">Strategische Analysen</li>
+        <li data-i18n="proj_li1">Anforderungsanalyse &amp; Methodische Konzepte</li>
+        <li data-i18n="proj_li2">Workshop &amp; Training</li>
+        <li data-i18n="proj_li3">Langfristige Beratung</li>
       </ul>
     </div>
 
@@ -336,8 +359,8 @@ main > .section-spacer:first-of-type {
 
 <section class="cta-section">
   <div class="cta-box">
-    <h2 data-i18n="cons_cta_title">Lassen Sie uns &uuml;ber Ihr Projekt sprechen</h2>
-    <p data-i18n="cons_cta_text">Gemeinsam finden wir heraus, wie Daten sinnvoll genutzt werden k&ouml;nnen &mdash; pragmatisch, nachvollziehbar und umsetzbar.</p>
+    <h2 data-i18n="cons_cta_title">Bereit loszulegen?</h2>
+    <p data-i18n="cons_cta_text">Gemeinsam holen wir mehr aus deinen Unternehmensdaten raus, um deine Prozesse einfacher zu machen.</p>
     <a href="#contact" class="btn btn-light open-modal" data-i18n="cons_cta_btn">Kostenloses Erstgespr&auml;ch</a>
   </div>
 </section>

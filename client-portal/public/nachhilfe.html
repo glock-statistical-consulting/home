@@ -154,37 +154,44 @@
 }
 
 /* Hero desktop layout */
-.hero-inner {
-  padding: 5px 20px;
-  text-align: center;
-  justify-content: center;
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+  width: 100%;
 }
 
-.hero-inner .hero-content {
-  align-items: center;
+.lib-icon {
+  height: 2.5rem;
+  width: auto;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin: 0 0 24px;
   color: white;
+  text-align: left;
+  max-width: 650px;
 }
 
 .hero-subtitle {
-  max-width: 700px;
-  margin: 0 auto 30px auto;
-  font-size: 1.2rem;
+  max-width: 650px;
+  margin: 0 0 40px 0;
+  font-size: 1.15rem;
   opacity: 0.9;
   line-height: 1.5;
 }
 
 .hero-action {
   display: flex;
-  gap: 12px;
+  gap: 18px;
   flex-wrap: wrap;
-  justify-content: center;
-  border-radius: 14px;
-  padding: 14px 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  border-radius: 0;
 }
 
 .subtitle {
@@ -273,12 +280,15 @@ main > .section-spacer:first-of-type {
       <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
     </div>
     <div class="hero-content">
-      <h1 data-i18n="hero_nachhilfe_title">Statistik verstehen. Probleme l&ouml;sen. Sicher bestehen.</h1>
-      <p class="hero-subtitle" data-i18n="hero_nachhilfe_subtitle">Ich unterst&uuml;tze Dich bei Statistik, Datenanalyse und wissenschaftlichen Arbeiten &ndash; verst&auml;ndlich, strukturiert und genau auf Dein Niveau abgestimmt.</p>
-      <div class="hero-action">
-        <a href="#process" class="btn" data-i18n="hero_nachhilfe_pricing_btn">Wie ich arbeite</a>
-        <a href="#contact" class="btn-secondary open-modal btn-book" data-i18n="hero_nachhilfe_btn">Jetzt Nachhilfe buchen</a>
+      <div>
+        <h1 data-i18n="hero_nachhilfe_title">Pr&uuml;fungen bestehen. Probleme l&ouml;sen. Statistik verstehen.</h1>
+        <p class="hero-subtitle" data-i18n="hero_nachhilfe_subtitle">Ich unterst&uuml;tze bei Statistik, Analyse und Abschlussarbeiten. Auf den Punkt erkl&auml;rt, ohne Umwege.</p>
+        <div class="hero-action">
+          <a href="#process" class="btn" data-i18n="hero_nachhilfe_pricing_btn">Wie ich arbeite</a>
+          <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_nachhilfe_btn">Jetzt Nachhilfe buchen</a>
+        </div>
       </div>
+      <div></div>
     </div>
   </div>
 </header>
@@ -376,22 +386,22 @@ main > .section-spacer:first-of-type {
     <article class="process-step">
       <div class="process-number">01</div>
       <h3 data-i18n="home_process_1_title">Anliegen verstehen</h3>
-      <p data-i18n="home_process_1_text">Gemeinsame Kl&auml;rung der Ziele und Herausforderungen.</p>
+      <p data-i18n="home_process_1_text">Verst&auml;ndnis deiner Ziele und Anforderungen</p>
     </article>
     <article class="process-step">
       <div class="process-number">02</div>
       <h3 data-i18n="home_process_2_title">Individuelle Unterst&uuml;tzung</h3>
-      <p data-i18n="home_process_2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projektarbeit.</p>
+      <p data-i18n="home_process_2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projekt</p>
     </article>
     <article class="process-step">
       <div class="process-number">03</div>
-      <h3 data-i18n="home_process_3_title">Verst&auml;ndliche L&ouml;sungen</h3>
-      <p data-i18n="home_process_3_text">Nachvollziehbare Erkl&auml;rungen und strukturierte Ergebnisse.</p>
+      <h3 data-i18n="home_process_3_title">Verst&auml;ndliche L&ouml;sung</h3>
+      <p data-i18n="home_process_3_text">Klar erkl&auml;rt, direkt umsetzbar</p>
     </article>
     <article class="process-step">
       <div class="process-number">04</div>
-      <h3 data-i18n="home_process_4_title">Nachhaltiger Fortschritt</h3>
-      <p data-i18n="home_process_4_text">Langfristiges Verst&auml;ndnis statt kurzfristiger L&ouml;sungen.</p>
+      <h3 data-i18n="home_process_4_title">Ergebnis &amp; Support</h3>
+      <p data-i18n="home_process_4_text">Dein Ergebnis steht - Ich bleibe ansprechbar</p>
     </article>
   </div>
 </section>
@@ -455,7 +465,7 @@ main > .section-spacer:first-of-type {
 
   <article class="library-card">
     <div class="library-content">
-      <span class="library-tag" data-i18n="lib_tag">&#x1F4DA; Selbstlern-Library</span>
+      <span class="library-tag"><img src="img/icon_4.png" alt="" class="lib-icon"><span data-i18n="lib_tag">Selbstlern-Bibliothek</span></span>
       <h2 class="library-title" data-i18n="lib_title">Statistik lernen &mdash; flexibel &amp; in deinem Tempo</h2>
       <p class="library-text" data-i18n="lib_text">Zugriff auf Video-Tutorials, PDF-Skripte, Datens&auml;tze und Schritt-f&uuml;r-Schritt &Uuml;bungen f&uuml;r Statistik, SPSS, R und Python.</p>
       <div class="library-features">
@@ -486,9 +496,9 @@ main > .section-spacer:first-of-type {
 
 <section>
   <div class="cta-box">
-    <h2 data-i18n="nach_cta_title">Statistik verstehen leicht gemacht!</h2>
+    <h2 data-i18n="nach_cta_title">Bereit loszulegen?</h2>
     <p data-i18n="nach_cta_text">Buche Deine Unterst&uuml;tzung oder starte direkt mit einer meiner Aufgaben.</p>
-    <a href="#contact" class="btn btn-light open-modal btn-book" data-i18n="about_cta_btn">Kontakt aufnehmen</a>
+    <a href="#contact" class="btn btn-light open-modal btn-book" data-i18n="about_cta_btn">Kostenloses Erstgespr&auml;ch</a>
   </div>
 </section>
 </main>

@@ -144,12 +144,18 @@ html{
   width: 100%;
   background: #1B263B;
   color: white;
+  opacity: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.17);
-  position: sticky;
-  top: 70px;
-  z-index: 999;
   padding-top: 150px;
   padding-bottom: 150px;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+
+.hero-short {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  min-height: auto;
 }
 
 .hero h1 {
@@ -160,7 +166,7 @@ html{
 
 .hero-subtitle {
   max-width: 700px;
-  margin: 0 auto 30px auto;
+  margin: 0 0 30px 0;
   font-size: 1.2rem;
   opacity: 0.9;
   line-height: 1.5;
@@ -277,8 +283,27 @@ html{
   background: rgba(255,255,255,0.1);
   border-color: rgba(255,255,255,0.8);
 }
-/*  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  background-color: rgba(255,255,255,0.1);*/
+
+.hero-btn-primary {
+  background: linear-gradient(90deg, #FF5C00, #FF6600);
+  color: white;
+}
+
+.hero-btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.hero-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.8);
+}
+
 /* MODAL */
 .modal-overlay {
   display: none;
@@ -377,7 +402,6 @@ main {
 main ul {
   text-align: left;
   max-width: 600px;
-  margin: 0 auto;
 }
 
 section {
@@ -392,7 +416,6 @@ section h2, section h3 {
 section ul {
   text-align: left;
   max-width: 600px;
-  margin: 0 auto;
 }
 
 h1, h2 {
@@ -780,8 +803,13 @@ footer p {
   border-radius: 8px;
   padding: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border: 2px solid transparent;
+  border: 2px solid var(--orange);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: left;
+}
+
+.pricing-grid .card {
+  text-align: left;
 }
 
 .pricing-grid .card-summary {
@@ -826,15 +854,21 @@ footer p {
 }
 
 .card:hover {
-  transform: scale(1.0) translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   border-color: var(--orange);
 }
 
 .card.merged:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   border-color: var(--orange);
+}
+
+@media (min-width: 1025px) {
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .card.merged:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .pricing-grid:has(.card.expanded) .card:hover {
@@ -1106,6 +1140,7 @@ footer p {
 .card ul li {
   padding: 8px 0;
   border-bottom: 1px solid #eee;
+  text-align: left;
 }
 
 .card ul li:last-child {
@@ -1176,6 +1211,7 @@ footer p {
 
 .pricing-grid .feature-list {
   flex: 1;
+  text-align: left;
 }
 
 .trust-section .trust-box,
@@ -1232,6 +1268,7 @@ footer p {
   font-size: 0.95rem;
   margin: -8px 0 18px;
   line-height: 1.4;
+  text-align: left;
 }
 
 .process {
@@ -1908,6 +1945,7 @@ footer p {
   font-size: 0.9rem;
   margin: 0 0 16px;
   line-height: 1.4;
+  min-height: 4.2em;
 }
 
 .segment-tag {
@@ -1974,6 +2012,7 @@ footer p {
   .segment-card p {
     font-size: 0.85rem;
     margin: 0;
+    min-height: 4.2em;
   }
   .segment-arrow {
     margin-top: auto;

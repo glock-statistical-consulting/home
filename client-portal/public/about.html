@@ -278,20 +278,76 @@ main > .section-spacer:first-of-type {
 
 .about-hero .hero-content {
   display: grid;
-  grid-template-columns: 1fr 460px;
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: 1.1fr 0.5fr;
+  gap: 50px;
+  align-items: center;
   width: 100%;
+}
+
+.about-hero .hero-content h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: white;
+  text-align: left;
+}
+
+.about-hero .hero-content .hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 40px;
+  max-width: 620px;
+  text-align: left;
+}
+
+.about-hero .hero-content .hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 24px 0;
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.82rem;
+  color: white;
+  white-space: nowrap;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.badge:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.about-hero .hero-content .hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.about-hero .hero-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: white;
 }
 
 .about-hero .hero-content > h1 {
   grid-column: 1;
   grid-row: 1;
-  font-size: 2.5rem;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.05;
   margin-top: 0;
   margin-bottom: 16px;
   color: white;
-  line-height: 1.2;
+  text-align: left;
 }
 
 .about-hero .hero-content > .hero-subtitle {
@@ -302,15 +358,7 @@ main > .section-spacer:first-of-type {
   opacity: 0.9;
   margin-bottom: 16px;
   max-width: 620px;
-}
-
-.about-hero .hero-content > .hero-badges {
-  grid-column: 1;
-  grid-row: 3;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
+  text-align: left;
 }
 
 .section-header {
@@ -438,25 +486,16 @@ main > .section-spacer:first-of-type {
   .about-hero .hero-content {
     grid-template-columns: 1fr;
   }
-  .about-hero .hero-card {
-    grid-column: 1;
-    grid-row: 3;
-    width: 100%;
-  }
-  .about-hero .hero-content > h1 { grid-row: 1; }
-  .about-hero .hero-content > .hero-subtitle { grid-row: 2; }
-  .about-hero .hero-content > .hero-badges {
-    grid-row: 4;
+  .about-hero .hero-content .hero-badges {
     justify-content: center;
   }
-  .about-hero .hero-content > .hero-actions {
-    grid-row: 5;
+  .about-hero .hero-content .hero-actions {
     justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
-  .about-hero .hero-content > h1 {
+  .about-hero .hero-content h1 {
     font-size: 1.8rem;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -499,27 +538,26 @@ main > .section-spacer:first-of-type {
       <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
     </div>
     <div class="hero-content">
-      <h1 data-i18n="hero_about_title">Statistik verst&auml;ndlich machen. Entscheidungen erm&ouml;glichen.</h1>
-      <p class="hero-subtitle" data-i18n="hero_about_subtitle">Ich bin Kevin Glock und unterst&uuml;tze Dich und Dein Team dabei, komplexe statistische und datengetriebene Fragestellungen klar zu verstehen und sicher zu l&ouml;sen &ndash; von der ersten Idee bis zur umsetzbaren L&ouml;sung.</p>
+      <div>
+        <div class="hero-badges">
+          <div class="hero-badge"><span data-i18n="hero_about_badge_1">+8 Jahre Erfahrung</span></div>
+          <div class="hero-badge"><span data-i18n="hero_about_badge_2">M.Sc. Statistik</span></div>
+          <div class="hero-badge"><span data-i18n="hero_about_badge_4">IT &amp; Data Consulting</span></div>
+        </div>
+        <h1 data-i18n="hero_about_title">Statistik, die Sinn ergibt.</h1>
+        <p class="hero-subtitle" data-i18n="hero_about_subtitle">Ich bin Kevin Glock und helfe Dir und Deinem Team, Daten in klare Entscheidungen zu verwandeln.</p>
+        <div class="hero-actions">
+          <a href="nachhilfe.html" class="btn hero-btn-primary" data-i18n="hero_student_btn">F&uuml;r Studium</a>
+          <a href="consulting.html" class="btn hero-btn-secondary" data-i18n="hero_company_btn">F&uuml;r Unternehmen</a>
+        </div>
+      </div>
       <div class="hero-card">
-        <h3 data-i18n="hero_about_card_title">Wof&uuml;r ich stehe</h3>
-        <p data-i18n="hero_about_card_text">Mein Fokus liegt nicht auf komplexer Theorie, sondern auf verst&auml;ndlicher, praxisnaher Umsetzung. Ich &uuml;bersetze Statistik in klare Entscheidungen und anwendbare L&ouml;sungen.</p>
+        <h3 data-i18n="hero_about_card_title">So arbeite ich</h3>
         <ul class="hero-list">
-          <li data-i18n="hero_about_card_li1">Verst&auml;ndliche Erkl&auml;rung statt Fachjargon</li>
-          <li data-i18n="hero_about_card_li2">Praxisorientierte Datenanalyse</li>
-          <li data-i18n="hero_about_card_li3">Individuelle Betreuung statt Standardl&ouml;sungen</li>
-          <li data-i18n="hero_about_card_li4">Br&uuml;cke zwischen Wissenschaft &amp; Anwendung</li>
+          <li data-i18n="hero_about_card_li1">Klar erkl&auml;rt, kein Jargon</li>
+          <li data-i18n="hero_about_card_li2">Aus Theorie wird Praxis</li>
+          <li data-i18n="hero_about_card_li3">Individuelle Betreuung</li>
         </ul>
-      </div>
-      <div class="hero-badges">
-        <div class="hero-badge"><span data-i18n="hero_about_badge_1">+8 Jahre Erfahrung</span></div>
-        <div class="hero-badge"><span data-i18n="hero_about_badge_2">M.Sc. Statistik</span></div>
-        <div class="hero-badge"><span data-i18n="hero_about_badge_3">Forschung &amp; Industrie</span></div>
-        <div class="hero-badge"><span data-i18n="hero_about_badge_4">IT &amp; Data Consulting</span></div>
-      </div>
-      <div class="hero-actions">
-        <a href="#segment-section" class="btn" data-i18n="hero_about_btn_primary">Leistungen ansehen</a>
-        <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_contact_btn">Kontakt aufnehmen</a>
       </div>
     </div>
   </div>
@@ -681,8 +719,8 @@ main > .section-spacer:first-of-type {
 
 <section id="segment-section">
   <header class="section-header">
-    <h2 data-i18n="segment_title">W&auml;hle den passenden Bereich</h2>
-    <p data-i18n="segment_subtitle">Individuelle Unterst&uuml;tzung f&uuml;r Studium, Forschung und datengetriebene Projekte.</p>
+    <h2 data-i18n="segment_title">Was passt zu dir?</h2>
+    <p data-i18n="segment_subtitle">F&uuml;r Dich. Dein Team. Ohne Umwege.</p>
   </header>
   <div class="segment-grid">
     <a href="nachhilfe.html" class="segment-card">
@@ -705,7 +743,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="home_seg_company_li1">Datenanalyse & Dashboards</li>
         <li data-i18n="home_seg_company_li2">Team Workshops</li>
         <li data-i18n="home_seg_company_li3">Reporting & Prozesse</li>
-        <li data-i18n="home_seg_company_li4">Strategische Beratung</li>
+        <li data-i18n="home_seg_company_li4">Statistische Beratung</li>
       </ul>
       <span class="segment-arrow" data-i18n="home_seg_company_arrow">Zum Consulting →</span>
     </a>
@@ -716,9 +754,9 @@ main > .section-spacer:first-of-type {
 
 
 <div class="cta-box">
-  <h2 data-i18n="cta_title">Komplexe Daten verstehen. Klar entscheiden. Sicher umsetzen.</h2>
+  <h2 data-i18n="cta_title">Bereit loszulegen?</h2>
   <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
-  <a href="#contact" class="btn btn-light open-modal" data-i18n="about_cta_btn">Kontakt aufnehmen</a>
+  <a href="#contact" class="btn btn-light open-modal" data-i18n="about_cta_btn">Kostenloses Erstgespr&auml;ch</a>
 </div>
 
 </main>

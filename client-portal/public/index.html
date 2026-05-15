@@ -238,6 +238,12 @@ main {
   margin-bottom: 16px;
 }
 
+.feature-icon img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+
 .features-grid .feature-card h3 {
   margin: 0 0 10px;
   color: var(--deep-sea);
@@ -291,8 +297,8 @@ main {
 
 /* Hero concept */
 section.hero {
-  padding-top: 140px;
-  padding-bottom: 120px;
+  padding-top: 150px;
+  padding-bottom: 150px;
   background: #1B263B;
   color: white;
   position: static;
@@ -300,17 +306,19 @@ section.hero {
   width: 100%;
   opacity: 1;
   display: block;
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.1fr 0.5fr;
   gap: 50px;
   align-items: center;
 }
@@ -390,18 +398,29 @@ section.hero .hero-btn-secondary:hover {
 }
 
 .hero-list {
-  padding-left: 18px;
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
 .hero-list li {
-  margin-bottom: 14px;
+  padding: 5px 0 5px 22px;
+  position: relative;
   font-size: 0.9rem;
   color: rgba(255,255,255,0.85);
+  line-height: 1.5;
 }
 
 .hero-list li:last-child {
-  margin-bottom: 0;
+  padding-bottom: 4px;
+}
+
+.hero-list li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+  font-weight: bold;
 }
 
 @media (max-width: 800px) {
@@ -441,7 +460,7 @@ section.hero .hero-btn-secondary:hover {
 
 .hero-subtitle {
   max-width: 700px;
-  margin: 0 auto 30px auto;
+  margin: 0 0 30px 0;
   font-size: 1.2rem;
   opacity: 0.9;
   line-height: 1.5;
@@ -521,13 +540,11 @@ main > .section-spacer:first-of-type {
         </div>
       </div>
       <aside class="hero-card">
-        <h3 data-i18n="hero_card_title">Schwerpunktbereiche</h3>
+        <h3 data-i18n="hero_card_title">Womit ich helfe</h3>
         <ul class="hero-list">
-          <li data-i18n="hero_card_li1">Statistik & Datenanalyse</li>
-          <li data-i18n="hero_card_li2">SPSS, R & Python</li>
-          <li data-i18n="hero_card_li3">Thesis & Pr&uuml;fungsunterst&uuml;tzung</li>
-          <li data-i18n="hero_card_li4">Datenvisualisierung & Reporting</li>
-          <li data-i18n="hero_card_li5">Workshops & Consulting</li>
+          <li data-i18n="hero_card_li1">Abschlussarbeiten & Prüfungen</li>
+          <li data-i18n="hero_card_li2">Daten verstehen & visualisieren</li>
+          <li data-i18n="hero_card_li3">Workshops & Consulting</li>
         </ul>
       </aside>
     </div>
@@ -542,19 +559,19 @@ main > .section-spacer:first-of-type {
   </header>
   <div class="features-grid-inner">
     <article class="feature-card">
-      <div class="feature-icon">📚</div>
+      <div class="feature-icon"><img src="img/icon_1.png" alt="Lernen"></div>
       <h3 data-i18n="home_feature_1_title">Lernen & Verstehen</h3>
-      <p data-i18n="home_feature_1_text">Schritt-f&uuml;r-Schritt Erkl&auml;rungen, Lernmaterialien und verst&auml;ndliche Statistik f&uuml;r nachhaltiges Verst&auml;ndnis.</p>
+      <p data-i18n="home_feature_1_text">Schritt-f&uuml;r-Schritt von der Grundlage bis zur komplexen Analyse.</p>
     </article>
     <article class="feature-card">
-      <div class="feature-icon">🎯</div>
+      <div class="feature-icon"><img src="img/icon_2.png" alt="Ziel"></div>
       <h3 data-i18n="home_feature_2_title">Individuelle Unterst&uuml;tzung</h3>
-      <p data-i18n="home_feature_2_text">Hilfe bei konkreten Aufgaben, Pr&uuml;fungen, Projekten und wissenschaftlichen Arbeiten.</p>
+      <p data-i18n="home_feature_2_text">Pr&uuml;fungen, Abschlussarbeiten, Projekte, Schulungen.</p>
     </article>
     <article class="feature-card">
-      <div class="feature-icon">📊</div>
+      <div class="feature-icon"><img src="img/icon_3.png" alt="Daten"></div>
       <h3 data-i18n="home_feature_3_title">Daten sinnvoll nutzen</h3>
-      <p data-i18n="home_feature_3_text">Analyse, Reporting und Consulting f&uuml;r datenbasierte Entscheidungen und strukturierte Prozesse.</p>
+      <p data-i18n="home_feature_3_text">Analyse, Visualisierung, Consulting f&uuml;r datenbasierte Entscheidungen</p>
     </article>
   </div>
 </section>
@@ -571,8 +588,8 @@ main > .section-spacer:first-of-type {
 
 <section id="segment-section">
   <header class="section-header">
-    <h2 data-i18n="segment_title">W&auml;hle den passenden Bereich</h2>
-    <p data-i18n="segment_subtitle">Individuelle Unterst&uuml;tzung f&uuml;r Studium, Forschung und datengetriebene Projekte.</p>
+    <h2 data-i18n="segment_title">Was passt zu dir?</h2>
+    <p data-i18n="segment_subtitle">F&uuml;r Dich. Dein Team. Ohne Umwege.</p>
   </header>
   <div class="segment-grid">
     <a href="nachhilfe.html" class="segment-card">
@@ -595,7 +612,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="home_seg_company_li1">Datenanalyse & Dashboards</li>
         <li data-i18n="home_seg_company_li2">Team Workshops</li>
         <li data-i18n="home_seg_company_li3">Reporting & Prozesse</li>
-        <li data-i18n="home_seg_company_li4">Strategische Beratung</li>
+        <li data-i18n="home_seg_company_li4">Statistische Beratung</li>
       </ul>
       <span class="segment-arrow" data-i18n="home_seg_company_arrow">Zum Consulting &rarr;</span>
     </a>
@@ -610,31 +627,31 @@ main > .section-spacer:first-of-type {
     <article class="process-step">
       <div class="process-number">01</div>
       <h3 data-i18n="home_process_1_title">Anliegen verstehen</h3>
-      <p data-i18n="home_process_1_text">Gemeinsame Kl&auml;rung der Ziele und Herausforderungen.</p>
+      <p data-i18n="home_process_1_text">Verst&auml;ndnis deiner Ziele und Anforderungen</p>
     </article>
     <article class="process-step">
       <div class="process-number">02</div>
       <h3 data-i18n="home_process_2_title">Individuelle Unterst&uuml;tzung</h3>
-      <p data-i18n="home_process_2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projektarbeit.</p>
+      <p data-i18n="home_process_2_text">Passende Hilfe f&uuml;r Studium, Analyse oder Projekt</p>
     </article>
     <article class="process-step">
       <div class="process-number">03</div>
-      <h3 data-i18n="home_process_3_title">Verst&auml;ndliche L&ouml;sungen</h3>
-      <p data-i18n="home_process_3_text">Nachvollziehbare Erkl&auml;rungen und strukturierte Ergebnisse.</p>
+      <h3 data-i18n="home_process_3_title">Verst&auml;ndliche L&ouml;sung</h3>
+      <p data-i18n="home_process_3_text">Klar erkl&auml;rt, direkt umsetzbar</p>
     </article>
     <article class="process-step">
       <div class="process-number">04</div>
-      <h3 data-i18n="home_process_4_title">Nachhaltiger Fortschritt</h3>
-      <p data-i18n="home_process_4_text">Langfristiges Verst&auml;ndnis statt kurzfristiger L&ouml;sungen.</p>
+      <h3 data-i18n="home_process_4_title">Ergebnis &amp; Support</h3>
+      <p data-i18n="home_process_4_text">Dein Ergebnis steht - Ich bleibe ansprechbar</p>
     </article>
   </div>
 </section>
 
 <section>
   <div class="cta-box">
-    <h2 data-i18n="home_cta_title">Finde die passende Unterst&uuml;tzung</h2>
+    <h2 data-i18n="home_cta_title">Bereit loszulegen?</h2>
     <p data-i18n="home_cta_text">Egal ob Statistik-Nachhilfe, Thesis Support oder datenbasierte Unternehmensberatung &ndash; gemeinsam finden wir die passende L&ouml;sung.</p>
-    <a href="#contact" class="btn btn-light open-modal" data-i18n="home_cta_btn">Kontakt aufnehmen</a>
+    <a href="#contact" class="btn btn-light open-modal" data-i18n="home_cta_btn">Kostenloses Erstgespr&auml;ch</a>
   </div>
 </section>
 

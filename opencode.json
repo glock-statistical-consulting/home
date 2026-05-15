@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "SYSTEM_PROMPT.md",
+    "PRE_ANALYSIS.md",
+    "IMPLEMENTATION.md",
+    "POST_ANALYSIS.md",
+    "TASK_STEPS.md",
+    "TESTING.md",
+    "COMMIT_CONFIRMATION.md",
+    "ROLLBACK_TEMPLATE.md",
+    "FINAL_REVIEW.md",
+    "EDGE_CASE_ANALYSIS.md",
+    "SOURCE_VALIDATION.md",
+    "TASK_VALIDATION.md"
+  ]
+}
