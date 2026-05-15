@@ -137,7 +137,7 @@ export default function LoginPage() {
       <style>{`
         body { background: url('/img/body_background_two.jpg') center/cover fixed #e8eef3; }
         .bg-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.92); z-index: -1; pointer-events: none; }
-        header.hero { position: absolute !important; top: auto !important; min-height: 0; height: auto; }
+        header.hero { position: fixed !important; top: 70px; }
         .login-content {
           max-width: 520px;
           margin: 0 auto;
