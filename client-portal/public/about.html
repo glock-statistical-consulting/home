@@ -14,12 +14,12 @@
 <link rel="canonical" href="https://www.kevinglock.de/about.html">
 <link rel="icon" href="img/favicon.png" type="image/png">
 <title data-i18n="title_about">Über mich | GSC Services</title>
-<link rel="preload" as="image" href="img/body_background_three.webp">
+<link rel="preload" as="image" href="img/body_background_three.jpg">
 <link rel="stylesheet" href="style.css">
 <style>
   body {
     background-color: #e8eef3;
-    background: url('img/body_background_three.webp');
+    background: url('img/body_background_three.jpg');
     background-size: cover;
     background-attachment: fixed;
   }
@@ -310,7 +310,9 @@ main > .section-spacer:first-of-type {
 }
 
 .badge {
-  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
   border-radius: 20px;
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.2);
@@ -485,6 +487,11 @@ main > .section-spacer:first-of-type {
 @media (max-width: 1100px) {
   .about-hero .hero-content {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .about-hero .hero-card {
+    grid-column: 1;
+    grid-row: auto;
   }
   .about-hero .hero-content .hero-badges {
     justify-content: center;
@@ -515,7 +522,7 @@ main > .section-spacer:first-of-type {
     <a href="about.html" data-i18n="navbar_about">Über mich</a>
     <a href="nachhilfe.html" data-i18n="navbar_services">Nachhilfe &amp; Studium</a>
     <a href="consulting.html" data-i18n="navbar_consulting">Beratung &amp; Datenanalyse</a>
-    <a href="/login" data-i18n="navbar_login">Login</a>
+    <a href="login.html" data-i18n="navbar_login">Login</a>
 
   </div>
 
@@ -814,14 +821,15 @@ main > .section-spacer:first-of-type {
     <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
     <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form">
                   <input type="hidden" name="_next" value="https://www.kevinglock.de/about.html">
+      <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <input type="hidden" name="booking_card" value="about-page">
       <input type="hidden" name="booking_type" value="inquiry">
       <input type="hidden" name="booking_hours" value="NA">
       <input type="hidden" name="discount" value="NA">
       <input type="hidden" name="language" id="hero-lang">
-      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name">
-      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email">
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required></textarea>
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name" maxlength="200">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email" maxlength="320">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required maxlength="5000"></textarea>
       <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
     </form>
   </div>
