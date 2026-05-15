@@ -133,10 +133,11 @@ export default function LoginPage() {
   return (
     <ReactLenis root options={{ duration: 1.2 }}>
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative" }}>
-      <div style={{ position: "fixed", inset: 0, background: "linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), center/cover url('/img/body_background_two.jpg') #e8eef3", zIndex: -1 }} />
       <link rel="stylesheet" href="/style.css" />
       <style>{`
-        header.hero { position: absolute !important; }
+        body { background: url('/img/body_background_two.jpg') center/cover fixed #e8eef3; }
+        .bg-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.92); z-index: -1; pointer-events: none; }
+        header.hero { position: absolute !important; top: auto !important; min-height: 0; height: auto; }
         .login-content {
           max-width: 520px;
           margin: 0 auto;
@@ -320,6 +321,7 @@ export default function LoginPage() {
       </footer>
 
 
+      <div className="bg-overlay"></div>
     </div>
     </ReactLenis>
   )
