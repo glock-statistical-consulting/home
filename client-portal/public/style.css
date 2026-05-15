@@ -1669,6 +1669,7 @@ footer p {
     gap: 8px;
     padding-bottom: 8px;
     opacity: 0.95;
+    align-items: stretch;
   }
 
   .hero-logo {
