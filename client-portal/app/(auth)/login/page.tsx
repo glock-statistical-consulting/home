@@ -135,7 +135,8 @@ export default function LoginPage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", position: "relative" }}>
       <link rel="stylesheet" href="/style.css" />
       <style>{`
-        body { background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('/img/body_background_two.jpg'); background-size: cover; background-attachment: fixed; background-color: #e8eef3; }
+        html { min-height: 100%; background: #e8eef3 url('/img/body_background_two.jpg') center/cover fixed; }
+        body { background: rgba(255,255,255,0.92); min-height: 100vh; }
         header.hero { position: fixed !important; top: 70px; }
         header.hero.hero-short { padding-top: 20px; padding-bottom: 20px; min-height: auto; z-index: 10; }
         main, footer { position: relative; z-index: 1; }
