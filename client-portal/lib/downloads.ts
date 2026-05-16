@@ -4,13 +4,13 @@ export interface DownloadItem {
   fileUrl: string
 }
 
-const PREFIX = "downloads/library"
+const PREFIX = "downloads/library/pre"
 
 const BASICS_ITEMS: DownloadItem[] = [
   { name: "Entscheidungsbaum – Welcher Test?", description: "Flussdiagramm zur Testauswahl", fileUrl: `${PREFIX}/entscheidungsbaum_welcher_test.docx` },
-  { name: "Spickzettel Abi", description: "Kompaktübersicht fürs Abitur", fileUrl: `${PREFIX}/spickzettel_abi.docx` },
-  { name: "Cheatsheet High School", description: "Englische Kurzreferenz Abi-Niveau", fileUrl: `${PREFIX}/cheatsheet_high_school.docx` },
-  { name: "Diktionär Abi", description: "DE–EN Fachbegriffe Abitur", fileUrl: `${PREFIX}/01_diktionaer_abi.docx` },
+  { name: "Spickzettel Basics", description: "Kompaktübersicht Einstiegsniveau", fileUrl: `${PREFIX}/spickzettel_basic.docx` },
+  { name: "Cheatsheet Basics", description: "Englische Kurzreferenz", fileUrl: `${PREFIX}/cheatsheet_basic.docx` },
+  { name: "Diktionär Basics", description: "DE–EN Fachbegriffe Einstieg", fileUrl: `${PREFIX}/dictionary_basic.docx` },
   { name: "Dossier 10 – Einfache lineare Regression", description: "Grundlagen der linearen Regression", fileUrl: `${PREFIX}/10_einfache_lineare_regression.docx` },
   { name: "Dossier 11 – Multiple lineare Regression", description: "Multiple Regressionsanalyse", fileUrl: `${PREFIX}/11_multiple_lineare_regression.docx` },
   { name: "Dossier 12 – Logistische Regression", description: "Logistische Regressionsmodelle", fileUrl: `${PREFIX}/12_logistische_regression.docx` },
@@ -26,16 +26,16 @@ const BASICS_ITEMS: DownloadItem[] = [
 ]
 
 const STANDARD_EXTRA: DownloadItem[] = [
-  { name: "Diktionär Bachelor", description: "DE–EN Fachbegriffe Bachelor", fileUrl: `${PREFIX}/02_diktionaer_bachelor.docx` },
-  { name: "Cheatsheet Bachelor", description: "Kurzreferenz Bachelor-Niveau", fileUrl: `${PREFIX}/cheatsheet_bachelor.docx` },
-  { name: "Spickzettel Bachelor", description: "Kompaktübersicht Bachelor", fileUrl: `${PREFIX}/spickzettel_bachelor.docx` },
-  { name: "Einführung R (Bachelor)", description: "R-Grundlagen für Bachelor-Studenten", fileUrl: `${PREFIX}/07_einfuehrung_R_bachelor.docx` },
-  { name: "Code R (Bachelor)", description: "R-Skripte Bachelor", fileUrl: `${PREFIX}/07_code_R_bachelor.R` },
-  { name: "Einführung Python (Bachelor)", description: "Python-Grundlagen Bachelor", fileUrl: `${PREFIX}/08_einfuehrung_python_bachelor.docx` },
-  { name: "Code Python (Bachelor)", description: "Python-Skripte Bachelor", fileUrl: `${PREFIX}/08_code_python_bachelor.py` },
-  { name: "Einführung SPSS (Bachelor)", description: "SPSS-Grundlagen Bachelor", fileUrl: `${PREFIX}/09_einfuehrung_spss_bachelor.docx` },
-  { name: "Code SPSS (Bachelor)", description: "SPSS-Syntax Bachelor", fileUrl: `${PREFIX}/09_code_spss_bachelor.sps` },
-  { name: "Klausur Bachelor", description: "Konstruktion & Musterlösung", fileUrl: `${PREFIX}/05_klausur_bachelor.docx` },
+  { name: "Diktionär Standard", description: "DE–EN Fachbegriffe Bachelor", fileUrl: `${PREFIX}/dictionary_standard.docx` },
+  { name: "Cheatsheet Standard", description: "Kurzreferenz Bachelor-Niveau", fileUrl: `${PREFIX}/cheatsheet_standard.docx` },
+  { name: "Spickzettel Standard", description: "Kompaktübersicht Bachelor", fileUrl: `${PREFIX}/spickzettel_standard.docx` },
+  { name: "Einführung R (Standard)", description: "R-Grundlagen", fileUrl: `${PREFIX}/introduction_R_standard.docx` },
+  { name: "Code R (Standard)", description: "R-Skripte", fileUrl: `${PREFIX}/code_r_standard.R` },
+  { name: "Einführung Python (Standard)", description: "Python-Grundlagen", fileUrl: `${PREFIX}/introduction_python_standard.docx` },
+  { name: "Code Python (Standard)", description: "Python-Skripte", fileUrl: `${PREFIX}/code_python_standard.py` },
+  { name: "Einführung SPSS (Standard)", description: "SPSS-Grundlagen", fileUrl: `${PREFIX}/introduction_spss_standard.docx` },
+  { name: "Code SPSS (Standard)", description: "SPSS-Syntax", fileUrl: `${PREFIX}/code_spss_standard.sps` },
+  { name: "Klausurfragen Standard", description: "Aufgabensammlung mit Musterlösungen", fileUrl: `${PREFIX}/exam_questions_standard.docx` },
   { name: "Dossier 14 – ANOVA (einfaktoriell)", description: "Einfaktorielle Varianzanalyse", fileUrl: `${PREFIX}/14_anova_einfaktoriell.docx` },
   { name: "Dossier 15 – ANOVA (ANCOVA, mehrfaktoriell)", description: "Mehrfaktorielle Varianzanalyse", fileUrl: `${PREFIX}/15_anova_ancova_mehrfaktoriell.docx` },
   { name: "Dossier 16 – Nichtparametrische Tests", description: "Rangbasierte Testverfahren", fileUrl: `${PREFIX}/16_nichtparametrische_tests.docx` },
@@ -63,16 +63,16 @@ const STANDARD_EXTRA: DownloadItem[] = [
 ]
 
 const ADVANCED_EXTRA: DownloadItem[] = [
-  { name: "Diktionär Master", description: "DE–EN Fachbegriffe Master", fileUrl: `${PREFIX}/03_diktionaer_master.docx` },
-  { name: "Cheatsheet Master", description: "Kurzreferenz Master-Niveau", fileUrl: `${PREFIX}/cheatsheet_master.docx` },
-  { name: "Spickzettel Master", description: "Kompaktübersicht Master", fileUrl: `${PREFIX}/spickzettel_master.docx` },
-  { name: "Einführung R (Master)", description: "R für Fortgeschrittene", fileUrl: `${PREFIX}/07_einfuehrung_R_master.docx` },
-  { name: "Code R (Master)", description: "R-Skripte Master", fileUrl: `${PREFIX}/07_code_R_master.R` },
-  { name: "Einführung Python (Master)", description: "Python für Fortgeschrittene", fileUrl: `${PREFIX}/08_einfuehrung_python_master.docx` },
-  { name: "Code Python (Master)", description: "Python-Skripte Master", fileUrl: `${PREFIX}/08_code_python_master.py` },
-  { name: "Einführung SPSS (Master)", description: "SPSS für Fortgeschrittene", fileUrl: `${PREFIX}/09_einfuehrung_spss_master.docx` },
-  { name: "Code SPSS (Master)", description: "SPSS-Syntax Master", fileUrl: `${PREFIX}/09_code_spss_master.sps` },
-  { name: "Klausur Master", description: "Konstruktion & Musterlösung Master", fileUrl: `${PREFIX}/06_klausur_master.docx` },
+  { name: "Diktionär Advanced", description: "DE–EN Fachbegriffe Master", fileUrl: `${PREFIX}/dictionary_advanced.docx` },
+  { name: "Cheatsheet Advanced", description: "Kurzreferenz Master-Niveau", fileUrl: `${PREFIX}/cheatsheet_advanced.docx` },
+  { name: "Spickzettel Advanced", description: "Kompaktübersicht Master", fileUrl: `${PREFIX}/spickzettel_advanced.docx` },
+  { name: "Einführung R (Advanced)", description: "R für Fortgeschrittene", fileUrl: `${PREFIX}/introduction_R_advanced.docx` },
+  { name: "Code R (Advanced)", description: "R-Skripte Master", fileUrl: `${PREFIX}/code_r_advanced.R` },
+  { name: "Einführung Python (Advanced)", description: "Python für Fortgeschrittene", fileUrl: `${PREFIX}/introduction_python_advanced.docx` },
+  { name: "Code Python (Advanced)", description: "Python-Skripte Master", fileUrl: `${PREFIX}/code_python_advanced.py` },
+  { name: "Einführung SPSS (Advanced)", description: "SPSS für Fortgeschrittene", fileUrl: `${PREFIX}/introduction_spss_advanced.docx` },
+  { name: "Code SPSS (Advanced)", description: "SPSS-Syntax Master", fileUrl: `${PREFIX}/code_spss_advanced.sps` },
+  { name: "Klausurfragen Advanced", description: "Aufgabensammlung Master-Niveau", fileUrl: `${PREFIX}/exam_questions_advanced.docx` },
   { name: "Dossier 38 – Experimentelles Design", description: "Experimentelle Versuchspläne", fileUrl: `${PREFIX}/38_experimentelles_design.docx` },
   { name: "Dossier 39 – Poweranalyse", description: "Statistische Teststärke", fileUrl: `${PREFIX}/39_poweranalyse.docx` },
   { name: "Dossier 40 – Survey Design", description: "Fragebogenkonstruktion", fileUrl: `${PREFIX}/40_survey_design.docx` },
@@ -81,9 +81,9 @@ const ADVANCED_EXTRA: DownloadItem[] = [
 ]
 
 const ALL_ACCESS_EXTRA: DownloadItem[] = [
-  { name: "Diktionär PhD", description: "DE–EN Fachbegriffe Promotion", fileUrl: `${PREFIX}/04_diktionaer_phd.docx` },
-  { name: "Cheatsheet PhD", description: "Kurzreferenz PhD-Niveau", fileUrl: `${PREFIX}/cheatsheet_phd.docx` },
-  { name: "Spickzettel PhD", description: "Kompaktübersicht Promotion", fileUrl: `${PREFIX}/spickzettel_phd.docx` },
+  { name: "Diktionär All-Access", description: "DE–EN Fachbegriffe Promotion", fileUrl: `${PREFIX}/dictionary_all_access.docx` },
+  { name: "Cheatsheet All-Access", description: "Kurzreferenz PhD-Niveau", fileUrl: `${PREFIX}/cheatsheet_all_access.docx` },
+  { name: "Spickzettel All-Access", description: "Kompaktübersicht Promotion", fileUrl: `${PREFIX}/spickzettel_all_access.docx` },
   { name: "Literaturverzeichnis", description: "Umfassende Literatursammlung Statistik & Methoden", fileUrl: `${PREFIX}/literaturverzeichnis_statistik_methoden.docx` },
   { name: "EN – Simple Linear Regression", description: "Englische Version Dossier 10", fileUrl: `${PREFIX}/en_10_simple_linear_regression.docx` },
   { name: "EN – Multiple Linear Regression", description: "Englische Version Dossier 11", fileUrl: `${PREFIX}/en_11_multiple_linear_regression.docx` },
@@ -120,7 +120,7 @@ const ALL_ACCESS_EXTRA: DownloadItem[] = [
   { name: "EN – Systematic Reviews & Meta-Analysis", description: "Englische Version Dossier 42", fileUrl: `${PREFIX}/en_42_systematic_reviews_meta_analysis.docx` },
 ]
 
-const PRUFUNGEN_10_25: DownloadItem[] = [
+const PRUFUNGEN_14_42: DownloadItem[] = [
   { name: "Prüfung 14 – ANOVA (einfaktoriell)", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_14_anova_einfaktoriell.docx` },
   { name: "Prüfung 15 – ANOVA (ANCOVA)", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_15_anova_ancova_mehrfaktoriell.docx` },
   { name: "Prüfung 16 – Nichtparametrische Tests", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_16_nichtparametrische_tests.docx` },
@@ -133,9 +133,6 @@ const PRUFUNGEN_10_25: DownloadItem[] = [
   { name: "Prüfung 23 – ML (Unsupervised)", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_23_machine_learning_unsupervised.docx` },
   { name: "Prüfung 24 – Zeitreihenanalyse", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_24_zeitreihenanalyse.docx` },
   { name: "Prüfung 25 – Bootstrap & Resampling", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_25_bootstrap_resampling.docx` },
-]
-
-const PRUFUNGEN_26_42: DownloadItem[] = [
   { name: "Prüfung 26 – Wissenschaftstheorie", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_26_wissenschaftstheorie.docx` },
   { name: "Prüfung 27 – Erkenntnistheorie", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_27_erkenntnistheorie_ontologie.docx` },
   { name: "Prüfung 28 – Forschungsdesign", description: "Übungsprüfung mit Lösungen", fileUrl: `${PREFIX}/prüfung_28_forschungsdesign_grundlagen.docx` },
@@ -199,14 +196,14 @@ export const DOWNLOADS: Record<string, { items: DownloadItem[]; categories: stri
       "Lösungsskripte (R / Python / SPSS)",
     ],
     items: [
-      ...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_10_25, ...PRUFUNGEN_26_42, ...EXAMS_14_42, ...ADVANCED_EXTRA, ...ALL_ACCESS_EXTRA,
+      ...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_14_42, ...EXAMS_14_42, ...ADVANCED_EXTRA, ...ALL_ACCESS_EXTRA,
     ],
   },
   library_basics: {
     categories: [
       "Entscheidungsbaum & Testauswahl",
-      "Diktionär Abi",
-      "Spickzettel & Cheatsheets Abi",
+      "Diktionär Basics",
+      "Spickzettel & Cheatsheets",
       "Dossiers 10–13 (Regression, t-Test)",
       "Prüfungen 10–13",
       "Exams 10–13 (English)",
@@ -216,35 +213,34 @@ export const DOWNLOADS: Record<string, { items: DownloadItem[]; categories: stri
   library_standard: {
     categories: [
       "Alles aus Basics",
-      "Diktionär Bachelor",
-      "Code-Einführungen (R, Python, SPSS) – Bachelor",
-      "Dossiers 10–31 (Quantitative Verfahren)",
-      "Dossiers 32–37 (Qualitative Methoden)",
+      "Diktionär Standard",
+      "Code-Einführungen (R, Python, SPSS)",
+      "Dossiers 10–37 (Quantitativ & Qualitativ)",
       "Prüfungen 10–42",
       "Exams 10–42 (English)",
-      "Klausur Bachelor",
+      "Klausurfragen Standard",
     ],
-    items: [...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_10_25, ...PRUFUNGEN_26_42, ...EXAMS_14_42],
+    items: [...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_14_42, ...EXAMS_14_42],
   },
   library_advanced: {
     categories: [
       "Alles aus Standard",
-      "Diktionär Master",
-      "Code-Einführungen & Skripte (R, Python, SPSS) – Master",
+      "Diktionär Advanced",
+      "Code-Einführungen & Skripte Master",
       "Dossiers 38–42 (Experimentelles Design, Power, Survey, Mixed Methods, Reviews)",
-      "Master-Klausurkonstruktionen",
+      "Klausurfragen Advanced",
     ],
-    items: [...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_10_25, ...PRUFUNGEN_26_42, ...EXAMS_14_42, ...ADVANCED_EXTRA],
+    items: [...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_14_42, ...EXAMS_14_42, ...ADVANCED_EXTRA],
   },
   library_all_access: {
     categories: [
       "Alles aus Advanced",
-      "Diktionär PhD",
+      "Diktionär All-Access",
       "Cheatsheet & Spickzettel PhD",
       "EN-Versionen aller Dossiers (en_10–42)",
       "Literaturverzeichnis",
     ],
-    items: [...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_10_25, ...PRUFUNGEN_26_42, ...EXAMS_14_42, ...ADVANCED_EXTRA, ...ALL_ACCESS_EXTRA],
+    items: [...BASICS_ITEMS, ...STANDARD_EXTRA, ...PRUFUNGEN_14_42, ...EXAMS_14_42, ...ADVANCED_EXTRA, ...ALL_ACCESS_EXTRA],
   },
 }
 

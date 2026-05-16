@@ -17,7 +17,7 @@ export async function sendPurchaseConfirmation(
   if (!RESEND_API_KEY) return { success: false, error: "Resend not configured" }
 
   const downloadHtml = downloadLinks
-    .map((d) => `<li><a href="${d.url}" style="color:#2563eb;">${d.name}</a></li>`)
+    .map((d) => `<li style="padding:6px 0;border-bottom:1px solid #e2e8f0;"><a href="${d.url}" style="color:#1e3a5f;text-decoration:none;font-size:14px;display:block;">${d.name}</a></li>`)
     .join("")
 
   try {
@@ -32,17 +32,48 @@ export async function sendPurchaseConfirmation(
         to: customerEmail,
         subject: "Deine Bestellung bei Kevin Glock Statistical Consulting",
         html: `
-          <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
-            <h1 style="color:#1e3a5f;">Vielen Dank für deine Bestellung!</h1>
-            <p>Hallo ${customerName || "Kunde"},</p>
-            <p>du hast <strong>${productName}</strong> erworben.</p>
-            ${downloadLinks.length > 0 ? `<p>Hier sind deine Download-Links:</p><ul>${downloadHtml}</ul>` : ""}
-            ${bundleUrl ? `<p style="margin-top:16px;"><a href="${bundleUrl}" style="display:inline-block;background:#2563eb;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;">Alle Downloads als ZIP</a></p>` : ""}
-            <p>Bei Fragen oder weiterem Unterstützungsbedarf antworte einfach auf diese E-Mail oder buche eine <a href="https://kevinglock.de/nachhilfe.html" style="color:#2563eb;">Nachhilfe-Sitzung</a>.</p>
-            <br>
-            <p>Viele Grüße,<br>Kevin Glock</p>
-            <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;">
-            <p style="color:#6b7280;font-size:12px;">Kevin Glock Statistical Consulting Services | Schönebecker Straße 76 | 45359 Essen</p>
+          <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6f9;">
+            <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+              <tr>
+                <td style="background:#1e3a5f;padding:24px 32px;text-align:center;">
+                  <img src="https://kevinglock.de/img/logo.svg" alt="GSC" style="height:40px;width:auto;" />
+                  <h1 style="color:#ffffff;margin:12px 0 0;font-size:20px;font-weight:600;">Kevin Glock Statistical Consulting</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#ffffff;padding:32px;border-radius:0 0 8px 8px;">
+                  <p style="color:#1e3a5f;font-size:24px;font-weight:700;margin:0 0 8px;">Vielen Dank f&uuml;r deine Bestellung!</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Hallo ${customerName || "Kunde"},<br>du hast <strong style="color:#1e3a5f;">${productName}</strong> erworben. Hier sind deine pers&ouml;nlichen Download-Links:</p>
+
+                  ${downloadLinks.length > 0 ? `
+                  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin-bottom:20px;">
+                    <p style="color:#1e3a5f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">Einzeldateien</p>
+                    <ul style="list-style:none;padding:0;margin:0;">
+                      ${downloadHtml}
+                    </ul>
+                  </div>` : ""}
+
+                  ${bundleUrl ? `
+                  <table cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:24px;">
+                    <tr>
+                      <td style="background:#1e3a5f;border-radius:8px;text-align:center;padding:16px 24px;">
+                        <a href="${bundleUrl}" style="color:#ffffff;font-size:16px;font-weight:600;text-decoration:none;display:block;">Alle Downloads als ZIP herunterladen</a>
+                      </td>
+                    </tr>
+                  </table>` : ""}
+
+                  <div style="border-top:1px solid #e2e8f0;padding-top:20px;margin-top:20px;">
+                    <p style="color:#4a5568;font-size:14px;line-height:1.6;margin:0 0 4px;">Ben&ouml;tigst du Hilfe bei der Auswertung oder m&ouml;chtest du tiefer einsteigen?</p>
+                    <p style="margin:0;"><a href="https://kevinglock.de/nachhilfe.html" style="color:#1e3a5f;font-weight:600;text-decoration:underline;">Nachhilfe-Sitzung buchen</a></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#1e3a5f;padding:20px 32px;text-align:center;border-radius:8px 8px 0 0;">
+                  <p style="color:#94a3b8;font-size:12px;line-height:1.6;margin:0;">Kevin Glock Statistical Consulting Services<br>Sch&ouml;nebecker Stra&szlig;e 76 | 45359 Essen<br><a href="https://kevinglock.de" style="color:#94a3b8;">kevinglock.de</a> | <a href="mailto:glock.gsc@web.de" style="color:#94a3b8;">glock.gsc@web.de</a></p>
+                </td>
+              </tr>
+            </table>
           </div>
         `,
       }),
@@ -83,13 +114,23 @@ export async function sendAdminNotification(
         to: ADMIN_EMAIL,
         subject: `Neuer Verkauf: ${productName} - ${amountStr}`,
         html: `
-          <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
-            <h2 style="color:#1e3a5f;">Neuer Verkauf</h2>
-            <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="padding:8px 0;font-weight:600;">Produkt:</td><td>${productName}</td></tr>
-              <tr><td style="padding:8px 0;font-weight:600;">Betrag:</td><td>${amountStr}</td></tr>
-              <tr><td style="padding:8px 0;font-weight:600;">Kunde:</td><td>${customerName || "Unbekannt"}</td></tr>
-              <tr><td style="padding:8px 0;font-weight:600;">E-Mail:</td><td>${customerEmail}</td></tr>
+          <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6f9;">
+            <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+              <tr>
+                <td style="background:#1e3a5f;padding:16px 32px;text-align:center;">
+                  <h1 style="color:#ffffff;margin:0;font-size:18px;">Neuer Verkauf</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#ffffff;padding:24px 32px;">
+                  <table style="width:100%;border-collapse:collapse;">
+                    <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Produkt</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-weight:600;font-size:14px;text-align:right;">${productName}</td></tr>
+                    <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Betrag</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-weight:600;font-size:14px;text-align:right;">${amountStr}</td></tr>
+                    <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Kunde</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-size:14px;text-align:right;">${customerName || "Unbekannt"}</td></tr>
+                    <tr><td style="padding:10px 0;color:#64748b;font-size:14px;">E-Mail</td><td style="padding:10px 0;color:#1e3a5f;font-size:14px;text-align:right;">${customerEmail}</td></tr>
+                  </table>
+                </td>
+              </tr>
             </table>
           </div>
         `,
