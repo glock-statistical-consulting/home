@@ -12,7 +12,11 @@
 <meta property="og:url" content="https://www.kevinglock.de/consulting.html">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://www.kevinglock.de/consulting.html">
-<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="img/favicon_io/site.webmanifest">
+<link rel="shortcut icon" href="img/favicon_io/favicon.ico">
 <title data-i18n="title_consulting">Beratung &amp; Datenanalyse | GSC Services</title>
 <link rel="preload" as="image" href="img/body_background_three.jpg">
 <link rel="stylesheet" href="style.css">
@@ -126,47 +130,33 @@
 }
 </script>
 <style>
-.hero-content {
+.hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.1fr 0.5fr;
   gap: 50px;
-  align-items: center;
-  width: 100%;
+  align-items: start;
 }
 
-.hero h1 {
+.hero-grid h1 {
   font-size: clamp(2.8rem, 7vw, 5rem);
   line-height: 1.05;
   margin: 0 0 24px;
   color: white;
   text-align: left;
-  max-width: 650px;
 }
 
-.hero-subtitle {
-  max-width: 650px;
-  margin: 0 0 40px 0;
+.hero-grid .hero-text {
   font-size: 1.15rem;
-  opacity: 0.9;
+  color: rgba(255,255,255,0.85);
+  max-width: 650px;
+  margin-bottom: 40px;
   line-height: 1.5;
-  text-align: left;
 }
 
-.hero-action {
+.hero-grid .hero-actions {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0;
-  border-radius: 0;
-}
-
-.consulting-hero .hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0 24px 0;
 }
 
 .subtitle {
@@ -178,25 +168,28 @@ main > .section-spacer:first-of-type {
 }
 
 @media (max-width: 1024px) {
-  .consulting-hero {
-    padding-top: 80px;
-    padding-bottom: 40px;
-  }
   main > .section-spacer:first-of-type {
     margin-top: 20px;
   }
-  .hero-content {
+}
+
+@media (max-width: 800px) {
+  .hero-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
-  .hero-action {
-    justify-content: center;
+  section.hero {
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+  section.hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-actions {
     flex-direction: column;
-    gap: 8px;
-    align-items: stretch;
-    flex-wrap: nowrap;
-  }
-  .consulting-hero .hero-badges {
-    justify-content: center;
   }
 }
 
@@ -240,22 +233,14 @@ main > .section-spacer:first-of-type {
   </div>
 </nav>
 
-<header class="hero consulting-hero">
-  <div class="hero-inner">
-    <div class="hero-brand">
-      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
-      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
-    </div>
-    <div class="hero-content">
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
       <div>
-        <div class="hero-badges">
-          <div class="hero-badge"><span data-i18n="hero_consulting_badge_1">Beratung</span></div>
-          <div class="hero-badge"><span data-i18n="hero_consulting_badge_2">Analysen</span></div>
-          <div class="hero-badge"><span data-i18n="hero_consulting_badge_3">Projekte</span></div>
-        </div>
+        <span class="hero-badge" data-i18n="hero_consulting_badge">Beratung &bull; Analysen &bull; Projekte</span>
         <h1 data-i18n="hero_consulting_title">Daten in Entscheidungen verwandeln.</h1>
-        <p class="hero-subtitle" data-i18n="hero_consulting_subtitle">Ich unterst&uuml;tze Dich und Dein Team bei Analyse, Methodik und Interpretation. Pers&ouml;nlich, direkt und ohne Umwege.</p>
-        <div class="hero-action">
+        <p class="hero-text" data-i18n="hero_consulting_subtitle">Ich unterst&uuml;tze Dich und Dein Team bei Analyse, Methodik und Interpretation. Pers&ouml;nlich, direkt und ohne Umwege.</p>
+        <div class="hero-actions">
           <a href="#process" class="btn" data-i18n="hero_consulting_pricing_btn">Wie ich arbeite</a>
           <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_consulting_btn">Kostenloses Erstgespr&auml;ch</a>
         </div>
@@ -263,14 +248,14 @@ main > .section-spacer:first-of-type {
       <div></div>
     </div>
   </div>
-</header>
+</section>
 
 <main>
 
 <div class="section-spacer"></div>
 
 <section id="services" class="consulting-services">
-  <h2 data-i18n="cons_services_title">Daten sinnvoll nutzen &mdash; Entscheidungen sicher treffen</h2>
+  <h2 data-i18n="cons_services_title">Datenbasierte Gesch&auml;ftentscheidungen sicher treffen</h2>
   <p class="subtitle" data-i18n="cons_services_subtitle">Unterst&uuml;tzung f&uuml;r Unternehmen bei Analyse, Datenqualit&auml;t, Reporting und datenbasierten Entscheidungsprozessen.</p>
 
   <div class="services-grid">
@@ -280,12 +265,12 @@ main > .section-spacer:first-of-type {
         <h3 data-i18n="cons_new_1_title">Datenanalyse &amp; Reporting</h3>
       </div>
       <div class="service-body-inner">
-        <p data-i18n="cons_new_1_text">Strukturierte Analysen zur Unterst&uuml;tzung operativer und strategischer Entscheidungen.</p>
+        <p data-i18n="cons_new_1_text">Analysen zur Unterst&uuml;tzung operativer und strategischer Entscheidungen.</p>
         <ul>
-          <li data-i18n="cons_new_1_li1">Dashboards &amp; KPIs</li>
-          <li data-i18n="cons_new_1_li2">A/B-Testing &amp; Experimente</li>
-          <li data-i18n="cons_new_1_li3">Reporting &amp; Visualisierung</li>
-          <li data-i18n="cons_new_1_li4">SQL, Python &amp; Statistik</li>
+          <li data-i18n="cons_new_1_li1">Individuelle Analysen</li>
+          <li data-i18n="cons_new_1_li2">Testungen, Experimente &amp; Optimierungen</li>
+          <li data-i18n="cons_new_1_li3">KPIs, Reporting &amp; Visualisierung</li>
+          <li data-i18n="cons_new_1_li4">SQL, R &amp; Python</li>
         </ul>
       </div>
     </div>
@@ -295,12 +280,12 @@ main > .section-spacer:first-of-type {
         <h3 data-i18n="cons_new_2_title">Team Enablement</h3>
       </div>
       <div class="service-body-inner">
-        <p data-i18n="cons_new_2_text">Schulungen und Workshops f&uuml;r Teams, die Daten sicherer interpretieren und nutzen m&ouml;chten.</p>
+        <p data-i18n="cons_new_2_text">Schulungen und Workshops, um Daten zu nutzen und sicher zu interpretieren.</p>
         <ul>
-          <li data-i18n="cons_new_2_li1">Statistik &amp; Datenkompetenz im Unternehmen</li>
-          <li data-i18n="cons_new_2_li2">Python / R / Excel Trainings</li>
-          <li data-i18n="cons_new_2_li3">Analyse-Workflows</li>
-          <li data-i18n="cons_new_2_li4">Individuelle Workshops</li>
+          <li data-i18n="cons_new_2_li1">Statistikgrundlagen &amp; Datenkompetenz im Unternehmen</li>
+          <li data-i18n="cons_new_2_li2">Individuelles Training</li>
+          <li data-i18n="cons_new_2_li3">Hands-on Visualisierung</li>
+          <li data-i18n="cons_new_2_li4">Reporting &amp; Datenbasiertes Entscheiden</li>
         </ul>
       </div>
     </div>
@@ -310,12 +295,12 @@ main > .section-spacer:first-of-type {
         <h3 data-i18n="cons_new_3_title">Datenqualit&auml;t &amp; Prozesse</h3>
       </div>
       <div class="service-body-inner">
-        <p data-i18n="cons_new_3_text">Strukturierte Daten als Grundlage f&uuml;r zuverl&auml;ssige Entscheidungen.</p>
+        <p data-i18n="cons_new_3_text">Datenmanagement als Grundlage f&uuml;r verl&auml;ssliche Gesch&auml;ftsentscheidungen.</p>
         <ul>
-          <li data-i18n="cons_new_3_li1">Datenvalidierung</li>
-          <li data-i18n="cons_new_3_li2">Dokumentation &amp; Standards</li>
-          <li data-i18n="cons_new_3_li3">Versionierung</li>
-          <li data-i18n="cons_new_3_li4">Qualit&auml;tssicherung</li>
+          <li data-i18n="cons_new_3_li1">Best Practices: Datenmanagement</li>
+          <li data-i18n="cons_new_3_li2">Dokumentation &amp; Standardisierung</li>
+          <li data-i18n="cons_new_3_li3">Versionierung &amp; DevOps</li>
+          <li data-i18n="cons_new_3_li4">Optmierung &amp; Automatisierung</li>
         </ul>
       </div>
     </div>
@@ -366,14 +351,26 @@ main > .section-spacer:first-of-type {
       </ul>
     </div>
 
+    <div class="card" data-card="Courses">
+      <span class="badge" data-i18n="badge_course">Individuell</span>
+      <h2 data-i18n="price_course">Training</h2>
+      <p class="price-note" data-i18n="price_course_note">F&uuml;r Team Enablement &amp; Kompetenztraining.</p>
+      <ul class="feature-list">
+        <li data-i18n="crs_li1">Individuell zugeschnittener Kurs</li>
+        <li data-i18n="crs_li2">Datenkompetenz und Datenmanagement</li>
+        <li data-i18n="crs_li3">Optimierung, Standardisierung &amp; Automatisierung</li>
+      </ul>
+    </div>
+
     <div class="card" data-card="Project">
       <span class="badge" data-i18n="badge_project">Empfohlen</span>
       <h2 data-i18n="price_project">Project Support</h2>
       <p class="price-note" data-i18n="price_project_note">F&uuml;r Teams mit regelm&auml;&szlig;igen Bedarfen.</p>
       <ul class="feature-list">
-        <li data-i18n="proj_li1">Anforderungsanalyse &amp; Methodische Konzepte</li>
+        <li data-i18n="proj_li1">Anforderungsaufnahme &amp; Methodische Konzeption</li>
         <li data-i18n="proj_li2">Workshop &amp; Training</li>
-        <li data-i18n="proj_li3">Langfristige Beratung</li>
+        <li data-i18n="proj_li3">Optimierung, Standardisierung &amp; Automatisierung</li>
+        <li data-i18n="proj_li4">Langfristige Beratung</li>
       </ul>
     </div>
 

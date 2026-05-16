@@ -12,7 +12,11 @@
 <meta property="og:url" content="https://www.kevinglock.de/about.html">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://www.kevinglock.de/about.html">
-<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="img/favicon_io/site.webmanifest">
+<link rel="shortcut icon" href="img/favicon_io/favicon.ico">
 <title data-i18n="title_about">Über mich | GSC Services</title>
 <link rel="preload" as="image" href="img/body_background_three.jpg">
 <link rel="stylesheet" href="style.css">
@@ -271,20 +275,20 @@ main > .section-spacer:first-of-type {
 }
 
 /* Hero desktop layout */
-.about-hero .hero-inner {
+.container {
   max-width: 1200px;
-  padding: 5px 20px 20px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.about-hero .hero-content {
+.hero-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.5fr;
   gap: 50px;
-  align-items: center;
-  width: 100%;
+  align-items: start;
 }
 
-.about-hero .hero-content h1 {
+.hero-grid h1 {
   font-size: clamp(2.8rem, 7vw, 5rem);
   line-height: 1.05;
   margin-top: 0;
@@ -293,20 +297,12 @@ main > .section-spacer:first-of-type {
   text-align: left;
 }
 
-.about-hero .hero-content .hero-subtitle {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0.9;
+.hero-grid .hero-text {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 650px;
   margin-bottom: 40px;
-  max-width: 620px;
-  text-align: left;
-}
-
-.about-hero .hero-content .hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0 24px 0;
+  line-height: 1.5;
 }
 
 .badge {
@@ -327,39 +323,24 @@ main > .section-spacer:first-of-type {
   border-color: rgba(255,255,255,0.5);
 }
 
-.about-hero .hero-content .hero-actions {
+.hero-grid .hero-actions {
   display: flex;
-  gap: 12px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
-.about-hero .hero-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+.hero-grid .hero-card {
+  background: rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 14px 16px;
-  color: white;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
-.about-hero .hero-content > h1 {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: clamp(2.8rem, 7vw, 5rem);
-  line-height: 1.05;
-  margin-top: 0;
-  margin-bottom: 16px;
+.hero-grid .hero-card h3 {
+  margin: 0 0 16px;
   color: white;
-  text-align: left;
-}
-
-.about-hero .hero-content > .hero-subtitle {
-  grid-column: 1;
-  grid-row: 2;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: 16px;
-  max-width: 620px;
+  font-size: 1.15rem;
   text-align: left;
 }
 
@@ -413,38 +394,6 @@ main > .section-spacer:first-of-type {
   border-color: rgba(255,255,255,0.5);
 }
 
-.about-hero .hero-content > .hero-actions {
-  grid-column: 1;
-  grid-row: 4;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.about-hero .hero-card {
-  grid-column: 2;
-  grid-row: 1 / 5;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 14px;
-  padding: 14px 16px;
-  color: white;
-}
-
-.about-hero .hero-card h3 {
-  margin-top: 0;
-  margin-bottom: 14px;
-  font-size: 1.15rem;
-  color: white;
-}
-
-.about-hero .hero-card p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: 18px;
-}
-
 .hero-list {
   list-style: none;
   padding: 0;
@@ -484,33 +433,26 @@ main > .section-spacer:first-of-type {
   margin-bottom: 15px;
 }
 
-@media (max-width: 1100px) {
-  .about-hero {
-    padding-top: 80px;
-    padding-bottom: 40px;
-  }
-  .about-hero .hero-content {
+@media (max-width: 800px) {
+  .hero-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 30px;
   }
-  .about-hero .hero-card {
-    grid-column: 1;
-    grid-row: auto;
+  section.hero {
+    padding-top: 80px;
+    padding-bottom: 30px;
   }
-  .about-hero .hero-content .hero-badges {
-    justify-content: center;
+  section.hero h1 {
+    font-size: 1.8rem;
   }
-  .about-hero .hero-content .hero-actions {
-    justify-content: center;
-    flex-direction: column;
+  .hero-grid .hero-card {
+    padding: 14px 16px;
   }
 }
 
-@media (max-width: 768px) {
-  .about-hero .hero-content h1 {
-    font-size: 1.8rem;
-    overflow-wrap: break-word;
-    word-break: break-word;
+@media (max-width: 500px) {
+  .hero-actions {
+    flex-direction: column;
   }
 }
 </style>
@@ -543,37 +485,29 @@ main > .section-spacer:first-of-type {
   </div>
 </nav>
 
-<header class="hero about-hero">
-  <div class="hero-inner">
-    <div class="hero-brand">
-      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
-      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
-    </div>
-    <div class="hero-content">
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
       <div>
-        <div class="hero-badges">
-          <div class="hero-badge"><span data-i18n="hero_about_badge_1">+8 Jahre Erfahrung</span></div>
-          <div class="hero-badge"><span data-i18n="hero_about_badge_2">M.Sc. Statistik</span></div>
-          <div class="hero-badge"><span data-i18n="hero_about_badge_4">IT &amp; Data Consulting</span></div>
-        </div>
+        <span class="hero-badge" data-i18n="hero_about_badge">+8 Jahre Erfahrung &bull; M.Sc. Statistik &bull; IT &amp; Data Consulting</span>
         <h1 data-i18n="hero_about_title">Statistik, die Sinn ergibt.</h1>
-        <p class="hero-subtitle" data-i18n="hero_about_subtitle">Ich bin Kevin Glock und helfe Dir und Deinem Team, Daten in klare Entscheidungen zu verwandeln.</p>
+        <p class="hero-text" data-i18n="hero_about_subtitle">Ich bin Kevin Glock und helfe Dir und Deinem Team, Daten in klare Entscheidungen zu verwandeln.</p>
         <div class="hero-actions">
           <a href="nachhilfe.html" class="btn hero-btn-primary" data-i18n="hero_student_btn">F&uuml;r Studium</a>
           <a href="consulting.html" class="btn hero-btn-secondary" data-i18n="hero_company_btn">F&uuml;r Unternehmen</a>
         </div>
       </div>
-      <div class="hero-card">
+      <aside class="hero-card">
         <h3 data-i18n="hero_about_card_title">So arbeite ich</h3>
         <ul class="hero-list">
           <li data-i18n="hero_about_card_li1">Klar erkl&auml;rt, kein Jargon</li>
           <li data-i18n="hero_about_card_li2">Aus Theorie wird Praxis</li>
           <li data-i18n="hero_about_card_li3">Individuelle Betreuung</li>
         </ul>
-      </div>
+      </aside>
     </div>
   </div>
-</header>
+</section>
 
 <main>
 

@@ -140,6 +140,12 @@ html{
   height: 20px;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .hero {
   width: 100%;
   background: #1B263B;
@@ -966,11 +972,17 @@ footer p {
 }
 
 .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
+  color: white;
   padding: 14px 16px;
   border-radius: 14px;
   font-size: 0.9rem;
+  box-sizing: border-box;
+  margin-bottom: 24px;
 }
 
 .hero-badges .badge {
@@ -993,6 +1005,14 @@ footer p {
 .pricing-grid .card {
   display: flex;
   flex-direction: column;
+}
+
+.pricing-grid .card h2 {
+  min-height: 3rem;
+}
+
+.pricing-grid .price-note {
+  min-height: 3em;
 }
 
 .pricing-grid .feature-list {

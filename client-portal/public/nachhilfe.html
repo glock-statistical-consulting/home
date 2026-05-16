@@ -12,7 +12,11 @@
 <meta property="og:url" content="https://www.kevinglock.de/nachhilfe.html">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://www.kevinglock.de/nachhilfe.html">
-<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="img/favicon_io/site.webmanifest">
+<link rel="shortcut icon" href="img/favicon_io/favicon.ico">
 <title data-i18n="title_services">Nachhilfe &amp; Studium | GSC Services</title>
 <link rel="preload" as="image" href="img/body_background_four.jpg">
 <link rel="stylesheet" href="style.css">
@@ -154,52 +158,38 @@
 }
 
 /* Hero desktop layout */
-.hero-content {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 50px;
-  align-items: center;
-  width: 100%;
-}
-
 .lib-icon {
   height: 2.5rem;
   width: auto;
 }
 
-.hero h1 {
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.5fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.hero-grid h1 {
   font-size: clamp(2.8rem, 7vw, 5rem);
   line-height: 1.05;
   margin: 0 0 24px;
   color: white;
   text-align: left;
-  max-width: 650px;
 }
 
-.hero-subtitle {
-  max-width: 650px;
-  margin: 0 0 40px 0;
+.hero-grid .hero-text {
   font-size: 1.15rem;
-  opacity: 0.9;
+  color: rgba(255,255,255,0.85);
+  max-width: 650px;
+  margin-bottom: 40px;
   line-height: 1.5;
-  text-align: left;
 }
 
-.hero-action {
+.hero-grid .hero-actions {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0;
-  border-radius: 0;
-}
-
-.hero .hero-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0 24px 0;
 }
 
 .subtitle {
@@ -214,29 +204,34 @@
 }
 
 @media (max-width: 1024px) {
-  header.hero {
-    padding-top: 80px;
-    padding-bottom: 40px;
-  }
   .services-grid {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
-  .hero-content {
+}
+
+@media (max-width: 800px) {
+  .hero-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
-  .hero-action {
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-    align-items: stretch;
-    flex-wrap: nowrap;
+  section.hero {
+    padding-top: 80px;
+    padding-bottom: 30px;
   }
-  .hero .hero-badges {
-    justify-content: center;
+  section.hero h1 {
+    font-size: 1.8rem;
   }
 }
+
+@media (max-width: 500px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+}
+
+
 
 #pricing {
   scroll-margin-top: 90px;
@@ -298,22 +293,14 @@ main > .section-spacer:first-of-type {
   </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-brand">
-      <!--img src="img/logo.svg" alt="GSC Logo" class="hero-logo">
-      <img src="img/logo-compact.svg" alt="GSC Logo" class="hero-logo-compact"-- IGNORE --->
-    </div>
-    <div class="hero-content">
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
       <div>
-        <div class="hero-badges">
-          <div class="hero-badge"><span data-i18n="hero_nachhilfe_badge_1">Pr&uuml;fungsvorbereitung</span></div>
-          <div class="hero-badge"><span data-i18n="hero_nachhilfe_badge_2">Analysen</span></div>
-          <div class="hero-badge"><span data-i18n="hero_nachhilfe_badge_3">Thesis</span></div>
-        </div>
+        <span class="hero-badge" data-i18n="hero_nachhilfe_badge">Pr&uuml;fungsvorbereitung &bull; Analysen &bull; Thesis</span>
         <h1 data-i18n="hero_nachhilfe_title">Pr&uuml;fungen bestehen. Probleme l&ouml;sen. Statistik verstehen.</h1>
-        <p class="hero-subtitle" data-i18n="hero_nachhilfe_subtitle">Ich unterst&uuml;tze bei Statistik, Analyse und Abschlussarbeiten. Auf den Punkt erkl&auml;rt, ohne Umwege.</p>
-        <div class="hero-action">
+        <p class="hero-text" data-i18n="hero_nachhilfe_subtitle">Ich unterst&uuml;tze bei Statistik, Analyse und Abschlussarbeiten. Auf den Punkt erkl&auml;rt, ohne Umwege.</p>
+        <div class="hero-actions">
           <a href="#process" class="btn" data-i18n="hero_nachhilfe_pricing_btn">Wie ich arbeite</a>
           <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_nachhilfe_btn">Kostenloses Erstgespr&auml;ch</a>
         </div>
@@ -321,7 +308,7 @@ main > .section-spacer:first-of-type {
       <div></div>
     </div>
   </div>
-</header>
+</section>
 
 <main>
 
@@ -342,10 +329,10 @@ main > .section-spacer:first-of-type {
         <div class="service-body-inner">
           <p data-i18n="nach_1_text">Du verstehst endlich, was hinter den Methoden wirklich steckt.</p>
           <ul>
-            <li data-i18n="nach_1_li1">Grundlagen &amp; Denkweise der Statistik</li>
-            <li data-i18n="nach_1_li2">Hypothesentests &amp; Regression verst&auml;ndlich erkl&auml;rt</li>
-            <li data-i18n="nach_1_li3">Konfidenzintervalle &amp; Wahrscheinlichkeiten</li>
-            <li data-i18n="nach_1_li4">SPSS, R &amp; Python Einf&uuml;hrung</li>
+            <li data-i18n="nach_1_li1">Grundlagen &amp; statistische Denkweise</li>
+            <li data-i18n="nach_1_li2">Annahmen &amp; Abh&auml;ngigkeiten einfach erkl&auml;rt</li>
+            <li data-i18n="nach_1_li3">Sich sicher sein mit Aussagen</li>
+            <li data-i18n="nach_1_li4">Statistische Programmierung</li>
           </ul>
         </div>
       </div>
@@ -362,7 +349,7 @@ main > .section-spacer:first-of-type {
           <ul>
             <li data-i18n="nach_2_li1">Datenaufbereitung &amp; Cleaning</li>
             <li data-i18n="nach_2_li2">Deskriptive &amp; explorative Analysen</li>
-            <li data-i18n="nach_2_li3">Regression &amp; ANOVA</li>
+            <li data-i18n="nach_2_li3">Zusammenh&auml;nge, Gruppenvergleiche &amp; Streuungen</li>
             <li data-i18n="nach_2_li4">Interpretation deiner Ergebnisse</li>
           </ul>
         </div>
@@ -396,7 +383,7 @@ main > .section-spacer:first-of-type {
         <div class="service-body-inner">
           <p data-i18n="nach_4_text">F&uuml;r Master &amp; Promotion mit komplexen Fragestellungen.</p>
           <ul>
-            <li data-i18n="nach_4_li1">Multivariate Verfahren</li>
+            <li data-i18n="nach_4_li1">Verfahren mit mehreren Variablen</li>
             <li data-i18n="nach_4_li2">Modellierung &amp; Interpretation</li>
             <li data-i18n="nach_4_li3">Poweranalyse &amp; Studiendesign</li>
             <li data-i18n="nach_4_li4">Forschungsorientierte Beratung</li>
@@ -446,33 +433,36 @@ main > .section-spacer:first-of-type {
     <div class="card" data-card="Basics">
       <span class="badge" data-i18n="badge_basics">Einstieg</span>
       <h2 data-i18n="price_basics">Basics</h2>
+      <p class="price-note" data-i18n="price_basics_note">F&uuml;r kleine Analysen und methodische Beratung.</p>
       <p class="price">45&ndash;60 &euro; <span data-i18n="price_unit">/ Std.</span></p>
       <ul class="feature-list">
         <li data-i18n="nach_b_feat1">Grundlagen der Statistik</li>
         <li data-i18n="nach_b_feat2">Einf&uuml;hrung SPSS / R / Python</li>
         <li data-i18n="nach_b_feat3">Klausurvorbereitung</li>
-        <li data-i18n="nach_b_feat4">Visualisierung &amp; Datens&auml;tze</li>
+        <li data-i18n="nach_b_feat4">Visualisierungen &amp; kleine Analysen</li>
       </ul>
     </div>
 
     <div class="card" data-card="Advanced">
-      <span class="badge" data-i18n="badge_advanced">Beliebt</span>
+      <span class="badge" data-i18n="badge_advanced">Absolventen</span>
       <h2 data-i18n="price_advanced">Advanced</h2>
+      <p class="price-note" data-i18n="price_advanced_note">Analysen und Unterst&uuml;tzung f&uuml;r Abschlussarbeiten</p>
       <p class="price">60&ndash;75 &euro; <span data-i18n="price_unit">/ Std.</span></p>
       <ul class="feature-list">
-        <li data-i18n="nach_a_feat1">Regression &amp; ANOVA</li>
-        <li data-i18n="nach_a_feat2">Masterarbeiten</li>
-        <li data-i18n="nach_a_feat3">Multivariate Verfahren</li>
-        <li data-i18n="nach_a_feat4">Methodik &amp; Interpretation</li>
+        <li data-i18n="nach_a_feat1">Auswertungen von Zusammenh&auml;ngen, Streuungen &amp; Gruppenvergleiche</li>
+        <li data-i18n="nach_a_feat2">Bachelor- &amp; Masterarbeit</li>
+        <li data-i18n="nach_a_feat3">Analysen mit mehreren Variablen</li>
+        <li data-i18n="nach_a_feat4">Lektorat, Interpretation &amp; Darstellung</li>
       </ul>
     </div>
 
     <div class="card" data-card="Expert">
           <span class="badge" data-i18n="badge_expert">Dissertation</span>
       <h2 data-i18n="price_expert">Expert</h2>
+      <p class="price-note" data-i18n="price_expert_note">Analysen und Unterst&uuml;tzung f&uuml;r Doktoranden</p>
       <p class="price">75&ndash;90 &euro; <span data-i18n="price_unit">/ Std.</span></p>
       <ul class="feature-list">
-        <li data-i18n="nach_e_feat1">PhD-Level Statistik</li>
+        <li data-i18n="nach_e_feat1">Analysen f&uuml;r Doktoranden</li>
         <li data-i18n="nach_e_feat2">Bayesian Statistics</li>
         <li data-i18n="nach_e_feat3">Komplexe Modellierung</li>
         <li data-i18n="nach_e_feat4">Individuelle Betreuung</li>
@@ -511,12 +501,13 @@ main > .section-spacer:first-of-type {
     <aside class="library-preview">
       <div class="preview-box">
         <h3 data-i18n="lib_preview_title">Statistics Library</h3>
-        <p class="preview-price">9&ndash;39 &euro;</p>
+        <p class="preview-price">12&ndash;49 &euro;</p>
         <ul class="preview-list">
           <li data-i18n="lib_preview_li1">Video Tutorials</li>
           <li data-i18n="lib_preview_li2">PDF-Skripte</li>
           <li data-i18n="lib_preview_li3">&Uuml;bungsaufgaben</li>
           <li data-i18n="lib_preview_li4">SPSS / R / Python</li>
+          <strong><li data-i18n="lib_preview_li5">Einzel- oder Vollzugriff</li></strong>
         </ul>
       </div>
     </aside>
