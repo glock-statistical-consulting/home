@@ -35,6 +35,36 @@
     pointer-events: none;
   }
   .card .btn-card { margin-top: 1rem; width: 100%; }
+  .trust-bar {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .trust-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+    padding: 0 20px;
+  }
+  .trust-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .trust-grid .trust-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1f2937;
+    border: 1px solid #e2e8f0;
+  }
 </style>
 <!-- Strukturierte Daten (Schema.org) -->
 <script type="application/ld+json">
