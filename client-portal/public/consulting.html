@@ -34,36 +34,7 @@
     z-index: -1;
     pointer-events: none;
   }
-  .trust-bar {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    background: white;
-    padding: 20px 0;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-  .trust-grid {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: grid;
-    gap: 12px;
-    padding: 0 20px;
-  }
-  .trust-grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .trust-grid .trust-item {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #f8fafc;
-    border-radius: 12px;
-    padding: 14px 10px;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #1f2937;
-    border: 1px solid #e2e8f0;
-  }
+  .card .btn-card { margin-top: 1rem; width: 100%; }
 </style>
 <!-- Strukturierte Daten (Schema.org) -->
 <script type="application/ld+json">
@@ -349,6 +320,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="adv_li2">Datenanalyse &amp; Reporting</li>
         <li data-i18n="adv_li3">Feedback &amp; Handlungsempfehlungen</li>
       </ul>
+      <a href="#contact" class="btn btn-card open-modal" data-i18n="btn_checkout_advisory">Anfrage senden</a>
     </div>
 
     <div class="card" data-card="Courses">
@@ -360,6 +332,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="crs_li2">Datenkompetenz und Datenmanagement</li>
         <li data-i18n="crs_li3">Optimierung, Standardisierung &amp; Automatisierung</li>
       </ul>
+      <a href="#contact" class="btn btn-card open-modal" data-i18n="btn_checkout_course">Angebot anfragen</a>
     </div>
 
     <div class="card" data-card="Project">
@@ -372,6 +345,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="proj_li3">Optimierung, Standardisierung &amp; Automatisierung</li>
         <li data-i18n="proj_li4">Langfristige Beratung</li>
       </ul>
+      <a href="#contact" class="btn btn-card open-modal" data-i18n="btn_checkout_project">Angebot anfragen</a>
     </div>
 
   </div>
@@ -500,6 +474,7 @@ main > .section-spacer:first-of-type {
 <div class="toast-success" id="toast" data-i18n="toast_inquiry">Anfrage erfolgreich!</div>
 
 <script src="translations.js"></script>
+<script src="js/stripe-checkout.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
     const burger = document.getElementById("burger");

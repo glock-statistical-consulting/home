@@ -34,6 +34,11 @@
     z-index: -1;
     pointer-events: none;
   }
+  .card .btn-card { margin-top: 1rem; width: 100%; }
+  .btn-sm { padding: 0.5rem 1rem; font-size: 0.9rem; }
+  .btn-secondary { background: var(--color-primary); opacity: 0.85; }
+
+
 </style>
 <!-- Strukturierte Daten (Schema.org) -->
 <script type="application/ld+json">
@@ -439,6 +444,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="nach_b_feat3">Klausurvorbereitung</li>
         <li data-i18n="nach_b_feat4">Visualisierungen &amp; kleine Analysen</li>
       </ul>
+      <button class="btn btn-card" onclick="stripeCheckout('tutoring_single', this)" data-i18n="btn_checkout_basics">45€ Einzelsitzung buchen</button>
     </div>
 
     <div class="card" data-card="Advanced">
@@ -452,6 +458,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="nach_a_feat3">Analysen mit mehreren Variablen</li>
         <li data-i18n="nach_a_feat4">Lektorat, Interpretation &amp; Darstellung</li>
       </ul>
+      <a href="#contact" class="btn btn-card open-modal btn-book" data-i18n="btn_checkout_advanced">Beratung anfragen</a>
     </div>
 
     <div class="card" data-card="Expert">
@@ -465,6 +472,7 @@ main > .section-spacer:first-of-type {
         <li data-i18n="nach_e_feat3">Komplexe Modellierung</li>
         <li data-i18n="nach_e_feat4">Individuelle Betreuung</li>
       </ul>
+      <a href="#contact" class="btn btn-card open-modal btn-book" data-i18n="btn_checkout_expert">Beratung anfragen</a>
     </div>
 
   </div>
@@ -507,6 +515,7 @@ main > .section-spacer:first-of-type {
           <li data-i18n="lib_preview_li4">SPSS / R / Python</li>
           <strong><li data-i18n="lib_preview_li5">Einzel- oder Vollzugriff</li></strong>
         </ul>
+        <button class="btn" onclick="stripeCheckout('library_bundle', this)" data-i18n="btn_library_bundle">Bundle kaufen &ndash; 49&euro;</button>
       </div>
     </aside>
   </article>
@@ -621,6 +630,7 @@ main > .section-spacer:first-of-type {
 <div class="toast-success" id="toast" data-i18n="toast_booking">Buchung erfolgreich!</div>
 
 <script src="translations.js"></script>
+<script src="js/stripe-checkout.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
     const burger = document.getElementById("burger");
