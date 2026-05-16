@@ -79,6 +79,8 @@ function SuccessContent() {
               <a
                 key={i}
                 href={item.fileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block p-4 border rounded-lg hover:bg-gray-50 transition"
               >
                 <div className="font-medium">{item.name}</div>
