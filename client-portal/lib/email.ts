@@ -11,7 +11,8 @@ export async function sendPurchaseConfirmation(
   customerEmail: string,
   customerName: string,
   productName: string,
-  downloadLinks: { name: string; url: string }[]
+  downloadLinks: { name: string; url: string }[],
+  bundleUrl?: string
 ): Promise<SendResult> {
   if (!RESEND_API_KEY) return { success: false, error: "Resend not configured" }
 
@@ -36,6 +37,7 @@ export async function sendPurchaseConfirmation(
             <p>Hallo ${customerName || "Kunde"},</p>
             <p>du hast <strong>${productName}</strong> erworben.</p>
             ${downloadLinks.length > 0 ? `<p>Hier sind deine Download-Links:</p><ul>${downloadHtml}</ul>` : ""}
+            ${bundleUrl ? `<p style="margin-top:16px;"><a href="${bundleUrl}" style="display:inline-block;background:#2563eb;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;">Alle Downloads als ZIP</a></p>` : ""}
             <p>Bei Fragen oder weiterem Unterstützungsbedarf antworte einfach auf diese E-Mail oder buche eine <a href="https://kevinglock.de/nachhilfe.html" style="color:#2563eb;">Nachhilfe-Sitzung</a>.</p>
             <br>
             <p>Viele Grüße,<br>Kevin Glock</p>

@@ -50,7 +50,7 @@ function SuccessContent() {
         <h1 className="text-2xl font-bold mb-4">Fehler</h1>
         <p className="text-gray-600 mb-4">{error}</p>
         <p className="text-gray-500 text-sm">
-          Falls du bereits bezahlt hast, prüfe deine E-Mails für die Download-Links
+          Falls du bereits bezahlt hast, pr&uuml;fe deine E-Mails f&uuml;r die Download-Links
           oder kontaktiere mich.
         </p>
       </div>
@@ -72,15 +72,23 @@ function SuccessContent() {
       </div>
 
       {downloads.length > 0 && (
-        <div className="bg-white rounded-xl shadow-sm border p-6">
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-4">
           <h2 className="text-xl font-semibold mb-4">Deine Downloads</h2>
-          <div className="space-y-3">
+
+          {downloads.length > 1 && (
+            <a
+              href={"/api/download/bundle?productKey=" + productKey}
+              className="block w-full text-center bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 mb-6"
+            >
+              Alle herunterladen (ZIP)
+            </a>
+          )}
+
+          <div className="space-y-2">
             {downloads.map((item: DownloadItem, i: number) => (
               <a
                 key={i}
-                href={item.fileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={"/api/download?file=" + encodeURIComponent(item.fileUrl)}
                 className="block p-4 border rounded-lg hover:bg-gray-50 transition"
               >
                 <div className="font-medium">{item.name}</div>

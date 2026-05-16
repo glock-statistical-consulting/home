@@ -68,18 +68,21 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const customerEmail = session.customer_details?.email
   const customerName = session.customer_details?.name || ""
 
-  const origin = "https://kevinglock.de"
-
+  const baseUrl = "https://kevinglock.de"
   const downloads = getDownloads(productKey).map((d) => ({
     name: d.name,
-    url: `${origin}${d.fileUrl}`,
+    url: `${baseUrl}/api/download?file=${encodeURIComponent(d.fileUrl)}`,
   }))
 
   const emailPromises: Promise<unknown>[] = []
 
+  const bundleUrl = downloads.length > 1
+    ? `${baseUrl}/api/download/bundle?productKey=${productKey}`
+    : undefined
+
   if (customerEmail) {
     emailPromises.push(
-      sendPurchaseConfirmation(customerEmail, customerName, productName, downloads)
+      sendPurchaseConfirmation(customerEmail, customerName, productName, downloads, bundleUrl)
         .then((r) => {
           if (!r.success) console.error("Purchase email failed:", r.error)
         })
