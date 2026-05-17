@@ -531,7 +531,7 @@
   },
   "email": "glock.gsc@web.de",
   "url": "https://www.kevinglock.de/nachhilfe.html",
-  "priceRange": "â‚¬â‚¬",
+  "priceRange": "\u20AC\u20AC",
   "areaServed": "DE",
   "knowsAbout": ["Statistik", "Data Science", "SPSS", "R", "Python", "Machine Learning"],
   "sameAs": [
@@ -1285,7 +1285,7 @@ main > .section-spacer:first-of-type {
       var base = level === 'einstieg' ? 45 : level === 'absolventen' ? 60 : 75;
       var p5 = Math.round(base * 5 * 0.9);
       var p10 = Math.round(base * 10 * 0.85);
-      return { single: base, pkg5: p5, pkg10: p10, note5: Math.round(base * 0.9) + ' â‚¬/Std.', note10: Math.round(base * 0.85) + ' â‚¬/Std.' };
+      return { single: base, pkg5: p5, pkg10: p10, note5: Math.round(base * 0.9) + '\u20AC/Std.', note10: Math.round(base * 0.85) + '\u20AC/Std.' };
     }
 
     function selectLevel(level) {
@@ -1301,10 +1301,10 @@ main > .section-spacer:first-of-type {
       var nSingle = document.getElementById('bkNoteSingle');
       var n5 = document.getElementById('bkNote5');
       var n10 = document.getElementById('bkNote10');
-      if (singleEl) singleEl.textContent = p.single + 'â‚¬';
-      if (p5El) p5El.textContent = p.pkg5 + 'â‚¬';
-      if (p10El) p10El.textContent = p.pkg10 + 'â‚¬';
-      if (nSingle) nSingle.textContent = p.single + ' â‚¬/Std.';
+      if (singleEl) singleEl.textContent = p.single + '\u20AC';
+      if (p5El) p5El.textContent = p.pkg5 + '\u20AC';
+      if (p10El) p10El.textContent = p.pkg10 + '\u20AC';
+      if (nSingle) nSingle.textContent = p.single + ' \u20AC/Std.';
       if (n5) n5.textContent = p.note5;
       if (n10) n10.textContent = p.note10;
     }
