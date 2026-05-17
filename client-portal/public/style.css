@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --azure: #007FFF;
   --deep-sea: #003366;
   --orange: #FF6600;
@@ -80,7 +80,7 @@ html{
 .burger {
   display: none;
   font-size: 1.8rem;
-  color: white;
+  color:#FAFAF8;
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@ html{
 
 .navbar a {
   text-decoration: none;
-  color: white;
+  color:#FAFAF8;
   font-weight: 500;
   font-size: 1.05rem;
 }
@@ -149,7 +149,7 @@ html{
 .hero {
   width: 100%;
   background: #1B263B;
-  color: white;
+  color:#FAFAF8;
   opacity: 1;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.17);
   padding-top: 150px;
@@ -167,7 +167,7 @@ html{
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: white;
+  color:#FAFAF8;
 }
 
 .hero-subtitle {
@@ -224,7 +224,7 @@ html{
 }
 
 .hero-scrolled-text {
-  color: white;
+  color:#FAFAF8;
   font-size: 0.95rem;
   font-weight: 600;
   white-space: nowrap;
@@ -238,11 +238,11 @@ html{
   line-height: 1.2;
   padding: 14px 16px;
   background: linear-gradient(90deg, #FF5C00, #FF6600);
-  color: white;
+  color:#FAFAF8;
   text-decoration: none;
   border-radius: 14px;
   cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.33);
+  border: 1px solid rgba(250,250,248,0.33);
   font-size: 1rem;
   font-weight: 600;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -254,8 +254,8 @@ html{
 .btn:hover {
   transform: none;
   box-shadow: none;
-  border-color: rgba(255,255,255,0.7);
-  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.06)), linear-gradient(90deg, #FF5C00, #FF6600);
+  border-color: rgba(250,250,248,0.7);
+  background: linear-gradient(90deg, rgba(250,250,248,0.06), rgba(250,250,248,0.06)), linear-gradient(90deg, #FF5C00, #FF6600);
 }
 /*box-shadow: 0 6px 14px rgba(0,0,0,0.2);*/
 
@@ -275,8 +275,8 @@ html{
   border-radius: 14px;
   text-decoration: none;
   font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.5);
-  color: white;
+  border: 1px solid rgba(250,250,248,0.5);
+  color:#FAFAF8;
   background: transparent;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 1rem;
@@ -286,13 +286,13 @@ html{
 }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.8);
+  background: rgba(250,250,248,0.1);
+  border-color: rgba(250,250,248,0.8);
 }
 
 .hero-btn-primary {
   background: linear-gradient(90deg, #FF5C00, #FF6600);
-  color: white;
+  color:#FAFAF8;
 }
 
 .hero-btn-primary:hover {
@@ -301,13 +301,13 @@ html{
 
 .hero-btn-secondary {
   background: transparent;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.5);
+  color:#FAFAF8;
+  border: 1px solid rgba(250,250,248,0.5);
 }
 
 .hero-btn-secondary:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.8);
+  background: rgba(250,250,248,0.1);
+  border-color: rgba(250,250,248,0.8);
 }
 
 /* MODAL */
@@ -335,7 +335,7 @@ html{
 }
 
 .modal {
-  background: white;
+  background:#FAFAF8;
   border-radius: 12px;
   padding: 35px;
   max-width: 500px;
@@ -477,7 +477,7 @@ h1, h2 {
  }
 
 .feature-card {
-  background: white;
+  background:#FAFAF8;
   border-radius: 12px;
   padding: 30px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -582,7 +582,7 @@ h1, h2 {
 /* CTA */
 .cta {
   background: var(--deep-sea);
-  color: white;
+  color:#FAFAF8;
   border-radius: 12px;
   padding: 20px 20px;
   text-align: center;
@@ -590,7 +590,7 @@ h1, h2 {
 }
 
 .cta h2 {
-  color: white;
+  color:#FAFAF8;
   margin: 0 0 10px;
   opacity: 0.95;
 }
@@ -615,7 +615,7 @@ h1, h2 {
 }
 
 .about-content .service-card {
-  background: white;
+  background:#FAFAF8;
   border-radius: 12px;
   border: 2px solid transparent;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
@@ -700,7 +700,7 @@ input, textarea {
 
 button {
   background: linear-gradient(90deg, #FF5C00, #FF6600);
-  color: white;
+  color:#FAFAF8;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -790,7 +790,7 @@ footer {
 }
 
 footer p {
-  color: white;
+  color:#FAFAF8;
   margin: 5px 0;
 }
 
@@ -803,7 +803,7 @@ footer p {
 }
 
 .card {
-  background: white;
+  background:#FAFAF8;
   border-radius: 8px;
   padding: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -897,7 +897,7 @@ footer p {
   left: 50%;
   transform: translateX(-50%) translateY(-20px);
   background: #16a34a;
-  color: white;
+  color:#FAFAF8;
   padding: 14px 36px;
   border-radius: 8px;
   font-size: 1rem;
@@ -978,9 +978,9 @@ footer p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
+  background: rgba(250,250,248,0.08);
+  border: 1px solid rgba(250,250,248,0.2);
+  color:#FAFAF8;
   padding: 14px 16px;
   border-radius: 14px;
   font-size: 0.9rem;
@@ -991,9 +991,9 @@ footer p {
 .hero-badges .badge {
   display: inline-flex;
   align-items: center;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
+  background: rgba(250,250,248,0.15);
+  border: 1px solid rgba(250,250,248,0.2);
+  color:#FAFAF8;
   padding: .55rem .9rem;
   border-radius: 999px;
   font-size: .9rem;
@@ -1051,16 +1051,16 @@ footer p {
 
 .process {
   background: #1B263B;
-  color: white;
+  color:#FAFAF8;
   padding: 60px 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(250,250,248,0.1);
+  border-bottom: 1px solid rgba(250,250,248,0.1);
 }
 
 .process h2 {
-  color: white;
+  color:#FAFAF8;
   text-align: center;
   margin-bottom: 40px;
   padding: 0 20px;
@@ -1077,7 +1077,7 @@ footer p {
 }
 
 .process-step {
-  background: rgba(255,255,255,0.06);
+  background: rgba(250,250,248,0.06);
   padding: 28px;
   border-radius: 20px;
 }
@@ -1090,7 +1090,7 @@ footer p {
 }
 
 .process-step h3 {
-  color: white;
+  color:#FAFAF8;
   margin: 0 0 8px;
   text-align: left;
 }
@@ -1120,14 +1120,14 @@ footer p {
 
 .cta-box {
   background: #1B263B;
-  color: white;
+  color:#FAFAF8;
   text-align: center;
   border-radius: 32px;
   padding: 60px 40px;
 }
 
 .cta-box h2 {
-  color: white;
+  color:#FAFAF8;
   margin-top: 0;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
@@ -1135,22 +1135,22 @@ footer p {
 .cta-box p {
   max-width: 700px;
   margin: 0 auto 30px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(250,250,248,0.85);
 }
 
 .cta-box .btn-light {
   background: transparent;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.5);
+  color:#FAFAF8;
+  border: 1px solid rgba(250,250,248,0.5);
   display: inline-block;
   width: auto;
   padding: 12px 28px;
 }
 
 .cta-box .btn-light:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.8);
-  color: white;
+  background: rgba(250,250,248,0.1);
+  border-color: rgba(250,250,248,0.8);
+  color:#FAFAF8;
 }
 
 @media (max-width: 600px) {
@@ -1181,9 +1181,9 @@ footer p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
+  background: rgba(250,250,248,0.08);
+  border: 1px solid rgba(250,250,248,0.2);
+  color:#FAFAF8;
   padding: 14px 16px;
   border-radius: 14px;
   font-size: 0.9rem;
@@ -1217,9 +1217,9 @@ footer p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
+  background: rgba(250,250,248,0.08);
+  border: 1px solid rgba(250,250,248,0.2);
+  color:#FAFAF8;
   padding: 14px 16px;
   border-radius: 14px;
   font-size: 0.9rem;
@@ -1237,7 +1237,7 @@ footer p {
 }
 
 .btn-light {
-  background: white;
+  background:#FAFAF8;
   color: #111827;
 }
 
@@ -1247,8 +1247,8 @@ footer p {
 }
 
 .library-preview {
-  background: rgba(255,255,255,0.06);
-  border-left: 1px solid rgba(255,255,255,0.08);
+  background: rgba(250,250,248,0.06);
+  border-left: 1px solid rgba(250,250,248,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1258,7 +1258,7 @@ footer p {
 .preview-box {
   width: 100%;
   max-width: 300px;
-  background: white;
+  background:#FAFAF8;
   color: #111827;
   border-radius: 24px;
   padding: 28px;
@@ -1290,7 +1290,7 @@ footer p {
   }
   .library-preview {
     border-left: none;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(250,250,248,0.08);
   }
 }
 
@@ -1313,7 +1313,7 @@ footer p {
 }
 
 .service-card {
-  background: white;
+  background:#FAFAF8;
   border-radius: 10px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
   border-left: 4px solid var(--orange);
@@ -1522,7 +1522,7 @@ footer p {
 }
 
 .footer-link {
-  color: white;
+  color:#FAFAF8;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -1563,7 +1563,7 @@ footer p {
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: white;
+      color:#FAFAF8;
       font-size: 22px;
       transition: transform 0.2s ease;
     }
@@ -1592,7 +1592,7 @@ footer p {
 
     .chr-footer__social__container {
       display: flex;
-      color: white;
+      color:#FAFAF8;
       align-items: center;
       flex-direction: row;
       gap: 30px; 
@@ -1661,7 +1661,7 @@ footer p {
 }
 
 .segment-card {
-  background: white;
+  background:#FAFAF8;
   border-radius: 12px;
   padding: 24px 20px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -1790,7 +1790,7 @@ footer p {
 }
 
 .features-grid .feature-card {
-  background: white;
+  background:#FAFAF8;
   border-radius: 16px;
   padding: 32px 24px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
@@ -1847,7 +1847,7 @@ footer p {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background: white;
+  background:#FAFAF8;
   font-size: 0.95rem;
   font-family: inherit;
   color: #333;
