@@ -36,44 +36,106 @@
 - Resend: Admin bekommt Verkaufs-Benachrichtigung
 - Noch nicht konfiguriert (kein API-Key)
 
-## 2026-05-16 (Teil 2)
+## 2026-05-17
 
-### Produkte in library_bundle → 4-Tier-System umgestellt
-Altes Einzelprodukt `library_bundle` (49€) ersetzt durch 4 gestaffelte Bundles:
+### Webhook-Fix + E-Mail-Durchbruch
+- **Problem**: Webhook scheiterte — `createClient()` aus `lib/supabase/server.ts` nutzt `cookies()` von Next.js, das in Stripe-Webhooks (kein Browser-Kontext) fehlschlägt
+- **Fix**: `lib/supabase/webhook.ts` erstellt — simpler `createClient` aus `@supabase/supabase-js` ohne Cookies
+- **Webhook-URL**: Stripe Endpoint von `kevinglock.de` auf `www.kevinglock.de/api/stripe/webhook` geändert (308-Redirect)
+- **Migration**: `supabase/migrations/002_create_purchases.sql` — Tabellen `purchases` + `user_access` mit RLS
+- **Ergebnis**: Beide E-Mails (Kundenbestätigung + Admin-Benachrichtigung) kommen durch ✅
 
-| Produkt | Preis | Inhalt |
-|---------|-------|--------|
-| `library_basics` | 9€ | Entscheidungsbaum, Diktionär/Spickzettel/Cheatsheet Abi, Dossiers 10–13, Prüfungen+Exams 10–13 (16 Files) |
-| `library_standard` | 24€ | Basics + Bachelor-Diktionär, Code-Einführungen R/Python/SPSS, Dossiers 10–37 (inkl. Qualitative 32–37), Prüfungen+Exams 10–42, Klausur Bachelor (79 Files) |
-| `library_advanced` | 39€ | Standard + Master-Diktionär, Master-Code, Dossiers 38–42, Master-Klausur (94 Files) |
-| `library_all_access` | 59€ | Advanced + PhD-Diktionär, EN-Versionen en_10–42, Literaturverzeichnis (133 Files) |
+### E-Mail Corporate Design
+- `lib/email.ts` — Komplett überarbeitet:
+  - Header mit Logo + "Kevin Glock Statistical Consulting" (#1e3a5f)
+  - Strukturierte Download-Liste mit Trennlinien
+  - ZIP-Button als CTA im Corporate-Look
+  - Footer mit Adresse, E-Mail, Webseite
+  - Admin-Mail als styled Table
 
-### Preisarchitektur
-- Charm Pricing (9er-Endungen): 9€ Impulskauf, 24€ Sweet Spot, 39€/59€ Premium-Anker
-- Hebelwirkung: All-Access (59€) macht Standard (24€) und Advanced (39€) vernünftig
-- Verhältnis Basics→Standard ~2.7x, Advanced→All-Access ~1.5x (Upgrade-Schwelle niedrig)
+### pre/prod-Download-Struktur
+- `public/downloads/library/pre/` — 177 leere Platzhalter-Dateien für Testbetrieb (keine echten Daten)
+- `public/downloads/library/prod/` — 172 echte Dateien aus `local/downloads/` (gitignored, manuell kopiert)
+- `lib/downloads.ts` — PREFIX aktuell auf `pre/`, alle Dateinamen an tatsächliche Benennung angepasst:
+  - `dictionary_basic.docx` statt `01_diktionaer_abi.docx`
+  - `introduction_R_standard.docx` statt `07_einfuehrung_R_bachelor.docx`
+  - `cheatsheet_basic.docx` statt `cheatsheet_high_school.docx`
+  - usw. (komplette Neukartierung aller 133+ Einträge)
 
-### Geänderte Dateien
-- `lib/stripe/products.ts` — 4 neue Keys, alter `library_bundle` entfernt; Tutoring-Produkte unverändert
-- `lib/downloads.ts` — Komplett neu mit 4 Tier-Entries + Item-Matrix (193 Files, gemappt nach Niveau)
-- `app/api/download/bundle/route.ts` — Default `"library_bundle"` entfernt, Validation für productKey
-- `nachhilfe.html` — Library-Sektion: 1 Karte → 4 Pricing-Cards (Badge, Preis, Feature-Liste, Checkout-Button je Tier)
-- `translations.js` — 28 neue Keys (DE+EN), alte `lib_preview_*` + `btn_library_bundle` entfernt, `lib_text` aktualisiert
-- Sync root ↔ public für `nachhilfe.html`, `translations.js`, `js/stripe-checkout.js`
+### Library-Bundle wiederhergestellt
+- `library_bundle` (49€, alter Key) in products.ts + downloads.ts reaktiviert
+- Nachhilfe-UI auf alten Stand zurückgesetzt (User will Buttons morgen neu designen)
 
-### Naming-Konvention (vom User bestätigt)
-- Basics (nicht „Abi"), Standard (nicht „Bachelor"), Advanced (nicht „Master"), All-Access (nicht „PhD")
+### Live-Umschaltung
+- **pre/prod-Mechanismus**: In `lib/downloads.ts` Zeile `const PREFIX = "downloads/library/pre"` auf `"downloads/library/prod"` ändern
+- **Voraussetzung**: Echte Dateien müssen in `public/downloads/library/prod/` liegen (bereits kopiert)
 
-### Validierung
-- TypeScript `tsc --noEmit`: keine Fehler
-- Alle API-Routen bleiben unverändert kompatibel (nutzen `productKey` generisch)
+### Library-Modal (root)
+- `local/library-modal.html` als Vorlage für Button-Modal in `nachhilfe.html`
+- Button `onclick="stripeCheckout('library_bundle', this)"` → `onclick="openLibraryModal()"`
+- 4 Tier-Cards (Basics/Standard/Advanced/Full Access) mit PNG-Icons aus `/img/`
+- Featured-Highlight in Blau (#1B263B), Badge in Orange (#FF6600)
+- Modal-Layout: flex column mit scrollbarem `.lib-modal-scroll` (overscroll-behavior: contain)
+- Wheel-Events via stopPropagation von Lenis entkoppelt
+- i18n DE/EN für alle Modal-Texte + Button/Dokument-Texte aktualisiert
+- **Status**: fertig, getestet ✅
 
-### Wichtiger Hinweis
-Die Download-Dateien in `downloads.ts` referenzieren Pfade wie `downloads/library/entscheidungsbaum_welcher_test.docx`. Diese Dateien existieren aktuell nur in `C:\Users\Kevalon\OneDrive\Documents\GlockConsulting\local\downloads\`, NICHT in `client-portal/public/downloads/library/`. Die Files müssen dorthin kopiert werden, damit Download-API + ZIP-Bundle funktionieren.
+### Materials-Modal (root)
+- "Materialien ansehen" öffnet jetzt Modal statt Anchor-Scroll
+- `js/library-data.js` mit allen 180+ Dokumenten in 4 Kategorien
+- Gleiches Corporate Design wie Library-Modal
+- **Status**: fertig, getestet ✅
 
-### Offen (Update)
-1. ~~Webhook-Endpoint in Stripe Dashboard einrichten~~ ✅ (whsec_a5mld... konfiguriert)
-2. ~~Resend API-Key holen~~ ✅ (in .env.local + Vercel Dashboard)
-3. ~~.env.local mit allen Keys füllen~~ ✅ (Stripe-Keys + Admin-Email gesetzt)
-4. **Download-Dateien in `public/downloads/library/` kopieren** (193 Files aus `local/downloads/`)
-5. Stripe-Live-Mode aktivieren (nach Testphase)
+### consulting.html
+- 3 CTA-Buttons aus Price-Cards entfernt (Advisory/Courses/Project)
+
+### Close-Buttons vereinheitlicht
+- `.lib-modal-close` CSS entfernt; Buttons nutzen jetzt `.modal-close` (aus style.css) — gleiche Formatierung wie Contact-Modal
+- betrifft: `closeLibraryModal`, `closeMaterialsModal`
+
+### Subtitle + bilingual document names
+- `lib_modal_mat_sub`: Zusatz "(zweisprachig verfügbar)" / "(bilingual)"
+- Alle 180+ items in library-data.js jetzt mit `nameEn` + `descEn` — renderMaterials() zeigt Titel basierend auf gewählter Sprache
+
+### Bilinguale Duplikate gemergt
+- Spickzettel/Cheatsheet-Paare in allen 4 Tiers → je 1 bilingualer Eintrag
+- Prüfung/Exam-Paare (Nr. 10–42) → je 1 bilingualer Eintrag
+- EN-Versionen (Dossiers) in Full Access bleiben eigenständig (Zusatzcontent)
+- Backup: `js/library-data.js.backup`
+- Keine Dateien gelöscht
+
+### Backdrop-Blur auf allen Modals
+- `.modal-overlay.active` in style.css: `background: rgba(10,10,10,0.6)` + `backdrop-filter: blur(6px)` hinzugefügt
+- Betrifft Contact-Modal (library + materials hatten es bereits via `.lib-overlay`)
+
+### Kategorie-Überschriften bereinigt
+- `Cheatsheets & Spickzettel` → DE: `Spickzettel`, EN: `Cheatsheets`
+- `Prüfungen & Exams` → DE: `Prüfungen`, EN: `Exams`
+- `EN-Versionen (Dossiers)` → EN: `English Versions (Dossiers)`
+
+### Feature-Card Hover in Media-Modus entfernt
+- `@media (max-width: 1024px)`: `.feature-card` bekommt statischen orange border, Hover neutralisiert
+- `@media (max-width: 800px)`: `.features-grid .feature-card` gleiches Verhalten
+
+### Includes-Note in Materials-Modal
+- Standard: "+ Alles aus Einstieg" / "+ Everything from Basics"
+- Advanced: "+ Alles aus Standard" / "+ Everything from Standard"
+- Full Access: "+ Alles aus Advanced" / "+ Everything from Advanced"
+- Orange (#FF6600) Textzeile unter Section-Header
+
+### Tier-Card Subtitles erweitert
+- Standard: "+ Alles aus Einstieg + Hypothesentests · Regression · SPSS/R" (DE/EN)
+- Advanced: "+ Alles aus Standard + Multivariate Methoden · Thesis · Python" (DE/EN)
+- Full Access unverändert
+
+### Hover/Click + Body-Scroll-Fix
+- `.lib-tier:hover` entfernt: `transform: translateY(-1px)` — ließ oberen Border bei erstem Card verschwinden
+- `window.lenis.stop()` / `.start()` bei allen Modals (library, materials, contact)
+- `document.body.style.overflow = 'hidden'` bei contact modal ergänzt (fehlte dort)
+- `const lenis` → `window.lenis` für globale Zugriffe
+
+### Offen / Morgen
+1. **Selection-Modale + dynamische Checkout-Buttons**: User wählt Dateien aus → Modal zeigt passenden Stripe-Button
+2. Library-UI in `nachhilfe.html` neu designen
+3. Resend-Domain-Verifizierung prüfen (kein Log-Eintrag bisher)
+4. Stripe-Live-Mode aktivieren

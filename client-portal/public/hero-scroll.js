@@ -190,6 +190,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         modal.style.display = 'flex';
         setTimeout(() => modal.classList.add('active'), 10);
+        var scrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = '-' + scrollY + 'px';
+        document.body.style.width = '100%';
+        if (window.lenis) window.lenis.stop();
 
         const serviceField = modal.querySelector('[name="booking_service"]');
         if (serviceField && this.dataset.service) {
@@ -212,6 +217,12 @@ function closeModal() {
   if (modal) {
     modal.classList.remove('active');
     setTimeout(() => modal.style.display = 'none', 300);
+    var top = parseFloat(document.body.style.top || '0') * -1;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, top);
+    if (window.lenis) window.lenis.start();
   }
 }
 

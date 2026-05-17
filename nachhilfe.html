@@ -38,6 +38,231 @@
   .btn-sm { padding: 0.5rem 1rem; font-size: 0.9rem; }
   .btn-secondary { background: var(--color-primary); opacity: 0.85; }
 
+  /* ── Library Modal ── */
+  .lib-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .lib-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .lib-modal {
+    background: #fff;
+    border-radius: 18px 18px 0 0;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 1.5rem 1.5rem;
+    transform: translateY(40px);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+  }
+  .lib-overlay.active .lib-modal {
+    transform: translateY(0);
+  }
+  .lib-modal-scroll {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    min-height: 0;
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+  }
+  .lib-handle {
+    width: 40px;
+    height: 4px;
+    background: #d1d5db;
+    border-radius: 99px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .lib-modal-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1B263B;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .lib-modal-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1B263B;
+    line-height: 1.2;
+    margin: 0 0 0.3rem;
+  }
+  .lib-modal-sub {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0 0 1.4rem;
+    line-height: 1.5;
+  }
+  .lib-tier {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.12s, box-shadow 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    margin-bottom: 0.65rem;
+  }
+  .lib-tier:hover {
+    border-color: #1B263B;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .lib-tier.featured {
+    border-color: #F60;
+    background: #163E64;
+    color: #fff;
+  }
+  .lib-tier.featured:hover {
+    box-shadow: 0 6px 24px rgba(27,38,59,0.3);
+  }
+  .lib-tier-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    background: rgba(0,0,0,0.03);
+  }
+  .lib-tier.featured .lib-tier-icon { background: rgba(255,255,255,0.12); }
+  .lib-tier-img { height: 36px; width: auto; border-radius: 6px; display: block; }
+  .lib-tier-body { flex: 1; min-width: 0; }
+  .lib-tier-name {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #1B263B;
+  }
+  .lib-tier.featured .lib-tier-name { color: #fff; }
+  .lib-tier-desc {
+    font-size: 0.76rem;
+    color: #6b7280;
+    margin-top: 0.1rem;
+    line-height: 1.35;
+  }
+  .lib-tier.featured .lib-tier-desc { color: rgba(255,255,255,0.7); }
+  .lib-tier-right { text-align: right; flex-shrink: 0; }
+  .lib-tier-price {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1B263B;
+  }
+  .lib-tier.featured .lib-tier-price { color: #fff; }
+  .lib-tier-note {
+    font-size: 0.66rem;
+    color: #9ca3af;
+    margin-top: 0.05rem;
+  }
+  .lib-tier.featured .lib-tier-note { color: rgba(255,255,255,0.55); }
+  .lib-badge {
+    position: absolute;
+    top: -9px;
+    right: 12px;
+    background: #FF6600;
+    color: #fff;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-weight: 600;
+  }
+  .lib-tier { position: relative; }
+  .lib-arrow {
+    margin-left: 0.2rem;
+    font-size: 0.85rem;
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+  .lib-tier.featured .lib-arrow { opacity: 0.7; }
+  .lib-modal-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.72rem;
+    color: #9ca3af;
+  }
+  .lib-modal-footer svg { flex-shrink: 0; opacity: 0.4; }
+
+  @media (min-width: 560px) {
+    .lib-overlay { align-items: center; padding: 1.5rem; }
+    .lib-modal { border-radius: 18px; max-height: 90vh; margin-top: -15px; }
+    .lib-handle { display: none; }
+  }
+
+  /* ── Materials Modal ── */
+  .mat-section { margin-bottom: 1.2rem; }
+  .mat-section:last-child { margin-bottom: 0; }
+  .mat-section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    background: #163E64;
+    border: 1px solid #F60;
+    color: #fff;
+    border-radius: 8px;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .mat-section-header img { height: 22px; width: auto; }
+  .mat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.82rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .mat-item:last-child { border-bottom: none; }
+  .mat-item-name { flex: 1; }
+  .mat-item-desc { font-size: 0.72rem; color: #9ca3af; flex-shrink: 0; }
+  .mat-sub-header {
+    padding: 0.35rem 0.8rem;
+    margin: 0.5rem 0 0.2rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1B263B;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .mat-sub-header:first-of-type { margin-top: 0; }
+  .mat-includes {
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem 0 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #FF6600;
+  }
+
 
 </style>
 <!-- Strukturierte Daten (Schema.org) -->
@@ -501,7 +726,7 @@ main > .section-spacer:first-of-type {
         <div class="library-feature check"><span data-i18n="lib_feat4">Bachelor &amp; Master Niveau</span></div>
       </div>
       <div class="library-actions">
-        <a href="#library" class="btn" data-i18n="lib_materials_btn">Materialien ansehen</a>
+        <a href="#" class="btn" onclick="openMaterialsModal(); return false;" data-i18n="lib_materials_btn">Materialien ansehen</a>
       </div>
     </div>
     <aside class="library-preview">
@@ -513,9 +738,9 @@ main > .section-spacer:first-of-type {
           <li data-i18n="lib_preview_li2">PDF-Skripte</li>
           <li data-i18n="lib_preview_li3">&Uuml;bungsaufgaben</li>
           <li data-i18n="lib_preview_li4">SPSS / R / Python</li>
-          <strong><li data-i18n="lib_preview_li5">Einzel- oder Vollzugriff</li></strong>
+          <strong><li data-i18n="lib_preview_li5">Basics bis Vollzugriff</li></strong>
         </ul>
-        <button class="btn" onclick="stripeCheckout('library_bundle', this)" data-i18n="btn_library_bundle">Bundle kaufen &ndash; 49&euro;</button>
+        <button class="btn" onclick="openLibraryModal()" data-i18n="btn_library_bundle">Bundle sichern</button>
       </div>
     </aside>
   </article>
@@ -629,7 +854,101 @@ main > .section-spacer:first-of-type {
 
 <div class="toast-success" id="toast" data-i18n="toast_booking">Buchung erfolgreich!</div>
 
+<!-- ── Library Modal ── -->
+<div class="lib-overlay" id="libraryModal">
+  <div class="lib-modal" role="dialog" aria-modal="true" aria-label="Statistik Bibliothek kaufen">
+
+    <div class="lib-handle"></div>
+    <button class="modal-close" id="closeLibraryModal" aria-label="Schließen">&times;</button>
+
+    <span class="lib-modal-eyebrow" data-i18n="lib_tag">Selbstlern-Bibliothek</span>
+    <h3 class="lib-modal-title" data-i18n="lib_modal_title">W&auml;hle dein Paket</h3>
+    <p class="lib-modal-sub" data-i18n="lib_modal_sub">Einmal kaufen. F&uuml;r immer nutzen.</p>
+
+    <div class="lib-modal-scroll">
+
+    <div class="lib-tier" onclick="stripeCheckout('library_bundle', this)" data-tier="basics">
+      <div class="lib-tier-icon"><img src="img/badge_basic.png" alt="" class="lib-tier-img"></div>
+      <div class="lib-tier-body">
+        <div class="lib-tier-name" data-i18n="lib_modal_tier1_name">Einstieg</div>
+        <div class="lib-tier-desc" data-i18n="lib_modal_tier1_desc">Deskriptiv &middot; Grundlagen &middot; Visualisierung</div>
+      </div>
+      <div class="lib-tier-right">
+        <div class="lib-tier-price">12&euro;</div>
+        <div class="lib-tier-note" data-i18n="lib_modal_tier1_note">~20 Dokumente</div>
+      </div>
+      <span class="lib-arrow">&rarr;</span>
+    </div>
+
+    <div class="lib-tier" onclick="stripeCheckout('library_bundle', this)" data-tier="standard">
+      <div class="lib-tier-icon"><img src="img/badge_standard.png" alt="" class="lib-tier-img"></div>
+      <div class="lib-tier-body">
+        <div class="lib-tier-name" data-i18n="lib_modal_tier2_name">Standard</div>
+        <div class="lib-tier-desc" data-i18n="lib_modal_tier2_desc">+ Hypothesentests &middot; Regression &middot; SPSS/R</div>
+      </div>
+      <div class="lib-tier-right">
+        <div class="lib-tier-price">29&euro;</div>
+        <div class="lib-tier-note" data-i18n="lib_modal_tier2_note">~40 Dokumente</div>
+      </div>
+      <span class="lib-arrow">&rarr;</span>
+    </div>
+
+    <div class="lib-tier" onclick="stripeCheckout('library_bundle', this)" data-tier="advanced">
+      <div class="lib-tier-icon"><img src="img/badge_advanced.png" alt="" class="lib-tier-img"></div>
+      <div class="lib-tier-body">
+        <div class="lib-tier-name" data-i18n="lib_modal_tier3_name">Advanced</div>
+        <div class="lib-tier-desc" data-i18n="lib_modal_tier3_desc">+ Multivariate Methoden &middot; Thesis &middot; Python</div>
+      </div>
+      <div class="lib-tier-right">
+        <div class="lib-tier-price">34&euro;</div>
+        <div class="lib-tier-note" data-i18n="lib_modal_tier3_note">~50 Dokumente</div>
+      </div>
+      <span class="lib-arrow">&rarr;</span>
+    </div>
+
+    <div class="lib-tier featured" onclick="stripeCheckout('library_bundle', this)" data-tier="full">
+      <span class="lib-badge" data-i18n="lib_modal_badge">Empfohlen</span>
+      <div class="lib-tier-icon"><img src="img/badge_full_access.png" alt="" class="lib-tier-img"></div>
+      <div class="lib-tier-body">
+        <div class="lib-tier-name" data-i18n="lib_modal_tier4_name">Full Access</div>
+        <div class="lib-tier-desc" data-i18n="lib_modal_tier4_desc">Alle 100+ Dokumente &middot; inkl. Musterklausuren</div>
+      </div>
+      <div class="lib-tier-right">
+        <div class="lib-tier-price">49&euro;</div>
+        <div class="lib-tier-note" data-i18n="lib_modal_tier4_note">einmalig</div>
+      </div>
+      <span class="lib-arrow">&rarr;</span>
+    </div>
+
+    </div>
+
+    <div class="lib-modal-footer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <span data-i18n="lib_modal_footer">Sichere Zahlung via Stripe &middot; DSGVO-konform</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Materials Modal ── -->
+<div class="lib-overlay" id="materialsModal">
+  <div class="lib-modal" role="dialog" aria-modal="true" aria-label="Materialübersicht">
+    <div class="lib-handle"></div>
+    <button class="modal-close" id="closeMaterialsModal" aria-label="Schließen">&times;</button>
+    <span class="lib-modal-eyebrow" data-i18n="lib_tag">Selbstlern-Bibliothek</span>
+    <h3 class="lib-modal-title" data-i18n="lib_modal_mat_title">Alle Materialien</h3>
+    <p class="lib-modal-sub" data-i18n="lib_modal_mat_sub">&Uuml;bersicht &uuml;ber alle verf&uuml;gbaren Dokumente (zweisprachig verf&uuml;gbar)</p>
+    <div class="lib-modal-scroll">
+      <div id="materialsList" class="mat-list"></div>
+    </div>
+  </div>
+</div>
+
 <script src="translations.js"></script>
+<script src="js/library-data.js"></script>
 <script src="js/stripe-checkout.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
@@ -639,13 +958,80 @@ main > .section-spacer:first-of-type {
     burger.addEventListener("click", () => {
       navLinks.classList.toggle("active");
     });
+
+    const libOverlay = document.getElementById('libraryModal');
+    const libCloseBtn = document.getElementById('closeLibraryModal');
+
+    function openLibraryModal() {
+      libOverlay.classList.add('active');
+      var scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.width = '100%';
+      if (window.lenis) window.lenis.stop();
+    }
+
+    function closeLibraryModal() {
+      libOverlay.classList.remove('active');
+      var top = parseFloat(document.body.style.top || '0') * -1;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, top);
+      if (window.lenis) window.lenis.start();
+    }
+
+    if (libCloseBtn) libCloseBtn.addEventListener('click', closeLibraryModal);
+    if (libOverlay) {
+      libOverlay.addEventListener('click', (e) => {
+        if (e.target === libOverlay) closeLibraryModal();
+      });
+      libOverlay.addEventListener('wheel', (e) => { e.stopPropagation(); }, { passive: false });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && libOverlay && libOverlay.classList.contains('active')) closeLibraryModal();
+    });
+
+    const matOverlay = document.getElementById('materialsModal');
+    const matCloseBtn = document.getElementById('closeMaterialsModal');
+
+    function openMaterialsModal() {
+      renderMaterials();
+      matOverlay.classList.add('active');
+      var scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.width = '100%';
+      if (window.lenis) window.lenis.stop();
+    }
+
+    function closeMaterialsModal() {
+      matOverlay.classList.remove('active');
+      var top = parseFloat(document.body.style.top || '0') * -1;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, top);
+      if (window.lenis) window.lenis.start();
+    }
+
+    if (matCloseBtn) matCloseBtn.addEventListener('click', closeMaterialsModal);
+    if (matOverlay) {
+      matOverlay.addEventListener('click', function(e) {
+        if (e.target === matOverlay) closeMaterialsModal();
+      });
+      matOverlay.addEventListener('wheel', function(e) { e.stopPropagation(); }, { passive: false });
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && matOverlay && matOverlay.classList.contains('active')) closeMaterialsModal();
+    });
 </script>
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" integrity="sha384-li4UtcFCH6QeUqR4JyV58/VgTprMuz9aauj+oWtew7V4Y7ZVjnvz5px9Y3UCG0Ea" crossorigin="anonymous"></script>
   <script>
-    const lenis = new Lenis({ duration: 1.2 });
+    window.lenis = new Lenis({ duration: 1.2 });
 
     function raf(time) {
-      lenis.raf(time);
+      window.lenis.raf(time);
       requestAnimationFrame(raf);
     }
 

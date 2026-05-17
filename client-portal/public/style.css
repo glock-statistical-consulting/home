@@ -329,6 +329,9 @@ html{
 .modal-overlay.active {
   display: flex;
   opacity: 1;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .modal {
@@ -1509,6 +1512,12 @@ footer p {
 
   .feature-card {
     width: 90%;
+    border-color: var(--orange);
+  }
+  .feature-card:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--orange);
   }
 }
 
@@ -1823,6 +1832,12 @@ footer p {
   .features-grid .feature-card {
     max-width: 400px;
     margin: 0 auto;
+    border-color: var(--orange);
+  }
+  .features-grid .feature-card:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-color: var(--orange);
   }
 }
 

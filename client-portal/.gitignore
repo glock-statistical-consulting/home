@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# download assets (real files, not in git)
+public/downloads/library/prod/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
