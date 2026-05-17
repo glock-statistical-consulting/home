@@ -243,7 +243,7 @@ main > .section-spacer:first-of-type {
         <p class="hero-text" data-i18n="hero_consulting_subtitle">Ich unterst&uuml;tze Dich und Dein Team bei Analyse, Methodik und Interpretation. Pers&ouml;nlich, direkt und ohne Umwege.</p>
         <div class="hero-actions">
           <a href="#process" class="btn" data-i18n="hero_consulting_pricing_btn">Wie ich arbeite</a>
-          <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_consulting_btn">Kostenloses Erstgespr&auml;ch</a>
+          <button class="btn-secondary" onclick="openInquiryModal()" data-i18n="hero_consulting_btn">Kostenloses Erstgespr&auml;ch</button>
         </div>
       </div>
       <div></div>
@@ -393,7 +393,7 @@ main > .section-spacer:first-of-type {
   <div class="cta-box">
     <h2 data-i18n="cons_cta_title">Bereit loszulegen?</h2>
     <p data-i18n="cons_cta_text">Gemeinsam holen wir mehr aus deinen Unternehmensdaten raus, um deine Prozesse einfacher zu machen.</p>
-    <a href="#contact" class="btn btn-light open-modal" data-i18n="cons_cta_btn">Kostenloses Erstgespr&auml;ch</a>
+    <button class="btn btn-light" onclick="openInquiryModal()" data-i18n="cons_cta_btn">Kostenloses Erstgespr&auml;ch</button>
   </div>
 </section>
 </main>
@@ -449,53 +449,22 @@ main > .section-spacer:first-of-type {
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" id="modalCloseBtn">&times;</button>
-    <span data-i18n="quote_title" hidden>Individuelles Angebot anfordern</span>
-    <span data-i18n="contact_title" hidden>Individuelle Anfrage</span>
-    <span data-i18n="quote_submit" hidden>Angebot anfordern</span>
-    <span data-i18n="hero_contact_submit" hidden>Anfrage senden</span>
-    <h2 data-i18n="quote_title">Individuelles Angebot anfordern</h2>
-    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="quote-form">
-                  <input type="hidden" name="_next" value="https://www.kevinglock.de/consulting.html">
+    <div style="padding: 0.5rem 0;">
+      <span style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#163E64;font-weight:700;display:block;margin-bottom:0.2rem;" data-i18n="bk_eyebrow">Beratung &amp; Buchung</span>
+      <h2 style="font-size:1.4rem;font-weight:700;color:#163E64;line-height:1.2;margin:0 0 0.2rem;" data-i18n="quote_title">Angebot anfordern</h2>
+      <p style="font-size:0.85rem;color:#6b7280;margin:0 0 1rem;line-height:1.5;" data-i18n="bk_sub">W&auml;hle, was du brauchst &ndash; Anfrage oder Buchung.</p>
+    </div>
+    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form">
+      <input type="hidden" name="_next" value="https://www.kevinglock.de/consulting.html">
       <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-      <input type="hidden" name="booking_type" id="booking-type" value="quote">
-      <input type="hidden" name="booking_card" id="booking-card" value="consulting-page">
-      <input type="hidden" name="booking_hours" id="booking-hours">
-      <input type="hidden" name="discount" id="booking-discount">
-      <input type="hidden" name="language" id="booking-language">
-      <input type="hidden" name="booking_service" id="booking-service">
-
-      <label class="form-label" data-i18n="quote_scope_label">Projektart</label>
-      <select name="quote_scope" class="form-select" required>
-        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
-        <option value="datenanalyse" data-i18n="quote_scope_opt1">Datenanalyse & Auswertung</option>
-        <option value="training" data-i18n="quote_scope_opt2">Methodentraining & Schulung</option>
-        <option value="datenmanagement" data-i18n="quote_scope_opt3">Datenmanagement & Dokumentation</option>
-        <option value="evaluation" data-i18n="quote_scope_opt4">Evaluation & Review</option>
-        <option value="individual" data-i18n="quote_scope_opt5">Individuelle Beratung</option>
-      </select>
-
-      <label class="form-label" data-i18n="quote_timeline_label">Gewünschter Zeitrahmen</label>
-      <select name="quote_timeline" class="form-select">
-        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
-        <option value="1-2w" data-i18n="quote_timeline_opt1">1–2 Wochen</option>
-        <option value="1m" data-i18n="quote_timeline_opt2">1 Monat</option>
-        <option value="3m" data-i18n="quote_timeline_opt3">3+ Monate</option>
-        <option value="open" data-i18n="quote_timeline_opt4">Noch offen</option>
-      </select>
-
-      <label class="form-label" data-i18n="quote_budget_label">Budgetrahmen (optional)</label>
-      <select name="quote_budget" class="form-select">
-        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
-        <option value="<500" data-i18n="quote_budget_opt1">< 500 €</option>
-        <option value="500-2000" data-i18n="quote_budget_opt2">500–2.000 €</option>
-        <option value="2000-5000" data-i18n="quote_budget_opt3">2.000–5.000 €</option>
-        <option value=">5000" data-i18n="quote_budget_opt4">> 5.000 €</option>
-        <option value="na" data-i18n="quote_budget_opt5">Keine Angabe</option>
-      </select>
-
-      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name" maxlength="200">
-      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email" maxlength="320">
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Beschreiben Sie kurz Ihr Projektvorhaben?" rows="5" required maxlength="5000"></textarea>
+      <input type="hidden" name="booking_type" value="quote">
+      <input type="hidden" name="booking_card" value="consulting-page">
+      <input type="hidden" name="booking_hours" value="NA">
+      <input type="hidden" name="discount" value="NA">
+      <input type="hidden" name="language" id="hero-lang">
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollst&auml;ndiger Name" required autocomplete="name" maxlength="200" style="width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:0.9rem;font-family:inherit;background:#FAFAF8;color:#163E64;box-sizing:border-box;">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre E-Mail-Adresse" required autocomplete="email" inputmode="email" maxlength="320" style="width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:0.9rem;font-family:inherit;background:#FAFAF8;color:#163E64;box-sizing:border-box;">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Beschreiben Sie kurz Ihr Projektvorhaben" rows="4" required maxlength="5000" style="width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:0.9rem;font-family:inherit;background:#FAFAF8;color:#163E64;box-sizing:border-box;resize:vertical;min-height:80px;"></textarea>
       <button type="submit" class="btn" data-i18n="quote_submit">Angebot anfordern</button>
     </form>
   </div>
@@ -507,6 +476,18 @@ main > .section-spacer:first-of-type {
 <script src="js/stripe-checkout.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
+    function openInquiryModal() {
+      var modal = document.getElementById('contactModal');
+      if (!modal) return;
+      modal.style.display = 'flex';
+      setTimeout(function() { modal.classList.add('active'); }, 10);
+      var scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.width = '100%';
+      if (window.lenis) window.lenis.stop();
+    }
+
     const burger = document.getElementById("burger");
     const navLinks = document.getElementById("navLinks");
 

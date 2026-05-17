@@ -702,7 +702,7 @@ main > .section-spacer:first-of-type {
 <div class="cta-box">
   <h2 data-i18n="cta_title">Bereit loszulegen?</h2>
   <p data-i18n="cta_text">Vereinbare jetzt einen Termin mit mir und verbessere deine Ergebnisse.</p>
-  <a href="#contact" class="btn btn-light open-modal" data-i18n="about_cta_btn">Kostenloses Erstgespr&auml;ch</a>
+  <button class="btn btn-light" onclick="openInquiryModal()" data-i18n="about_cta_btn">Kostenloses Erstgespr&auml;ch</button>
 </div>
 
 </main>
@@ -753,22 +753,26 @@ main > .section-spacer:first-of-type {
 </div>
 </footer>
 
-<!-- Contact Modal -->
+<!-- Contact Modal (Anfrage) -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" id="modalCloseBtn">&times;</button>
-    <h2 data-i18n="contact_title">Individuelle Anfrage</h2>
+    <div style="padding: 0.5rem 0;">
+      <span style="font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#163E64;font-weight:700;display:block;margin-bottom:0.2rem;" data-i18n="bk_eyebrow">Beratung &amp; Buchung</span>
+      <h2 style="font-size:1.4rem;font-weight:700;color:#163E64;line-height:1.2;margin:0 0 0.2rem;" data-i18n="contact_title">Individuelle Anfrage</h2>
+      <p style="font-size:0.85rem;color:#6b7280;margin:0 0 1rem;line-height:1.5;" data-i18n="bk_sub">W&auml;hle, was du brauchst &ndash; Anfrage oder Buchung.</p>
+    </div>
     <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form">
-                  <input type="hidden" name="_next" value="https://www.kevinglock.de/about.html">
+      <input type="hidden" name="_next" value="https://www.kevinglock.de/about.html">
       <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <input type="hidden" name="booking_card" value="about-page">
       <input type="hidden" name="booking_type" value="inquiry">
       <input type="hidden" name="booking_hours" value="NA">
       <input type="hidden" name="discount" value="NA">
       <input type="hidden" name="language" id="hero-lang">
-      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name" maxlength="200">
-      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email" maxlength="320">
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details Ihrer Anfrage?" rows="5" required maxlength="5000"></textarea>
+      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollst&auml;ndiger Name" required autocomplete="name" maxlength="200" style="width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:0.9rem;font-family:inherit;background:#FAFAF8;color:#163E64;box-sizing:border-box;">
+      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre E-Mail-Adresse" required autocomplete="email" inputmode="email" maxlength="320" style="width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:0.9rem;font-family:inherit;background:#FAFAF8;color:#163E64;box-sizing:border-box;">
+      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Beschreiben Sie kurz Ihr Anliegen" rows="4" required maxlength="5000" style="width:100%;padding:0.7rem 0.9rem;border:1.5px solid #e5e7eb;border-radius:8px;font-size:0.9rem;font-family:inherit;background:#FAFAF8;color:#163E64;box-sizing:border-box;resize:vertical;min-height:80px;"></textarea>
       <button type="submit" class="btn" data-i18n="hero_contact_submit">Anfrage senden</button>
     </form>
   </div>
@@ -779,6 +783,18 @@ main > .section-spacer:first-of-type {
 <script src="translations.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
+    function openInquiryModal() {
+      var modal = document.getElementById('contactModal');
+      if (!modal) return;
+      modal.style.display = 'flex';
+      setTimeout(function() { modal.classList.add('active'); }, 10);
+      var scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.width = '100%';
+      if (window.lenis) window.lenis.stop();
+    }
+
     const burger = document.getElementById("burger");
     const navLinks = document.getElementById("navLinks");
 

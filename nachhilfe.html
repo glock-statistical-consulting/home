@@ -38,6 +38,253 @@
   .btn-sm { padding: 0.5rem 1rem; font-size: 0.9rem; }
   .btn-secondary { background: var(--color-primary); opacity: 0.85; }
 
+  /* ── Booking Modal ── */
+  .bk-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .bk-overlay.active { opacity: 1; pointer-events: all; }
+  .bk-modal {
+    background: #FAFAF8;
+    border-radius: 18px 18px 0 0;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.2rem 1.5rem 1.5rem;
+    transform: translateY(40px);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+  }
+  .bk-overlay.active .bk-modal { transform: translateY(0); }
+  .bk-handle {
+    width: 40px; height: 4px;
+    background: #d1d5db;
+    border-radius: 99px;
+    margin: 0 auto 1rem;
+  }
+  .bk-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #163E64;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .bk-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #163E64;
+    line-height: 1.2;
+    margin: 0 0 0.2rem;
+  }
+  .bk-sub {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0 0 1.2rem;
+    line-height: 1.5;
+  }
+  .bk-type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+  .bk-type-btn {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.75rem 0.5rem;
+    background: #FAFAF8;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s, background 0.15s;
+    font-family: inherit;
+  }
+  .bk-type-btn:hover { border-color: #163E64; }
+  .bk-type-btn.selected {
+    border-color: #FF6600;
+    background: #163E64;
+    color: #FAFAF8;
+  }
+  .bk-type-btn .t-icon { font-size: 1.2rem; display: block; margin-bottom: 0.3rem; }
+  .bk-type-btn .t-name { font-size: 0.82rem; font-weight: 600; display: block; }
+  .bk-type-btn .t-sub { font-size: 0.65rem; color: #6b7280; display: block; margin-top: 0.1rem; }
+  .bk-type-btn.selected .t-sub { color: rgba(250,250,248,0.6); }
+  .bk-level-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .bk-level-btn {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.6rem 0.4rem;
+    background: #FAFAF8;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s, background 0.15s;
+    font-family: inherit;
+  }
+  .bk-level-btn:hover { border-color: #FF6600; }
+  .bk-level-btn.selected {
+    border-color: #FF6600;
+    background: #163E64;
+    color: #FAFAF8;
+  }
+  .bk-level-btn .l-name { font-size: 0.8rem; font-weight: 600; display: block; }
+  .bk-level-btn .l-sub { font-size: 0.62rem; color: #6b7280; display: block; margin-top: 0.1rem; }
+  .bk-level-btn.selected .l-sub { color: rgba(250,250,248,0.6); }
+  .bk-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    color: #6b7280;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    margin-bottom: 0.8rem;
+    font-family: inherit;
+  }
+  .bk-back:hover { color: #163E64; }
+  .bk-step-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .bk-panel { display: none; }
+  .bk-panel.active { display: block; }
+  .bk-tier {
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #FAFAF8;
+    margin-bottom: 0.6rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .bk-tier:hover {
+    border-color: #163E64;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .bk-tier.featured {
+    border-color: #FF6600;
+    background: #163E64;
+    color: #FAFAF8;
+    position: relative;
+  }
+  .bk-tier.featured:hover { box-shadow: 0 6px 24px rgba(27,38,59,0.3); }
+  .bk-tier-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    background: rgba(0,0,0,0.03);
+  }
+  .bk-tier.featured .bk-tier-icon { background: rgba(250,250,248,0.12); }
+  .bk-tier-img { height: 32px; width: auto; border-radius: 4px; display: block; }
+  .bk-tier-body { flex: 1; min-width: 0; }
+  .bk-tier-name { font-size: 0.9rem; font-weight: 700; color: #163E64; }
+  .bk-tier.featured .bk-tier-name { color: #FAFAF8; }
+  .bk-tier-desc { font-size: 0.74rem; color: #6b7280; margin-top: 0.05rem; line-height: 1.35; }
+  .bk-tier.featured .bk-tier-desc { color: rgba(250,250,248,0.7); }
+  .bk-tier-right { text-align: right; flex-shrink: 0; }
+  .bk-tier-price { font-size: 0.95rem; font-weight: 800; color: #163E64; }
+  .bk-tier.featured .bk-tier-price { color: #FAFAF8; }
+  .bk-tier-note { font-size: 0.64rem; color: #9ca3af; margin-top: 0.05rem; }
+  .bk-tier.featured .bk-tier-note { color: rgba(250,250,248,0.55); }
+  .bk-tier-arrow { margin-left: 0.2rem; font-size: 0.85rem; opacity: 0.4; flex-shrink: 0; }
+  .bk-tier.featured .bk-tier-arrow { opacity: 0.7; }
+  .bk-badge {
+    position: absolute;
+    top: -9px; right: 12px;
+    background: #FF6600;
+    color: #FAFAF8;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-weight: 600;
+  }
+  .bk-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.72rem;
+    color: #9ca3af;
+  }
+  .bk-footer svg { flex-shrink: 0; opacity: 0.4; }
+  .bk-form { display: flex; flex-direction: column; gap: 0.8rem; }
+  .bk-form input,
+  .bk-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #FAFAF8;
+    color: #163E64;
+    transition: border-color 0.15s;
+    box-sizing: border-box;
+  }
+  .bk-form input:focus,
+  .bk-form textarea:focus {
+    outline: none;
+    border-color: #163E64;
+  }
+  .bk-form textarea { resize: vertical; min-height: 80px; }
+  .bk-form .btn { width: 100%; margin-top: 0.3rem; }
+  .bk-rate-info {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.78rem;
+    color: #6b7280;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+  .bk-rate-info strong { color: #163E64; }
+
+  @media (min-width: 560px) {
+    .bk-overlay { align-items: center; padding: 1.5rem; }
+    .bk-modal { border-radius: 18px; max-height: 90vh; }
+    .bk-handle { display: none; }
+  }
+  @media (max-width: 400px) {
+    .bk-type-grid { grid-template-columns: 1fr; }
+  }
+
   /* ── Library Modal ── */
   .lib-overlay {
     position: fixed;
@@ -476,12 +723,6 @@
   background-color: #4F6D8A;
 }
 
-[data-i18n="booking_info"] {
-  text-align: center;
-  display: block;
-  margin-bottom: 15px;
-}
-
 main > .section-spacer:first-of-type {
   margin-top: 75px;
 }
@@ -530,7 +771,7 @@ main > .section-spacer:first-of-type {
         <p class="hero-text" data-i18n="hero_nachhilfe_subtitle">Ich unterst&uuml;tze bei Statistik, Analyse und Abschlussarbeiten. Auf den Punkt erkl&auml;rt, ohne Umwege.</p>
         <div class="hero-actions">
           <a href="#process" class="btn" data-i18n="hero_nachhilfe_pricing_btn">Wie ich arbeite</a>
-          <a href="#contact" class="btn-secondary open-modal" data-i18n="hero_nachhilfe_btn">Kostenloses Erstgespr&auml;ch</a>
+          <button class="btn-secondary" onclick="openBookingModal()" data-i18n="hero_nachhilfe_btn">Kostenloses Erstgespr&auml;ch</button>
         </div>
       </div>
       <div></div>
@@ -669,7 +910,6 @@ main > .section-spacer:first-of-type {
         <li data-i18n="nach_b_feat3">Klausurvorbereitung</li>
         <li data-i18n="nach_b_feat4">Visualisierungen &amp; kleine Analysen</li>
       </ul>
-      <button class="btn btn-card" onclick="stripeCheckout('tutoring_single', this)" data-i18n="btn_checkout_basics">45€ Einzelsitzung buchen</button>
     </div>
 
     <div class="card" data-card="Advanced">
@@ -683,7 +923,6 @@ main > .section-spacer:first-of-type {
         <li data-i18n="nach_a_feat3">Analysen mit mehreren Variablen</li>
         <li data-i18n="nach_a_feat4">Lektorat, Interpretation &amp; Darstellung</li>
       </ul>
-      <a href="#contact" class="btn btn-card open-modal btn-book" data-i18n="btn_checkout_advanced">Beratung anfragen</a>
     </div>
 
     <div class="card" data-card="Expert">
@@ -697,7 +936,6 @@ main > .section-spacer:first-of-type {
         <li data-i18n="nach_e_feat3">Komplexe Modellierung</li>
         <li data-i18n="nach_e_feat4">Individuelle Betreuung</li>
       </ul>
-      <a href="#contact" class="btn btn-card open-modal btn-book" data-i18n="btn_checkout_expert">Beratung anfragen</a>
     </div>
 
   </div>
@@ -751,7 +989,7 @@ main > .section-spacer:first-of-type {
   <div class="cta-box">
     <h2 data-i18n="nach_cta_title">Bereit loszulegen?</h2>
     <p data-i18n="nach_cta_text">Buche Deine Unterst&uuml;tzung oder starte direkt mit einer meiner Aufgaben.</p>
-    <a href="#contact" class="btn btn-light open-modal btn-book" data-i18n="about_cta_btn">Kostenloses Erstgespr&auml;ch</a>
+    <button class="btn btn-light" onclick="openBookingModal()" data-i18n="about_cta_btn">Kostenloses Erstgespr&auml;ch</button>
   </div>
 </section>
 </main>
@@ -803,56 +1041,139 @@ main > .section-spacer:first-of-type {
 </div>
 </footer>
 
-<!-- Contact Modal (booking + inquiry modes) -->
-<div class="modal-overlay" id="contactModal">
-  <div class="modal">
-    <button class="modal-close" id="modalCloseBtn">&times;</button>
-    <span data-i18n="booking_title" hidden>Nachhilfe buchen</span>
-    <span data-i18n="contact_title" hidden>Individuelle Anfrage</span>
-    <span data-i18n="booking_submit" hidden>Verbindlich buchen</span>
-    <span data-i18n="hero_contact_submit" hidden>Anfrage senden</span>
-    <h2 data-i18n="booking_title">Nachhilfe buchen</h2>
-    <p data-i18n="booking_info">Ihre ausgewählte Option wird mit übertragen.</p>
-    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="contact-form" id="booking-form">
-                  <input type="hidden" name="_next" value="https://www.kevinglock.de/nachhilfe.html">
-      <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-      <input type="hidden" name="booking_type" id="booking-type" value="booking">
-      <input type="hidden" name="discount" id="booking-discount">
-      <input type="hidden" name="booking_card" id="booking-card" value="nachhilfe-page">
-      <input type="hidden" name="language" id="booking-language">
-      <input type="hidden" name="booking_service" id="booking-service">
+<!-- ── Booking Modal ── -->
+<div class="bk-overlay" id="bookingModal">
+  <div class="bk-modal" role="dialog" aria-modal="true" aria-label="Beratung und Buchung">
 
-      <label class="form-label" data-i18n="booking_topic_label">Themenschwerpunkt</label>
-      <select name="booking_topic" id="booking-topic" class="form-select" required>
-        <option value="" data-i18n="booking_topic_placeholder">Bitte wählen...</option>
-        <option value="deskriptiv" data-i18n="booking_topic_opt1">Deskriptive Statistik & Grafiken</option>
-        <option value="wahrscheinlichkeit" data-i18n="booking_topic_opt2">Wahrscheinlichkeitsrechnung</option>
-        <option value="hypothesentests" data-i18n="booking_topic_opt3">Hypothesentests (t-Test, ANOVA, Chi²)</option>
-        <option value="spss_intro" data-i18n="booking_topic_opt4">SPSS / R / Python Einführung</option>
-        <option value="regression" data-i18n="booking_topic_opt5">Regression & Modellierung</option>
-        <option value="ml_basics" data-i18n="booking_topic_opt6">Machine Learning Grundlagen</option>
-        <option value="thesis" data-i18n="booking_topic_opt7">Thesis / Methodenberatung</option>
-        <option value="custom" data-i18n="booking_topic_opt8">Individuelles Thema</option>
-      </select>
+    <div class="bk-handle"></div>
+    <button class="modal-close" id="bkCloseBtn" aria-label="Schließen">&times;</button>
 
-      <label class="form-label" data-i18n="dropdown_package_label">Paket auswählen</label>
-      <select name="booking_hours" class="form-select" required>
-        <option value="" disabled selected data-i18n="booking_topic_placeholder">Bitte wählen...</option>
-        <option value="1" data-i18n="nach_dropdown_single">Einzelstunde</option>
-        <option value="5" data-i18n="nach_dropdown_b_5h">5 Stunden (10% Rabatt)</option>
-        <option value="10" data-i18n="nach_dropdown_b_10h">10 Stunden (15% Rabatt)</option>
-        <option value="custom" data-i18n="nach_dropdown_custom">Individuell</option>
-      </select>
+    <span class="bk-eyebrow" data-i18n="bk_eyebrow">Beratung &amp; Buchung</span>
+    <h3 class="bk-title" data-i18n="bk_title">Wie kann ich dir helfen?</h3>
+    <p class="bk-sub" data-i18n="bk_sub">W&auml;hle, was du brauchst &ndash; Anfrage oder Buchung.</p>
 
-      <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollständiger Name" required autocomplete="name" maxlength="200">
-      <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre Email-Adresse" required autocomplete="email" inputmode="email" maxlength="320">
-      <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Nennen Sie bitte Details zu Ihrer Buchung?" rows="5" required maxlength="5000"></textarea>
-      <button type="submit" class="btn" data-i18n="booking_submit">Verbindlich buchen</button>
-    </form>
+    <!-- Step 1: Type selection -->
+    <div class="bk-panel active" id="bkStep1">
+      <span class="bk-step-label" data-i18n="bk_step1_label">Schritt 1 &middot; Auswahl</span>
+      <div class="bk-type-grid">
+        <button class="bk-type-btn" data-type="inquiry" onclick="bkSelectType('inquiry')">
+          <span class="t-icon">&#9993;</span>
+          <span class="t-name" data-i18n="bk_type_inquiry">Anfrage</span>
+          <span class="t-sub" data-i18n="bk_type_inquiry_sub">Individuelles Anliegen</span>
+        </button>
+        <button class="bk-type-btn" data-type="nachhilfe" onclick="bkSelectType('nachhilfe')">
+          <span class="t-icon">&#127891;</span>
+          <span class="t-name" data-i18n="bk_type_nachhilfe">Nachhilfe</span>
+          <span class="t-sub" data-i18n="bk_type_nachhilfe_sub">Statistik &amp; Analyse</span>
+        </button>
+        <button class="bk-type-btn" data-type="consulting" onclick="bkSelectType('consulting')">
+          <span class="t-icon">&#128200;</span>
+          <span class="t-name" data-i18n="bk_type_consulting">Consulting</span>
+          <span class="t-sub" data-i18n="bk_type_consulting_sub">Beratung &amp; Projekte</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Contact form (für inquiry oder consulting) -->
+    <div class="bk-panel" id="bkStepForm">
+      <button class="bk-back" onclick="bkGoBack()">&larr; <span data-i18n="bk_back">Zur&uuml;ck</span></button>
+      <span class="bk-step-label" id="bkFormLabel" data-i18n="bk_step_form_label">Schritt 2 &middot; Ihre Nachricht</span>
+      <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="bk-form" id="bkContactForm">
+        <input type="hidden" name="_next" value="https://www.kevinglock.de/nachhilfe.html">
+        <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <input type="hidden" name="booking_type" id="bk-booking-type" value="inquiry">
+        <input type="hidden" name="booking_card" value="nachhilfe-page">
+        <input type="hidden" name="language" id="bk-language">
+        <input type="hidden" name="booking_service" id="bk-service">
+        <input type="text" name="name" data-i18n-placeholder="contact_name" placeholder="Ihr vollst&auml;ndiger Name" required autocomplete="name" maxlength="200">
+        <input type="email" name="email" data-i18n-placeholder="contact_email" placeholder="Ihre E-Mail-Adresse" required autocomplete="email" inputmode="email" maxlength="320">
+        <textarea name="message" data-i18n-placeholder="contact_message" placeholder="Beschreiben Sie kurz Ihr Anliegen" rows="4" required maxlength="5000"></textarea>
+        <button type="submit" class="btn" id="bkSubmitBtn" data-i18n="hero_contact_submit">Anfrage senden</button>
+      </form>
+    </div>
+
+    <!-- Step 2b: Nachhilfe packages -->
+    <div class="bk-panel" id="bkStepPackages">
+      <button class="bk-back" onclick="bkGoBack()">&larr; <span data-i18n="bk_back">Zur&uuml;ck</span></button>
+      <span class="bk-step-label" id="bkPkgLabel">Schritt 2 &middot; Niveau &amp; Paket w&auml;hlen</span>
+
+      <div class="bk-level-grid">
+        <button class="bk-level-btn selected" data-level="einstieg" onclick="selectLevel('einstieg')">
+          <span class="l-name" data-i18n="badge_basics">Einstieg</span>
+        </button>
+        <button class="bk-level-btn" data-level="absolventen" onclick="selectLevel('absolventen')">
+          <span class="l-name" data-i18n="badge_advanced">Absolventen</span>
+        </button>
+        <button class="bk-level-btn" data-level="dissertation" onclick="selectLevel('dissertation')">
+          <span class="l-name" data-i18n="badge_expert">Dissertation</span>
+        </button>
+      </div>
+
+      <div class="bk-tier" data-pkg="single" onclick="bkBuyPackage('single', this)">
+        <div class="bk-tier-icon">1&times;</div>
+        <div class="bk-tier-body">
+          <div class="bk-tier-name" data-i18n="nach_dropdown_single">Einzelstunde</div>
+          <div class="bk-tier-desc" data-i18n="bk_pkg_single_sub">Flexibel &middot; ohne Bindung</div>
+        </div>
+        <div class="bk-tier-right">
+          <div class="bk-tier-price" id="bkPriceSingle">45&euro;</div>
+          <div class="bk-tier-note" id="bkNoteSingle">45 &euro;/Std.</div>
+        </div>
+        <span class="bk-tier-arrow">&rarr;</span>
+      </div>
+
+      <div class="bk-tier" data-pkg="5h" onclick="bkBuyPackage('5h', this)">
+        <div class="bk-tier-icon">5&times;</div>
+        <div class="bk-tier-body">
+          <div class="bk-tier-name" data-i18n="nach_dropdown_b_5h">5 Stunden (10% Rabatt)</div>
+          <div class="bk-tier-desc" data-i18n="bk_pkg_5_sub">Ideal f&uuml;r gezielte Vorbereitung</div>
+        </div>
+        <div class="bk-tier-right">
+          <div class="bk-tier-price" id="bkPrice5">202,50&euro;</div>
+          <div class="bk-tier-note" id="bkNote5">40,50 &euro;/Std.</div>
+        </div>
+        <span class="bk-tier-arrow">&rarr;</span>
+      </div>
+
+      <div class="bk-tier featured" data-pkg="10h" onclick="bkBuyPackage('10h', this)">
+        <span class="bk-badge" data-i18n="bk_badge_best">Empfohlen</span>
+        <div class="bk-tier-icon">10&times;</div>
+        <div class="bk-tier-body">
+          <div class="bk-tier-name" data-i18n="nach_dropdown_b_10h">10 Stunden (15% Rabatt)</div>
+          <div class="bk-tier-desc" data-i18n="bk_pkg_10_sub">Beste Preis-Leistung</div>
+        </div>
+        <div class="bk-tier-right">
+          <div class="bk-tier-price" id="bkPrice10">382,50&euro;</div>
+          <div class="bk-tier-note" id="bkNote10">38,25 &euro;/Std.</div>
+        </div>
+        <span class="bk-tier-arrow">&rarr;</span>
+      </div>
+
+      <div class="bk-tier" data-pkg="custom" onclick="bkBuyPackage('custom', this)">
+        <div class="bk-tier-icon">&infin;</div>
+        <div class="bk-tier-body">
+          <div class="bk-tier-name" data-i18n="nach_dropdown_custom">Individuell</div>
+          <div class="bk-tier-desc" data-i18n="bk_pkg_custom_sub">Ma&szlig;geschneiderte Stundenanzahl</div>
+        </div>
+        <div class="bk-tier-right">
+          <div class="bk-tier-price" data-i18n="bk_custom_label">Anfrage</div>
+        </div>
+        <span class="bk-tier-arrow">&rarr;</span>
+      </div>
+    </div>
+
+    <div class="bk-footer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <span data-i18n="bk_footer">Sichere Zahlung via Stripe &middot; DSGVO-konform</span>
+    </div>
+
   </div>
 </div>
 
-<div class="toast-success" id="toast" data-i18n="toast_booking">Buchung erfolgreich!</div>
+<div class="toast-success" id="toast" data-i18n="toast_inquiry">Anfrage erfolgreich!</div>
 
 <!-- ── Library Modal ── -->
 <div class="lib-overlay" id="libraryModal">
@@ -952,6 +1273,163 @@ main > .section-spacer:first-of-type {
 <script src="js/stripe-checkout.js"></script>
 <script src="hero-scroll.js"></script>
 <script>
+    // ── Booking Modal ──
+    const bkOverlay = document.getElementById('bookingModal');
+    const bkCloseBtn = document.getElementById('bkCloseBtn');
+    let bkCurrentType = null;
+    let bkLevel = 'einstieg';
+
+    function getPrices(level) {
+      var base = level === 'einstieg' ? 45 : level === 'absolventen' ? 60 : 75;
+      var p5 = Math.round(base * 5 * 0.9);
+      var p10 = Math.round(base * 10 * 0.85);
+      return { single: base, pkg5: p5, pkg10: p10, note5: Math.round(base * 0.9) + ' €/Std.', note10: Math.round(base * 0.85) + ' €/Std.' };
+    }
+
+    function selectLevel(level) {
+      bkLevel = level;
+      document.querySelectorAll('.bk-level-btn').forEach(function(b) { b.classList.remove('selected'); });
+      var btn = document.querySelector('.bk-level-btn[data-level="' + level + '"]');
+      if (btn) btn.classList.add('selected');
+
+      var p = getPrices(level);
+      var singleEl = document.getElementById('bkPriceSingle');
+      var p5El = document.getElementById('bkPrice5');
+      var p10El = document.getElementById('bkPrice10');
+      var nSingle = document.getElementById('bkNoteSingle');
+      var n5 = document.getElementById('bkNote5');
+      var n10 = document.getElementById('bkNote10');
+      if (singleEl) singleEl.textContent = p.single + '€';
+      if (p5El) p5El.textContent = p.pkg5 + '€';
+      if (p10El) p10El.textContent = p.pkg10 + '€';
+      if (nSingle) nSingle.textContent = p.single + ' €/Std.';
+      if (n5) n5.textContent = p.note5;
+      if (n10) n10.textContent = p.note10;
+    }
+
+    function bkBuyPackage(pkg, btn) {
+      if (bkLevel === 'einstieg') {
+        if (pkg === 'single') stripeCheckout('tutoring_single', btn);
+        else if (pkg === '5h') stripeCheckout('tutoring_5h', btn);
+        else if (pkg === '10h') stripeCheckout('tutoring_10h', btn);
+        else openInquiryForm('nachhilfe', 'individuell');
+      } else {
+        openInquiryForm('nachhilfe', bkLevel + '_' + pkg);
+      }
+    }
+
+    function openInquiryForm(service, detail) {
+      document.getElementById('bkStepPackages').classList.remove('active');
+      document.getElementById('bkStepForm').classList.add('active');
+      var typeInput = document.getElementById('bk-booking-type');
+      var serviceInput = document.getElementById('bk-service');
+      if (typeInput) typeInput.value = 'inquiry';
+      if (serviceInput) serviceInput.value = service + '_' + detail;
+      var submitBtn = document.getElementById('bkSubmitBtn');
+      if (submitBtn) submitBtn.dataset.i18n = 'hero_contact_submit';
+      if (window.applyLanguage) applyLanguage(document.documentElement.lang || 'de');
+    }
+
+    function openBookingModal(type) {
+      bkOverlay.classList.add('active');
+      var scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollY + 'px';
+      document.body.style.width = '100%';
+      if (window.lenis) window.lenis.stop();
+
+      if (type) {
+        setTimeout(function() { bkSelectType(type); }, 350);
+      }
+    }
+
+    function closeBookingModal() {
+      bkOverlay.classList.remove('active');
+      document.getElementById('bkStep1').classList.add('active');
+      document.getElementById('bkStepForm').classList.remove('active');
+      document.getElementById('bkStepPackages').classList.remove('active');
+      document.querySelectorAll('.bk-type-btn').forEach(function(b) { b.classList.remove('selected'); });
+      bkCurrentType = null;
+
+      var top = parseFloat(document.body.style.top || '0') * -1;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, top);
+      if (window.lenis) window.lenis.start();
+    }
+
+    function bkSelectType(type) {
+      bkCurrentType = type;
+      document.querySelectorAll('.bk-type-btn').forEach(function(b) { b.classList.remove('selected'); });
+      var btn = document.querySelector('.bk-type-btn[data-type="' + type + '"]');
+      if (btn) btn.classList.add('selected');
+
+      document.getElementById('bkStep1').classList.remove('active');
+
+      if (type === 'nachhilfe') {
+        document.getElementById('bkStepForm').classList.remove('active');
+        document.getElementById('bkStepPackages').classList.add('active');
+        selectLevel('einstieg');
+      } else {
+        document.getElementById('bkStepPackages').classList.remove('active');
+        document.getElementById('bkStepForm').classList.add('active');
+
+        var typeInput = document.getElementById('bk-booking-type');
+        var serviceInput = document.getElementById('bk-service');
+        var submitBtn = document.getElementById('bkSubmitBtn');
+        var formLabel = document.getElementById('bkFormLabel');
+
+        if (type === 'consulting') {
+          if (typeInput) typeInput.value = 'quote';
+          if (serviceInput) serviceInput.value = 'consulting';
+          if (submitBtn) submitBtn.dataset.i18n = 'quote_submit';
+        } else {
+          if (typeInput) typeInput.value = 'inquiry';
+          if (serviceInput) serviceInput.value = 'general';
+          if (submitBtn) submitBtn.dataset.i18n = 'hero_contact_submit';
+        }
+        if (window.applyLanguage) applyLanguage(document.documentElement.lang || 'de');
+      }
+    }
+
+    function bkGoBack() {
+      document.getElementById('bkStepForm').classList.remove('active');
+      document.getElementById('bkStepPackages').classList.remove('active');
+      document.getElementById('bkStep1').classList.add('active');
+      document.querySelectorAll('.bk-type-btn').forEach(function(b) { b.classList.remove('selected'); });
+    }
+
+    if (bkCloseBtn) bkCloseBtn.addEventListener('click', closeBookingModal);
+    if (bkOverlay) {
+      bkOverlay.addEventListener('click', function(e) {
+        if (e.target === bkOverlay) closeBookingModal();
+      });
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && bkOverlay && bkOverlay.classList.contains('active')) closeBookingModal();
+    });
+
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      if (form.id === 'bkContactForm') {
+        e.preventDefault();
+        var langInput = document.getElementById('bk-language');
+        if (langInput) langInput.value = (document.documentElement.lang || 'de').toUpperCase();
+
+        var toast = document.getElementById('toast');
+        if (toast) {
+          var key = 'toast_inquiry';
+          var lang = document.documentElement.lang || 'de';
+          toast.textContent = (typeof translations !== 'undefined' && translations[lang] && translations[lang][key]) || toast.textContent;
+          toast.classList.add('show');
+          setTimeout(function() { toast.classList.remove('show'); }, 2500);
+        }
+        setTimeout(function() { form.submit(); }, 3300);
+      }
+    });
+
+    // ── Burger ──
     const burger = document.getElementById("burger");
     const navLinks = document.getElementById("navLinks");
 
