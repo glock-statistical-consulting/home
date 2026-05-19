@@ -361,7 +361,7 @@ main > .section-spacer:first-of-type {
     <button class="modal-close" id="bkCloseBtn">&times;</button>
     <h3 class="bk-title" data-i18n="contact_title">Individuelle Anfrage</h3>
     <p class="bk-sub" data-i18n="bk_inquiry_sub">Was ist dein Anliegen?</p>
-    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="bk-form" id="bkContactForm">
+    <form action="/api/contact" method="POST" class="bk-form" id="bkContactForm">
       <input type="hidden" name="_next" value="https://www.kevinglock.de/datenschutz.html">
       <input type="hidden" name="booking_card" value="datenschutz-page">
       <input type="hidden" name="booking_type" value="inquiry">

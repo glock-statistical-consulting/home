@@ -513,7 +513,7 @@ main > .section-spacer:first-of-type {
     <h3 class="bk-title" data-i18n="quote_title">Angebot anfordern</h3>
     <p class="bk-sub" data-i18n="bk_inquiry_sub">Was ist dein Anliegen?</p>
 
-    <form action="https://wbgnlnvvmifvcenjlmqp.supabase.co/functions/v1/contact-form" method="POST" class="bk-form" id="bkContactForm">
+    <form action="/api/contact" method="POST" class="bk-form" id="bkContactForm">
       <input type="hidden" name="_next" value="https://www.kevinglock.de/consulting.html">
       <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <input type="hidden" name="booking_type" value="quote">
