@@ -189,11 +189,16 @@ export async function sendAdminNotification(
 export async function sendInquiryCustomerConfirmation(
   customerEmail: string,
   customerName: string,
-  inquiryType: string
+  inquiryType: string,
+  lang?: string
 ): Promise<SendResult> {
   if (!RESEND_API_KEY) return { success: false, error: "Resend not configured" }
 
-  const typeLabel = inquiryType === "consulting" ? "Consulting" : inquiryType === "nachhilfe" ? "Nachhilfe" : "Anfrage"
+  const isEn = lang === "EN"
+  const typeLabel = inquiryType === "consulting" ? (isEn ? "Consulting" : "Consulting") : inquiryType === "nachhilfe" ? (isEn ? "Tutoring" : "Nachhilfe") : isEn ? "Inquiry" : "Anfrage"
+  const subject = isEn
+    ? `Thank you for your ${typeLabel} \u2013 I\u2019ll get back to you soon`
+    : `Danke f\u00fcr deine ${typeLabel} \u2013 ich melde mich zeitnah`
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
@@ -206,8 +211,36 @@ export async function sendInquiryCustomerConfirmation(
         from: `Kevin Glock <${FROM_EMAIL}>`,
         reply_to: `Kevin Glock <glock.gsc@web.de>`,
         to: customerEmail,
-        subject: `Danke f\u00fcr deine ${typeLabel} \u2013 ich melde mich zeitnah`,
-        html: `
+        subject: subject,
+        html: isEn ? `
+          <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6f9;">
+            <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+              <tr>
+                <td style="background:#1e3a5f;padding:24px 32px;text-align:center;">
+                  <img src="https://kevinglock.de/img/logo.svg" alt="GSC" style="height:40px;width:auto;" />
+                  <h1 style="color:#ffffff;margin:12px 0 0;font-size:20px;font-weight:600;">Kevin Glock Statistical Consulting</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#ffffff;padding:32px;border-radius:0 0 8px 8px;">
+                  <p style="color:#1e3a5f;font-size:24px;font-weight:700;margin:0 0 8px;">Thank you for your ${typeLabel}!</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Dear ${customerName || "Customer"},</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 16px;">thank you for your ${typeLabel}. I have received it and will review it shortly.</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 16px;">You\u2019ll hear from me soon \u2013 usually within 24\u00a0hours.</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 4px;">If you have any questions in the meantime, write to me at <a href="mailto:glock.gsc@web.de" style="color:#1e3a5f;">glock.gsc@web.de</a>.</p>
+                  <div style="border-top:1px solid #e2e8f0;padding-top:20px;margin-top:24px;">
+                    <p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0;">Best regards<br><strong style="color:#1e3a5f;">Kevin Glock</strong></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#1e3a5f;padding:20px 32px;text-align:center;border-radius:8px 8px 0 0;">
+                  <p style="color:#94a3b8;font-size:12px;line-height:1.6;margin:0;">Kevin Glock Statistical Consulting Services<br>Sch\u00f6nebecker Stra\u00dfe 76 | 45359 Essen<br><a href="https://kevinglock.de" style="color:#94a3b8;">kevinglock.de</a> | <a href="mailto:glock.gsc@web.de" style="color:#94a3b8;">glock.gsc@web.de</a></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        ` : `
           <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6f9;">
             <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
               <tr>

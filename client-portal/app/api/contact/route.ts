@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
     const message = (formData.get("message") as string || "").trim()
     const inquiryType = (formData.get("booking_type") as string || "inquiry").trim()
     const service = (formData.get("booking_service") as string || "").trim()
+    const language = (formData.get("language") as string || "DE").trim()
     const redirectUrl = formData.get("_next") as string || "https://kevinglock.de"
 
     if (!email || !name) {
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest) {
     }
 
     const results = await Promise.allSettled([
-      sendInquiryCustomerConfirmation(email, name, inquiryType),
+      sendInquiryCustomerConfirmation(email, name, inquiryType, language),
       sendInquiryAdminNotification(email, name, message, inquiryType, service || undefined),
     ])
 
