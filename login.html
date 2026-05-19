@@ -496,7 +496,10 @@
     'application/json', 'application/xml',
   ];
 
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  var supabase = null;
+  try {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  } catch (_) {}
 
   const authSection = document.getElementById('authSection');
   const dashboardSection = document.getElementById('dashboardSection');
@@ -580,6 +583,12 @@
     e.preventDefault();
     authError.innerHTML = '&nbsp;';
     authSuccess.innerHTML = '&nbsp;';
+
+    if (!supabase) {
+      const t = translations[currentLang] || {};
+      authError.textContent = t.login_error_connection || 'Verbindungsfehler – bitte Seite neu laden.';
+      return;
+    }
 
     const email = emailInput.value.trim();
     const isReset = mode === 'reset';
@@ -847,38 +856,40 @@
     }
   });
 
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (event === 'PASSWORD_RECOVERY') {
-      authSection.classList.remove('hidden');
-      dashboardSection.classList.add('hidden');
-      isPasswordRecovery = true;
-      setMode('reset');
-      const t = translations[currentLang] || {};
-      passwordInput.style.display = '';
-      passwordInput.required = true;
-      passwordInput.placeholder = t.login_new_password || 'Neues Passwort';
-      passwordInput.autocomplete = 'new-password';
-      authSubmitBtn.textContent = t.login_save_password || 'Passwort speichern';
-      authInfoText.style.display = 'none';
-      authToggleLink.style.display = 'none';
-      forgotPasswordRow.style.display = 'none';
-      tabs.forEach(tab => tab.style.display = 'none');
-      return;
-    }
-
-    if (event === 'SIGNED_IN' && session) {
-      if (isPasswordRecovery) {
-        isPasswordRecovery = false;
+  if (supabase) {
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        authSection.classList.remove('hidden');
+        dashboardSection.classList.add('hidden');
+        isPasswordRecovery = true;
+        setMode('reset');
+        const t = translations[currentLang] || {};
+        passwordInput.style.display = '';
+        passwordInput.required = true;
+        passwordInput.placeholder = t.login_new_password || 'Neues Passwort';
+        passwordInput.autocomplete = 'new-password';
+        authSubmitBtn.textContent = t.login_save_password || 'Passwort speichern';
+        authInfoText.style.display = 'none';
+        authToggleLink.style.display = 'none';
+        forgotPasswordRow.style.display = 'none';
+        tabs.forEach(tab => tab.style.display = 'none');
+        return;
       }
-      loadDashboard(session);
-    }
-  });
 
-  supabase.auth.getUser().then(({ data }) => {
-    if (data?.user) {
-      loadDashboard(data.user);
-    }
-  });
+      if (event === 'SIGNED_IN' && session) {
+        if (isPasswordRecovery) {
+          isPasswordRecovery = false;
+        }
+        loadDashboard(session);
+      }
+    });
+
+    supabase.auth.getUser().then(({ data }) => {
+      if (data?.user) {
+        loadDashboard(data.user);
+      }
+    });
+  }
 
   function validatePassword(pw) {
     const t = translations[currentLang] || {};
