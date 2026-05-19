@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 
     const results = await Promise.allSettled([
       sendInquiryCustomerConfirmation(email, name, inquiryType, language),
-      sendInquiryAdminNotification(email, name, message, inquiryType, service || undefined),
+      sendInquiryAdminNotification(email, name, message, inquiryType, service || undefined, language),
     ])
 
     if (results[1].status === "rejected" || (results[1].status === "fulfilled" && !results[1].value.success)) {

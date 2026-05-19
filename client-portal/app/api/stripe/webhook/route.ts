@@ -111,7 +111,8 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
       customerEmail || "unbekannt",
       customerName,
       productName,
-      session.amount_total
+      session.amount_total,
+      session.metadata?.lang
     ).then((r) => {
       if (!r.success) console.error("Admin notification failed:", r.error)
     })

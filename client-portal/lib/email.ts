@@ -132,7 +132,8 @@ export async function sendAdminNotification(
   customerEmail: string,
   customerName: string,
   productName: string,
-  amount: number | null
+  amount: number | null,
+  lang?: string
 ): Promise<SendResult> {
   if (!RESEND_API_KEY) return { success: false, error: "Resend not configured" }
 
@@ -163,7 +164,8 @@ export async function sendAdminNotification(
                     <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Produkt</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-weight:600;font-size:14px;text-align:right;">${productName}</td></tr>
                     <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Betrag</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-weight:600;font-size:14px;text-align:right;">${amountStr}</td></tr>
                     <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Kunde</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-size:14px;text-align:right;">${customerName || "Unbekannt"}</td></tr>
-                    <tr><td style="padding:10px 0;color:#64748b;font-size:14px;">E-Mail</td><td style="padding:10px 0;color:#1e3a5f;font-size:14px;text-align:right;">${customerEmail}</td></tr>
+                    <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">E-Mail</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-size:14px;text-align:right;">${customerEmail}</td></tr>
+                    ${lang ? `<tr><td style="padding:10px 0;color:#64748b;font-size:14px;">Sprache</td><td style="padding:10px 0;color:#1e3a5f;font-size:14px;text-align:right;">${lang}</td></tr>` : ""}
                   </table>
                 </td>
               </tr>
@@ -290,7 +292,8 @@ export async function sendInquiryAdminNotification(
   customerName: string,
   message: string,
   inquiryType: string,
-  service?: string
+  service?: string,
+  lang?: string
 ): Promise<SendResult> {
   if (!RESEND_API_KEY) return { success: false, error: "Resend not configured" }
 
@@ -322,6 +325,7 @@ export async function sendInquiryAdminNotification(
                     ${service ? `<tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Service</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-weight:600;font-size:14px;text-align:right;">${service}</td></tr>` : ""}
                     <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Name</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-size:14px;text-align:right;">${customerName || "Unbekannt"}</td></tr>
                     <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">E-Mail</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-size:14px;text-align:right;">${customerEmail}</td></tr>
+                    <tr><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:14px;">Sprache</td><td style="padding:10px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-size:14px;text-align:right;">${lang || "DE"}</td></tr>
                     <tr><td style="padding:10px 0;color:#64748b;font-size:14px;">Nachricht</td><td style="padding:10px 0;color:#1e3a5f;font-size:14px;text-align:right;max-width:320px;word-break:break-word;">${message}</td></tr>
                   </table>
                 </td>

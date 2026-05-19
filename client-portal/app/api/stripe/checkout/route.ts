@@ -73,6 +73,7 @@ export async function POST(req: NextRequest) {
         ...(product?.metadata || {}),
         ...(customMetadata || {}),
         ...(userId ? { userId } : {}),
+        ...(lang ? { lang } : {}),
       },
     }
 
