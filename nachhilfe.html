@@ -1573,14 +1573,17 @@ main > .section-spacer:first-of-type {
 
     function confirmBooking() {
       var btn = document.getElementById('confirmBtn');
+      var lang = document.documentElement.lang || 'de';
       if (bkLevel === 'einstieg') {
         var key = selectedPkg === 'single' ? 'tutoring_single' : selectedPkg === '5h' ? 'tutoring_5h' : 'tutoring_10h';
         stripeCheckout(key, btn);
       } else {
         var info = getPkgPriceCents(selectedPkg, bkLevel);
         var amountCents = Math.round(info.total * 100);
-        var label = bkLevel === 'absolventen' ? 'Absolventen' : 'Dissertation';
-        stripeCheckoutCustom(amountCents, info.hours + ' Std. Nachhilfe (' + label + ')', label + ' \u00B7 ' + info.hours + ' Std.', { access: 'tutoring', hours: String(info.hours), level: bkLevel }, btn);
+        var label = bkLevel === 'absolventen' ? (lang === 'en' ? 'Graduate' : 'Absolventen') : (lang === 'en' ? 'Dissertation' : 'Dissertation');
+        var pkgName = lang === 'en' ? info.hours + ' h Tutoring (' + label + ')' : info.hours + ' Std. Nachhilfe (' + label + ')';
+        var pkgDesc = lang === 'en' ? info.hours + ' h \u00B7 ' + label : label + ' \u00B7 ' + info.hours + ' Std.';
+        stripeCheckoutCustom(amountCents, pkgName, pkgDesc, { access: 'tutoring', hours: String(info.hours), level: bkLevel }, btn);
       }
     }
 
@@ -1631,12 +1634,13 @@ main > .section-spacer:first-of-type {
       if (hours < 1) hours = 1;
       if (hours > 100) hours = 100;
 
+      var lang = document.documentElement.lang || 'de';
       var base = getBasePrice(bkLevel);
       var rate = hours <= 4 ? base : hours <= 9 ? base * 0.9 : base * 0.85;
       var amountCents = Math.round(rate * hours * 100);
       var label = bkLevel.charAt(0).toUpperCase() + bkLevel.slice(1);
-      var name = hours + ' Std. Nachhilfe (' + label + ')';
-      var desc = label + ' \u00B7 ' + hours + ' Std.';
+      var name = lang === 'en' ? hours + ' h Tutoring (' + label + ')' : hours + ' Std. Nachhilfe (' + label + ')';
+      var desc = lang === 'en' ? label + ' \u00B7 ' + hours + ' h' : label + ' \u00B7 ' + hours + ' Std.';
 
       stripeCheckoutCustom(amountCents, name, desc, { access: 'tutoring', hours: String(hours), level: bkLevel }, document.getElementById('customSubmitBtn'));
     }

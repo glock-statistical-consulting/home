@@ -2,17 +2,18 @@ import { NextRequest, NextResponse } from "next/server"
 import { stripe } from "@/lib/stripe/server"
 import { PRODUCTS, ProductKey } from "@/lib/stripe/products"
 
-function shortName(productKey: string | null, customName?: string): string {
+function shortName(productKey: string | null, customName?: string, lang?: string): string {
   if (customName) return customName.length > 28 ? customName.slice(0, 25) + "..." : customName
+  const isEn = lang === "en"
   switch (productKey) {
-    case "tutoring_single": return "Einzelsitzung"
-    case "tutoring_5h": return "5 Std. Paket"
-    case "tutoring_10h": return "10 Std. Paket"
-    case "library_bundle": return "Library – Komplett"
-    case "library_basics": return "Library – Basics"
-    case "library_standard": return "Library – Standard"
-    case "library_advanced": return "Library – Advanced"
-    case "library_all_access": return "Library – All-Access"
+    case "tutoring_single": return isEn ? "Single Session" : "Einzelsitzung"
+    case "tutoring_5h": return isEn ? "5 h Package" : "5 Std. Paket"
+    case "tutoring_10h": return isEn ? "10 h Package" : "10 Std. Paket"
+    case "library_bundle": return "Library \u2013 " + (isEn ? "Full" : "Komplett")
+    case "library_basics": return "Library \u2013 Basics"
+    case "library_standard": return "Library \u2013 Standard"
+    case "library_advanced": return "Library \u2013 Advanced"
+    case "library_all_access": return "Library \u2013 All-Access"
     default: return ""
   }
 }
@@ -24,7 +25,7 @@ function isBooking(productKey: string | null, customAmount: number | null): bool
 
 export async function POST(req: NextRequest) {
   try {
-    const { productKey, customAmount, customName, customDescription, customMetadata, userId, mode, successUrl, cancelUrl } = await req.json()
+    const { productKey, customAmount, customName, customDescription, customMetadata, userId, mode, successUrl, cancelUrl, lang } = await req.json()
 
     const proto = req.headers.get("x-forwarded-proto") || "https"
     const host = req.headers.get("x-forwarded-host") || req.headers.get("host") || "kevinglock.de"
@@ -36,8 +37,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid product key" }, { status: 400 })
     }
 
-    const stripeName = shortName(productKey, customName)
-    const stripeDesc = customDescription || product?.description || ""
+    const isEn = lang === "en"
+    const stripeName = shortName(productKey, customName, lang)
+    const stripeDesc = isEn
+      ? (product?.descriptionEn || customDescription || product?.description || "")
+      : (customDescription || product?.description || "")
 
     const sessionParams: Record<string, unknown> = {
       mode: "payment" as const,
@@ -88,7 +92,9 @@ export async function POST(req: NextRequest) {
     if (isBooking(productKey, customAmount)) {
       sessionParams.custom_text = {
         submit: {
-          message: "Du erh\u00e4ltst deine Buchungsaufstellung per E-Mail mit einem Link zur Buchung eines freien Slots. Ich melde mich dann zeitnah bei dir.",
+          message: isEn
+            ? "You will receive your booking summary via email with a link to book a free slot. I will get back to you promptly."
+            : "Du erh\u00e4ltst deine Buchungsaufstellung per E-Mail mit einem Link zur Buchung eines freien Slots. Ich melde mich dann zeitnah bei dir.",
         },
       }
     }
