@@ -266,6 +266,64 @@ html{
   border-color: var(--orange);
 }
 
+/* ── bk-overlay modal system (global, shared by all pages) ── */
+.bk-overlay {
+  position: fixed; inset: 0;
+  background: rgba(10,10,10,0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex; align-items: flex-end; justify-content: center;
+  z-index: 9999;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.bk-overlay.active { opacity: 1; pointer-events: all; }
+.bk-modal {
+  background: #FAFAF8;
+  border-radius: 18px 18px 0 0;
+  width: 100%; max-width: 520px;
+  max-height: 90vh; overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.2rem 1.5rem 1.5rem;
+  transform: translateY(40px);
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+}
+.bk-overlay.active .bk-modal { transform: translateY(0); }
+.bk-handle {
+  width: 40px; height: 4px;
+  background: #d1d5db; border-radius: 99px;
+  margin: 0 auto 1rem;
+}
+.bk-title {
+  font-size: 1.4rem; font-weight: 700; color: #163E64;
+  line-height: 1.2; margin: 0 0 0.2rem;
+}
+.bk-sub {
+  font-size: 0.85rem; color: #6b7280;
+  margin: 0 0 1.2rem; line-height: 1.5;
+}
+.bk-form { display: flex; flex-direction: column; gap: 0.8rem; }
+.bk-form input,
+.bk-form textarea {
+  width: 100%; padding: 0.7rem 0.9rem;
+  border: 1.5px solid #e5e7eb; border-radius: 8px;
+  font-size: 0.9rem; font-family: inherit;
+  background: #FAFAF8; color: #163E64;
+  transition: border-color 0.15s; box-sizing: border-box;
+}
+.bk-form input:focus,
+.bk-form textarea:focus { outline: none; border-color: #163E64; }
+.bk-form textarea { resize: vertical; min-height: 80px; }
+.bk-form .btn { width: 100%; margin-top: 0.3rem; }
+
+@media (min-width: 560px) {
+  .bk-overlay { align-items: center; padding: 1.5rem; }
+  .bk-modal { border-radius: 18px; max-height: 90vh; }
+  .bk-handle { display: none; }
+}
+
 /* Modal submit buttons: dark blue instead of orange */
 .bk-form .btn,
 .modal form .btn,
