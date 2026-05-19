@@ -224,7 +224,7 @@ main > .section-spacer:first-of-type {
     Weitere Informationen: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel Privacy Policy</a>
   </p>
 
-  <h2 data-i18n="ds_h2_4">4. Kontaktformular</h2>
+  <h2 data-i18n="ds_h2_4">4. Kontaktformular und Anfragen</h2>
   <p>
     Auf meiner Website steht Ihnen ein Kontaktformular zur Verfügung. Bei Nutzung des Formulars werden folgende Daten erhoben:
   </p>
@@ -235,10 +235,10 @@ main > .section-spacer:first-of-type {
     <li>Ausgewählte Buchungsoptionen (sofern zutreffend)</li>
   </ul>
   <p>
-    Die Übermittlung erfolgt verschlüsselt an den Webserver (<strong>Vercel</strong>) und wird per E-Mail über <strong>Resend</strong> an den Betreiber weitergeleitet. Eine Speicherung in einer Datenbank findet nicht statt. Ein Zugriff auf Ihre Daten besteht nur für den Betreiber dieser Website.
+    Die Übermittlung erfolgt verschlüsselt an den Webserver (<strong>Vercel</strong>). Ihre Anfrage wird zur Bearbeitung in einer Datenbank (<strong>Supabase</strong>, AWS Frankfurt) gespeichert und zusätzlich per E-Mail über <strong>Resend</strong> an den Betreiber weitergeleitet. Ein Zugriff auf Ihre Daten besteht nur für den Betreiber dieser Website.
   </p>
   <p>
-    Resend Inc. (USA) ist nach dem EU-US Data Privacy Framework (DPF) zertifiziert. Weitere Informationen: <a href="https://resend.com/privacy" target="_blank" rel="noopener noreferrer">Resend Privacy Policy</a>
+    Resend Inc. (USA) und Supabase Inc. (USA) sind nach dem EU-US Data Privacy Framework (DPF) zertifiziert. Supabase verarbeitet Daten als Auftragsverarbeiter (Server in der EU, Frankfurt). Weitere Informationen: <a href="https://resend.com/privacy" target="_blank" rel="noopener noreferrer">Resend Privacy Policy</a>, <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase Privacy Policy</a>
   </p>
   <p>
     Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Kommunikation mit Interessenten und Kunden).
@@ -247,17 +247,34 @@ main > .section-spacer:first-of-type {
     Die Daten werden gelöscht, sobald Ihre Anfrage abschließend bearbeitet wurde und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
   </p>
 
-  <h2 data-i18n="ds_h2_5">5. SSL-Verschlüsselung</h2>
+  <h2 data-i18n="ds_h2_new_5">5. Kundenbereich und Dateiupload</h2>
+  <p>
+    Auf meiner Website gibt es einen geschützten Kundenbereich (Login). Nach erfolgter Anfrage oder Buchung erhalten Kunden Zugang zu diesem Bereich, um Dateien (z. B. Datensätze, Aufgabenstellungen) für die Bearbeitung ihrer Analyseleistungen hochzuladen. Die hochgeladenen Dateien werden in meinem <strong>Supabase Storage</strong> (AWS Frankfurt, EU) gespeichert.
+  </p>
+  <p>Folgende Daten werden im Kundenbereich verarbeitet:</p>
+  <ul>
+    <li>Name und E-Mail-Adresse (zur Identifikation)</li>
+    <li>Hochgeladene Dateien (Datensätze, Dokumente, Aufgabenstellungen)</li>
+    <li>Nachrichten und Anfragen im Zusammenhang mit Ihrer Analyse</li>
+  </ul>
+  <p>
+    Supabase Inc. (USA) ist nach dem EU-US Data Privacy Framework (DPF) zertifiziert und verarbeitet Daten als Auftragsverarbeiter. Die Server stehen in der EU (Frankfurt).
+  </p>
+  <p>
+    Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung zur Durchführung von Analyseleistungen).
+  </p>
+
+  <h2 data-i18n="ds_h2_6">6. SSL-Verschlüsselung</h2>
   <p>
     Diese Website nutzt aus Sicherheitsgründen eine SSL-Verschlüsselung (erkennbar an „https://“ in der Adresszeile). Dadurch werden Ihre übermittelten Daten vor dem Zugriff Dritter geschützt.
   </p>
 
-  <h2 data-i18n="ds_h2_6">6. Cookies</h2>
+  <h2 data-i18n="ds_h2_7">7. Cookies</h2>
   <p>
     Diese Website verwendet <strong>keine</strong> Tracking-Cookies, Analyse-Tools oder Marketing-Tracker. Es werden ausschließlich technisch notwendige Cookies oder Session-Speicher verwendet, die für den Betrieb der Website erforderlich sind.
   </p>
 
-  <h2 data-i18n="ds_h2_7">7. Zahlungsabwicklung und Buchungstools</h2>
+  <h2 data-i18n="ds_h2_8">8. Zahlungsabwicklung und Buchungstools</h2>
   <p>
     Für die Abwicklung von Zahlungen und Terminbuchungen sowie den Versand von Bestätigungs-E-Mails werden folgende Dienste eingesetzt:
   </p>
@@ -270,12 +287,17 @@ main > .section-spacer:first-of-type {
     Die Verarbeitung Ihrer Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Zahlungsabwicklung und Terminverwaltung).
   </p>
 
-  <h2 data-i18n="ds_h2_8">8. Speicherdauer</h2>
+  <h2 data-i18n="ds_h2_9">9. Speicherdauer</h2>
   <p>
-    Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Verarbeitungszweck erforderlich ist. Gesetzliche Aufbewahrungspflichten (insbesondere steuerrechtliche Vorschriften) bleiben unberührt.
+    Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Verarbeitungszweck erforderlich ist:
   </p>
+  <ul>
+    <li><strong>Anfragen und Kontaktformulare:</strong> Gelöscht nach abschließender Bearbeitung, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</li>
+    <li><strong>Kundenbereich und hochgeladene Dateien:</strong> Gespeichert für die Dauer der Auftragsbearbeitung. Nach Abschluss des Auftrags gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten (insbesondere steuerrechtliche Vorschriften) entgegenstehen.</li>
+    <li><strong>Rechnungen und Zahlungsdaten:</strong> Unterliegen den gesetzlichen Aufbewahrungspflichten nach § 147 AO (bis zu 10 Jahre).</li>
+  </ul>
 
-  <h2 data-i18n="ds_h2_9">9. Ihre Rechte</h2>
+  <h2 data-i18n="ds_h2_10">10. Ihre Rechte</h2>
   <p>Sie haben gegenüber dem Verantwortlichen folgende Rechte bezüglich der Sie betreffenden personenbezogenen Daten:</p>
   <ul>
     <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
@@ -289,7 +311,7 @@ main > .section-spacer:first-of-type {
     Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <strong>glock.gsc@web.de</strong>
   </p>
 
-  <h2 data-i18n="ds_h2_10">10. Beschwerderecht</h2>
+  <h2 data-i18n="ds_h2_11">11. Beschwerderecht</h2>
   <p>
     Sie haben das Recht, sich bei einer Aufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die DSGVO verstößt. Die zuständige Aufsichtsbehörde ist:
   </p>
@@ -301,7 +323,7 @@ main > .section-spacer:first-of-type {
     E-Mail: poststelle@ldi.nrw.de
   </p>
 
-  <h2 data-i18n="ds_h2_11">11. Änderungen</h2>
+  <h2 data-i18n="ds_h2_12">12. Änderungen</h2>
   <p>
     Ich behalte mir vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an geänderte Rechtslage oder bei Änderungen des Angebots anzupassen. Es gilt die jeweils aktuelle Version.
   </p>
