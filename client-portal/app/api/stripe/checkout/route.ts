@@ -6,7 +6,9 @@ export async function POST(req: NextRequest) {
   try {
     const { productKey, customAmount, customName, customDescription, customMetadata, userId, mode, successUrl, cancelUrl } = await req.json()
 
-    const origin = req.headers.get("origin") || "http://localhost:3000"
+    const proto = req.headers.get("x-forwarded-proto") || "https"
+    const host = req.headers.get("x-forwarded-host") || req.headers.get("host") || "kevinglock.de"
+    const origin = `${proto}://${host}`
     const isEmbedded = mode === "embedded"
 
     const product = customAmount ? null : PRODUCTS[productKey as ProductKey]
@@ -41,6 +43,7 @@ export async function POST(req: NextRequest) {
           }],
       metadata: {
         ...(productKey ? { productKey } : {}),
+        ...(product?.metadata || {}),
         ...(customMetadata || {}),
         ...(userId ? { userId } : {}),
       },

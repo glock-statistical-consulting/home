@@ -48,41 +48,58 @@ export async function POST(req: NextRequest) {
 
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const productKey = session.metadata?.productKey
-  if (!productKey) return
+  const product = productKey ? PRODUCTS[productKey as ProductKey] : undefined
+  const productName = product?.name || session.metadata?.customName || "Nachhilfe-Paket"
+  const customerEmail = session.customer_details?.email
+  const customerName = session.customer_details?.name || ""
 
   const supabase = createWebhookClient()
 
   await supabase.from("purchases").insert({
-    product_key: productKey,
+    product_key: productKey || null,
     stripe_session_id: session.id,
     stripe_customer_id: session.customer,
-    customer_email: session.customer_details?.email,
-    customer_name: session.customer_details?.name,
+    customer_email: customerEmail,
+    customer_name: customerName,
     status: "complete",
     amount_total: session.amount_total,
     created_at: new Date().toISOString(),
   })
 
-  const product = PRODUCTS[productKey as ProductKey]
-  const productName = product?.name || productKey
-  const customerEmail = session.customer_details?.email
-  const customerName = session.customer_details?.name || ""
-
   const baseUrl = "https://kevinglock.de"
-  const downloads = getDownloads(productKey).map((d) => ({
+  const downloads = productKey ? getDownloads(productKey).map((d) => ({
     name: d.name,
     url: `${baseUrl}/api/download?file=${encodeURIComponent(d.fileUrl)}`,
-  }))
-
-  const emailPromises: Promise<unknown>[] = []
+  })) : []
 
   const bundleUrl = downloads.length > 1
     ? `${baseUrl}/api/download/bundle?productKey=${productKey}`
     : undefined
 
+  // Build booking summary for tutoring / custom purchases
+  const hours = session.metadata?.hours ? parseInt(session.metadata.hours) : undefined
+  const level = session.metadata?.level || ""
+  const levelLabel = level ? (level === "einstieg" ? "Einstieg" : level === "absolventen" ? "Absolventen" : level === "dissertation" ? "Dissertation" : level) : ""
+  const pkgLabel = productKey === "tutoring_single" ? "Einzelstunde"
+    : productKey === "tutoring_5h" ? "5 Stunden"
+    : productKey === "tutoring_10h" ? "10 Stunden"
+    : hours ? `${hours} Stunden` : "Individuell"
+
+  // Only show booking summary for tutoring/custom (not library)
+  const isLibrary = product?.type === "one_time" && product?.metadata?.access === "library"
+  const bookingSummary = isLibrary ? undefined : {
+    label: pkgLabel,
+    level: levelLabel || "Nachhilfe",
+    hours: hours || 1,
+    total: session.amount_total ? session.amount_total / 100 : 0,
+    totalCents: session.amount_total || 0,
+  }
+
+  const emailPromises: Promise<unknown>[] = []
+
   if (customerEmail) {
     emailPromises.push(
-      sendPurchaseConfirmation(customerEmail, customerName, productName, downloads, bundleUrl)
+      sendPurchaseConfirmation(customerEmail, customerName, productName, downloads, bundleUrl, bookingSummary)
         .then((r) => {
           if (!r.success) console.error("Purchase email failed:", r.error)
         })

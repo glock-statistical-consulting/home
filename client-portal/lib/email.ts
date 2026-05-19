@@ -12,7 +12,8 @@ export async function sendPurchaseConfirmation(
   customerName: string,
   productName: string,
   downloadLinks: { name: string; url: string }[],
-  bundleUrl?: string
+  bundleUrl?: string,
+  bookingSummary?: { label: string; level: string; hours: number; total: number; totalCents: number }
 ): Promise<SendResult> {
   if (!RESEND_API_KEY) return { success: false, error: "Resend not configured" }
 
@@ -43,11 +44,35 @@ export async function sendPurchaseConfirmation(
               <tr>
                 <td style="background:#ffffff;padding:32px;border-radius:0 0 8px 8px;">
                   <p style="color:#1e3a5f;font-size:24px;font-weight:700;margin:0 0 8px;">Vielen Dank f&uuml;r deine Bestellung!</p>
-                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Hallo ${customerName || "Kunde"},<br>du hast <strong style="color:#1e3a5f;">${productName}</strong> erworben. Hier sind deine pers&ouml;nlichen Download-Links:</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Hallo ${customerName || "Kunde"},<br>vielen Dank f&uuml;r deine Bestellung von <strong style="color:#1e3a5f;">${productName}</strong>.</p>
+
+                  ${bookingSummary ? `
+                  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin-bottom:20px;">
+                    <p style="color:#1e3a5f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">Buchungs&uuml;bersicht</p>
+                    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+                      <tr>
+                        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;">Paket</td>
+                        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;font-weight:600;text-align:right;">${bookingSummary.label}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;">Stufe</td>
+                        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;text-align:right;">${bookingSummary.level}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#64748b;">Stunden</td>
+                        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;color:#1e3a5f;text-align:right;">${bookingSummary.hours}</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:8px 0;color:#64748b;font-weight:600;">Gesamtbetrag</td>
+                        <td style="padding:8px 0;color:#1e3a5f;font-weight:700;font-size:16px;text-align:right;">${(bookingSummary.totalCents / 100).toFixed(2).replace(".", ",")} &euro;</td>
+                      </tr>
+                    </table>
+                    <p style="color:#94a3b8;font-size:12px;margin:8px 0 0;text-align:right;">inkl. MwSt.</p>
+                  </div>` : ""}
 
                   ${downloadLinks.length > 0 ? `
                   <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px;margin-bottom:20px;">
-                    <p style="color:#1e3a5f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">Einzeldateien</p>
+                    <p style="color:#1e3a5f;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">Deine pers&ouml;nlichen Download-Links</p>
                     <ul style="list-style:none;padding:0;margin:0;">
                       ${downloadHtml}
                     </ul>
