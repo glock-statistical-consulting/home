@@ -1841,7 +1841,9 @@ main > .section-spacer:first-of-type {
 
     function libConfirmPurchase() {
       if (selectedLibTier) {
-        stripeCheckout('library_bundle', document.getElementById('libConfirmBtn'));
+        var tier = selectedLibTier.getAttribute('data-tier');
+        var keyMap = { basics: 'library_basics', standard: 'library_standard', advanced: 'library_advanced', full: 'library_all_access' };
+        stripeCheckout(keyMap[tier] || 'library_all_access', document.getElementById('libConfirmBtn'));
       }
     }
 
