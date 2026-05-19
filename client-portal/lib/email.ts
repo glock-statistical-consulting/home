@@ -31,6 +31,7 @@ export async function sendPurchaseConfirmation(
       },
       body: JSON.stringify({
         from: `Kevin Glock <${FROM_EMAIL}>`,
+        reply_to: `Kevin Glock <glock.gsc@web.de>`,
         to: customerEmail,
         subject: "Deine Bestellung bei Kevin Glock Statistical Consulting",
         html: `
@@ -203,6 +204,7 @@ export async function sendInquiryCustomerConfirmation(
       },
       body: JSON.stringify({
         from: `Kevin Glock <${FROM_EMAIL}>`,
+        reply_to: `Kevin Glock <glock.gsc@web.de>`,
         to: customerEmail,
         subject: `Danke f\u00fcr deine ${typeLabel} \u2013 ich melde mich zeitnah`,
         html: `
@@ -220,7 +222,7 @@ export async function sendInquiryCustomerConfirmation(
                   <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Hallo ${customerName || "Kunde"},</p>
                   <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 16px;">vielen Dank f\u00fcr deine ${typeLabel}. Ich habe sie erhalten und schaue sie mir in Ruhe an.</p>
                   <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 16px;">Du h\u00f6rst in K\u00fcrze von mir \u2013 meist antworte ich innerhalb von 24\u00a0Stunden.</p>
-                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 4px;">Falls dir bis dahin noch etwas einf\u00e4llt, antworte einfach auf diese E-Mail.</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 4px;">Falls du Fragen hast, schreibe mir an <a href="mailto:glock.gsc@web.de" style="color:#1e3a5f;">glock.gsc@web.de</a>.</p>
                   <div style="border-top:1px solid #e2e8f0;padding-top:20px;margin-top:24px;">
                     <p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0;">Beste Gr\u00fc\u00dfe<br><strong style="color:#1e3a5f;">Kevin Glock</strong></p>
                   </div>

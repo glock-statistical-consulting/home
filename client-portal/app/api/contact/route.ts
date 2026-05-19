@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
 
     const honeypot = formData.get("_website") as string
     if (honeypot) {
-      return NextResponse.redirect(new URL(formData.get("_next") as string || "https://kevinglock.de"))
+      return NextResponse.redirect(new URL(formData.get("_next") as string || "https://kevinglock.de"), { status: 302 })
     }
 
     const name = (formData.get("name") as string || "").trim()
@@ -15,11 +15,10 @@ export async function POST(req: NextRequest) {
     const message = (formData.get("message") as string || "").trim()
     const inquiryType = (formData.get("booking_type") as string || "inquiry").trim()
     const service = (formData.get("booking_service") as string || "").trim()
-    const card = (formData.get("booking_card") as string || "").trim()
     const redirectUrl = formData.get("_next") as string || "https://kevinglock.de"
 
     if (!email || !name) {
-      return NextResponse.redirect(new URL(redirectUrl))
+      return NextResponse.redirect(new URL(redirectUrl), { status: 302 })
     }
 
     const results = await Promise.allSettled([
@@ -34,9 +33,9 @@ export async function POST(req: NextRequest) {
       console.error("Customer inquiry confirmation failed")
     }
 
-    return NextResponse.redirect(new URL(redirectUrl))
+    return NextResponse.redirect(new URL(redirectUrl), { status: 302 })
   } catch (error) {
     console.error("Contact API error:", error)
-    return NextResponse.redirect(new URL("https://kevinglock.de"))
+    return NextResponse.redirect(new URL("https://kevinglock.de"), { status: 302 })
   }
 }
