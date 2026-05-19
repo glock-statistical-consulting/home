@@ -7,7 +7,7 @@ async function stripeCheckout(productKey, btn) {
     var res = await fetch("/api/stripe/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ productKey: productKey }),
+      body: JSON.stringify({ productKey: productKey, successUrl: window.location.href }),
     })
 
     var data = await res.json()
@@ -38,6 +38,7 @@ async function stripeCheckoutCustom(amount, name, desc, metadata, btn) {
         customName: name,
         customDescription: desc,
         customMetadata: metadata || {},
+        successUrl: window.location.href,
       }),
     })
 
