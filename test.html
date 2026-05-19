@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Statistics Cheat Sheet</title>
+<style>
+    *{
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+    }
+
+    body{
+        font-family:Inter,Segoe UI,sans-serif;
+        background:#f4f7fb;
+        color:#1d2939;
+        padding:40px;
+    }
+
+    .sheet{
+        max-width:1400px;
+        margin:auto;
+    }
+
+    .title{
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+    .title h1{
+        font-size:42px;
+        font-weight:800;
+        color:#101828;
+    }
+
+    .title p{
+        margin-top:10px;
+        color:#667085;
+        font-size:18px;
+    }
+
+    .grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+        gap:24px;
+    }
+
+    .card{
+        background:white;
+        border-radius:22px;
+        padding:26px;
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.05);
+        border:1px solid #e4e7ec;
+        transition:0.25s ease;
+    }
+
+    .card:hover{
+        transform:translateY(-4px);
+        box-shadow:
+            0 14px 40px rgba(0,0,0,0.08);
+    }
+
+    .card h2{
+        font-size:22px;
+        margin-bottom:18px;
+        color:#0f172a;
+    }
+
+    .formula{
+        background:#f8fafc;
+        border-left:5px solid #6366f1;
+        padding:14px 16px;
+        border-radius:12px;
+        margin-bottom:14px;
+        overflow-x:auto;
+    }
+
+    .formula code{
+        font-size:18px;
+        font-weight:600;
+        color:#111827;
+    }
+
+    .desc{
+        color:#475467;
+        line-height:1.6;
+        font-size:15px;
+    }
+
+    .tip{
+        margin-top:12px;
+        background:#eef2ff;
+        padding:12px 14px;
+        border-radius:12px;
+        font-size:14px;
+        color:#3730a3;
+    }
+
+    .footer{
+        margin-top:40px;
+        text-align:center;
+        color:#667085;
+        font-size:14px;
+    }
+
+    .highlight{
+        color:#4f46e5;
+        font-weight:700;
+    }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+    <div class="title">
+        <h1>Statistics Cheat Sheet</h1>
+        <p>High School / Basic Statistics · Probability · Hypothesis Testing</p>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>Mean</h2>
+            <div class="formula">
+                <code>x̄ = (1/n) Σxᵢ</code>
+            </div>
+            <div class="desc">
+                Arithmetic average of all observations.
+            </div>
+            <div class="tip">
+                Example: (2 + 4 + 6) / 3 = <span class="highlight">4</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Variance</h2>
+            <div class="formula">
+                <code>s² = (1/(n−1)) Σ(xᵢ − x̄)²</code>
+            </div>
+            <div class="desc">
+                Measures the average squared deviation from the mean.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Standard Deviation</h2>
+            <div class="formula">
+                <code>s = √s²</code>
+            </div>
+            <div class="desc">
+                Indicates the typical spread around the mean.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>z-Score</h2>
+            <div class="formula">
+                <code>z = (x − x̄) / s</code>
+            </div>
+            <div class="desc">
+                Standardized distance from the mean measured in SD units.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Probability</h2>
+            <div class="formula">
+                <code>P(A) = |A| / |Ω|</code>
+            </div>
+            <div class="desc">
+                Probability = favorable outcomes divided by all outcomes.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Conditional Probability</h2>
+            <div class="formula">
+                <code>P(A|B) = P(A ∩ B) / P(B)</code>
+            </div>
+            <div class="desc">
+                Probability of event A given event B occurred.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Expected Value</h2>
+            <div class="formula">
+                <code>E(X) = Σ(xᵢ · pᵢ)</code>
+            </div>
+            <div class="desc">
+                Long-run average outcome of a random variable.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Binomial Distribution</h2>
+            <div class="formula">
+                <code>P(X=k)=C(n,k)pᵏ(1-p)ⁿ⁻ᵏ</code>
+            </div>
+            <div class="desc">
+                Probability of exactly k successes in n trials.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Confidence Interval</h2>
+            <div class="formula">
+                <code>CI = x̄ ± z · s/√n</code>
+            </div>
+            <div class="desc">
+                Estimated range likely containing the true population mean.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Correlation</h2>
+            <div class="formula">
+                <code>r = cov(x,y)/(sₓ·sᵧ)</code>
+            </div>
+            <div class="desc">
+                Measures strength and direction of linear relationships.
+            </div>
+            <div class="tip">
+                Range: −1 to +1
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Hypothesis Testing</h2>
+            <div class="formula">
+                <code>p &lt; α → Reject H₀</code>
+            </div>
+            <div class="desc">
+                Small p-values indicate evidence against the null hypothesis.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>68–95–99.7 Rule</h2>
+            <div class="formula">
+                <code>μ ± 1σ = 68%</code><br>
+                <code>μ ± 2σ = 95%</code><br>
+                <code>μ ± 3σ = 99.7%</code>
+            </div>
+            <div class="desc">
+                Quick rule for normal distributions.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Statistics Formula Sheet · Beginner Level · Clean Academic UI
+    </div>
+
+</div>
+
+</body>
+</html>
