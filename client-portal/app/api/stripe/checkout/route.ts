@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server"
-import Stripe from "stripe"
 import { stripe } from "@/lib/stripe/server"
 import { PRODUCTS, ProductKey } from "@/lib/stripe/products"
 
@@ -10,41 +9,36 @@ export async function POST(req: NextRequest) {
     const origin = req.headers.get("origin") || "http://localhost:3000"
     const isEmbedded = mode === "embedded"
 
-    let lineItem: Stripe.Checkout.SessionCreateParams.LineItem
-
-    if (customAmount) {
-      lineItem = {
-        price_data: {
-          currency: "eur",
-          product_data: {
-            name: customName || "Produkt",
-            description: customDescription || undefined,
-          },
-          unit_amount: customAmount,
-        },
-        quantity: 1,
-      }
-    } else {
-      const product = PRODUCTS[productKey as ProductKey]
-      if (!product) {
-        return NextResponse.json({ error: "Invalid product key" }, { status: 400 })
-      }
-      lineItem = {
-        price_data: {
-          currency: "eur",
-          product_data: {
-            name: product.name,
-            description: product.description,
-          },
-          unit_amount: product.price,
-        },
-        quantity: 1,
-      }
+    const product = customAmount ? null : PRODUCTS[productKey as ProductKey]
+    if (!customAmount && !product) {
+      return NextResponse.json({ error: "Invalid product key" }, { status: 400 })
     }
 
-    const sessionParams: Stripe.Checkout.SessionCreateParams = {
-      mode: "payment",
-      line_items: [lineItem],
+    const sessionParams = {
+      mode: "payment" as const,
+      line_items: customAmount
+        ? [{
+            price_data: {
+              currency: "eur",
+              product_data: {
+                name: customName || "Produkt",
+                description: customDescription || undefined,
+              },
+              unit_amount: customAmount,
+            },
+            quantity: 1,
+          }]
+        : [{
+            price_data: {
+              currency: "eur",
+              product_data: {
+                name: product!.name,
+                description: product!.description,
+              },
+              unit_amount: product!.price,
+            },
+            quantity: 1,
+          }],
       metadata: {
         ...(productKey ? { productKey } : {}),
         ...(customMetadata || {}),
