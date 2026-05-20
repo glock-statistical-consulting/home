@@ -494,9 +494,9 @@ section {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   padding: 60px calc(50vw - 50% + 20px);
-  background: #f4f6f9;
+  background: #FAFAF8;
   box-sizing: border-box;
-  margin-bottom: 0;
+  margin-bottom: 100px;
 }
 
 .feedback-band .container {
