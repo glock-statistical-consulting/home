@@ -1385,7 +1385,7 @@ main > .section-spacer:first-of-type {
     <h3 class="lib-modal-title" id="libModalTitle" data-i18n="lib_modal_title">W&auml;hle dein Paket</h3>
     <p class="lib-modal-sub" id="libModalSub" data-i18n="lib_modal_sub">Einmal kaufen. F&uuml;r immer nutzen.</p>
 
-    <div class="lib-modal-scroll">
+    <div class="lib-modal-scroll" data-lenis-prevent>
 
     <div class="lib-tier" onclick="selectLibraryTier(this)" data-tier="basics" data-price="19" data-save="0">
       <div class="lib-tier-icon"><img src="img/badge_basic.png" alt="" class="lib-tier-img"></div>
@@ -1469,7 +1469,7 @@ main > .section-spacer:first-of-type {
     <span class="lib-modal-eyebrow" data-i18n="lib_tag">Selbstlern-Bibliothek</span>
     <h3 class="lib-modal-title" data-i18n="lib_modal_mat_title">Alle Materialien</h3>
     <p class="lib-modal-sub" data-i18n="lib_modal_mat_sub">&Uuml;bersicht &uuml;ber alle verf&uuml;gbaren Dokumente (zweisprachig verf&uuml;gbar)</p>
-    <div class="lib-modal-scroll" style="flex: 1; min-height: 0; overflow-y: scroll;">
+    <div class="lib-modal-scroll" style="flex: 1; min-height: 0; overflow-y: scroll;" data-lenis-prevent>
     <div id="materialsList" class="mat-list"></div>
     </div>
   </div>
@@ -1889,6 +1889,9 @@ main > .section-spacer:first-of-type {
         if (e.target === libOverlay) closeLibraryModal();
       });
       libOverlay.addEventListener('wheel', (e) => { e.stopPropagation(); }, { passive: false });
+      libOverlay.addEventListener('touchmove', (e) => {
+        if (!e.target.closest('.lib-modal-scroll')) e.preventDefault();
+      }, { passive: false });
     }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && libOverlay && libOverlay.classList.contains('active')) closeLibraryModal();
@@ -1923,6 +1926,9 @@ main > .section-spacer:first-of-type {
         if (e.target === matOverlay) closeMaterialsModal();
       });
       matOverlay.addEventListener('wheel', function(e) { e.stopPropagation(); }, { passive: false });
+      matOverlay.addEventListener('touchmove', function(e) {
+        if (!e.target.closest('.lib-modal-scroll')) e.preventDefault();
+      }, { passive: false });
     }
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && matOverlay && matOverlay.classList.contains('active')) closeMaterialsModal();
