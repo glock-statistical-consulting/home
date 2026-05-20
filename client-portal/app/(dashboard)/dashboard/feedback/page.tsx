@@ -15,6 +15,7 @@ interface FeedbackRequest {
 
 interface FeedbackResponse {
   id: number
+  request_id: number
   rating: number
   text: string | null
   anonymous: boolean
