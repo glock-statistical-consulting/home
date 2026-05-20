@@ -56,7 +56,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
   const supabase = createWebhookClient()
 
-  await supabase.from("purchases").insert({
+  const { data: purchase } = await supabase.from("purchases").insert({
     product_key: productKey || null,
     stripe_session_id: session.id,
     stripe_customer_id: session.customer,
@@ -65,7 +65,16 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     status: "complete",
     amount_total: session.amount_total,
     created_at: new Date().toISOString(),
-  })
+  }).select("id").single()
+
+  if (customerEmail && purchase) {
+    await supabase.from("feedback_requests").insert({
+      purchase_id: purchase.id,
+      customer_email: customerEmail,
+      customer_name: customerName || null,
+      product_name: productName,
+    })
+  }
 
   const baseUrl = "https://kevinglock.de"
   const exp = expIn(DOWNLOAD_TTL_DAYS)

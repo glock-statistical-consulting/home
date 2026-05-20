@@ -288,6 +288,116 @@ export async function sendInquiryCustomerConfirmation(
   }
 }
 
+export async function sendFeedbackRequest(
+  customerEmail: string,
+  customerName: string,
+  productName: string,
+  token: string,
+  lang?: string
+): Promise<SendResult> {
+  if (!RESEND_API_KEY) return { success: false, error: "Resend not configured" }
+
+  const isEn = lang === "EN"
+  const feedbackUrl = `https://kevinglock.de/feedback?token=${token}`
+  const subject = isEn
+    ? `How was your experience with ${productName}?`
+    : `Wie war deine Erfahrung mit ${productName}?`
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `Kevin Glock <${FROM_EMAIL}>`,
+        reply_to: `Kevin Glock <glock.gsc@web.de>`,
+        to: customerEmail,
+        subject,
+        html: isEn ? `
+          <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6f9;">
+            <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+              <tr>
+                <td style="background:#1e3a5f;padding:24px 32px;text-align:center;">
+                  <img src="https://kevinglock.de/img/logo.svg" alt="GSC" style="height:40px;width:auto;" />
+                  <h1 style="color:#ffffff;margin:12px 0 0;font-size:20px;font-weight:600;">Kevin Glock Statistical Consulting</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#ffffff;padding:32px;border-radius:0 0 8px 8px;">
+                  <p style="color:#1e3a5f;font-size:24px;font-weight:700;margin:0 0 8px;">Your project is complete!</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Dear ${customerName || "Customer"},</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 16px;">I\u2019ve completed the work on <strong style="color:#1e3a5f;">${productName}</strong>. I hope everything meets your expectations.</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">I\u2019d love to hear your feedback \u2014 it helps me improve and helps others decide.</p>
+                  <table cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:24px;">
+                    <tr>
+                      <td style="background:#1e3a5f;border-radius:8px;text-align:center;padding:16px 24px;">
+                        <a href="${feedbackUrl}" style="color:#ffffff;font-size:16px;font-weight:600;text-decoration:none;display:block;">Leave Feedback</a>
+                      </td>
+                    </tr>
+                  </table>
+                  <p style="color:#94a3b8;font-size:13px;line-height:1.5;margin:0 0 4px;">Your feedback will be published anonymously on my website.</p>
+                  <p style="color:#94a3b8;font-size:13px;line-height:1.5;margin:0;">It only takes 2 minutes.</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#1e3a5f;padding:20px 32px;text-align:center;border-radius:8px 8px 0 0;">
+                  <p style="color:#94a3b8;font-size:12px;line-height:1.6;margin:0;">Kevin Glock Statistical Consulting Services<br>Sch\u00f6nebecker Stra\u00dfe 76 | 45359 Essen<br><a href="https://kevinglock.de" style="color:#94a3b8;">kevinglock.de</a> | <a href="mailto:glock.gsc@web.de" style="color:#94a3b8;">glock.gsc@web.de</a></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        ` : `
+          <div style="font-family:'Segoe UI',Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f6f9;">
+            <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+              <tr>
+                <td style="background:#1e3a5f;padding:24px 32px;text-align:center;">
+                  <img src="https://kevinglock.de/img/logo.svg" alt="GSC" style="height:40px;width:auto;" />
+                  <h1 style="color:#ffffff;margin:12px 0 0;font-size:20px;font-weight:600;">Kevin Glock Statistical Consulting</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#ffffff;padding:32px;border-radius:0 0 8px 8px;">
+                  <p style="color:#1e3a5f;font-size:24px;font-weight:700;margin:0 0 8px;">Dein Projekt ist abgeschlossen!</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Hallo ${customerName || "Kunde"},</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 16px;">ich habe die Arbeit an <strong style="color:#1e3a5f;">${productName}</strong> abgeschlossen. Ich hoffe, alles entspricht deinen Erwartungen.</p>
+                  <p style="color:#4a5568;font-size:15px;line-height:1.6;margin:0 0 20px;">Ich w\u00fcrde mich \u00fcber dein Feedback freuen \u2014 es hilft mir, besser zu werden, und anderen bei der Entscheidung.</p>
+                  <table cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:24px;">
+                    <tr>
+                      <td style="background:#1e3a5f;border-radius:8px;text-align:center;padding:16px 24px;">
+                        <a href="${feedbackUrl}" style="color:#ffffff;font-size:16px;font-weight:600;text-decoration:none;display:block;">Feedback geben</a>
+                      </td>
+                    </tr>
+                  </table>
+                  <p style="color:#94a3b8;font-size:13px;line-height:1.5;margin:0 0 4px;">Dein Feedback wird anonym auf meiner Webseite ver\u00f6ffentlicht.</p>
+                  <p style="color:#94a3b8;font-size:13px;line-height:1.5;margin:0;">Dauert nur 2 Minuten.</p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background:#1e3a5f;padding:20px 32px;text-align:center;border-radius:8px 8px 0 0;">
+                  <p style="color:#94a3b8;font-size:12px;line-height:1.6;margin:0;">Kevin Glock Statistical Consulting Services<br>Sch\u00f6nebecker Stra\u00dfe 76 | 45359 Essen<br><a href="https://kevinglock.de" style="color:#94a3b8;">kevinglock.de</a> | <a href="mailto:glock.gsc@web.de" style="color:#94a3b8;">glock.gsc@web.de</a></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        `,
+      }),
+    })
+
+    if (!res.ok) {
+      const body = await res.text()
+      console.error("Resend feedback error:", body)
+      return { success: false, error: body }
+    }
+
+    return { success: true }
+  } catch (error) {
+    console.error("Feedback email send error:", error)
+    return { success: false, error: String(error) }
+  }
+}
+
 export async function sendInquiryAdminNotification(
   customerEmail: string,
   customerName: string,
