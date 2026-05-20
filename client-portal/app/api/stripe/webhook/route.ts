@@ -5,6 +5,7 @@ import { createWebhookClient } from "@/lib/supabase/webhook"
 import { sendPurchaseConfirmation, sendAdminNotification } from "@/lib/email"
 import { getDownloads } from "@/lib/downloads"
 import { PRODUCTS, ProductKey } from "@/lib/stripe/products"
+import { signDownload, signBundle, expIn, DOWNLOAD_TTL_DAYS } from "@/lib/download-token"
 
 export async function POST(req: NextRequest) {
   const body = await req.text()
@@ -67,13 +68,14 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   })
 
   const baseUrl = "https://kevinglock.de"
+  const exp = expIn(DOWNLOAD_TTL_DAYS)
   const downloads = productKey ? getDownloads(productKey).map((d) => ({
     name: d.name,
-    url: `${baseUrl}/api/download?file=${encodeURIComponent(d.fileUrl)}`,
+    url: `${baseUrl}/api/download?file=${encodeURIComponent(d.fileUrl)}&exp=${exp}&sig=${signDownload(d.fileUrl, exp)}`,
   })) : []
 
-  const bundleUrl = downloads.length > 1
-    ? `${baseUrl}/api/download/bundle?productKey=${productKey}`
+  const bundleUrl = downloads.length > 1 && productKey
+    ? `${baseUrl}/api/download/bundle?productKey=${productKey}&exp=${exp}&sig=${signBundle(productKey, exp)}`
     : undefined
 
   // Build booking summary for tutoring / custom purchases

@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from "next/server"
 import fs from "fs"
 import path from "path"
+import { verifyDownload } from "@/lib/download-token"
 
 export async function GET(req: NextRequest) {
   const file = req.nextUrl.searchParams.get("file")
+  const exp = parseInt(req.nextUrl.searchParams.get("exp") || "0", 10)
+  const sig = req.nextUrl.searchParams.get("sig") || ""
   if (!file) {
     return NextResponse.json({ error: "Missing file param" }, { status: 400 })
+  }
+  if (!verifyDownload(file, exp, sig)) {
+    return NextResponse.json({ error: "Invalid or expired link" }, { status: 403 })
   }
 
   const safePath = path.normalize(file).replace(/^(\.\.(\/|\\|$))+/, "")

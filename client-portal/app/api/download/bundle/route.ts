@@ -1,13 +1,19 @@
 import { NextRequest, NextResponse } from "next/server"
 import JSZip from "jszip"
 import { getDownloads } from "@/lib/downloads"
+import { verifyBundle } from "@/lib/download-token"
 import fs from "fs"
 import path from "path"
 
 export async function GET(req: NextRequest) {
   const productKey = req.nextUrl.searchParams.get("productKey")
+  const exp = parseInt(req.nextUrl.searchParams.get("exp") || "0", 10)
+  const sig = req.nextUrl.searchParams.get("sig") || ""
   if (!productKey || !getDownloads(productKey).length) {
     return NextResponse.json({ error: "Missing or invalid productKey" }, { status: 400 })
+  }
+  if (!verifyBundle(productKey, exp, sig)) {
+    return NextResponse.json({ error: "Invalid or expired link" }, { status: 403 })
   }
   const items = getDownloads(productKey)
 

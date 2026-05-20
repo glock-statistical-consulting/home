@@ -1,0 +1,33 @@
+# env files
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# build / deps
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+
+# backups (do not commit)
+*.backup
+*.poc-backup
+*.prebuild.html
+
+# secrets
+*.pem
+*.key
+credentials.json

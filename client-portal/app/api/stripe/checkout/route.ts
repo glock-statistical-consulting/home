@@ -37,6 +37,19 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid product key" }, { status: 400 })
     }
 
+    if (customAmount !== undefined && customAmount !== null) {
+      if (
+        !Number.isInteger(customAmount) ||
+        customAmount < 100 ||
+        customAmount > 100000
+      ) {
+        return NextResponse.json(
+          { error: "Invalid custom amount" },
+          { status: 400 }
+        )
+      }
+    }
+
     const isEn = lang === "en"
     const stripeName = shortName(productKey, customName, lang)
     const stripeDesc = isEn

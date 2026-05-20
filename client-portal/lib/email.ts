@@ -81,13 +81,14 @@ export async function sendPurchaseConfirmation(
                   </div>` : ""}
 
                   ${bundleUrl ? `
-                  <table cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:24px;">
+                  <table cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:8px;">
                     <tr>
                       <td style="background:#1e3a5f;border-radius:8px;text-align:center;padding:16px 24px;">
                         <a href="${bundleUrl}" style="color:#ffffff;font-size:16px;font-weight:600;text-decoration:none;display:block;">Alle Downloads als ZIP herunterladen</a>
                       </td>
                     </tr>
-                  </table>` : ""}
+                  </table>
+                  <p style="color:#94a3b8;font-size:12px;line-height:1.5;margin:0 0 24px;text-align:center;">Dieser Link wird nach 30 Tagen automatisch deaktiviert. Bitte lade deine Dateien zeitnah runter.</p>` : ""}
 
                   ${bookingSummary && CALENDAR_BOOKING_URL ? `
                   <table cellpadding="0" cellspacing="0" style="width:100%;margin-bottom:24px;">
