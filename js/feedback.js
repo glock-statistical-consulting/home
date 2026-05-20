@@ -28,12 +28,12 @@ async function loadFeedback(containerId) {
 
     const duplicated = cards + cards
 
-    const cardW = isMobile ? "calc(100vw - 40px)" : "220px"
+    const cardW = isMobile ? "calc(100vw - 40px)" : "280px"
 
     el.innerHTML = `
       <style>
         #feedback-marquee { overflow:hidden; width:100%; }
-        #feedback-track { display:flex; gap:16px; width:max-content; animation: scrollFeedback ${items.length * 5}s linear infinite; }
+        #feedback-track { display:flex; gap:16px; width:max-content; animation: scrollFeedback ${items.length * 8}s linear infinite; }
         .f-card { flex-shrink:0; width:${cardW}; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:20px; box-sizing:border-box; }
         .f-stars { color:#f59e0b; font-size:18px; margin-bottom:8px; white-space:nowrap; }
         .f-text { color:#334155; font-size:14px; line-height:1.5; margin:0; word-break:break-word; }
