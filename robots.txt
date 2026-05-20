@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /login
+Disallow: /dashboard
+Disallow: /feedback
+
+Sitemap: https://www.kevinglock.de/sitemap.xml

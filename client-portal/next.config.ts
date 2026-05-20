@@ -4,6 +4,20 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       { source: "/login.html", destination: "/login" },
+      { source: "/about", destination: "/about.html" },
+      { source: "/consulting", destination: "/consulting.html" },
+      { source: "/nachhilfe", destination: "/nachhilfe.html" },
+      { source: "/impressum", destination: "/impressum.html" },
+      { source: "/datenschutz", destination: "/datenschutz.html" },
+    ]
+  },
+  async redirects() {
+    return [
+      { source: "/about.html", destination: "/about", permanent: true },
+      { source: "/consulting.html", destination: "/consulting", permanent: true },
+      { source: "/nachhilfe.html", destination: "/nachhilfe", permanent: true },
+      { source: "/impressum.html", destination: "/impressum", permanent: true },
+      { source: "/datenschutz.html", destination: "/datenschutz", permanent: true },
     ]
   },
   async headers() {
