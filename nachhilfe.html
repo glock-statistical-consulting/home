@@ -1463,14 +1463,14 @@ main > .section-spacer:first-of-type {
 
 <!-- ── Materials Modal ── -->
 <div class="lib-overlay" id="materialsModal">
-  <div class="lib-modal" role="dialog" aria-modal="true" aria-label="Materialübersicht">
+  <div class="lib-modal" role="dialog" aria-modal="true" aria-label="Materialübersicht" style="height: 90vh; display: flex; flex-direction: column;">
     <div class="lib-handle"></div>
     <button class="modal-close" id="closeMaterialsModal" aria-label="Schließen">&times;</button>
     <span class="lib-modal-eyebrow" data-i18n="lib_tag">Selbstlern-Bibliothek</span>
     <h3 class="lib-modal-title" data-i18n="lib_modal_mat_title">Alle Materialien</h3>
     <p class="lib-modal-sub" data-i18n="lib_modal_mat_sub">&Uuml;bersicht &uuml;ber alle verf&uuml;gbaren Dokumente (zweisprachig verf&uuml;gbar)</p>
-    <div class="lib-modal-scroll">
-      <div id="materialsList" class="mat-list"></div>
+    <div class="lib-modal-scroll" style="flex: 1; min-height: 0; overflow-y: scroll;">
+    <div id="materialsList" class="mat-list"></div>
     </div>
   </div>
 </div>
