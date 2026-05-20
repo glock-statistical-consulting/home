@@ -29,10 +29,9 @@ export default function FeedbackDashboard() {
   const [supabase, setSupabase] = useState<any>(null)
 
   useEffect(() => {
-    createClient().then((client) => {
-      setSupabase(client)
-      loadData(client)
-    })
+    const client = createClient()
+    setSupabase(client)
+    loadData(client)
   }, [])
 
   async function loadData(client: any) {
