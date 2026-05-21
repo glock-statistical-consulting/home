@@ -520,7 +520,7 @@ section {
   width: auto;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  padding: 60px calc(50vw - 50% + 20px);
+  padding: 20px calc(50vw - 50% + 20px);
   background: #FAFAF8;
   box-sizing: border-box;
   margin-bottom: 60px;
@@ -575,19 +575,19 @@ section {
 
 @media (max-width: 600px) {
   .tools-band {
-    padding: 40px 16px;
-  }
-  .tool-item {
-    padding: 10px 16px;
-    min-width: 100px;
+    padding: 20px 16px;
   }
   .tools-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
   }
   .tool-item {
-    padding: 12px 14px;
+    padding: 10px 14px;
+    width: auto;
+    min-width: 145px;
+    flex: 0 0 auto;
   }
 }
 
@@ -908,7 +908,7 @@ button {
   margin-bottom: 50px;
 }
 
-.impressum-content, .datenschutz-content {
+.impressum-content, .datenschutz-content, .faq-content {
   max-width: 700px;
   margin: 0 auto;
   align-content: left !important;
@@ -948,7 +948,7 @@ button {
   .pricing-grid .card-summary {
     min-height: auto;
   }
-  .impressum-content, .datenschutz-content {
+  .impressum-content, .datenschutz-content, .faq-content {
   max-width: 700px;
   margin: 0 auto;
   align-content: left !important;
@@ -2063,5 +2063,65 @@ footer p {
   font-size: 0.9rem;
   color: var(--deep-sea);
   margin-bottom: 4px;
+}
+
+/* FAQ Accordion */
+.faq-list {
+  margin-top: 20px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-question::after {
+  content: "+";
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  color: var(--orange);
+}
+
+.faq-question.faq-active::after {
+  content: "\2212";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer.faq-open {
+  max-height: 400px;
+  padding: 0 0 18px 0;
+}
+
+.faq-answer p {
+  margin: 0 0 8px 0;
+  padding-right: 25px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
 }
  
