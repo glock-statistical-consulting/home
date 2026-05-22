@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       { source: "/nachhilfe", destination: "/nachhilfe.html" },
       { source: "/impressum", destination: "/impressum.html" },
       { source: "/datenschutz", destination: "/datenschutz.html" },
+      { source: "/agb", destination: "/agb.html" },
       { source: "/faq", destination: "/faq.html" },
     ]
   },
@@ -19,6 +20,7 @@ const nextConfig: NextConfig = {
       { source: "/nachhilfe.html", destination: "/nachhilfe", permanent: true },
       { source: "/impressum.html", destination: "/impressum", permanent: true },
       { source: "/datenschutz.html", destination: "/datenschutz", permanent: true },
+      { source: "/agb.html", destination: "/agb", permanent: true },
       { source: "/faq.html", destination: "/faq", permanent: true },
     ]
   },
