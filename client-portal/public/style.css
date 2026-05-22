@@ -304,6 +304,24 @@ html{
   font-size: 0.85rem; color: #6b7280;
   margin: 0 0 1.2rem; line-height: 1.5;
 }
+.bk-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+.bk-footer-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bk-footer-row svg { flex-shrink: 0; opacity: 0.4; }
+.bk-agb-link { color: #9ca3af; text-decoration: underline; }
+.bk-agb-link:hover { color: #163E64; }
 .bk-form { display: flex; flex-direction: column; gap: 0.8rem; }
 .bk-form input,
 .bk-form textarea {

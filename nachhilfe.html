@@ -236,17 +236,7 @@
     position: static; display: inline; margin-left: 0.4rem;
     font-size: 0.55rem; padding: 1px 7px;
   }
-  .bk-footer {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid #e5e7eb;
-    font-size: 0.72rem;
-    color: #9ca3af;
-  }
-  .bk-footer svg { flex-shrink: 0; opacity: 0.4; }
+  /* .bk-footer now from global style.css */
   .bk-form { display: flex; flex-direction: column; gap: 0.8rem; }
   .bk-form input,
   .bk-form textarea {
@@ -363,7 +353,6 @@
       box-shadow: 0 -4px 12px rgba(0,0,0,0.1), 0 -2rem 0 #FAFAF8;
       overflow: visible;
     }
-    .bk-footer { display: none; }
   }
 
   /* ── Library Modal ── */
@@ -1208,6 +1197,8 @@ main > .section-spacer:first-of-type {
           <span class="footer-sep">|</span>
           <a href="/datenschutz" class="footer-link" data-i18n="footer_datenschutz">Datenschutz</a>
           <span class="footer-sep">|</span>
+          <a href="/agb" class="footer-link" data-i18n="footer_agb">AGB</a>
+          <span class="footer-sep">|</span>
           <a href="/faq" class="footer-link" data-i18n="footer_faq">FAQ</a></li>
           
           <li> <!--Handcrafted-->
@@ -1363,11 +1354,16 @@ main > .section-spacer:first-of-type {
     </div>
 
     <div class="bk-footer">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-      </svg>
-      <span data-i18n="bk_footer">Sichere Zahlung via Stripe &middot; DSGVO-konform</span>
+      <div class="bk-footer-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span data-i18n="bk_footer">Sichere Zahlung via Stripe &middot; DSGVO-konform</span>
+      </div>
+      <div class="bk-footer-row">
+        <span id="bkAgbConsent" data-i18n="bk_agb_consent_general">Mit Absenden deiner Anfrage oder Buchung stimmst du den <a href="/agb" class="bk-agb-link">AGBs</a> zu.</span>
+      </div>
     </div>
 
   </div>
@@ -1716,6 +1712,13 @@ main > .section-spacer:first-of-type {
 
       document.getElementById('bkStep1').classList.remove('active');
 
+      var agbConsent = document.getElementById('bkAgbConsent');
+      if (agbConsent && window.applyLanguage) {
+        var lang = document.documentElement.lang || 'de';
+        agbConsent.dataset.i18n = (type === 'nachhilfe') ? 'bk_agb_consent_booking' : 'bk_agb_consent_inquiry';
+        applyLanguage(lang);
+      }
+
       if (type === 'nachhilfe') {
         document.getElementById('bkStepForm').classList.remove('active');
         document.getElementById('bkStepPackages').classList.add('active');
@@ -1778,6 +1781,12 @@ main > .section-spacer:first-of-type {
         if (back) back.style.display = 'none';
         var bkTitle = document.getElementById('bkStepTitle');
         if (bkTitle) bkTitle.textContent = __('Stufe & Paket w\u00e4hlen', 'Level & package');
+        // Reset AGB consent text to general (step 1)
+        var agbConsent = document.getElementById('bkAgbConsent');
+        if (agbConsent) {
+          agbConsent.dataset.i18n = 'bk_agb_consent_general';
+          if (window.applyLanguage) applyLanguage(document.documentElement.lang || 'de');
+        }
       }
     }
 
